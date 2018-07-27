@@ -89,10 +89,12 @@ function unescape($str) {
         <?php
             session_start();
             if(isset($_SESSION['user']) == false){
-                header("location:index.php");
+
+                echo "<script type='text/javascript'>alert(\"请重新登陆。\");</script>";
+                echo "<script>window.location.href='/index.php';</script> ";
             }
             ?>
-        <form action="uploadFile.php" method="post" enctype="multipart/form-data" onsubmit="return check()">
+        <form action="/fileControl/uploadFile.php" method="post" enctype="multipart/form-data" onsubmit="return check()">
                 <label for="file">文件名：</label>
                 <input type="file" name="file" id="file"><br \>
                 <input type="text" name="username"  readonly="true"  value="<?php echo $_SESSION['user'];?>">
@@ -161,7 +163,7 @@ function unescape($str) {
                                 }
                             }
                             else {
-                                echo "location.href='userView.php';";
+                                echo "location.href='/fileControl/userView.php';";
                             }
                             ?>
                         }
@@ -199,7 +201,7 @@ function unescape($str) {
                             }
                         }
                         else {
-                            echo "location.href='userView.php';";
+                            echo "location.href='/fileControl/userView.php';";
                         }
 
 ?>

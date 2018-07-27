@@ -21,6 +21,11 @@ function unescape($str) {
     }
     return $ret;
 }
+if (isset($_POST["username"]))
+{
+    echo "<script type='text/javascript'>alert(\"请重新登陆。\");</script>";
+    echo "<script>window.location.href='/index.php';</script> ";
+}
     if ($_FILES["file"]["error"] > 0)
     {
         echo "错误：: " . $_FILES["file"]["error"] . "<br>";
@@ -42,7 +47,7 @@ function unescape($str) {
         $row = mysql_fetch_array($result);
         if ($row == null) {
             echo "<script type='text/javascript'>alert(\"不存在该店家\");</script>";
-            echo "<script>window.location.href='loginView.php';</script> ";
+            echo "<script>window.location.href='/index.php';</script> ";
         }
         else{
             echo unescape("商家详细地址:".$row["province"]." ".$row["City"]." ".$row["Area"]." ".$row["Other"]);

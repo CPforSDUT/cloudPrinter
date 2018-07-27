@@ -40,7 +40,7 @@
         if(isset($_SESSION['user'])){
             $_POST['user'] = $_SESSION['user'];
             $_POST['pass'] = $_SESSION['pass'];
-            echo "<script>location.href='login.php';</script>";
+            echo "<script>location.href='/user/login.php';</script>";
         }
         ?>
     </head>
@@ -49,7 +49,7 @@
 
             <div id="logincube">
                 <br /><br /><br /><br />
-                <iframe frameborder="no"  style="height: 100%;margin:0 auto;" src="loginView.php" >登陆</iframe>
+                <iframe frameborder="no"  style="height: 100%;margin:0 auto;" src="/user/loginView.php" >登陆</iframe>
 
             </div>
     </body>

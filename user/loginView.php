@@ -2,7 +2,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
     <base target="_blank">
-    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="/css/Buttons.css">
     <script type="text/javascript">
         function check_code() {
             console.log(1);
@@ -36,7 +36,7 @@
 </head>
 <body>
 <div style="text-align: center">
-    <form action="login.php" method="POST"onsubmit="return check()" target="_parent">
+    <form action="/user/login.php" method="POST"onsubmit="return check()" target="_parent">
         <p>
             用户 <input type="text" name="username" id="username" class="button button-rounded button-tiny"/>
         </p>
@@ -45,7 +45,7 @@
             密码 <input type="password" name="password" id="password" class="button button-rounded button-tiny"/>
             <br /><br /><br />
             <input type="submit" value="登陆" class="button button-primary button-rounded button-small">
-            <a href="registeredView.php"><button type="button" class="button button-primary button-rounded button-small">注册</button></a>
+            <a href="/user/registeredView.php"><button type="button" class="button button-primary button-rounded button-small">注册</button></a>
 
     </form>
 

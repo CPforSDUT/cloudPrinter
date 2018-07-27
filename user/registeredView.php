@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="/css/Buttons.css">
     <title>云打印|cloudPrinter</title>
     <style type="text/css">
         #top
@@ -91,7 +91,7 @@
 
 <div class="mid">
     <br />
-    <form action="registered.php" method="POST" onsubmit="return check()">
+    <form action="/user/registered.php" method="POST" onsubmit="return check()">
         <p>注册用户: <input type="text" name="username" id="username" class="button button-rounded button-tiny"></p>
         <p>注册密码: <input type="password" name="password" id="password" class="button button-rounded button-tiny"></p>
         <p>详细地址: <input type="text" name="Other" class="button button-rounded button-tiny"/></p>
