@@ -13,7 +13,7 @@
             text-align: center;
         }
         body{
-            background-image: url("image/resback.png");
+            background-image: url("/image/resback.png");
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;

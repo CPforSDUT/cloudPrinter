@@ -15,7 +15,7 @@
                 align-content: center;
                 align-items: center;
                 text-align: center;
-                background-image: url("image/back.jpeg");
+                background-image: url("/image/back.jpeg");
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
