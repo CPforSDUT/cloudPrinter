@@ -1,5 +1,4 @@
 
-
 <?php
 error_reporting(E_ALL^E_NOTICE);
 function escape($str) {
@@ -163,7 +162,7 @@ function unescape($str) {
                                 }
                             }
                             else {
-                                echo "location.href='/fileControl/userView.php';";
+                                echo "location.href='/fileControl/uploadView.php';";
                             }
                             ?>
                         }
@@ -201,7 +200,7 @@ function unescape($str) {
                             }
                         }
                         else {
-                            echo "location.href='/fileControl/userView.php';";
+                            echo "location.href='/fileControl/uploadView.php';";
                         }
 
 ?>
