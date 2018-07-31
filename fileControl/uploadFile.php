@@ -21,7 +21,7 @@ function unescape($str) {
     }
     return $ret;
 }
-if (isset($_POST["username"]))
+if (isset($_POST["username"]) == false)
 {
     echo "<script type='text/javascript'>alert(\"请重新登陆。\");</script>";
     echo "<script>window.location.href='/index.php';</script> ";
