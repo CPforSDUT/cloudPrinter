@@ -27,9 +27,9 @@ if(isset($_SESSION['user']) == false)
     $_SESSION['type'] = $row['type'];
 }
 
-    if ($pass == $row['password']){
+    if ($pass == $_SESSION['password']){
         echo "<script>alert('login successful!');</script>";
-        $type = $row["type"];
+        $type = $_SESSION["type"];
 
         if($type != '2') {
             header("location:/fileControl/userView.php");
