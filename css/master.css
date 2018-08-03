@@ -54,18 +54,44 @@ body{
     margin-right: auto;
     position: relative;
     background: linear-gradient(to top right, #3c7df1, #62c1fb);
-    
     padding-top: 60px;
     color: #eeeeee;
-    font-size: 60px;
+    font-size: 56px;
 }
 .m1{
-    background-image:url("/image/paper.png");
+    background-image:url(../image/paper.png);
     background-position-x: center;
     background-position-y: bottom;
     background-repeat: no-repeat;
-    margin-top: 60px;
-    height: 700px;
+    height: 766px;
     width: 100%;
-    position: absolute;
+    position: relative;
+    overflow: hidden;
+
+}
+.m2{
+    max-width: 600px;
+    max-height: 600px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 116px;
+    margin-bottom: 50px;
+    font-size: 32px;
+    color: #7c7c7c;
+    text-align: left;
+    display: block;
+
+}
+#form{
+    height: 500px;
+}
+.go{
+    margin: auto;
+    width: 200px;
+    height: 60px;
+    background-color: #3f83f5;
+    color: #fff;
+    font-size: 42px;
+    text-align: center;
 }
