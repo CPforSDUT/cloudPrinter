@@ -1,0 +1,55 @@
+.section{
+  position: relative;
+  height: auto;
+  min-height: 100%;
+}
+.layui-nav{
+  display: block;
+  position:absolute;
+  width:100%;
+  height: 60px;
+  top: 38%;
+}
+
+.layui-nav-item{
+  float: right;
+}
+
+.layui-nav .logo img{
+  height:60px;
+  float: left;
+}
+
+.layui-nav .logo span{
+  position: relative;
+  font-size: 30px;
+  float: left;
+  left:10px;
+  top:10px;
+  width:200px;
+  }
+
+h3{
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+}
+.speak{
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+}
+#bgvideo {
+	margin:0;
+	padding:0;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background: url('') no-repeat;
+    background-size: cover;
+}
