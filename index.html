@@ -4,6 +4,10 @@
 <head>
     <title>cloud Print</title>
     <link rel="stylesheet" type="text/css" href="css/master.css">
+
+    <link href="/js/dist/dropzone.css" rel="stylesheet" />
+    <script src="/js/dist/dropzone.js"></script>
+
 </head>
 
 <body>
@@ -41,10 +45,11 @@
                 <div class="m2">
                     <div class="form">
                         <div id="tzsc">
-                            <nav>请将文件拖拽至此</nav>
+                            <form id="mydropzone" action="/fileControl/uploadFile.php" method="post" class="dropzone">
+                                <!--<nav>请将文件拖拽至此</nav>-->
+                            </form>
                         </div>
                         <span>*请上传不大于20M的格式为doc的文件</span>
-                        <a href="#">浏览本地</a>
                     </div>
 
                     <div class="go">

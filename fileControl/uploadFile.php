@@ -21,22 +21,24 @@ function unescape($str) {
     }
     return $ret;
 }
-if (isset($_POST["username"]) == false)
+session_start();
+if (isset($_SESSION["user"]) == false)
 {
     echo "<script type='text/javascript'>alert(\"请重新登陆。\");</script>";
     echo "<script>window.location.href='/index.php';</script> ";
 }
+if(isset($_FILES['file'])){
     if ($_FILES["file"]["error"] > 0)
     {
-        echo "错误：: " . $_FILES["file"]["error"] . "<br>";
+        echo "错误: " . $_FILES["file"]["error"] . "<br>";
     }
     else {
         $hashname = hash_file('sha256', $_FILES["file"]["tmp_name"], false);
         if (file_exists("upload/" . "$hashname." . substr($_FILES["file"]["name"], strrpos($_FILES["file"]["name"], '.') + 1)) == false) {
             move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . "$hashname." . substr($_FILES["file"]["name"], strrpos($_FILES["file"]["name"], '.') + 1));
         }
-        $username = $_POST["username"];
-        $printname = $_POST["printname"];
+        $username = "lxs0401" ;//$_SESSION["user"];
+        $printname = "qwert0";//$_SESSION["printname"];
 
         $con = mysql_connect("localhost", "root", "wslzd9877");
         if (!$con) {
@@ -56,5 +58,7 @@ if (isset($_POST["username"]) == false)
         mysql_close($con);
         echo "<br />状态:发送成功";
     }
+}
+
 
 ?>
