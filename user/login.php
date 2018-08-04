@@ -25,9 +25,10 @@ if(isset($_SESSION['user']) == false)
     $result = mysql_query("SELECT * FROM users WHERE username= \"$user\"");
     $row = mysql_fetch_array($result);
     $_SESSION['type'] = $row['type'];
+    $truepass = $row['password'];
 }
 
-    if ($pass == $_SESSION['password']){
+    if ($pass == $truepass){
         echo "<script>alert('login successful!');</script>";
         $type = $_SESSION["type"];
 
@@ -40,5 +41,6 @@ if(isset($_SESSION['user']) == false)
     }
     else {
         echo "<script type='text/javascript'>alert(\"用户名或密码错误\");</script>";
+        session_destroy();
         echo "<script>window.location.href='/index.php';</script> ";
     }
