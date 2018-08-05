@@ -225,7 +225,7 @@ var Dropzone = function (_Emitter) {
          * the event `maxfilesexceeded` will be called. The dropzone element gets the
          * class `dz-max-files-reached` accordingly so you can provide visual feedback.
          */
-        maxFilesize: 256,
+        maxFilesize: 20,
 
         /**
          * The name of the file param that gets transferred.
@@ -304,7 +304,7 @@ var Dropzone = function (_Emitter) {
         /**
          * Can be used to limit the maximum number of files that will be handled by this Dropzone
          */
-        maxFiles: null,
+        maxFiles: 5,
 
         /**
          * An optional object to send additional headers to the server. Eg:
@@ -369,7 +369,7 @@ var Dropzone = function (_Emitter) {
          * already uploading) the file. The `dictCancelUpload`, `dictCancelUploadConfirmation`
          * and `dictRemoveFile` options are used for the wording.
          */
-        addRemoveLinks: false,
+        addRemoveLinks: true,
 
         /**
          * Defines where to display the file previews – if `null` the
@@ -418,15 +418,14 @@ var Dropzone = function (_Emitter) {
          */
         forceFallback: false,
 
-        /**
-         * The text used before any files are dropped.
-         */
-        dictDefaultMessage: "Drop files here to upload",
+
+
+        dictDefaultMessage: "请将拖拽文件至此",
 
         /**
          * The text that replaces the default message text it the browser is not supported.
          */
-        dictFallbackMessage: "Your browser does not support drag'n'drop file uploads.",
+        dictFallbackMessage: "你的浏览器不支持拖拽文件上传。",
 
         /**
          * The text that will be added before the fallback form.
@@ -439,12 +438,12 @@ var Dropzone = function (_Emitter) {
          * If the filesize is too big.
          * `{{filesize}}` and `{{maxFilesize}}` will be replaced with the respective configuration values.
          */
-        dictFileTooBig: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
+        dictFileTooBig: "文件太大无法上传。文件大小：({{filesize}}MiB). 最大文件尺寸：: {{maxFilesize}}MiB.",
 
         /**
          * If the file doesn't match the file type.
          */
-        dictInvalidFileType: "You can't upload files of this type.",
+        dictInvalidFileType: "无法识别的类型",
 
         /**
          * If the server response was invalid.
@@ -455,22 +454,22 @@ var Dropzone = function (_Emitter) {
         /**
          * If `addRemoveLinks` is true, the text to be used for the cancel upload link.
          */
-        dictCancelUpload: "Cancel upload",
+        dictCancelUpload: "取消上传",
 
         /**
          * The text that is displayed if an upload was manually canceled
          */
-        dictUploadCanceled: "Upload canceled.",
+        dictUploadCanceled: "上传已取消",
 
         /**
          * If `addRemoveLinks` is true, the text to be used for confirmation when cancelling upload.
          */
-        dictCancelUploadConfirmation: "Are you sure you want to cancel this upload?",
+        dictCancelUploadConfirmation: "确定取消上传？",
 
         /**
          * If `addRemoveLinks` is true, the text to be used to remove a file.
          */
-        dictRemoveFile: "Remove file",
+        dictRemoveFile: "删除文件",
 
         /**
          * If this is not null, then the user will be prompted before removing a file.
@@ -481,7 +480,7 @@ var Dropzone = function (_Emitter) {
          * Displayed if `maxFiles` is st and exceeded.
          * The string `{{maxFiles}}` will be replaced by the configuration value.
          */
-        dictMaxFilesExceeded: "You can not upload any more files.",
+        dictMaxFilesExceeded: "达到文件数量限制。",
 
         /**
          * Allows you to translate the different units. Starting with `tb` for terabytes and going down to
