@@ -6,8 +6,23 @@
     <link rel="stylesheet" type="text/css" href="css/master.css">
 
     <link href="/js/dist/dropzone.css" rel="stylesheet" />
+    <link href="/js/dist/basic.css" rel="stylesheet" />
     <script src="/js/dist/dropzone.js"></script>
-
+    <style type="text/css">
+        .dropzone {
+            border: 2px dashed #0087F7;
+            border-radius: 5px;
+            background: white; }
+        .dropzone  {
+            font-weight: 400;
+            height: 300px;
+        }
+        .dropzone  {
+            font-size: 0.8em;
+            font-weight: 200;
+            display: block;
+            margin-top: 1.4rem; }
+    </style>
 </head>
 
 <body>
@@ -44,11 +59,9 @@
             <div class="m1">
                 <div class="m2">
                     <div class="form">
-                        <div id="tzsc">
                             <form id="mydropzone" action="/fileControl/uploadFile.php" method="post" class="dropzone">
                                 <!--<nav>请将文件拖拽至此</nav>-->
                             </form>
-                        </div>
                         <span>*请上传不大于20M的格式为doc的文件</span>
                     </div>
 

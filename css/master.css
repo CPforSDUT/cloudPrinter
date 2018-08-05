@@ -144,17 +144,7 @@ body{
     bottom: 0px;
     transform: translate(-50%, 0);
 }
-#tzsc{
-    height: 300px;
-    border: 3px #3c7df1 dashed;
-    border-radius: 8px;
-    margin-bottom: 6px;
-}
-#tzsc nav{
-    text-align: center;
-    font-size: 30px;
-    padding:120px 0;
-}
+
 .form span{
     font-size: 20px;
     color: #28262C
