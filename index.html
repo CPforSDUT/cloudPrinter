@@ -2,9 +2,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <head>
-    <title>cloud Print</title>
+    <title>云打印</title>
     <link rel="stylesheet" type="text/css" href="css/master.css">
-
     <link href="/js/dist/dropzone.css" rel="stylesheet" />
     <link href="/js/dist/basic.css" rel="stylesheet" />
     <script src="/js/dist/dropzone.js"></script>
@@ -12,16 +11,20 @@
         .dropzone {
             border: 2px dashed #0087F7;
             border-radius: 5px;
-            background: white; }
-        .dropzone  {
+            background: white;
+        }
+
+        .dropzone {
             font-weight: 400;
             height: 300px;
         }
-        .dropzone  {
+
+        .dropzone {
             font-size: 0.8em;
             font-weight: 200;
             display: block;
-            margin-top: 1.4rem; }
+            margin-top: 1.4rem;
+        }
     </style>
 </head>
 
@@ -30,8 +33,10 @@
         <div class="header">
             <div class="daohang">
                 <img src="image/logo1.png" alt="logo" id="logo">
-                <span>Chooooooogle</span>
-                <img src="image/user_img1.png" alt="用户" id="user_pic">
+                <span>云打印</span>
+                <div class="daohang_right">
+                    <img src="image/user_img1.png" alt="用户" id="user_pic">
+                </div>
             </div>
 
             <div class="caidan">
@@ -59,14 +64,12 @@
             <div class="m1">
                 <div class="m2">
                     <div class="form">
-                            <form id="mydropzone" action="/fileControl/uploadFile.php" method="post" class="dropzone">
-                                <!--<nav>请将文件拖拽至此</nav>-->
-                            </form>
+                        <form id="mydropzone" action="/fileControl/uploadFile.php" method="post" class="dropzone">
+                            <!--<nav>请将文件拖拽至此</nav>-->
+                        </form>
                         <span>*请上传不大于20M的文件</span>
                     </div>
-                    <div class="go">
-                        <a href"#">下一步</a>
-                    </div>
+                    <a href="#" class="go">下一步</a>
                 </div>
             </div>
         </div>
@@ -74,15 +77,7 @@
             <br>
         </div>
     </div>
-    <div class="login">
-        <div id="login_box">
-            <nav>登录</nav><br>
-            <input type="text" placeholder="请输入账号"><br>
-            <input type="text" placeholder="请输入密码"><br>
-            <a href="#" id="dl">立即登录</a>
-            <span>没有账号？马上<a href="#" id="zc">注册</a></span>
-        </div>
-    </div>
+    
 </body>
 
 </html>
