@@ -1,0 +1,51 @@
+.regist{
+    width: 100%;
+
+    background-color: #ffffff;
+    position: relative;
+    font-size: 20px;
+    padding-top: 30px;
+}
+input{
+    margin: 0px;
+    padding: 0px;
+    height: 26px;
+    margin-bottom: 4px;
+}
+.biaoti{
+    position: relative;
+    text-align: left;
+    margin-bottom: 12px;
+    font-size: 40px;
+    color: #3E5C76;
+}
+.form{
+    margin: auto;
+    text-align: left;
+    width: 600px;
+    height: 600px;
+
+    position: relative;
+}
+.form_left{
+    text-align: right;
+    margin-top: 12px;
+    width: 172px;
+    height: 600px;
+    position: absolute;
+    float: left;
+    padding-top: 2px;
+}
+.form_left nav{
+    margin-bottom: 6px;
+}
+.form_right{
+    position: absolute;
+    margin-top: 12px;
+    padding-left: 10px;
+    text-align: left;
+    width: 600px;
+    height: 100%;
+    margin-left: 172px;
+    float: left;
+}

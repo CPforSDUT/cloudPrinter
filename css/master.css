@@ -42,6 +42,20 @@ input{
     height: 60px;
     display: block;
 }
+.daohang span{
+    text-align: right;
+    margin-right: 30px;
+    color: #7c7c7c;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+}
+.daohang span a{
+    text-decoration: none;
+    color: #7c7c7c;
+    display: inline block;
+}
 #logo{
     float: left;
     margin-left: 10px;
@@ -50,7 +64,7 @@ input{
     float: right;
     margin-right: 30px;
 }
-.header span{
+#username{
     text-align: right;
     margin-right: 120px;
     color: #7c7c7c;
@@ -163,8 +177,15 @@ input{
 }
 
 .footer{
-    height: 200px;
+    height: 160px;
     max-width: 100%;
     display: block;
-    background-color: #f7f7f7;
+    color: #7c7c7c;
+    display: block;
+}
+.footer a{
+    text-decoration: none;
+    color: #7c7c7c;
+    display: inline block;
+
 }
