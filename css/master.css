@@ -160,11 +160,8 @@ input{
 }
 .go{
     margin: auto;
-    width: 200px;
     height: 60px;
     display: block;
-    background-color: #3f83f5;
-    color: #fff;
     font-size: 32px;
     padding: 8px;
     text-align: center;
