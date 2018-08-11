@@ -19,6 +19,7 @@ body{
     visibility: hidden;
 }
 input{
+    max-width: 200px;
     height: 28px;
     font-size: 18px;
     margin: 6px;
@@ -177,6 +178,7 @@ input{
 }
 
 .footer{
+    font-size: 18px;
     height: 160px;
     max-width: 100%;
     display: block;

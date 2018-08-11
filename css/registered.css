@@ -1,16 +1,17 @@
 .regist{
-    width: 100%;
-
+    margin: auto;
+    max-width: 1440px;
+    height: 900px;
     background-color: #ffffff;
     position: relative;
     font-size: 20px;
-    padding-top: 30px;
+    padding-top: 80px;
 }
 input{
     margin: 0px;
     padding: 0px;
-    height: 26px;
-    margin-bottom: 4px;
+    height:28px;
+    margin-bottom: 6px;
 }
 .biaoti{
     position: relative;
@@ -19,19 +20,18 @@ input{
     font-size: 40px;
     color: #3E5C76;
 }
+
 .form{
     margin: auto;
     text-align: left;
-    width: 600px;
-    height: 600px;
+    max-width: 60%;
 
     position: relative;
 }
 .form_left{
     text-align: right;
-    margin-top: 12px;
+    margin-top: 10px;
     width: 172px;
-    height: 600px;
     position: absolute;
     float: left;
     padding-top: 2px;
@@ -44,8 +44,29 @@ input{
     margin-top: 12px;
     padding-left: 10px;
     text-align: left;
-    width: 600px;
-    height: 100%;
+    max-width: 100%;
     margin-left: 172px;
     float: left;
+}
+.card{
+    margin: auto;
+    max-width: 800px;
+
+}
+.card-header a{
+    display: inline block;
+    font-size: 22px;
+}
+#headingOne{
+
+    color: #3E5C76;
+}
+#headingTwo{
+    background-color: rgb(118, 132, 255);
+    color: rgb(255, 255, 255);
+}
+
+.submit{
+    position: relative;
+    margin-top: 30px;
 }
