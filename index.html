@@ -54,10 +54,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="daohang">
+            <div class="daohang" id = "daohang">
                 <img src="image/logo1.png" alt="logo" id="logo">
                 <span id="username">云打印</span>
-                <a>
+                <a id = "caidanAndPic">
 
                     <img src="image/user_img1.png" alt="用户" id="user_pic"  >
 
@@ -82,11 +82,11 @@
                     </div>
                     <script type="text/javascript">
                         var userPic = document.getElementById("user_pic");
-                        var caidan = document.getElementById("caidan");
+                        var daohang = document.getElementById("daohang");
                         userPic.addEventListener("click",function(){
                             showCaidan();
                         });
-                        caidan.addEventListener("mouseleave",function(){
+                        daohang.addEventListener("mouseleave",function(){
                             hiddenCaidan();
                         });
                     </script>
