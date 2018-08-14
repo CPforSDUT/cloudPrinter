@@ -84,13 +84,14 @@ select{
 /* 下拉菜单 */
 .caidan {
     position: absolute;
+    margin-top: 50px;
     right: 0;
     width: 120px;
     background-color: #ffffff;
     text-align: center;
     box-shadow: 0 3px 2px rgba(0, 0, 0 , 0.1);
     z-index: 99;
-    display: none;
+    display: block;
     /* opacity: 0;
     transition: 0.3s;
             -webkit-transition: .5s;
