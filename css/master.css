@@ -1,6 +1,7 @@
 body{
     background-color: #eeeeee;
     font-size: 18px;
+    font-family: Georgia,"Times New Roman","Microsoft YaHei","微软雅黑","STHeiti Light","华文细黑",serif;
     text-align: center;
     color: #28262C;
     z-index: 1;
@@ -9,7 +10,6 @@ body{
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-
 }
 .clearfix:after {
     content: ".";
@@ -19,6 +19,12 @@ body{
     visibility: hidden;
 }
 input{
+    max-width: 200px;
+    height: 28px;
+    font-size: 18px;
+    margin: 6px;
+}
+select{
     max-width: 200px;
     height: 28px;
     font-size: 18px;
@@ -36,7 +42,7 @@ input{
     height: 60px;
     margin-top: 0px;
     box-shadow: 0 3px 2px rgba(0, 0, 0 , 0.1);
-    z-index: 4;
+    z-index: 100;
 }
 .daohang{
     padding: 10px;
@@ -76,16 +82,23 @@ input{
 }
 
 /* 下拉菜单 */
-.caidan {   
+.caidan {
     position: absolute;
     right: 0;
     width: 120px;
     background-color: #ffffff;
     text-align: center;
     box-shadow: 0 3px 2px rgba(0, 0, 0 , 0.1);
-    z-index: 5;
+    z-index: 99;
+    display: none;
+    /* opacity: 0;
+    transition: 0.3s;
+            -webkit-transition: .5s;
+            -moz-transition: .5s; */
   }   
-
+daohang a:hover .caidan{
+    display: block;
+}
 .caidan ul {   
     list-style-type: none;    
 
@@ -126,8 +139,9 @@ input{
     position: relative;
     background: linear-gradient(to top right, #3c7df1, #62c1fb);
     padding-top: 60px;
-    color: #eeeeee;
+    color: #fcfcfc;
     font-size: 56px;
+    
 }
 .m1{
     background-image:url(../image/paper.png);
@@ -155,23 +169,103 @@ input{
 
 }
 .form{
+    max-width: 600px;
     height: 440px;
+    position: absolute;
     /* border: 1px #28262C dashed; */
 }
-.go{
+#form1{
+    height: 440px;
+    /* background-color: rgb(255, 214, 214); */
+    z-index: 7;
+}
+#mydropzone{
+    width: 600px;
+}
+#form1 span{
+    color: #28262C;
+    font-family: "微软雅黑";
+}
+#form2{
+    height: 440px;
+    /* background-color: rgb(214, 255, 226); */
+    z-index: 8;
+    display: none;
+}
+#form3{
+    height: 440px;
+    background-color: rgb(217, 214, 255);
+    z-index: 9;
+    display: none;
+}
+.map{
+    position: absolute;
     margin: auto;
-    height: 60px;
-    display: block;
+}
+.go{
+    position: absolute;
+    width: 600px;
+    top:450px;
     font-size: 32px;
-    padding: 8px;
     text-align: center;
-    position: relative;
-    text-decoration: none;
+    z-index: 11;
+}
+.go button{
+    width: 240px;
+    position: absolute;
+    left: 30%;
+
+}
+#map_search{
+    position: absolute;
+    top: 30px;
+    margin: auto;
+    max-width: 600px;
+    height: 48px;
+    padding-left: 20px;
+    font-size: 22px;
+    border-radius: 30px;
+    display: inline-block;
+    border: 1px;
+    z-index: 10;
+}
+#data_left{
+    text-align: right;
+    font-size: 22px;
+    color: #28262C;
+    width: 172px;
+    position: absolute;
+    float: left;
+    padding-top: 2px;
+}
+#data_left nav{
+    margin:0px;
+    margin-bottom: 4px;
+}
+#data_right{
+    padding-top: 2px;
+    position: absolute;
+    padding-left: 10px;
+    text-align: left;
+    max-width: 100%;
+    margin-left: 172px;
+    float: left;
 }
 
-.form span{
-    font-size: 20px;
-    color: #28262C
+#data_right input{
+    font-size: 18px;
+    margin:0px;
+    margin-bottom:4px;
+}
+#data_right select{
+    font-size: 18px;
+    margin: 0px;
+    margin-bottom:4px;
+}
+#data_right textarea{
+    font-size: 18px;
+    margin: 0px;
+    margin-bottom:4px;
 }
 
 .footer{

@@ -27,6 +27,20 @@
             margin-top: 1.4rem;
         }
     </style>
+    <script type="text/javascript">  
+        function showAndHidden1() {
+            var form1 = document.getElementById("form1");
+            var form2 = document.getElementById("form2");
+            form1.style.display = "none";
+            form2.style.display = "block";
+        }
+        function showAndHidden2() {
+            var form2 = document.getElementById("form2");
+            var form3 = document.getElementById("form3");  
+            form2.style.display = "none";
+            form3.style.display = "block";
+        }
+    </script>
 </head>
 
 <body>
@@ -35,44 +49,89 @@
             <div class="daohang">
                 <img src="image/logo1.png" alt="logo" id="logo">
                 <span id="username">云打印</span>
-                <div class="daohang_right">
+                <a>
                     <img src="image/user_img1.png" alt="用户" id="user_pic">
-                </div>
+                    <div class="caidan">
+                        <ul>
+                            <li>
+                                <a href="#">个人信息</a>
+                            </li>
+                            <li>
+                                <a href="#">订单处理</a>
+                            </li>
+                            <li>
+                                <a href="#">修改密码</a>
+                            </li>
+                            <li>
+                                <a href="#">其他功能</a>
+                            </li>
+                            <li>
+                                <a href="#">退出账户</a>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+
             </div>
 
-            <div class="caidan">
-                <ul>
-                    <li>
-                        <a href="#">个人信息</a>
-                    </li>
-                    <li>
-                        <a href="#">订单处理</a>
-                    </li>
-                    <li>
-                        <a href="#">修改密码</a>
-                    </li>
-                    <li>
-                        <a href="#">其他功能</a>
-                    </li>
-                    <li>
-                        <a href="#">退出账户</a>
-                    </li>
-                </ul>
-            </div>
         </div>
         <div class="main">
             <span>请填写您的订单</span>
             <div class="m1">
                 <div class="m2">
-                    <div class="form">
+                    <div class="form" id="form1">
                         <form id="mydropzone" action="/fileControl/uploadFile.php" method="post" class="dropzone">
                             <!--<nav>请将文件拖拽至此</nav>-->
                         </form>
                         <span>*请上传不大于20M的文件</span>
+                        <div class="go" id="go_one">
+                            <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1()">下一步</a>
+                        </div>
                     </div>
-                    <div class="go">
-                        <a href="#" class="button button-caution button-rounded button-jumbo">下一步</a>
+                    <div class="form" id="form2">
+                        <form action="">
+                            <!-- 自行添加及更改 -->
+                            <div id="data_left">
+                                <nav>纸张大小：</nav>
+                                <nav>纸张方向：</nav>
+                                <nav>是否彩印：</nav>
+                                <nav>纸张类型：</nav>
+                                <nav>纸张颜色：</nav>
+                                <nav>打印页数：</nav>
+                                <nav>正反打印：</nav>
+                                <nav>dpi：</nav>
+                                <nav>还有啥：</nav>
+                            </div>
+                            <div id="data_right">
+                                <select name="paper_size">
+                                    <option value="volvo">A4</option>
+                                    <option value="saab">B3</option>
+                                    <option value="fiat">8K</option>
+                                    <option value="audi">4K</option>
+                                </select>
+                                <select name="paper_fangxiang">
+                                    <option value="volvo">竖版</option>
+                                    <option value="saab">横板</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="go" id="go_two">
+                            <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden2()">下一步</a>
+                        </div>
+                        <!--<nav>打印参数</nav>-->
                     </div>
+                    <div class="form" id="form3">
+                        <form action="">
+                            <input id="map_search" type="search" placeholder="输入打印店名来查找" size="50">
+                        </form>
+                        <div id="map">
+                            <!--此处放地图 -->
+                        </div>
+                        <div class="go" id="go_three">
+                            <button href="#" class="button button-caution button-rounded button-jumbo">完成</a>
+                        </div>
+                    </div>
+
 
                 </div>
             </div>
