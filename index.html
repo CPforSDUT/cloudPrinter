@@ -40,6 +40,14 @@
             form2.style.display = "none";
             form3.style.display = "block";
         }
+        function showCaidan() {
+            var caidan = document.getElementById("caidan");
+            caidan.style.display = "block";
+        }
+        function  hiddenCaidan() {
+            var caidan = document.getElementById("caidan");
+            caidan.style.display = "none";
+        }
     </script>
 </head>
 
@@ -50,8 +58,10 @@
                 <img src="image/logo1.png" alt="logo" id="logo">
                 <span id="username">云打印</span>
                 <a>
-                    <img src="image/user_img1.png" alt="用户" id="user_pic">
-                    <div class="caidan">
+
+                    <img src="image/user_img1.png" alt="用户" id="user_pic"  >
+
+                    <div class="caidan" id = "caidan">
                         <ul>
                             <li>
                                 <a href="#">个人信息</a>
@@ -70,6 +80,16 @@
                             </li>
                         </ul>
                     </div>
+                    <script type="text/javascript">
+                        var userPic = document.getElementById("user_pic");
+                        var caidan = document.getElementById("caidan");
+                        userPic.addEventListener("click",function(){
+                            showCaidan();
+                        });
+                        caidan.addEventListener("mouseleave",function(){
+                            hiddenCaidan();
+                        });
+                    </script>
                 </a>
 
             </div>
