@@ -100,12 +100,38 @@
             <div class="m1">
                 <div class="m2">
                     <div class="form" id="form1">
+                        <?php
+                            session_start();
+                            $con = mysql_connect("localhost","root","wslzd9877");
+                            if (!$con)
+                            {
+                                die('Could not connect: ' . mysql_error());
+                            }
+                            $username = $_SESSION['user'];
+                            mysql_select_db("user", $con);
+                            session_set_cookie_params(24 * 3600);
+                            do{
+                                $orderId = md5($username+time()+rand(0,getrandmax()));
+                                $result = mysql_query("SELECT * FROM orderids where orderId = \"$orderId\"");
+                                $row = mysql_fetch_array($result);
+                            }while($row != false);
+
+
+
+                        ?>
+
+
+
                         <form id="mydropzone" action="/fileControl/uploadFile.php" method="post" class="dropzone">
                             <!--<nav>请将文件拖拽至此</nav>-->
+                            <input type="hidden" name="orderId" value=<?php echo "'$orderId'";?> />
                         </form>
+                        <?php
+                            mysql_query("INSERT INTO orderids (orderId) VALUES (\"$orderId\")");
+                        ?>
                         <span>*请上传不大于20M的文件</span>
                         <div class="go" id="go_one">
-                            <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1()">下一步</a>
+                            <a><button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1()">下一步</a>
                         </div>
                     </div>
                     <div class="form" id="form2">
@@ -136,7 +162,7 @@
                             </div>
                         </form>
                         <div class="go" id="go_two">
-                            <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden2()">下一步</a>
+                            <a><button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden2()">下一步</a>
                         </div>
                         <!--<nav>打印参数</nav>-->
                     </div>
@@ -148,11 +174,9 @@
                             <!--此处放地图 -->
                         </div>
                         <div class="go" id="go_three">
-                            <button href="#" class="button button-caution button-rounded button-jumbo">完成</a>
+                            <a><button href="#" class="button button-caution button-rounded button-jumbo">完成</a>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

@@ -103,7 +103,7 @@
                     </div>
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
-                            <form action="/user/registered.php" method="post" onsubmit="return check(2)">
+                            <form action="/user/registered.php" method="post" onsubmit="return check(1)">
                                 <div class="form">
                                     <nav class="biaoti">用户注册</nav>
                                     <HR align=center width=100% color=#3E5C76 SIZE=5>
@@ -134,7 +134,7 @@
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body">
-                            <form action="/user/registered.php" method="post" onsubmit="return check(1)">
+                            <form action="/user/registered.php" method="post" onsubmit="return check(2)">
                                 <div class="form">
                                     <nav class="biaoti" id="btTwo">商家注册</nav>
                                     <HR align=center max-width=100% color=#3E5C76 SIZE=3>
