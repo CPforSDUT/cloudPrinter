@@ -88,8 +88,8 @@
             <div class="daohang">
                 <img src="../image/logo1.png" alt="logo" id="logo">
                 <span>
-                    <a href="#">登陆</a>&nbsp;|&nbsp;
-                    <a href="#">注册</a>
+                    <a href="/user/loginView.php">登陆</a>&nbsp;|&nbsp;
+                    <a href="/user/registeredView.php">注册</a>
                 </span>
             </div>
         </div>
