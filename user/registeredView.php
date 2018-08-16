@@ -52,6 +52,14 @@
         }
 
         function check(s) {
+           if (s == 1)
+           {
+               var other = document.getElementById("other") , province = document.getElementById("province");
+               if(other.value == '' || province.value == ''){
+                   alert("请输入详细地址和选择你的坐标。");
+                   return false;
+               }
+           }
             return check_code(s) && check_pwd(s);
         }
 
@@ -141,7 +149,7 @@
                                         <br/>
                                         <input type="password" name="password" id="passworD">
                                         <br/>
-                                        <input type="text" name="other">
+                                        <input type="text" name="other" id="other">
                                         <br/>
 
                                     </div>
