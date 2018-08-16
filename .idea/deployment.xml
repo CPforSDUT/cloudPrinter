@@ -5,7 +5,7 @@
       <paths name="Cloud printer">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/untitled" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

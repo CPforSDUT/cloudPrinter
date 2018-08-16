@@ -31,17 +31,27 @@ if(isset($_POST["username"])) {
     $user = $_POST["username"];
     $pass = $_POST["password"];
     $type = $_POST["type"];
-    $province = escape($_POST["province"]);
-    $Area = escape($_POST["Area"]);
-    $City = escape($_POST["City"]);
-    $lo = $_POST["lo"];
-    $la = $_POST["la"];
-    $Other = escape($_POST["Other"]);
-    $result = mysql_query("SELECT * FROM users WHERE username= \"$user\"");
+    if($type == '1'){
+        $province = escape($_POST["province"]);
+        $area = escape($_POST["area"]);
+        $city = escape($_POST["city"]);
+        $lo = $_POST["lo"];
+        $la = $_POST["la"];
+        $other = escape($_POST["other"]);
+    }
+    else {
+        $province = '';
+        $area = '';
+        $city = '';
+        $lo = '';
+        $la = '';
+        $other = '';
+    }
+    $result = mysql_query("SELECT * FROM user WHERE username= \"$user\"");
     $row = mysql_fetch_array($result);
     if($row == null)
     {
-        mysql_query("INSERT INTO users (username, password,type,la,lo,province,City,Area,Other) VALUES (\"$user\", \"$pass\",\"$type\",\"$la\",\"$lo\",\"$province\",\"$City\",\"$Area\",\"$Other\")");
+        mysql_query("INSERT INTO user (username, password,type,la,lo,province,city,area,other) VALUES (\"$user\", \"$pass\",\"$type\",\"$la\",\"$lo\",\"$province\",\"$city\",\"$area\",\"$other\")");
         mysql_close($con);
         echo "success";
     }

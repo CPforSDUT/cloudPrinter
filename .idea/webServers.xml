@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="d665e0b9-8eeb-4bab-8c3f-582bc1016ad9" name="Cloud printer" url="http://localhost">
-        <fileTransfer port="0" mountedRoot="C:\phpStudy\PHPTutorial\WWW\untitled" accessType="MOUNT" />
+        <fileTransfer port="0" mountedRoot="C:\phpStudy\PHPTutorial\WWW" accessType="MOUNT" />
       </webServer>
     </option>
   </component>

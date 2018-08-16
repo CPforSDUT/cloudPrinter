@@ -22,7 +22,7 @@ if(isset($_SESSION['user']) == false)
     $pass = $_POST["password"];
     $_SESSION['user'] = $user;
     $_SESSION['pass'] = $pass;
-    $result = mysql_query("SELECT * FROM users WHERE username= \"$user\"");
+    $result = mysql_query("SELECT * FROM user WHERE username= \"$user\"");
     $row = mysql_fetch_array($result);
     $_SESSION['type'] = $row['type'];
     $truepass = $row['password'];

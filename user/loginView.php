@@ -1,8 +1,13 @@
-<html>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <base target="_blank">
-    <link rel="stylesheet" type="text/css" href="/css/Buttons.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <title>Login</title>
     <script type="text/javascript">
         function check_code() {
             console.log(1);
@@ -34,21 +39,17 @@
         }
     </script>
 </head>
+
 <body>
-<div style="text-align: center">
-    <form action="/user/login.php" method="POST"onsubmit="return check()" target="_parent">
-        <p>
-            用户 <input type="text" name="username" id="username" class="button button-rounded button-tiny"/>
-        </p>
-        <br />
-        <p>
-            密码 <input type="password" name="password" id="password" class="button button-rounded button-tiny"/>
-            <br /><br /><br />
-            <input type="submit" value="登陆" class="button button-primary button-rounded button-small">
-            <a href="/user/registeredView.php"><button type="button" class="button button-primary button-rounded button-small">注册</button></a>
-
-    </form>
-
-</div>
+    <div class="login">
+        <form id="login_box" action="/user/login.php" method="post" onsubmit="return check()">
+            <nav>登录</nav>
+            <input type="text" name="username" id="username" placeholder="请输入账号">
+            <input type="password" name="password" id="password" placeholder="请输入密码">
+            <input type="submit" id="dl">立即登录</input>
+            <span>没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></span>
+        </form>
+    </div>
 </body>
+
 </html>
