@@ -115,9 +115,6 @@
                                 $result = mysql_query("SELECT * FROM orderids where orderId = \"$orderId\"");
                                 $row = mysql_fetch_array($result);
                             }while($row != false);
-
-
-
                         ?>
 
 
