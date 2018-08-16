@@ -26,6 +26,11 @@
             display: block;
             margin-top: 1.4rem;
         }
+        @font-face {
+            font-family: 'Aa小泡芙拼音体 (非商业使用)';   /*字体名称*/
+            src: url('/css/fontFamily/paofu.ttf');        /*字体源文件*/
+        }
+
     </style>
     <script type="text/javascript">  
         function showAndHidden1() {
@@ -96,7 +101,7 @@
 
         </div>
         <div class="main">
-            <span>请填写您的订单</span>
+            <span style="font-family: 'Aa小泡芙拼音体 (非商业使用)'">请填写您的订单_(:з」∠)_</span>
             <div class="m1">
                 <div class="m2">
                     <div class="form" id="form1">
@@ -105,7 +110,7 @@
                         </form>
                         <span>*请上传不大于20M的文件</span>
                         <div class="go" id="go_one">
-                            <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1()">下一步</a>
+                            <button href="#" class="button button-glow button-circle button-action button-jumbo" onclick="showAndHidden1()" style="font-family: 'Aa小泡芙拼音体 (非商业使用)'">好啦~</a>
                         </div>
                     </div>
                     <div class="form" id="form2">

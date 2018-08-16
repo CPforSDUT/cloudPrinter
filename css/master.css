@@ -185,7 +185,12 @@ daohang a:hover .caidan{
 }
 #form1 span{
     color: #28262C;
-    font-family: "微软雅黑";
+    font-family: "Aa小泡芙拼音体 (非商业使用)";
+    font-size: 24px;
+}
+@font-face {
+    font-family: 'Aa小泡芙拼音体 (非商业使用)';   /*字体名称*/
+    src: url('/css/fontFamily/paofu.ttf');       /*字体源文件*/
 }
 #form2{
     height: 440px;
@@ -206,7 +211,8 @@ daohang a:hover .caidan{
 .go{
     position: absolute;
     width: 600px;
-    top:450px;
+    top:400px;
+    left: 15%;
     font-size: 32px;
     text-align: center;
     z-index: 11;
