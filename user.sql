@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2018 年 08 月 17 日 07:08
+-- 生成日期: 2018 年 08 月 18 日 00:33
 -- 服务器版本: 5.5.53-log
 -- PHP 版本: 5.4.45
 
@@ -28,9 +28,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `delfiles` (
   `orderId` char(32) NOT NULL,
-  `time` char(20) NOT NULL,
-  PRIMARY KEY (`orderId`)
+  `time` char(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `delfiles`
+--
+
 
 -- --------------------------------------------------------
 
@@ -44,8 +48,7 @@ CREATE TABLE IF NOT EXISTS `fileinfo` (
   `color` char(1) NOT NULL DEFAULT '0',
   `num` int(11) NOT NULL DEFAULT '1',
   `paperType` int(11) NOT NULL DEFAULT '16',
-  `filename` varchar(261) NOT NULL,
-  PRIMARY KEY (`orderId`)
+  `filename` varchar(261) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -55,9 +58,14 @@ CREATE TABLE IF NOT EXISTS `fileinfo` (
 --
 
 CREATE TABLE IF NOT EXISTS `orderids` (
-  `orderId` char(32) NOT NULL,
-  PRIMARY KEY (`orderId`)
+  `orderId` char(32) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `orderids`
+--
+
+
 
 -- --------------------------------------------------------
 
@@ -108,6 +116,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `state` char(1) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `user`
+--
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
