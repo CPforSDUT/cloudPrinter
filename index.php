@@ -140,7 +140,7 @@
                                         delFile.open("POST","/fileControl/delFile.php",false);
                                         delFile.setRequestHeader("Content-type","application/x-www-form-urlencoded");
                                         delFile.send('orderId='+<?php echo "'$orderId'";?>+'&filename='+escape(file.name));
-                                        alert(delFile.responseText);
+                                        //alert(delFile.responseText);
                                     });
                                 }
                             };
