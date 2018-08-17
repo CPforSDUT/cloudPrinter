@@ -25,8 +25,9 @@ input{
     margin: 6px;
 }
 select{
-    max-width: 200px;
-    height: 28px;
+    min-width: 60px;
+    max-width: 300px;
+    min-height: 28px;
     font-size: 18px;
     margin: 6px;
 }
@@ -191,6 +192,7 @@ daohang a:hover .caidan{
     height: 440px;
     /* background-color: rgb(214, 255, 226); */
     z-index: 8;
+    font-size: 22px;
     display: none;
 }
 #form3{
@@ -215,7 +217,6 @@ daohang a:hover .caidan{
     width: 240px;
     position: absolute;
     left: 30%;
-
 }
 #map_search{
     position: absolute;
@@ -230,11 +231,25 @@ daohang a:hover .caidan{
     border: 1px;
     z-index: 10;
 }
+#data_select{
+    padding-top: 2px;
+    position: absolute;
+    float: left;
+    font-size: 20px;
+    min-width: 120px;
+    max-width: 300px;
+    z-index: 11;
+    font-weight: bold;
+}
+#data_select select{
+    margin: 0;
+    padding: 0;
+}
 #data_left{
     text-align: right;
     font-size: 22px;
     color: #28262C;
-    width: 172px;
+    width: 400px;
     position: absolute;
     float: left;
     padding-top: 2px;
@@ -249,7 +264,7 @@ daohang a:hover .caidan{
     padding-left: 10px;
     text-align: left;
     max-width: 100%;
-    margin-left: 172px;
+    margin-left: 400px;
     float: left;
 }
 

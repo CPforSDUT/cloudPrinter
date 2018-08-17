@@ -36,7 +36,7 @@
         }
         function showAndHidden2() {
             var form2 = document.getElementById("form2");
-            var form3 = document.getElementById("form3");  
+            var form3 = document.getElementById("form3");
             form2.style.display = "none";
             form3.style.display = "block";
         }
@@ -44,7 +44,7 @@
             var caidan = document.getElementById("caidan");
             caidan.style.display = "block";
         }
-        function  hiddenCaidan() {
+        function hiddenCaidan() {
             var caidan = document.getElementById("caidan");
             caidan.style.display = "none";
         }
@@ -54,14 +54,14 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="daohang" id = "daohang">
+            <div class="daohang" id="daohang">
                 <img src="image/logo1.png" alt="logo" id="logo">
                 <span id="username">云打印</span>
-                <a id = "caidanAndPic">
+                <a id="caidanAndPic">
 
-                    <img src="image/user_img1.png" alt="用户" id="user_pic"  >
+                    <img src="image/user_img1.png" alt="用户" id="user_pic">
 
-                    <div class="caidan" id = "caidan">
+                    <div class="caidan" id="caidan">
                         <ul>
                             <li>
                                 <a href="#">个人信息</a>
@@ -83,10 +83,10 @@
                     <script type="text/javascript">
                         var userPic = document.getElementById("user_pic");
                         var daohang = document.getElementById("daohang");
-                        userPic.addEventListener("click",function(){
+                        userPic.addEventListener("click", function () {
                             showCaidan();
                         });
-                        daohang.addEventListener("mouseleave",function(){
+                        daohang.addEventListener("mouseleave", function () {
                             hiddenCaidan();
                         });
                     </script>
@@ -128,12 +128,22 @@
                         ?>
                         <span>*请上传不大于20M的文件</span>
                         <div class="go" id="go_one">
-                            <a><button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1()">下一步</a>
+                            <a>
+                                <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1()">下一步</a>
                         </div>
                     </div>
                     <div class="form" id="form2">
                         <form action="">
                             <!-- 自行添加及更改 -->
+                            <div id="data_select">
+                                <span>选择文件：</span>
+                                <select name="choosefile" data-edit-select="1" onmousedown="if(this.options.length>3){this.size=8}" onblur="this.size=0" onchange="this.size=0" style="position:absolute;z-index:1">
+                                    <option value="f1">这是第1个文件</option>
+                                    <option value="f2">这是第2个文件</option>
+                                    <option value="f3">这是第3个文件</option>
+                                    <option value="fn">这是第n个文件</option>
+                                </select>
+                            </div>
                             <div id="data_left">
                                 <nav>纸张大小：</nav>
                                 <nav>纸张方向：</nav>
@@ -147,10 +157,26 @@
                             </div>
                             <div id="data_right">
                                 <select name="paper_size">
-                                    <option value="volvo">A4</option>
-                                    <option value="saab">B3</option>
-                                    <option value="fiat">8K</option>
-                                    <option value="audi">4K</option>
+                                    <option value="A1">A1</option>
+                                    <option value="A2">A2</option>
+                                    <option value="A3">A3</option>
+                                    <option value="A4">A4</option>
+                                    <option value="A5">A5</option>
+                                    <option value="A6">A6</option>
+                                    <option value="A7">A7</option>
+                                    <option value="A8">A8</option>
+                                    <option value="A9">A9</option>
+                                    <option value="A10">A10</option>
+                                    <option value="B1">B1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="B4">B4</option>
+                                    <option value="B5">B5</option>
+                                    <option value="B6">B6</option>
+                                    <option value="B7">B7</option>
+                                    <option value="B8">B8</option>
+                                    <option value="B9">B9</option>
+                                    <option value="B10">B10</option>
                                 </select>
                                 <select name="paper_fangxiang">
                                     <option value="volvo">竖版</option>
@@ -159,7 +185,8 @@
                             </div>
                         </form>
                         <div class="go" id="go_two">
-                            <a><button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden2()">下一步</a>
+                            <a>
+                                <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden2()">下一步</a>
                         </div>
                         <!--<nav>打印参数</nav>-->
                     </div>
@@ -171,7 +198,8 @@
                             <!--此处放地图 -->
                         </div>
                         <div class="go" id="go_three">
-                            <a><button href="#" class="button button-caution button-rounded button-jumbo">完成</a>
+                            <a>
+                                <button href="#" class="button button-caution button-rounded button-jumbo">完成</a>
                         </div>
                     </div>
                 </div>
