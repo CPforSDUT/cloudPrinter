@@ -17,7 +17,7 @@
             console.log(1);
            var code;
            //获取账号
-            if(s == 2){
+            if(s == 1){
                 code = document.getElementById("usernamE").value;
             }
             else {
@@ -34,7 +34,7 @@
         function check_pwd(s){
             console.log(2);
            var code2;
-            if (s == 2){
+            if (s == 1){
                 code2 =document.getElementById("password").value;
             }
             else {
@@ -52,7 +52,7 @@
         }
 
         function check(s) {
-           if (s == 1)
+           if (s == 2)
            {
                var other = document.getElementById("other") , province = document.getElementById("province");
                if(other.value == '' || province.value == ''){
@@ -115,7 +115,7 @@
                                         <input type="text" name="username" id="usernamE">
                                         <br>
                                         <input type="password" name="password" id="password">
-                                        <input type="hidden" name="type" value="2" >
+                                        <input type="hidden" name="type" value="1" >
                                     </div>
                                 </div>
                                 <div class="submit">
@@ -154,7 +154,7 @@
 
                                     </div>
                                     <div  id="position" >
-                                        <input type="hidden" name="type" value="1" />
+                                        <input type="hidden" name="type" value="2" />
                                         <input type="text" name="province" id="province" readonly />
                                         <input type="text" name="city" id="city" readonly />
                                         <input type="text" name="area" id="area" readonly />

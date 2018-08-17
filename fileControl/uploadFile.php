@@ -54,7 +54,7 @@ if(isset($_FILES['file'])){
         $hashPath = "upload/" . "$hashname." . substr($_FILES["file"]["name"], strrpos($_FILES["file"]["name"], '.') + 1);
         $fileNmae = escape($_FILES["file"]["name"]);
         $orderId = $_POST['orderId'];
-        $tIme =  time();
+
         if (file_exists($hashPath) == false) {
             move_uploaded_file($_FILES["file"]["tmp_name"], $hashPath);
         }
@@ -63,11 +63,10 @@ if(isset($_FILES['file'])){
             die('Could not connect: ' . mysql_error());
         }
         mysql_select_db("user", $con);
-
-        mysql_query("INSERT INTO fileinfo (orderId, filePath,filename)VALUES (\"$orderId\", \"$hashPath\",\"$fileNmae\")");
-        mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
+        if (mysql_num_rows(mysql_query("SELECT * FROM fileinfo where orderId = '$orderId' and filename = '$fileNmae'")) == 0 ) {
+            mysql_query("INSERT INTO fileinfo (orderId, filePath,filename)VALUES (\"$orderId\", \"$hashPath\",\"$fileNmae\")");
+        }
         mysql_close($con);
-        echo "<br />状态:发送成功";
     }
 }
 

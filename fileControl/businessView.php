@@ -22,6 +22,6 @@ $pass = $_SESSION["pass"];
 $result = mysql_query("SELECT * FROM file WHERE printname= \"$user\"");
 while($row = mysql_fetch_array($result)) {
     ?>
-    <a href="<?php echo $row['filename'] ?>"><?php echo $row['filename'] ?></a><br \>
+    <a href="<?php echo $row['filename'] ?>"><?php echo $row['filename'] ?></a><br />
     <?php
 }

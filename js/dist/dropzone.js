@@ -420,7 +420,7 @@ var Dropzone = function (_Emitter) {
 
 
 
-        dictDefaultMessage: "请将拖拽文件至此",
+        dictDefaultMessage: "请将文件拖拽至此，相同文件名会算作一个文件。",
 
         /**
          * The text that replaces the default message text it the browser is not supported.

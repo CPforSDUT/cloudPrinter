@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 /**
  * Created by PhpStorm.
@@ -5,6 +6,7 @@
  * Date: 2018/7/10
  * Time: 23:12
  */
+
 function escape($str) {
     preg_match_all ( "/[\xc2-\xdf][\x80-\xbf]+|[\xe0-\xef][\x80-\xbf]{2}|[\xf0-\xff][\x80-\xbf]{3}|[\x01-\x7f]+/e", $str, $r );
     //匹配utf-8字符，
@@ -53,11 +55,12 @@ if(isset($_POST["username"])) {
     {
         mysql_query("INSERT INTO user (username, password,type,la,lo,province,city,area,other) VALUES (\"$user\", \"$pass\",\"$type\",\"$la\",\"$lo\",\"$province\",\"$city\",\"$area\",\"$other\")");
         mysql_close($con);
-        echo "success";
+        header("location:/index.php");
     }
     else
     {
-        echo "failure";
+        echo "<script>alert('用户名已存在。');window.history.back(-1); </script>";
+
     }
 
 }

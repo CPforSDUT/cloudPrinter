@@ -102,6 +102,9 @@
                     <div class="form" id="form1">
                         <?php
                             session_start();
+                            if(isset($_SESSION['user']) == false){
+                                header("location:/user/loginView.php");
+                            }
                             $con = mysql_connect("localhost","root","wslzd9877");
                             if (!$con)
                             {
@@ -115,17 +118,37 @@
                                 $result = mysql_query("SELECT * FROM orderids where orderId = \"$orderId\"");
                                 $row = mysql_fetch_array($result);
                             }while($row != false);
+                            $tIme =  time();
+                            mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
                         ?>
 
 
 
                         <form id="mydropzone" action="/fileControl/uploadFile.php" method="post" class="dropzone">
                             <!--<nav>请将文件拖拽至此</nav>-->
-                            <input type="hidden" name="orderId" value=<?php echo "'$orderId'";?> />
+                            <input type="hidden"  name="orderId" value=<?php echo "'$orderId'";?> />
                         </form>
+
+                        <script type="text/javascript">
+                            var delFile=new XMLHttpRequest();
+                            Dropzone.options.mydropzone = {
+                                init: function () {
+                                    this.on("removedfile", function (file) {
+                                        /*if (this.getAcceptedFiles().length === 0) {
+                                            alert('1');
+                                        }*/
+                                        delFile.open("POST","/fileControl/delFile.php",false);
+                                        delFile.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                                        delFile.send('orderId='+<?php echo "'$orderId'";?>+'&filename='+escape(file.name));
+                                        alert(delFile.responseText);
+                                    });
+                                }
+                            };
+                        </script>
                         <?php
                             mysql_query("INSERT INTO orderids (orderId) VALUES (\"$orderId\")");
                         ?>
+
                         <span>*请上传不大于20M的文件</span>
                         <div class="go" id="go_one">
                             <a>
@@ -194,6 +217,7 @@
                         <form action="">
                             <input id="map_search" type="search" placeholder="输入打印店名来查找" size="50">
                         </form>
+
                         <div id="map">
                             <!--此处放地图 -->
                         </div>
