@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dell
- * Date: 2018/8/17
- * Time: 23:58
- */
 function unescape($str) {
     $ret = '';
     $len = strlen ( $str );
@@ -26,23 +20,16 @@ function unescape($str) {
     }
     return $ret;
 }
-$before = $_POST['filename'];
-$filename = unescape($before );
 $orderId = $_POST['orderId'];
-$con = mysql_connect("localhost","root","wslzd9877");
-if (!$con)
-{
+$con = mysql_connect("localhost", "root", "wslzd9877");
+if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
-$result = mysql_query("select * from fileinfo where orderId = '$orderId' and filename = '$filename'");
-$row = mysql_fetch_array($result);
-$hashPath = $row['filePath'];
-
-$filename = $before ;
-mysql_query("delete from fileinfo where orderId = '$orderId' and filename = '$filename'");
-$result = mysql_query("select * from fileinfo where filePath = '$hashPath'");
-$row = mysql_fetch_array($result);
-if($row == null) {
-    unlink($hashPath);
+$result = mysql_query("SELECT * FROM fileinfo where orderId = '$orderId'");
+for ($i = 1 ; $row = mysql_fetch_array($result) ; $i ++)
+{
+    $filename = unescape($row['filename']);
+    echo "<option value='$filename'>$filename</option>\n";
 }
+mysql_close($con);

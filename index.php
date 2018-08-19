@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -28,11 +29,25 @@
         }
     </style>
     <script type="text/javascript">  
-        function showAndHidden1() {
+        function showAndHidden1(orderId) {
             var form1 = document.getElementById("form1");
             var form2 = document.getElementById("form2");
-            form1.style.display = "none";
-            form2.style.display = "block";
+            var files = new XMLHttpRequest();
+
+
+            files.open("POST","/fileControl/getFiles.php",false);
+            files.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            files.send("orderId="+orderId);
+            if(files.responseText != '')
+            {
+                form1.style.display = "none";
+                form2.style.display = "block";
+                document.getElementById("choosefile").innerHTML = files.responseText;
+            }
+            else {
+                alert("你没有上传文件");
+            }
+
         }
         function showAndHidden2() {
             var form2 = document.getElementById("form2");
@@ -48,10 +63,52 @@
             var caidan = document.getElementById("caidan");
             caidan.style.display = "none";
         }
+        function changefile(orderId,fileName) {
+            var paperNum = document.getElementById("paper_num").value;
+            var paperSize = document.getElementById("paper_size").value;
+            var color = document.getElementById("color").value;
+            var otherInfo = document.getElementById("other_info").value;
+            var setinfo = new XMLHttpRequest();
+            setinfo.open("POST","/fileControl/setFileInfo.php",true);
+            setinfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            setinfo.send("paperNum="+paperNum+"&paperSize="+paperSize+"&color="+color+"&otherInfo="+escape(otherInfo)+"&orderId="+orderId+"&fileName="+fileName);
+        }
+        function getFileInfo(orderId,fileName) {
+            var getInfo = new XMLHttpRequest();
+            getInfo.open("POST","/fileControl/getFileInfo.php",true);
+            getInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            getInfo.send("orderId="+orderId+"&fileName="+escape(fileName));
+            getInfo.onreadystatechange=function()
+            {
+                if (getInfo.readyState==4 && getInfo.status==200)
+                {
+                    document.getElementById("show").innerHTML = getInfo.responseText;
+                    /*(<p id='paperNum'>1</p><p id='paperSize'>A5</p><p id='color'>0</p><p id='otherInfo'></p>*/
+                   var paperNum = document.getElementById("paper_num");
+                    var paperSize = document.getElementById("paper_size");
+                    var color = document.getElementById("color");
+                    var otherInfo = document.getElementById("other_info");
+
+
+                    paperNum.value = document.getElementById("paperNum").innerText;
+                    otherInfo.value = document.getElementById("otherInfo").innerText;
+                    paperSizes = Array("A0","A1","A2","A3","A4","A5","A6","A7","A8","A9","A10","B0","B1","B2","B3","B4","B5","B6","B7","B8","B9","B10");
+                    for (var i = 0 ;paperSizes[i] != document.getElementById("paperSize").innerText ; i ++);
+                    paperSize.options[i].selected = true;
+                    if(document.getElementById("Color").innerText == "1"){
+                        color.options[0].selected = true;
+                    }
+                    else {
+                        color.options[1].selected = true;
+                    }
+                }
+            }
+        }
     </script>
 </head>
 
 <body>
+<div id="show" style="display: block"></div>
     <div class="container">
         <div class="header">
             <div class="daohang" id="daohang">
@@ -121,9 +178,6 @@
                             $tIme =  time();
                             mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
                         ?>
-
-
-
                         <form id="mydropzone" action="/fileControl/uploadFile.php" method="post" class="dropzone">
                             <!--<nav>请将文件拖拽至此</nav>-->
                             <input type="hidden"  name="orderId" value=<?php echo "'$orderId'";?> />
@@ -145,51 +199,51 @@
                                 }
                             };
                         </script>
-                        <?php
-                            mysql_query("INSERT INTO orderids (orderId) VALUES (\"$orderId\")");
-                        ?>
+
 
                         <span>*请上传不大于20M的文件</span>
                         <div class="go" id="go_one">
                             <a>
-                                <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1()">下一步</a>
+                                <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1(<?php echo "'$orderId'";?>)">下一步</a>
                         </div>
+                        <?php
+                        mysql_query("INSERT INTO orderids (orderId) VALUES (\"$orderId\")");
+                        ?>
                     </div>
                     <div class="form" id="form2">
                         <form action="">
                             <!-- 自行添加及更改 -->
                             <div id="data_select">
                                 <span>选择文件：</span>
-                                <select name="choosefile" data-edit-select="1" onmousedown="if(this.options.length>3){this.size=8}" onblur="this.size=0" onchange="this.size=0" style="position:absolute;z-index:1">
-                                    <option value="f1">这是第1个文件</option>
-                                    <option value="f2">这是第2个文件</option>
-                                    <option value="f3">这是第3个文件</option>
-                                    <option value="fn">这是第n个文件</option>
+                                <select id="choosefile" name="choosefile" data-edit-select="1" onmousedown="if(this.options.length>3){this.size=8}" onblur="this.size=0" onchange="this.size=0" style="position:absolute;z-index:1">
                                 </select>
                             </div>
                             <div id="data_left">
                                 <nav>纸张大小：</nav>
-                                <nav>纸张方向：</nav>
                                 <nav>是否彩印：</nav>
+                                <nav>打印页数：</nav>
+                                <nav>备注：</nav>
+                                <nav>纸张方向：</nav>
                                 <nav>纸张类型：</nav>
                                 <nav>纸张颜色：</nav>
-                                <nav>打印页数：</nav>
                                 <nav>正反打印：</nav>
                                 <nav>dpi：</nav>
-                                <nav>还有啥：</nav>
+
                             </div>
                             <div id="data_right">
-                                <select name="paper_size">
+                                <select name="paper_size" id="paper_size">
+                                    <option value="A0">A0</option>
                                     <option value="A1">A1</option>
                                     <option value="A2">A2</option>
                                     <option value="A3">A3</option>
-                                    <option value="A4">A4</option>
+                                    <option value="A4" selected>A4</option>
                                     <option value="A5">A5</option>
                                     <option value="A6">A6</option>
                                     <option value="A7">A7</option>
                                     <option value="A8">A8</option>
                                     <option value="A9">A9</option>
                                     <option value="A10">A10</option>
+                                    <option value="B0">B0</option>
                                     <option value="B1">B1</option>
                                     <option value="B2">B2</option>
                                     <option value="B3">B3</option>
@@ -201,11 +255,32 @@
                                     <option value="B9">B9</option>
                                     <option value="B10">B10</option>
                                 </select>
-                                <select name="paper_fangxiang">
-                                    <option value="volvo">竖版</option>
-                                    <option value="saab">横板</option>
+                                <select  id="color">
+                                    <option value="1">否</option>
+                                    <option value="2">是</option>
                                 </select>
+                                <input type="number" id="paper_num" value="1"/>
+                                <input type="text" id="other_info">
                             </div>
+                            <script type="text/javascript">
+                                var elements = new Array();
+                                var element;
+                                elements[0] = document.getElementById("paper_size");
+                                elements[1] = document.getElementById("color");
+                                elements[2] = document.getElementById("paper_num");
+                                elements[3] = document.getElementById("other_info");
+                                for (element in elements)
+                                {
+                                    elements[element].addEventListener("change",function () {
+                                        var selectBar = document.getElementById("choosefile");
+                                        changefile(<?php echo "'$orderId'";?>,selectBar.value);
+                                    });
+                                }
+                                document.getElementById("data_select").addEventListener("mouseleave",function () {
+                                    var selectBar = document.getElementById("choosefile");
+                                    getFileInfo(<?php echo "\"$orderId\"";?>,selectBar.value);
+                                });
+                            </script>
                         </form>
                         <div class="go" id="go_two">
                             <a>
@@ -246,3 +321,6 @@
 </body>
 
 </html>
+<?php
+ob_end_flush();
+?>>
