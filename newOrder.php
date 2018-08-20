@@ -319,10 +319,6 @@
                             <input id="map_search" type="search" placeholder="输入打印店名来查找" size="50">
                         </form>
                         <div id="baiduMap"></div>
-                        <div class="go" id="go_three">
-                            <a>
-                                <button href="#" class="button button-caution button-rounded button-jumbo">完成</a>
-                        </div>
                        <div class="mapform" id="mapform">
                             <table border="1" cellspacing="0">
                                 <thead>
@@ -357,6 +353,10 @@
                                 </tr>-->
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="go" id="go_three">
+                            <a>
+                                <button class="button button-caution button-rounded button-jumbo">完成</a>
                         </div>
 
                     </div>

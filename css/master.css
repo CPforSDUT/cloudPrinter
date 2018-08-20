@@ -197,8 +197,8 @@ daohang a:hover .caidan{
     display: none;
 }
 #form3{
-    max-width: 700px;
-    position: absolute;
+    max-width: 600px;
+    position: relative;
     height: 440px;
     z-index: 9;
     display: none;
@@ -206,7 +206,6 @@ daohang a:hover .caidan{
 #baiduMap{
     margin: auto;
     width: 600px;
-    left: 7%;
     height: 350px;
     position: relative;
     /* border-radius: 12px; */
@@ -216,7 +215,6 @@ daohang a:hover .caidan{
 #map_search{
     top: 30;
     position: absolute;
-    left:7%;
     margin: auto;
     max-width: 600px;
     height: 48px;
@@ -230,9 +228,9 @@ daohang a:hover .caidan{
 .mapform{
     width: 700px;
     height: 180px;
-    left: 7%;
     position: absolute;
     top:350px;
+    left: 15%;
     z-index: 12;
 }
 /*.mapform table{
@@ -249,7 +247,7 @@ daohang a:hover .caidan{
 .go{
     position: absolute;
     width: 700px;
-    top:450px;
+    top:440px;
     font-size: 32px;
     text-align: center;
     z-index: 20;
@@ -257,8 +255,9 @@ daohang a:hover .caidan{
 .go button{
     width: 240px;
     position: absolute;
-    left: 30%;
+    left: 25%;
 }
+
 #data_select{
     padding-top: 2px;
     position: absolute;
