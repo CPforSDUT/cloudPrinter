@@ -53,7 +53,7 @@ if(isset($_POST["username"])) {
     $row = mysql_fetch_array($result);
     if($row == null)
     {
-        mysql_query("INSERT INTO user (username, password,type,la,lo,province,city,area,other) VALUES (\"$user\", \"$pass\",\"$type\",\"$la\",\"$lo\",\"$province\",\"$city\",\"$area\",\"$other\")");
+        mysql_query("INSERT INTO user (username, password,type,la,lo,province,city,area,other,state) VALUES (\"$user\", \"$pass\",\"$type\",\"$la\",\"$lo\",\"$province\",\"$city\",\"$area\",\"$other\",\"1\")");
         mysql_close($con);
         header("location:/index.php");
     }

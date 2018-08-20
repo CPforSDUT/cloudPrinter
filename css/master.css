@@ -181,9 +181,7 @@ daohang a:hover .caidan{
     /* background-color: rgb(255, 214, 214); */
     z-index: 7;
 }
-#mydropzone{
-    width: 600px;
-}
+
 #form1 span{
     color: #28262C;
     font-family: "微软雅黑";
@@ -201,10 +199,7 @@ daohang a:hover .caidan{
     z-index: 9;
     display: none;
 }
-.map{
-    position: absolute;
-    margin: auto;
-}
+
 .go{
     position: absolute;
     width: 600px;
@@ -231,6 +226,7 @@ daohang a:hover .caidan{
     border: 1px;
     z-index: 10;
 }
+
 #data_select{
     padding-top: 2px;
     position: absolute;
