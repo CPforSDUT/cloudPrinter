@@ -235,10 +235,10 @@ daohang a:hover .caidan{
     top:350px;
     z-index: 12;
 }
-.mapform table{
+/*.mapform table{
     text-align: center;
     position: absolute;
-}
+}*/
 .mapform td{
     width: 60px;
 }

@@ -43,6 +43,7 @@ for($i = 0 ; $row = mysql_fetch_array($result);$i++ )
     $lo = $row['lo'];
     $la = $row['la'];
     $state = $row['state'];
+    echo "where[$i] = Array();";
     echo "where[$i]['username'] = '$username';";
     echo "where[$i]['province'] = '$province';";
     echo "where[$i]['city'] = '$city';";

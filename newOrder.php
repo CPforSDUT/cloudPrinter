@@ -33,8 +33,8 @@
     </style>
     <script type="text/javascript">  
         function showAndHidden1(orderId) {
-            /*
-            var form1 = document.getElementById("form1");
+
+            /*var form1 = document.getElementById("form1");
             var form2 = document.getElementById("form2");
             var files = new XMLHttpRequest();
 
@@ -50,8 +50,7 @@
             }
             else {
                 alert("你没有上传文件");
-            }
-            */
+            }*/
             form1.style.display = "none";
             form2.style.display = "block";
             showAndHidden2();
@@ -111,19 +110,33 @@
                 }
             }
         }
-        function createTag(marker,m){
+        function createTag(marker,info){
 
             //标注
             //var text = m;
             //var infoWindow = new BMap.InfoWindow(text);
             //marker.addEventListener("click", function () { this.openInfoWindow(infoWindow);document.getElementById('printname').value=infoWindow.getContent(); });
-            marker.addEventListener("click", function () { document.getElementById('printname').value});
+            marker.addEventListener("click", function () {
+                document.getElementById('user_name').innerHTML = info['username'];
+                document.getElementById('province').innerHTML = unescape(info['province']);
+                document.getElementById('city').innerHTML = unescape(info['city']);
+                document.getElementById('area').innerHTML = unescape(info['area']);
+                document.getElementById('other').innerHTML = unescape(info['other']);
+                var state;
+                if(info['state'] == '1'){
+                    state = "打烊";
+                }
+                else {
+                    state= "开门";
+                }
+                document.getElementById("state").innerText = state;
+            });
         }
     </script>
 </head>
 
 <body>
-<div id="show" style="display: block"></div>
+<div id="show" style="display: none"></div>
     <div class="container">
         <div class="header">
             <div class="daohang" id="daohang">
@@ -269,7 +282,7 @@
                                     <option value="B8">B8</option>
                                     <option value="B9">B9</option>
                                     <option value="B10">B10</option>
-                                </select>
+                                </select><br/>
                                 <select  id="color">
                                     <option value="1">否</option>
                                     <option value="2">是</option>
@@ -313,41 +326,39 @@
                             <a>
                                 <button href="#" class="button button-caution button-rounded button-jumbo">完成</a>
                         </div>
-                        <div class="mapform" id="mapform">
+                       <div class="mapform" id="mapform">
                             <table border="1" cellspacing="0">
-                            <thead> 
-                            <tr>  
-                            <td>店名</td>  
-                            <td>距离</td>  
-                            <td>营业状态</td>
-                            <td>&nbsp;</td>
-                            <td>城市</td>
-                            <td>地区</td>
-                            <td>其他</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            </tr>  
-                            </thead>  
-                            <tbody>  
-                            <tr>    <!--这里是内容 -->
-                            <td></td>  
-                            <td></td>
-                            <td></td>
-                            </tr>  
-                            <tr>  
-                            <td>&nbsp;</td>  
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>  
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>  
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            </tr>  
-                            </tbody>
+                                <thead>
+                                <tr>
+                                    <td>店名</td>
+                                    <td>距离</td>
+                                    <td>省份</td>
+                                    <td>城市</td>
+                                    <td>区域</td>
+                                    <td>详细地址</td>
+                                    <td>营业状态</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>    <!--这里是内容 -->
+                                    <td id="user_name"></td>
+                                    <td id="distance"></td>
+                                    <td id="province"></td>
+                                    <td id="city"></td>
+                                    <td id="area"></td>
+                                    <td id="other"></td>
+                                    <td id="state"></td>
+                                </tr>
+                               <!--<tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>-->
+                                </tbody>
                             </table>
                         </div>
 
@@ -391,10 +402,11 @@
             var mapInfo = new XMLHttpRequest();
             mapInfo.open("POST","/user/getMapInfo.php",true);
             mapInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            mapInfo.send("province="+escape(addComp));
+            mapInfo.send("province="+escape(addComp.province));
             mapInfo.onreadystatechange=function() {
                 if (mapInfo.readyState == 4 && mapInfo.status == 200) {
                     var each;
+                    map.clearOverlays();
                     eval(mapInfo.responseText);
                     for (each in where)
                     {
