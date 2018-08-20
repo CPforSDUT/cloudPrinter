@@ -157,7 +157,7 @@ daohang a:hover .caidan{
 
 }
 .m2{
-    max-width: 600px;
+    max-width: 700px;
     max-height: 600px;
     position: relative;
     margin-left: auto;
@@ -171,12 +171,14 @@ daohang a:hover .caidan{
 
 }
 .form{
-    max-width: 600px;
+    margin: auto;
+    max-width: 700px;
     height: 440px;
-    position: absolute;
+    position: relative;
     /* border: 1px #28262C dashed; */
 }
 #form1{
+    max-width: 600px;
     height: 440px;
     /* background-color: rgb(255, 214, 214); */
     z-index: 7;
@@ -187,6 +189,7 @@ daohang a:hover .caidan{
     font-family: "微软雅黑";
 }
 #form2{
+    max-width: 600px;
     height: 440px;
     /* background-color: rgb(214, 255, 226); */
     z-index: 8;
@@ -194,28 +197,26 @@ daohang a:hover .caidan{
     display: none;
 }
 #form3{
+    max-width: 700px;
+    position: absolute;
     height: 440px;
-    background-color: rgb(217, 214, 255);
     z-index: 9;
     display: none;
 }
-
-.go{
-    position: absolute;
+#baiduMap{
+    margin: auto;
     width: 600px;
-    top:450px;
-    font-size: 32px;
-    text-align: center;
-    z-index: 11;
-}
-.go button{
-    width: 240px;
-    position: absolute;
-    left: 30%;
+    left: 7%;
+    height: 350px;
+    position: relative;
+    /* border-radius: 12px; */
+    z-index: 10;
+    /* border: 10px dashed #62c1fb; */
 }
 #map_search{
+    top: 30;
     position: absolute;
-    top: 30px;
+    left:7%;
     margin: auto;
     max-width: 600px;
     height: 48px;
@@ -224,9 +225,40 @@ daohang a:hover .caidan{
     border-radius: 30px;
     display: inline-block;
     border: 1px;
-    z-index: 10;
+    z-index: 12;
 }
-
+.mapform{
+    width: 700px;
+    height: 180px;
+    left: 7%;
+    position: absolute;
+    top:350px;
+    z-index: 12;
+}
+.mapform table{
+    text-align: center;
+    position: absolute;
+}
+.mapform td{
+    width: 200px;
+}
+.mapform thead{
+    font-weight: bold;
+    background-color: #3c7df1;
+}
+.go{
+    position: absolute;
+    width: 700px;
+    top:450px;
+    font-size: 32px;
+    text-align: center;
+    z-index: 20;
+}
+.go button{
+    width: 240px;
+    position: absolute;
+    left: 30%;
+}
 #data_select{
     padding-top: 2px;
     position: absolute;
@@ -279,6 +311,8 @@ daohang a:hover .caidan{
     margin: 0px;
     margin-bottom:4px;
 }
+
+
 
 .footer{
     font-size: 18px;

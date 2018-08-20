@@ -12,8 +12,7 @@
         function check_code() {
             console.log(1);
             //获取账号
-            var code =
-                document.getElementById("username").value;
+            var code =document.getElementById("username").value;
             var reg = /^\w{6,12}$/;
             if(reg.test(code)) {
                 return true;
@@ -46,7 +45,7 @@
             <nav>登录</nav>
             <input type="text" name="username" id="username" placeholder="请输入账号">
             <input type="password" name="password" id="password" placeholder="请输入密码">
-            <input type="submit" id="dl">立即登录</input>
+            <input type="submit" value="立即登陆" id="dl">
             <span>没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></span>
         </form>
     </div>

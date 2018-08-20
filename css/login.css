@@ -48,7 +48,6 @@ input{
     width: 260px;
     height: 40px;
     margin-bottom: 10px;
-    padding:6px;
 }
 #dl{
     margin-top: 30px;
@@ -56,9 +55,11 @@ input{
     text-decoration: none;  
     color: #ffffff;
     background-color: #28d3ae;
-    display: inline-block;
     width: 260px;
-    height: 50px;
     font-size: 24px;
-    padding: 10px;
+}
+input[type=submit]{
+
+    height: 80px;
+    border: 0px;
 }

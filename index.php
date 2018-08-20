@@ -30,15 +30,6 @@
             display: block;
             margin-top: 1.4rem;
         }
-        #baiduMap{
-            width:  500px;
-            height: 290px;
-            position: absolute;
-            top: 20%;
-            left: 50;
-            border-radius: 45px;
-            border: 10px dashed #62c1fb;
-        }
     </style>
     <script type="text/javascript">  
         function showAndHidden1(orderId) {
@@ -321,6 +312,34 @@
                         <div class="go" id="go_three">
                             <a>
                                 <button href="#" class="button button-caution button-rounded button-jumbo">完成</a>
+                        </div>
+                        <div class="mapform" id="mapform">
+                            <table border="1" cellspacing="0">
+                            <thead> 
+                            <tr>  
+                            <td>店名</td>  
+                            <td>距离</td>  
+                            <td>营业状态</td>
+                            </tr>  
+                            </thead>  
+                            <tbody>  
+                            <tr>  
+                            <td>第1条</td>  
+                            <td>内容内容内容</td>
+                            <td>内容内容内容</td>
+                            </tr>  
+                            <tr>  
+                            <td>第2条</td>  
+                            <td>内容内容内容</td>
+                            <td>内容内容内容</td>
+                            </tr>  
+                            <tr>  
+                            <td>&nbsp;</td>  
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>  
+                            </tbody>
+                            </table>
                         </div>
 
                     </div>
