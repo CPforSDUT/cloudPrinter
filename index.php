@@ -320,21 +320,30 @@
                             <td>店名</td>  
                             <td>距离</td>  
                             <td>营业状态</td>
+                            <td>&nbsp;</td>
+                            <td>城市</td>
+                            <td>地区</td>
+                            <td>其他</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
                             </tr>  
                             </thead>  
                             <tbody>  
-                            <tr>  
-                            <td>第1条</td>  
-                            <td>内容内容内容</td>
-                            <td>内容内容内容</td>
-                            </tr>  
-                            <tr>  
-                            <td>第2条</td>  
-                            <td>内容内容内容</td>
-                            <td>内容内容内容</td>
+                            <tr>    <!--这里是内容 -->
+                            <td></td>  
+                            <td></td>
+                            <td></td>
                             </tr>  
                             <tr>  
                             <td>&nbsp;</td>  
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>  
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>  
+                            <td>&nbsp;</td>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
                             </tr>  

@@ -240,7 +240,7 @@ daohang a:hover .caidan{
     position: absolute;
 }
 .mapform td{
-    width: 200px;
+    width: 60px;
 }
 .mapform thead{
     font-weight: bold;
@@ -311,7 +311,6 @@ daohang a:hover .caidan{
     margin: 0px;
     margin-bottom:4px;
 }
-
 
 
 .footer{
