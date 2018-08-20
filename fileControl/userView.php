@@ -203,7 +203,6 @@ function unescape($str) {
                         else {
                             echo "location.href='/fileControl/userView.php';";
                         }
-
 ?>
                 }
             });

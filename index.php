@@ -4,11 +4,14 @@
 
 <head>
     <title>云打印</title>
-    <link rel="stylesheet" type="text/css" href="css/master.css">
+    <link rel="stylesheet" type="text/css" href="/css/master.css">
     <link href="/js/dist/dropzone.css" rel="stylesheet" />
     <link href="/js/dist/basic.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/buttons.css">
     <script src="/js/dist/dropzone.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=04uLKfHLu2zT9eKoaSk2WsXC0ekF3aF3" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js" charset="UTF-8"></script>
     <style type="text/css">
         .dropzone {
             border: 2px dashed #0087F7;
@@ -17,7 +20,7 @@
         }
 
         .dropzone {
-            font-weight: 400;
+            width: 600px;
             height: 300px;
         }
 
@@ -27,9 +30,19 @@
             display: block;
             margin-top: 1.4rem;
         }
+        #baiduMap{
+            width:  500px;
+            height: 290px;
+            position: absolute;
+            top: 20%;
+            left: 50;
+            border-radius: 45px;
+            border: 10px dashed #62c1fb;
+        }
     </style>
     <script type="text/javascript">  
         function showAndHidden1(orderId) {
+            /*
             var form1 = document.getElementById("form1");
             var form2 = document.getElementById("form2");
             var files = new XMLHttpRequest();
@@ -47,7 +60,10 @@
             else {
                 alert("你没有上传文件");
             }
-
+            */
+            form1.style.display = "none";
+            form2.style.display = "block";
+            showAndHidden2();
         }
         function showAndHidden2() {
             var form2 = document.getElementById("form2");
@@ -104,6 +120,14 @@
                 }
             }
         }
+        function createTag(marker,m){
+
+            //标注
+            //var text = m;
+            //var infoWindow = new BMap.InfoWindow(text);
+            //marker.addEventListener("click", function () { this.openInfoWindow(infoWindow);document.getElementById('printname').value=infoWindow.getContent(); });
+            marker.addEventListener("click", function () { document.getElementById('printname').value});
+        }
     </script>
 </head>
 
@@ -133,7 +157,7 @@
                                 <a href="#">其他功能</a>
                             </li>
                             <li>
-                                <a href="#">退出账户</a>
+                                <a href="/user/logout.php">退出账户</a>
                             </li>
                         </ul>
                     </div>
@@ -288,22 +312,24 @@
                         </div>
                         <!--<nav>打印参数</nav>-->
                     </div>
+
                     <div class="form" id="form3">
                         <form action="">
                             <input id="map_search" type="search" placeholder="输入打印店名来查找" size="50">
                         </form>
-
-                        <div id="map">
-                            <!--此处放地图 -->
-                        </div>
+                        <div id="baiduMap"></div>
                         <div class="go" id="go_three">
                             <a>
                                 <button href="#" class="button button-caution button-rounded button-jumbo">完成</a>
                         </div>
+
                     </div>
+
                 </div>
             </div>
+
         </div>
+
         <div class="footer">
             <br>
             <br>
@@ -318,9 +344,46 @@
         </div>
     </div>
 
+<script type="text/javascript">
+
+    var map = new BMap.Map("baiduMap");
+    var point = new BMap.Point(116.38,39.90);
+    map.centerAndZoom(point,8);
+    map.addControl(new BMap.GeolocationControl());
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(r){
+        map.panTo(r.point);
+    });
+    map.addEventListener("dragend", function(result){
+
+        var center = map.getCenter();
+        var myGeo = new BMap.Geocoder();
+        myGeo.getLocation(new BMap.Point(center.lng ,center.lat ), function(result){
+            var addComp = result.addressComponents;
+            var mapInfo = new XMLHttpRequest();
+            mapInfo.open("POST","/user/getMapInfo.php",true);
+            mapInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            mapInfo.send("province="+escape(addComp));
+            mapInfo.onreadystatechange=function() {
+                if (mapInfo.readyState == 4 && mapInfo.status == 200) {
+                    var each;
+                    eval(mapInfo.responseText);
+                    for (each in where)
+                    {
+                        pt = new BMap.Point(where[each]['lo'],where[each]['la']);
+                        mark=new BMap.Marker(pt);
+                        map.addOverlay(mark);
+                        createTag(mark,where[each]);
+                    }
+                }
+            }
+        });
+    });
+
+</script>
 </body>
 
 </html>
 <?php
 ob_end_flush();
-?>>
+?>
