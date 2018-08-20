@@ -34,7 +34,7 @@
     <script type="text/javascript">  
         function showAndHidden1(orderId) {
 
-            /*var form1 = document.getElementById("form1");
+            var form1 = document.getElementById("form1");
             var form2 = document.getElementById("form2");
             var files = new XMLHttpRequest();
 
@@ -50,10 +50,7 @@
             }
             else {
                 alert("你没有上传文件");
-            }*/
-            form1.style.display = "none";
-            form2.style.display = "block";
-            showAndHidden2();
+            }
         }
         function showAndHidden2() {
             var form2 = document.getElementById("form2");
@@ -232,7 +229,7 @@
                         <span>*请上传不大于20M的文件</span>
                         <div class="go" id="go_one">
                             <a>
-                                <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1(<?php echo "'$orderId'";?>)">下一步</a>
+                                <button class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1(<?php echo "'$orderId'";?>)">下一步</a>
                         </div>
                         <?php
                         mysql_query("INSERT INTO orderids (orderId) VALUES (\"$orderId\")");
@@ -312,7 +309,7 @@
                         </form>
                         <div class="go" id="go_two">
                             <a>
-                                <button href="#" class="button button-caution button-rounded button-jumbo" onclick="showAndHidden2()">下一步</a>
+                                <button class="button button-caution button-rounded button-jumbo" onclick="showAndHidden2()">下一步</a>
                         </div>
                         <!--<nav>打印参数</nav>-->
                     </div>

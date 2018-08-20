@@ -31,13 +31,7 @@ if(isset($_SESSION['user']) == false)
     if ($pass == $truepass){
         echo "<script>alert('login successful!');</script>";
         $type = $_SESSION["type"];
-
-        if($type != '2') {
-            header("location:/fileControl/userView.php");
-        }
-        else {
-            header("location:/fileControl/businessView.php");
-        }
+        header("location:/admin/index.php");
     }
     else {
         echo "<script type='text/javascript'>alert(\"用户名或密码错误\");</script>";
