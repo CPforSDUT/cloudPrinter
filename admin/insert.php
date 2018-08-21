@@ -11,9 +11,9 @@
   <div class="topbar-wrap white">
       <div class="topbar-inner clearfix">
           <div class="topbar-logo-wrap clearfix">
-              <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
+              <h1 class="topbar-logo none"><a href="index.php" class="navbar-brand">后台管理</a></h1>
               <ul class="navbar-list clearfix">
-                  <li><a class="on" href="index.html">首页</a></li>
+                  <li><a class="on" href="index.php">首页</a></li>
                   <li><a href="#" target="_blank">网站首页</a></li>
               </ul>
           </div>
@@ -36,19 +36,19 @@
                   <li>
                       <a href="#"><i class="icon-font">&#xe003;</i>订单管理</a>
                       <ul class="sub-menu">
-                        <li><a href="order.html"><i class="icon-font">&#xe005;</i>所有订单</a></li>
-                        <li><a href="sore.html"><i class="icon-font">&#xe004;</i>输入提取码</a></li>
-                        <li><a href="document.html"><i class="icon-font">&#xe006;</i>文件管理</a></li>
-                        <li><a href="people.html"><i class="icon-font">&#xe001;</i>用户管理</a></li>
+                        <li><a href="order.php"><i class="icon-font">&#xe005;</i>所有订单</a></li>
+                        <li><a href="sore.php"><i class="icon-font">&#xe004;</i>输入提取码</a></li>
+                        <li><a href="document.php"><i class="icon-font">&#xe006;</i>文件管理</a></li>
+                        <li><a href="people.php"><i class="icon-font">&#xe001;</i>用户管理</a></li>
                       </ul>
                   </li>
                   <li>
                       <a href="#"><i class="icon-font">&#xe018;</i>商家信息设置</a>
                       <ul class="sub-menu">
-                        <li><a href="information.html"><i class="icon-font">&#xe000;</i>营业状态</a></li>
-                        <li><a href="information.html"><i class="icon-font">&#xe018;</i>打印机参数</a></li>
-                        <li><a href="information.html"><i class="icon-font">&#xe021;</i>地理位置</a></li>
-                        <li><a href="information.html"><i class="icon-font">&#xe014;</i>头像和其他</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe000;</i>营业状态</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe018;</i>打印机参数</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe021;</i>地理位置</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe014;</i>头像和其他</a></li>
                       </ul>
                   </li>
               </ul>
@@ -58,7 +58,7 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="order.html">订单管理</a><span class="crumb-step">&gt;</span><span>插入订单</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="index.php">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="order.php">订单管理</a><span class="crumb-step">&gt;</span><span>插入订单</span></div>
         </div>
         <div class="result-wrap">
             <div class="result-content">

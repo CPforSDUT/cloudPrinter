@@ -11,9 +11,9 @@
   <div class="topbar-wrap white">
       <div class="topbar-inner clearfix">
           <div class="topbar-logo-wrap clearfix">
-              <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
+              <h1 class="topbar-logo none"><a href="index.php" class="navbar-brand">后台管理</a></h1>
               <ul class="navbar-list clearfix">
-                  <li><a class="on" href="index.html">首页</a></li>
+                  <li><a class="on" href="index.php">首页</a></li>
                   <li><a href="#" target="_blank">网站首页</a></li>
               </ul>
           </div>
@@ -36,19 +36,19 @@
                   <li>
                       <a href="#"><i class="icon-font">&#xe003;</i>订单管理</a>
                       <ul class="sub-menu">
-                        <li><a href="order.html"><i class="icon-font">&#xe005;</i>所有订单</a></li>
-                        <li><a href="sore.html"><i class="icon-font">&#xe004;</i>输入提取码</a></li>
-                        <li><a href="document.html"><i class="icon-font">&#xe006;</i>文件管理</a></li>
-                        <li><a href="people.html"><i class="icon-font">&#xe001;</i>用户管理</a></li>
+                        <li><a href="order.php"><i class="icon-font">&#xe005;</i>所有订单</a></li>
+                        <li><a href="sore.php"><i class="icon-font">&#xe004;</i>输入提取码</a></li>
+                        <li><a href="document.php"><i class="icon-font">&#xe006;</i>文件管理</a></li>
+                        <li><a href="people.php"><i class="icon-font">&#xe001;</i>用户管理</a></li>
                       </ul>
                   </li>
                   <li>
                       <a href="#"><i class="icon-font">&#xe018;</i>商家信息设置</a>
                       <ul class="sub-menu">
-                        <li><a href="information.html"><i class="icon-font">&#xe000;</i>营业状态</a></li>
-                        <li><a href="information.html"><i class="icon-font">&#xe018;</i>打印机参数</a></li>
-                        <li><a href="information.html"><i class="icon-font">&#xe021;</i>地理位置</a></li>
-                        <li><a href="information.html"><i class="icon-font">&#xe014;</i>头像和其他</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe000;</i>营业状态</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe018;</i>打印机参数</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe021;</i>地理位置</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe014;</i>头像和其他</a></li>
                       </ul>
                   </li>
               </ul>
@@ -58,7 +58,7 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">订单管理</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="index.php">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">用户管理</span></div>
         </div>
         <div class="search-wrap">
             <div class="search-content">
@@ -69,10 +69,10 @@
                             <td>
                                 <select name="search-sort" id="">
                                     <option value="0">全部</option>
-                                    <option value="1">今日文件</option>
-                                    <option value="2">昨日文件</option>
-                                    <option value="3">本月文件</option>
-                                    <option value="4">上月文件</option>
+                                    <option value="1">今日订单</option>
+                                    <option value="2">昨日订单</option>
+                                    <option value="3">本月订单</option>
+                                    <option value="4">上月订单</option>
                                 </select>
                             </td>
                             <th width="70">关键字:</th>
@@ -87,7 +87,7 @@
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="insert.html"><i class="icon-font"></i>新增订单</a>
+                        <a href="insert.php"><i class="icon-font"></i>新增订单</a>
                         <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
                         <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
                     </div>
@@ -98,12 +98,12 @@
                             <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
                             <th>排序</th>
                             <th>ID</th>
-                            <th>标题</th>
-                            <th>订单状态</th>
+                            <th>用户名</th>
+                            <th>性别</th>
                             <th>联系方式</th>
-                            <th>发布人</th>
-                            <th>提交时间</th>
-                            <th>完成时间</th>
+                            <th>注册时间</th>
+                            <th>上传文件数</th>
+
                             <th>操作</th>
                         </tr>
                         <tr>
@@ -113,36 +113,36 @@
                                 <input class="common-input sort-input" name="ord[]" value="0" type="text">
                             </td>
                             <td>1</td>
-                            <td title="文件1"><a target="_blank" href="#" title="文件1">文件1</a> …
+                            <td title="阿黄"><a target="_blank" href="#" title="阿黄">阿黄</a> …
                             </td>
-                            <td>未打印</td>
+                            <td>男</td>
                             <td>17853311111</td>
-                            <td>admin</td>
+
                             <td>2018-08-10 21:11:01</td>
-                            <td></td>
+                            <td>5</td>
                             <td>
-                                <a class="link-download" href="#">下载</a>
-                                <a class="link-update" href="#">修改</a>
+
+                                <a class="link-update" href="#">修改密码</a>
                                 <a class="link-del" href="#">删除</a>
                             </td>
                         </tr>
                         <tr>
-                            <td class="tc"><input name="id[]" value="2" type="checkbox"></td>
+                            <td class="tc"><input name="id[]" value="1" type="checkbox"></td>
                             <td>
-                                <input name="ids[]" value="2" type="hidden">
+                                <input name="ids[]" value="1" type="hidden">
                                 <input class="common-input sort-input" name="ord[]" value="0" type="text">
                             </td>
-                            <td>2</td>
-                            <td title="文件2"><a target="_blank" href="#" title="文件2">文件2</a> …
+                            <td>1</td>
+                            <td title="阿黑"><a target="_blank" href="#" title="阿黑">阿黑</a> …
                             </td>
-                            <td>已打印</td>
-                            <td>35</td>
-                            <td>admin</td>
-                            <td>2018-08-11 21:11:01</td>
-                            <td>2018-08-12 21:11:01</td>
+                            <td>女</td>
+                            <td>17853311111</td>
+
+                            <td>2018-08-10 21:11:01</td>
+                            <td>2</td>
                             <td>
-                                <a class="link-download" href="#">下载</a>
-                                <a class="link-update" href="#">修改</a>
+
+                                <a class="link-update" href="#">修改密码</a>
                                 <a class="link-del" href="#">删除</a>
                             </td>
                         </tr>
