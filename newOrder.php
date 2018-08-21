@@ -250,13 +250,8 @@
                                 <nav>纸张大小：</nav>
                                 <nav>是否彩印：</nav>
                                 <nav>打印页数：</nav>
-                                <nav>备注：</nav>
                                 <nav>纸张方向：</nav>
-                                <nav>纸张类型：</nav>
-                                <nav>纸张颜色：</nav>
-                                <nav>正反打印：</nav>
-                                <nav>dpi：</nav>
-
+                                <nav>备注：</nav>
                             </div>
                             <div id="data_right">
                                 <select name="paper_size" id="paper_size">
@@ -282,13 +277,22 @@
                                     <option value="B8">B8</option>
                                     <option value="B9">B9</option>
                                     <option value="B10">B10</option>
-                                </select><br/>
+                                </select>
+                                <br>
                                 <select  id="color">
-                                    <option value="1">否</option>
+                                    <option value="1" selected>否</option>
                                     <option value="2">是</option>
                                 </select>
+                                <br>
                                 <input type="number" id="paper_num" value="1"/>
-                                <input type="text" id="other_info">
+                                <br>
+                                <select  id="orientation">
+                                    <option value="1">竖版</option>
+                                    <option value="2">横板</option>
+                                    <option value="0" selected>默认</option>
+                                </select>
+                                <br>
+                                <textarea rows="6" cols="20" id="other_info"></textarea>
                             </div>
                             <script type="text/javascript">
                                 var elements = new Array();
@@ -322,7 +326,7 @@
                             <input id="map_search" type="search" placeholder="输入打印店名来查找" size="50">
                         </form>
                         <div id="baiduMap"></div>
-                       <div class="mapform" id="mapform">
+                        <div class="mapform" id="mapform">
                             <table border="1" cellspacing="0">
                                 <thead>
                                 <tr>
@@ -345,15 +349,6 @@
                                     <td id="other"></td>
                                     <td id="state"></td>
                                 </tr>
-                               <!--<tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>-->
                                 </tbody>
                             </table>
                         </div>

@@ -19,7 +19,7 @@ body{
     visibility: hidden;
 }
 input{
-    max-width: 200px;
+    max-width: 180px;
     height: 28px;
     font-size: 18px;
     margin: 6px;
@@ -172,7 +172,7 @@ daohang a:hover .caidan{
 }
 .form{
     margin: auto;
-    max-width: 700px;
+    max-width: 600px;
     height: 440px;
     position: relative;
     /* border: 1px #28262C dashed; */
@@ -208,41 +208,56 @@ daohang a:hover .caidan{
     width: 600px;
     height: 350px;
     position: relative;
-    /* border-radius: 12px; */
+    border-radius: 6px;
     z-index: 10;
     /* border: 10px dashed #62c1fb; */
 }
 #map_search{
     top: 30;
     position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
     margin: auto;
-    max-width: 600px;
+    max-width: 500px;
     height: 48px;
     padding-left: 20px;
     font-size: 22px;
     border-radius: 30px;
     display: inline-block;
-    border: 1px;
+    border: 3px;
     z-index: 12;
 }
 .mapform{
-    width: 700px;
+    max-width: 700px;
     height: 180px;
-    position: absolute;
     top:350px;
-    left: 15%;
     z-index: 12;
 }
-/*.mapform table{
+.mapform table{
+    top: 6px;
+    border: #bbbbbb;
     text-align: center;
-    position: absolute;
-}*/
+    position: relative;
+    margin: auto;
+}
 .mapform td{
-    width: 60px;
+    min-width: 60px;
+    max-width: 200px;
+    padding: 6px;
+    min-width: 60px;
+    max-width: 120px;
+    height: 30px;
+    color: #7c7c7c；
 }
 .mapform thead{
+    min-width: 60px;
+    max-width: 120px;
     font-weight: bold;
     background-color: #3c7df1;
+    color: #ffffff;
+}
+.mapform tbody{
+    background-color: #fff;
 }
 .go{
     position: absolute;
@@ -286,6 +301,7 @@ daohang a:hover .caidan{
     margin-bottom: 4px;
 }
 #data_right{
+    font-size: 22px;
     padding-top: 2px;
     position: absolute;
     padding-left: 10px;
@@ -296,6 +312,7 @@ daohang a:hover .caidan{
 }
 
 #data_right input{
+    text-align: right;
     font-size: 18px;
     margin:0px;
     margin-bottom:4px;
@@ -310,8 +327,13 @@ daohang a:hover .caidan{
     margin: 0px;
     margin-bottom:4px;
 }
-
-
+#paper_num{
+    max-width: 60px;
+}
+#other_info{
+    max-width: 180px;
+    resize: none;
+}
 .footer{
     font-size: 18px;
     height: 160px;
