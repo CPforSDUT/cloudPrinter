@@ -74,18 +74,21 @@
             var setinfo = new XMLHttpRequest();
             setinfo.open("POST","/fileControl/setFileInfo.php",true);
             setinfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            setinfo.send("paperNum="+paperNum+"&paperSize="+paperSize+"&color="+color+"&otherInfo="+escape(otherInfo)+"&orderId="+orderId+"&fileName="+fileName);
+            setinfo.send("paperNum="+paperNum+"&paperSize="+paperSize+"&color="+color+"&otherInfo="+escape(otherInfo)+"&orderId="+orderId+"&fileName="+escape(fileName));
+            alert("paperNum="+paperNum+"&paperSize="+paperSize+"&color="+color+"&otherInfo="+escape(otherInfo)+"&orderId="+orderId+"&fileName="+escape(fileName));
         }
         function getFileInfo(orderId,fileName) {
             var getInfo = new XMLHttpRequest();
             getInfo.open("POST","/fileControl/getFileInfo.php",true);
             getInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             getInfo.send("orderId="+orderId+"&fileName="+escape(fileName));
+            alert("orderId="+orderId+"&fileName="+escape(fileName));
             getInfo.onreadystatechange=function()
             {
                 if (getInfo.readyState==4 && getInfo.status==200)
                 {
                     document.getElementById("show").innerHTML = getInfo.responseText;
+                    alert(getInfo.responseText);
                     /*(<p id='paperNum'>1</p><p id='paperSize'>A5</p><p id='color'>0</p><p id='otherInfo'></p>*/
                    var paperNum = document.getElementById("paper_num");
                     var paperSize = document.getElementById("paper_size");
@@ -94,7 +97,7 @@
 
 
                     paperNum.value = document.getElementById("paperNum").innerText;
-                    otherInfo.value = document.getElementById("otherInfo").innerText;
+                    otherInfo.value = unescape(document.getElementById("otherInfo").innerText);
                     paperSizes = Array("A0","A1","A2","A3","A4","A5","A6","A7","A8","A9","A10","B0","B1","B2","B3","B4","B5","B6","B7","B8","B9","B10");
                     for (var i = 0 ;paperSizes[i] != document.getElementById("paperSize").innerText ; i ++);
                     paperSize.options[i].selected = true;
