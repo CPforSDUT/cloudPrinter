@@ -31,10 +31,13 @@ if(isset($_SESSION['user']) == false)
     if ($pass == $truepass){
         echo "<script>alert('login successful!');</script>";
         $type = $_SESSION["type"];
-        header("location:/admin/index.php");
+        if($type == '2'){
+            header("location:/admin/index.php");
+        }
+
     }
     else {
         echo "<script type='text/javascript'>alert(\"用户名或密码错误\");</script>";
         session_destroy();
-        echo "<script>window.location.href='/index.php';</script> ";
+        echo "<script>window.location.href='/user/loginView.php';</script> ";
     }
