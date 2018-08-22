@@ -12,6 +12,10 @@
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=04uLKfHLu2zT9eKoaSk2WsXC0ekF3aF3" charset="UTF-8"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js" charset="UTF-8"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="jqueryui/style.css">
     <style type="text/css">
         .dropzone {
             border: 2px dashed #0087F7;
@@ -132,6 +136,9 @@
                 document.getElementById("state").innerText = state;
             });
         }
+        $(function() {
+            $( "#datepicker" ).datepicker();
+        });
     </script>
 </head>
 
@@ -349,7 +356,7 @@
                                     <td id="area"></td>
                                     <td id="other"></td>
                                     <td id="state"></td>
-                                    <td id="gettime"></td>
+                                    <td id="gettime"><input type="text" id="datepicker" style="border-style:none"></td>
                                 </tr>
                                 </tbody>
                             </table>

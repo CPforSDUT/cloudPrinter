@@ -254,7 +254,7 @@ daohang a:hover .caidan{
     height: 30px;
     padding: 4px;
     color: #003399;
-    font-size: 16px;
+    font-size: 14px;
 }
 .mapform tbody{
     background-color: #e8edff;
@@ -262,7 +262,7 @@ daohang a:hover .caidan{
     height: 30px;
     color: #b9c9fe;
     padding: 4px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
 }
 #other{
@@ -270,6 +270,12 @@ daohang a:hover .caidan{
 }
 #other1{
     min-width: 110px;
+}
+#datepicker{
+    background-color: #e8edff;
+    max-width: 70px;
+    padding: 0;
+    margin: 0;
 }
 
 .go{
