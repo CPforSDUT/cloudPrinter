@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/admin/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/information.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/information.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/registered.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/registered.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/registeredView.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/registeredView.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +18,30 @@
       <file leaf-file-name="registeredView.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/registeredView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="111" column="54" lean-forward="true" selection-start-line="111" selection-start-column="54" selection-end-line="111" selection-end-column="54" />
+            <state relative-caret-position="418">
+              <caret line="160" column="42" lean-forward="true" selection-start-line="160" selection-start-column="42" selection-end-line="160" selection-end-column="42" />
+              <folding>
+                <element signature="e#2533#2539#0#HTML" expanded="true" />
+                <element signature="e#2540#2546#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web-forms2.rnc" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms2.rnc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="432" column="22" selection-start-line="432" selection-start-column="22" selection-end-line="432" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registered.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/registered.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -26,8 +49,12 @@
       <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4370">
-              <caret line="230" selection-start-line="230" selection-end-line="230" />
+            <state relative-caret-position="331">
+              <caret line="355" column="30" lean-forward="true" selection-start-line="355" selection-start-column="30" selection-end-line="355" selection-end-column="30" />
+              <folding>
+                <element signature="e#6465#6486#0#HTML" expanded="true" />
+                <element signature="e#11826#11861#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,15 +82,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/order.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="109" column="82" lean-forward="true" selection-start-line="109" selection-start-column="82" selection-end-line="109" selection-end-column="82" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="information.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/information.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="19">
-              <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
+              <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -86,13 +104,6 @@
         <entry file="file://$PROJECT_DIR$/admin/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-29" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-143" />
           </provider>
         </entry>
       </file>
@@ -107,7 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mapform</find>
       <find>show</find>
       <find>username</find>
       <find>go_one</find>
@@ -137,6 +147,7 @@
       <find>index.php</find>
       <find>sidebar-content</find>
       <find>sidebar-list</find>
+      <find>ttwo</find>
     </findStrings>
     <replaceStrings>
       <replace>POST</replace>
@@ -205,9 +216,10 @@
         <option value="$PROJECT_DIR$/fileControl/getFileInfo.php" />
         <option value="$PROJECT_DIR$/newOrder.php" />
         <option value="$PROJECT_DIR$/user/login.php" />
-        <option value="$PROJECT_DIR$/user/registeredView.php" />
         <option value="$PROJECT_DIR$/admin/information.php" />
         <option value="$PROJECT_DIR$/admin/css/main.css" />
+        <option value="$PROJECT_DIR$/user/registeredView.php" />
+        <option value="$PROJECT_DIR$/css/registered.css" />
       </list>
     </option>
   </component>
@@ -223,9 +235,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="532" />
-    <option name="y" value="157" />
-    <option name="width" value="1382" />
+    <option name="x" value="490" />
+    <option name="y" value="33" />
+    <option name="width" value="848" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -339,7 +351,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211125000" />
+    <option name="totallyTimeSpent" value="211958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -417,10 +429,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php" />
-    <entry file="file://$PROJECT_DIR$/registered.php" />
-    <entry file="file://$PROJECT_DIR$/package.json" />
-    <entry file="file://$USER_HOME$/Desktop/businessView.php" />
     <entry file="file://$USER_HOME$/Desktop/新建文件夹 (4)/businessView.php" />
     <entry file="file://$PROJECT_DIR$/registered.php" />
     <entry file="file://$PROJECT_DIR$/businessView.php" />
@@ -513,8 +521,8 @@
     <entry file="file://$PROJECT_DIR$/admin/information.html" />
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -578,8 +586,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/newOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4370">
-          <caret line="230" selection-start-line="230" selection-end-line="230" />
+        <state relative-caret-position="331">
+          <caret line="355" column="30" lean-forward="true" selection-start-line="355" selection-start-column="30" selection-end-line="355" selection-end-column="30" />
+          <folding>
+            <element signature="e#6465#6486#0#HTML" expanded="true" />
+            <element signature="e#11826#11861#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -600,13 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/registeredView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="111" column="54" lean-forward="true" selection-start-line="111" selection-start-column="54" selection-end-line="111" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-29" />
@@ -622,7 +627,44 @@
     <entry file="file://$PROJECT_DIR$/admin/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
-          <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
+          <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-143" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms2.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="432" column="22" selection-start-line="432" selection-start-column="22" selection-end-line="432" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/registeredView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="160" column="42" lean-forward="true" selection-start-line="160" selection-start-column="42" selection-end-line="160" selection-end-column="42" />
+          <folding>
+            <element signature="e#2533#2539#0#HTML" expanded="true" />
+            <element signature="e#2540#2546#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/registered.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
         </state>
       </provider>
     </entry>

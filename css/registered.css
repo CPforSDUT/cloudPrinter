@@ -18,6 +18,12 @@ input{
     height:28px;
     margin-bottom: 6px;
 }
+.lo_box{
+    width: 100px;
+    border: 0px;
+    background: #2D93CA;
+    color: white;
+}
 .biaoti{
     position: relative;
     text-align: left;

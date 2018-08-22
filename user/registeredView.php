@@ -137,12 +137,7 @@
                                     </div>
                                     <div id="map"></div>
                                     <div id="position">
-                                        <!-- <input type="hidden" name="type" value="2" />
-                                        <input type="text" name="province" id="province" readonly />
-                                        <input type="text" name="city" id="city" readonly />
-                                        <input type="text" name="area" id="area" readonly />
-                                        <input type="text" name="lo" id="lo" readonly />
-                                        <input type="text" name="la" id="la" readonly /> -->
+                                        <input type="hidden" name="type" value="2" />
                                         <table cellspacing="0" id="mapinfo">
                                             <thead>
                                                 <tr id="tone">
@@ -155,11 +150,11 @@
                                             </thead>
                                             <tbody>
                                                 <tr id="ttwo">    <!--这里是内容 -->
-                                                    <td id="province"></td>
-                                                    <td id="city"></td>
-                                                    <td id="area"></td>
-                                                    <td id="lo"></td>
-                                                    <td id="la"></td>
+                                                    <td><input type="text" class="lo_box" name="province" id="province" readonly /></td>
+                                                    <td><input type="text" class="lo_box" name="city" id="city" readonly /></td>
+                                                    <td><input type="text" class="lo_box" name="area" id="area" readonly /></td>
+                                                    <td><input type="text" class="lo_box" name="lo" id="lo" readonly /></td>
+                                                    <td><input type="text" class="lo_box" name="la" id="la" readonly /></td>
                                                 </tr>
                                             </tbody>
                                         </table>
