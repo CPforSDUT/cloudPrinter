@@ -206,7 +206,7 @@ daohang a:hover .caidan{
 #baiduMap{
     margin: auto;
     width: 600px;
-    height: 350px;
+    height: 320px;
     position: relative;
     border-radius: 6px;
     z-index: 10;
@@ -234,48 +234,57 @@ daohang a:hover .caidan{
     z-index: 12;
 }
 .mapform table{
-    top: 6px;
     text-align: center;
     position: relative;
     margin: auto;
 }
 .mapform td{
-    padding: 6px;
-    min-width: 70px;
+    min-width: 60px;
     max-width: 120px;
-    height: 30px;
+    height: 36px;
     border-color: #ffffff;
     border: #ffffff solid 1px;
     border-radius: 6px;
+    font-weight: bold;
 }
 .mapform thead{
     background-color: #b9c9fe;
-    min-width: 70px;
-    height: 30px;
+    min-width: 60px;
+    height: 40px;
     padding: 4px;
     color: #003399;
-    font-size: 14px;
+    font-size: 18px;
 }
 .mapform tbody{
     background-color: #e8edff;
-    min-width: 70px;
-    height: 30px;
-    color: #b9c9fe;
-    padding: 4px;
-    font-size: 14px;
-    font-weight: bold;
+    min-width: 60px;
+    height: 36px;
+    color: #7884aa;
+    padding: 2px;
+    font-size: 12px;
+    
 }
-#other{
-    min-width: 110px;
+#gettime{
+    min-width: 180px;
+}
+#gettime1{
+    min-width: 180px;
+}
+/* #other{
+    min-width: 100px;
 }
 #other1{
-    min-width: 110px;
-}
+    min-width: 100px;
+} */
 #datepicker{
     background-color: #e8edff;
-    max-width: 70px;
+    max-width: 178px;
     padding: 0;
     margin: 0;
+    font-size: 10px;
+    color: #7884aa;
+    text-align: center;
+    font-weight: bold;
 }
 
 .go{

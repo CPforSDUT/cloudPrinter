@@ -136,9 +136,6 @@
                 document.getElementById("state").innerText = state;
             });
         }
-        $(function() {
-            $( "#datepicker" ).datepicker();
-        });
     </script>
 </head>
 
@@ -342,9 +339,9 @@
                                     <td>省份</td>
                                     <td>城市</td>
                                     <td>区域</td>
-                                    <td id="other1">详细地址</td>
-                                    <td>营业状态</td>
-                                    <td>提取时间</td>
+                                    <td id="other1">详细<br>地址</td>
+                                    <td>营业<br>状态</td>
+                                    <td id="gettime1">提取时间</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -356,7 +353,7 @@
                                     <td id="area"></td>
                                     <td id="other"></td>
                                     <td id="state"></td>
-                                    <td id="gettime"><input type="text" id="datepicker" style="border-style:none"></td>
+                                    <td id="gettime"><input type="datetime-local" id="datepicker" date_format="mm-dd" style="border-style:none"></td>
                                 </tr>
                                 </tbody>
                             </table>
