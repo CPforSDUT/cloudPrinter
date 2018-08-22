@@ -64,22 +64,6 @@
         }
 
     </script>
-    <style type="text/css">
-        #map{
-            height:50%;
-            width: 62%;
-            top: 50%;;
-            left: 0%;
-            position: absolute;
-
-            border-radius: 30px;
-        }
-        #position{
-            top: 55%;;
-            left: 65%;
-            position: absolute;
-        }
-    </style>
 </head>
 
 <body>
@@ -106,7 +90,7 @@
                             <form action="/user/registered.php" method="post" onsubmit="return check(1)">
                                 <div class="form">
                                     <nav class="biaoti">用户注册</nav>
-                                    <HR align=center width=100% color=#3E5C76 SIZE=5>
+                                    <HR align="center" width="100%" color="#3E5C76" SIZE="3">
                                     <div class="form_left">
                                         <nav>用户名：</nav>
                                         <nav>密码：</nav>
@@ -137,12 +121,11 @@
                             <form action="/user/registered.php" method="post" onsubmit="return check(2)">
                                 <div class="form">
                                     <nav class="biaoti" id="btTwo">商家注册</nav>
-                                    <HR align=center max-width=100% color=#3E5C76 SIZE=3>
+                                    <HR align="center" width="100%" color="#3E5C76" SIZE="3">
                                     <div class="form_left">
                                         <nav>店铺名称：</nav>
                                         <nav>密码：</nav>
                                         <nav>详细地址：</nav>
-
                                     </div>
                                     <div class="form_right">
                                         <input type="text" name="username" id="usernamEE">
@@ -151,19 +134,37 @@
                                         <br/>
                                         <input type="text" name="other" id="other">
                                         <br/>
-
                                     </div>
-                                    <div  id="position" >
-                                        <input type="hidden" name="type" value="2" />
+                                    <div id="map"></div>
+                                    <div id="position">
+                                        <!-- <input type="hidden" name="type" value="2" />
                                         <input type="text" name="province" id="province" readonly />
                                         <input type="text" name="city" id="city" readonly />
                                         <input type="text" name="area" id="area" readonly />
                                         <input type="text" name="lo" id="lo" readonly />
-                                        <input type="text" name="la" id="la" readonly />
+                                        <input type="text" name="la" id="la" readonly /> -->
+                                        <table cellspacing="0" id="mapinfo">
+                                            <thead>
+                                                <tr id="tone">
+                                                    <td>省份</td>
+                                                    <td>城市</td>
+                                                    <td>区域</td>
+                                                    <td>经</td>
+                                                    <td>纬</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr id="ttwo">    <!--这里是内容 -->
+                                                    <td id="province"></td>
+                                                    <td id="city"></td>
+                                                    <td id="area"></td>
+                                                    <td id="lo"></td>
+                                                    <td id="la"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <div id="map"></div>
                                 </div>
-
 
                                 <script type="text/javascript">
                                     var map = new BMap.Map("map");
@@ -212,12 +213,10 @@
                                 <button type="submit" class="button button-glow button-rounded button-raised button-primary">完成</button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="footer">
             <br>

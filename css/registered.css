@@ -6,7 +6,7 @@
 .regist{
     max-width: 100%;
     margin: auto;
-    height: 900px;
+    min-height: 900px;
     background-color: #ffffff;
     position: relative;
     font-size: 20px;
@@ -21,14 +21,15 @@ input{
 .biaoti{
     position: relative;
     text-align: left;
-    margin-bottom: 12px;
+    margin-bottom: 2px;
     font-size: 38px;
     color: #3E5C76;
 }
 .form{
     margin: auto;
     text-align: left;
-    max-width: 60%;
+    max-width: 500px;
+    min-height: 500px;
     position: relative;
 }
 .form_left{
@@ -51,9 +52,8 @@ input{
     float: left;
 }
 .card{
+    max-width: 780px;
     margin: auto;
-    max-width: 800px;
-
 }
 .card-header a{
     font-weight: bold;
@@ -61,10 +61,10 @@ input{
     font-size: 22px;
 }
 #headingOne{
-    color: #3E5C76;
+    color: #3c7df1;
 }
 #headingTwo{
-    background-color: rgb(118, 132, 255);
+    background-color: #3c7df1;
     color: rgb(255, 255, 255);
 }
 .submit{
@@ -73,4 +73,42 @@ input{
 }
 .submit a{
     width: 120px;
+}
+#map{
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 240px;
+    border-radius: 6px;
+}
+#mapinfo{
+    position: absolute;
+    border-color: #ffffff;
+    text-align: center;
+    top: 440px;
+    
+}
+#mapinfo td{
+    min-width: 100px;
+    height: 30px;
+    border-color: #ffffff;
+    border: #ffffff solid 1px;
+    border-radius: 6px;
+}
+#ttwo{
+    background-color: #e8edff;
+    min-width: 100px;
+    height: 30px;
+    color: #b9c9fe;
+    padding: 4px;
+    font-size: 18px;
+    font-weight: bold;
+}
+#tone{
+    background-color: #b9c9fe;
+    min-width: 100px;
+    height: 30px;
+    padding: 4px;
+    color: #003399;
+    font-size: 16px;
 }

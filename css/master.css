@@ -235,30 +235,43 @@ daohang a:hover .caidan{
 }
 .mapform table{
     top: 6px;
-    border: #bbbbbb;
     text-align: center;
     position: relative;
     margin: auto;
 }
 .mapform td{
-    min-width: 60px;
-    max-width: 200px;
     padding: 6px;
-    min-width: 60px;
+    min-width: 70px;
     max-width: 120px;
     height: 30px;
-    color: #7c7c7c；
+    border-color: #ffffff;
+    border: #ffffff solid 1px;
+    border-radius: 6px;
 }
 .mapform thead{
-    min-width: 60px;
-    max-width: 120px;
-    font-weight: bold;
-    background-color: #3c7df1;
-    color: #ffffff;
+    background-color: #b9c9fe;
+    min-width: 70px;
+    height: 30px;
+    padding: 4px;
+    color: #003399;
+    font-size: 16px;
 }
 .mapform tbody{
-    background-color: #fff;
+    background-color: #e8edff;
+    min-width: 70px;
+    height: 30px;
+    color: #b9c9fe;
+    padding: 4px;
+    font-size: 18px;
+    font-weight: bold;
 }
+#other{
+    min-width: 110px;
+}
+#other1{
+    min-width: 110px;
+}
+
 .go{
     position: absolute;
     width: 700px;

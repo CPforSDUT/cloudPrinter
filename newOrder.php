@@ -327,7 +327,7 @@
                         </form>
                         <div id="baiduMap"></div>
                         <div class="mapform" id="mapform">
-                            <table border="1" cellspacing="0">
+                            <table cellspacing="0">
                                 <thead>
                                 <tr>
                                     <td>店名</td>
@@ -335,8 +335,9 @@
                                     <td>省份</td>
                                     <td>城市</td>
                                     <td>区域</td>
-                                    <td>详细地址</td>
+                                    <td id="other1">详细地址</td>
                                     <td>营业状态</td>
+                                    <td>提取时间</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -348,6 +349,7 @@
                                     <td id="area"></td>
                                     <td id="other"></td>
                                     <td id="state"></td>
+                                    <td id="gettime"></td>
                                 </tr>
                                 </tbody>
                             </table>
