@@ -45,10 +45,10 @@
                 <li>
                     <a href="#"><i class="icon-font">&#xe018;</i>商家信息设置</a>
                     <ul class="sub-menu">
-                        <li><a href="information.php"><i class="icon-font">&#xe000;</i>营业状态</a></li>
-                        <li><a href="information.php"><i class="icon-font">&#xe018;</i>打印机参数</a></li>
-                        <li><a href="information.php"><i class="icon-font">&#xe021;</i>地理位置</a></li>
-                        <li><a href="information.php"><i class="icon-font">&#xe014;</i>头像和其他</a></li>
+                        <li><a href="#state"><i class="icon-font">&#xe000;</i>营业状态</a></li>
+                        <li><a href="#print_info"><i class="icon-font">&#xe018;</i>打印机参数</a></li>
+                        <li><a href="#location"><i class="icon-font">&#xe021;</i>地理位置</a></li>
+                        <li><a href="#persionnal"><i class="icon-font">&#xe014;</i>头像和其他</a></li>
                     </ul>
                 </li>
             </ul>
@@ -61,7 +61,7 @@
         </div>
 
 
-        <div class="result-wrap">
+        <div class="result-wrap" id="state">
             <div class="result-title">
                 <h1>商家信息设置</h1>
             </div>
@@ -85,7 +85,7 @@
                   </div>
             </div>
 
-            <div class="result-content">
+            <div class="result-content" id="print_info">
               <div class="search-wrap">
                   <div class="search-content">
                       <form action="" method="post">
@@ -138,7 +138,7 @@
                   </div>
             </div>
 
-            <div class="result-content">
+            <div class="result-content" id="location">
               <div class="search-wrap">
                   <div class="search-content">
                       <form action="" method="post">
@@ -156,7 +156,7 @@
             </div>
 
 
-            <div class="result-content">
+            <div class="result-content" id="persionnal">
               <div class="search-wrap">
                   <div class="search-content">
                       <form action="" method="post">
