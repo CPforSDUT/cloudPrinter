@@ -5,6 +5,7 @@
  * Date: 2018/8/17
  * Time: 23:58
  */
+session_start();
 function unescape($str) {
     $ret = '';
     $len = strlen ( $str );
@@ -25,6 +26,11 @@ function unescape($str) {
             $ret .= $str [$i];
     }
     return $ret;
+}
+if (isset($_SESSION["user"]) == false)
+{
+    echo "<script type='text/javascript'>alert(\"请重新登陆。\");</script>";
+    echo "<script>window.location.href='/index.php';</script> ";
 }
 $before = $_POST['filename'];
 $filename = unescape($before );

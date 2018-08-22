@@ -136,6 +136,35 @@
                 document.getElementById("state").innerText = state;
             });
         }
+        function randomNum(minNum,maxNum){
+            switch(arguments.length){
+                case 1:
+                    return parseInt(Math.random()*minNum+1,10);
+                    break;
+                case 2:
+                    return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10);
+                    break;
+                default:
+                    return 0;
+                    break;
+            }
+        }
+        function finishOrder(orderId,username) {
+            var time = document.getElementById("datepicker").value;
+            var deadline,exCode = randomNum(100000,999999);
+            var business = document.getElementById("user_name").innerHTML;
+            var createOrder = new XMLHttpRequest();
+            deadline = time.substring(0,4) + time.substring(5,7) + time.substring(8,10) + time.substring(11,13) + time.substring(14,16);
+            createOrder.open("POST","/createNewOrder.php",false);
+            createOrder.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business+"&exCode="+exCode);
+            if (createOrder.responseText == 'ok')
+            {
+                document.getElementById("ok").innerHTML = "<p>OK,提取码：" + exCode + "（请牢记，提取时使用）</p>";
+                document.getElementById("ok").style.display = "block";
+                document.getElementById("form3").style.display = "none";
+            }
+        }
     </script>
 </head>
 
@@ -360,9 +389,14 @@
                         </div>
                         <div class="go" id="go_three">
                             <a>
-                                <button class="button button-caution button-rounded button-jumbo">完成</a>
+                                <button class="button button-caution button-rounded button-jumbo" id="deadline" onclick="finishOrder(<?php echo "'$orderId','$username'";?>)">完成</a>
                         </div>
 
+                    </div>
+                    <div id="ok" style="display: none">
+                        <p>
+                            OK
+                        </p>
                     </div>
 
                 </div>
