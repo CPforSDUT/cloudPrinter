@@ -50,7 +50,20 @@
             }
 
         }
-
+        function checkpone(s) {
+           if(s == 1) {
+               var phone = document.getElementById("phone1").value;
+           }
+           else{
+               var phone = document.getElementById("phone2").value;
+           }
+           if(phone.length != 11)
+           {
+               alert("请不要中二， 输入正确的手机号。")
+               return false;
+           }
+            return true;
+        }
         function check(s) {
            if (s == 2)
            {
@@ -60,7 +73,7 @@
                    return false;
                }
            }
-            return check_code(s) && check_pwd(s);
+            return check_code(s) && check_pwd(s) && checkpone(s);
         }
 
     </script>
@@ -94,11 +107,13 @@
                                     <div class="form_left">
                                         <nav>用户名：</nav>
                                         <nav>密码：</nav>
+                                        <nav>手机：</nav>
                                     </div>
                                     <div class="form_right">
                                         <input type="text" name="username" id="usernamE">
                                         <br>
                                         <input type="password" name="password" id="password">
+                                        <input type="text" name="phone" id="phone1">
                                         <input type="hidden" name="type" value="1" >
                                     </div>
                                 </div>
@@ -126,6 +141,7 @@
                                         <nav>店铺名称：</nav>
                                         <nav>密码：</nav>
                                         <nav>详细地址：</nav>
+                                        <nav>手机：</nav>
                                     </div>
                                     <div class="form_right">
                                         <input type="text" name="username" id="usernamEE">
@@ -134,6 +150,7 @@
                                         <br/>
                                         <input type="text" name="other" id="other">
                                         <br/>
+                                        <input type="text" name="phone" id="phone2">
                                     </div>
                                     <div id="map"></div>
                                     <div id="position">

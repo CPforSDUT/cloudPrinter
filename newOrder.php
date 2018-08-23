@@ -35,7 +35,11 @@
             margin-top: 1.4rem;
         }
     </style>
-    <script type="text/javascript">  
+    <script type="text/javascript">
+        var selected,selectedId;
+    </script>
+    <script type="text/javascript">
+
         function showAndHidden1(orderId) {
 
             var form1 = document.getElementById("form1");
@@ -51,6 +55,11 @@
                 form1.style.display = "none";
                 form2.style.display = "block";
                 document.getElementById("choosefile").innerHTML = files.responseText;
+                selected =document.getElementById("selected1").innerHTML;
+                selectedId = "selected1";
+                document.getElementById("selected1").style.color = "#fff";
+                document.getElementById("selected1").style.fontSize = "22px";
+                document.getElementById("selected1").style.background = "#3c7df1";
             }
             else {
                 alert("你没有上传文件");
@@ -79,20 +88,28 @@
             setinfo.open("POST","/fileControl/setFileInfo.php",true);
             setinfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             setinfo.send("paperNum="+paperNum+"&paperSize="+paperSize+"&color="+color+"&otherInfo="+escape(otherInfo)+"&orderId="+orderId+"&fileName="+escape(fileName));
-            alert("paperNum="+paperNum+"&paperSize="+paperSize+"&color="+color+"&otherInfo="+escape(otherInfo)+"&orderId="+orderId+"&fileName="+escape(fileName));
+            //alert("paperNum="+paperNum+"&paperSize="+paperSize+"&color="+color+"&otherInfo="+escape(otherInfo)+"&orderId="+orderId+"&fileName="+escape(fileName));
         }
-        function getFileInfo(orderId,fileName) {
+        function getFileInfo(orderId,fileName,i) {
             var getInfo = new XMLHttpRequest();
+
+            selected = fileName;
+            document.getElementById(selectedId).removeAttribute("style");
+            document.getElementById("selected"+i).style.color = "#fff";
+            document.getElementById("selected"+i).style.fontSize = "22px";
+            document.getElementById("selected"+i).style.background = "#3c7df1";
+            selectedId = "selected" + i;
+
             getInfo.open("POST","/fileControl/getFileInfo.php",true);
             getInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             getInfo.send("orderId="+orderId+"&fileName="+escape(fileName));
-            alert("orderId="+orderId+"&fileName="+escape(fileName));
+            //alert("orderId="+orderId+"&fileName="+escape(fileName));
             getInfo.onreadystatechange=function()
             {
                 if (getInfo.readyState==4 && getInfo.status==200)
                 {
                     document.getElementById("show").innerHTML = getInfo.responseText;
-                    alert(getInfo.responseText);
+                    //alert(getInfo.responseText);
                     /*(<p id='paperNum'>1</p><p id='paperSize'>A5</p><p id='color'>0</p><p id='otherInfo'></p>*/
                    var paperNum = document.getElementById("paper_num");
                     var paperSize = document.getElementById("paper_size");
@@ -279,21 +296,10 @@
                                 <!-- <select id="choosefile" name="choosefile" data-edit-select="1" onmousedown="if(this.options.length>3){this.size=8}" onblur="this.size=0" onchange="this.size=0" style="position:absolute;z-index:1">
                                 </select> -->
                                 <div class="cf">
-                                <ul>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                <li>abc</li>
-                                </ul>
+                                    <p id="selected" style="display:none;"></p>
+                                    <p id="selctedId" style="display: none;"></p>
+                                    <ul id="choosefile">
+                                    </ul>
                                 </div>
                             </div>
                             <div id="data_left">
@@ -354,14 +360,9 @@
                                 for (element in elements)
                                 {
                                     elements[element].addEventListener("change",function () {
-                                        var selectBar = document.getElementById("choosefile");
-                                        changefile(<?php echo "'$orderId'";?>,selectBar.value);
+                                        changefile(<?php echo "'$orderId'";?>,selected);
                                     });
                                 }
-                                document.getElementById("data_select").addEventListener("mouseleave",function () {
-                                    var selectBar = document.getElementById("choosefile");
-                                    getFileInfo(<?php echo "\"$orderId\"";?>,selectBar.value);
-                                });
                             </script>
                         </form>
                         <div class="go" id="go_two">

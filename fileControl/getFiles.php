@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(isset($_SESSION['user']) == false){
+    header("location:/user/loginView.php");
+}
 function unescape($str) {
     $ret = '';
     $len = strlen ( $str );
@@ -30,6 +34,6 @@ $result = mysql_query("SELECT * FROM fileinfo where orderId = '$orderId'");
 for ($i = 1 ; $row = mysql_fetch_array($result) ; $i ++)
 {
     $filename = unescape($row['filename']);
-    echo "<option value='$filename'>$filename</option>\n";
+    echo "<li id='selected$i' onclick=\"getFileInfo('$orderId','$filename','$i')\">$filename</li>\n";
 }
 mysql_close($con);
