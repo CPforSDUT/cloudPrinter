@@ -103,9 +103,7 @@ daohang a:hover .caidan{
 }
 .caidan ul {   
     list-style-type: none;    
-
-  }   
-              
+}              
 .caidan li {   
     font:18px/2 Helvetica, Verdana, sans-serif;   
     border-bottom: 1px solid #ccc;   
@@ -124,7 +122,7 @@ daohang a:hover .caidan{
     -o-transition: font-size 0.3s ease, background-color 0.3s ease;   
     -ms-transition: font-size 0.3s ease, background-color 0.3s ease;   
     transition: font-size 0.3s ease, background-color 0.3s ease;   
-  }   
+}   
               
 .caidan li a:hover {   
     font-size: 22px;   
@@ -328,6 +326,45 @@ daohang a:hover .caidan{
     margin:0px;
     margin-bottom: 4px;
 }
+
+.cf{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 160px;
+    height: 280px;
+    overflow: scroll;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    text-align: center;
+}
+.cf ul {   
+    list-style-type: none;    
+}              
+.cf li {   
+    font:18px/2 Helvetica, Verdana, sans-serif;   
+    border-bottom: 1px solid #ccc;
+}   
+              
+.cf li:last-child {   
+    border: none;
+} 
+.cf li{
+    text-decoration: none;   
+    color: #7c7c7c;   
+    display: block;
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;   
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;   
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;   
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;   
+    transition: font-size 0.3s ease, background-color 0.3s ease;   
+}   
+.cf li:hover {
+    color: #fff;
+    font-size: 22px;   
+    background: #3c7df1; 
+}
+
 #data_right{
     font-size: 22px;
     padding-top: 2px;

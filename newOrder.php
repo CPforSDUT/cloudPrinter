@@ -131,7 +131,7 @@
                     state = "打烊";
                 }
                 else {
-                    state= "开门";
+                    state= "开张";
                 }
                 document.getElementById("state").innerText = state;
             });
@@ -276,8 +276,25 @@
                             <!-- 自行添加及更改 -->
                             <div id="data_select">
                                 <span>选择文件：</span>
-                                <select id="choosefile" name="choosefile" data-edit-select="1" onmousedown="if(this.options.length>3){this.size=8}" onblur="this.size=0" onchange="this.size=0" style="position:absolute;z-index:1">
-                                </select>
+                                <!-- <select id="choosefile" name="choosefile" data-edit-select="1" onmousedown="if(this.options.length>3){this.size=8}" onblur="this.size=0" onchange="this.size=0" style="position:absolute;z-index:1">
+                                </select> -->
+                                <div class="cf">
+                                <ul>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                                </ul>
+                                </div>
                             </div>
                             <div id="data_left">
                                 <nav>纸张大小：</nav>
@@ -312,7 +329,7 @@
                                     <option value="B10">B10</option>
                                 </select>
                                 <br>
-                                <select  id="color">
+                                <select id="color">
                                     <option value="1" selected>否</option>
                                     <option value="2">是</option>
                                 </select>
