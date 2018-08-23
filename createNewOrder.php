@@ -20,4 +20,5 @@ mysql_select_db("user", $con);
 if (true == mysql_query("INSERT INTO orderinfo (orderId, consumer,business,deadline,exCode)VALUES (\"$orderId\", \"$consumer\",\"$business\",\"$deadline\",\"$exCode\")"))
 {
     echo "ok";
+    mysql_query("delete from delfiles where orderId = '$orderId'");
 }

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="" />
+    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/createNewOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/createNewOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,15 +27,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web-forms2.rnc" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms2.rnc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="432" column="22" selection-start-line="432" selection-start-column="22" selection-end-line="432" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="uploadFile.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fileControl/uploadFile.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -51,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5326">
-              <caret line="159" column="133" selection-start-line="159" selection-start-column="133" selection-end-line="159" selection-end-column="133" />
+            <state relative-caret-position="164">
+              <caret line="238" column="44" lean-forward="true" selection-start-line="238" selection-start-column="44" selection-end-line="238" selection-end-column="44" />
               <folding>
                 <element signature="e#6775#6796#0#HTML" expanded="true" />
                 <element signature="e#12136#12171#0#HTML" expanded="true" />
@@ -66,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createNewOrder.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="createNewOrder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/createNewOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+            <state relative-caret-position="57">
+              <caret line="3" column="38" lean-forward="true" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -78,8 +72,8 @@
       <file leaf-file-name="delFile.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fileControl/delFile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="8" selection-start-line="8" selection-end-line="28" selection-end-column="1" />
+            <state relative-caret-position="369">
+              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="88" />
             </state>
           </provider>
         </entry>
@@ -87,8 +81,11 @@
       <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+            <state relative-caret-position="304">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,7 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>show</find>
       <find>username</find>
       <find>go_one</find>
       <find>form</find>
@@ -152,6 +148,7 @@
       <find>sidebar-content</find>
       <find>sidebar-list</find>
       <find>ttwo</find>
+      <find>choose</find>
     </findStrings>
     <replaceStrings>
       <replace>POST</replace>
@@ -221,10 +218,10 @@
         <option value="$PROJECT_DIR$/admin/css/main.css" />
         <option value="$PROJECT_DIR$/user/registeredView.php" />
         <option value="$PROJECT_DIR$/css/registered.css" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/fileControl/delFile.php" />
-        <option value="$PROJECT_DIR$/createNewOrder.php" />
         <option value="$PROJECT_DIR$/newOrder.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/createNewOrder.php" />
       </list>
     </option>
   </component>
@@ -328,10 +325,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216659000" />
+    <option name="totallyTimeSpent" value="218963000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.0" />
@@ -587,24 +584,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms2.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="432" column="22" selection-start-line="432" selection-start-column="22" selection-end-line="432" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/registered.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -619,10 +602,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fileControl/delFile.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms2.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="8" selection-start-line="8" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="200">
+          <caret line="432" column="22" selection-start-line="432" selection-start-column="22" selection-end-line="432" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -633,23 +616,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createNewOrder.php">
+    <entry file="file://$PROJECT_DIR$/fileControl/delFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        <state relative-caret-position="369">
+          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/newOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5326">
-          <caret line="159" column="133" selection-start-line="159" selection-start-column="133" selection-end-line="159" selection-end-column="133" />
+        <state relative-caret-position="164">
+          <caret line="238" column="44" lean-forward="true" selection-start-line="238" selection-start-column="44" selection-end-line="238" selection-end-column="44" />
           <folding>
             <element signature="e#6775#6796#0#HTML" expanded="true" />
             <element signature="e#12136#12171#0#HTML" expanded="true" />
             <element signature="e#18417#18442#0#HTML" expanded="true" />
             <element signature="e#20102#20123#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createNewOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="38" lean-forward="true" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
         </state>
       </provider>
     </entry>
