@@ -1,4 +1,19 @@
 <!doctype html>
+<?php
+    session_start();
+    if(isset($_SESSION['user']) == false){
+        header("location:/user/loginView.php");
+    }
+    $username = $_SESSION['user'];
+    $con = mysql_connect("localhost", "root", "wslzd9877");
+    if (!$con) {
+        die('Could not connect: ' . mysql_error());
+    }
+    mysql_select_db("user", $con);
+    $result = mysql_query("select count(*) from orderinfo where deleted != 'bn' and business = '$username'");
+    $row = mysql_fetch_array($result);
+    $orderNum = $row['count(*)'];
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -6,6 +21,40 @@
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+    <script type="text/javascript">
+        var allPageNum = <?php echo floor($orderNum/7) + ($orderNum%7 > 0 ? 1 : 0);?>;
+        var thisPageNum = 1;
+        function getOrderInfo(pageNum) {
+            var geter = new XMLHttpRequest();
+            geter.open("POST","control/getOrderInfo.php",false);
+            geter.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            geter.send("pageNum="+pageNum);
+            document.getElementById("orderMain").innerHTML = geter.responseText;
+        }
+        function nextPage() {
+            if(thisPageNum + 1 <= allPageNum)
+            {
+                thisPageNum += 1;
+                getOrderInfo(thisPageNum);
+                document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+            }
+            else {
+                alert("已到达最后一页。");
+            }
+        }
+        function prevPage() {
+            if(thisPageNum - 1 >= 1)
+            {
+                thisPageNum -= 1;
+                getOrderInfo(thisPageNum);
+                document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+            }
+            else {
+                document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+            }
+
+        }
+    </script>
 </head>
 <body>
   <div class="topbar-wrap white">
@@ -94,60 +143,23 @@
                 </div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
-                        <tr>
-                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
-                            <th>排序</th>
-                            <th>ID</th>
-                            <th>标题</th>
-                            <th>订单状态</th>
-                            <th>联系方式</th>
-                            <th>发布人</th>
-                            <th>提交时间</th>
-                            <th>完成时间</th>
-                            <th>操作</th>
-                        </tr>
-                        <tr>
-                            <td class="tc"><input name="id[]" value="1" type="checkbox"></td>
-                            <td>
-                                <input name="ids[]" value="1" type="hidden">
-                                <input class="common-input sort-input" name="ord[]" value="0" type="text">
-                            </td>
-                            <td>1</td>
-                            <td title="文件1"><a target="_blank" href="#" title="文件1">文件1</a> …
-                            </td>
-                            <td>未打印</td>
-                            <td>17853311111</td>
-                            <td>admin</td>
-                            <td>2018-08-10 21:11:01</td>
-                            <td></td>
-                            <td>
-                                <a class="link-download" href="#">下载</a>
-                                <a class="link-update" href="#">修改</a>
-                                <a class="link-del" href="#">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="tc"><input name="id[]" value="2" type="checkbox"></td>
-                            <td>
-                                <input name="ids[]" value="2" type="hidden">
-                                <input class="common-input sort-input" name="ord[]" value="0" type="text">
-                            </td>
-                            <td>2</td>
-                            <td title="文件2"><a target="_blank" href="#" title="文件2">文件2</a> …
-                            </td>
-                            <td>已打印</td>
-                            <td>35</td>
-                            <td>admin</td>
-                            <td>2018-08-11 21:11:01</td>
-                            <td>2018-08-12 21:11:01</td>
-                            <td>
-                                <a class="link-download" href="#">下载</a>
-                                <a class="link-update" href="#">修改</a>
-                                <a class="link-del" href="#">删除</a>
-                            </td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                                <th>订单状态</th>
+                                <th>联系方式</th>
+                                <th>发布人</th>
+                                <th>完成时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderMain">
+
+                        </tbody>
+
                     </table>
-                    <div class="list-page"> 2 条 1/1 页</div>
+                    <div class="list-page"><a onclick="prevPage()">上一页</a> <p id="page_num_index"></p> <a onclick="nextPage()">下一页</a></div>
+                    <script type="text/javascript">getOrderInfo(1);prevPage();</script>
                 </div>
             </form>
         </div>
