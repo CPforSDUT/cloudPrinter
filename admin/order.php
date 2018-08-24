@@ -278,7 +278,11 @@
                       break;
               }
           }
-          document.getElementById("search").value = search;
+          if(search != false)
+          {
+              document.getElementById("search").value = search;
+          }
+
       </script>
 </div>
 </body>
