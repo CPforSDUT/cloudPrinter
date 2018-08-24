@@ -30,14 +30,37 @@ if(isset($_SESSION['user']) == false){
 }
 $username = $_SESSION['user'];
 $pageNum = $_POST['pageNum'] - 1;
-
+if(isset($_POST['sorted'])){
+    $sorted = $_POST['sorted'];
+}
+else {
+    $sorted = false;
+}
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
-$result = mysql_query("select * from orderinfo where business = '$username'");
-
+if(isset($_POST['search']))
+{
+    $search = $_POST['search'];
+}
+$visit = "select * from orderinfo where business = '$username'";
+if(isset($_POST['sorted']))
+{
+    switch ($_POST['sorted'])
+    {
+        case '1':
+            $visit = $visit."and orderState != '2'";
+            break;
+    }
+}
+if(isset($_POST['search']))
+{
+    $search = $_POST['search'];
+    $visit = $visit."and consumer='$search'";
+}
+$result = mysql_query($visit);
 for ($i = 0 ; $i < 7 * $pageNum   ; ) {
     $row = mysql_fetch_array($result);
     if($row['deleted'] == 'bn'){
@@ -59,7 +82,7 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
     $time = toPureTime($row['deadline']);
     $orderId = $row['orderId'];
      echo "<td class=\"tc\"><input onclick=\"checkbox($i)\" type=\"checkbox\"></td>";
-     echo "<td>$orderState</td>";
+     echo "<td id='$orderId'>$orderState</td>";
      echo "<td>$cPhone</td>";
      echo "<td>$consumer</td>";
      echo "<td>$time</td>";

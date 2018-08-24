@@ -10,9 +10,26 @@
         die('Could not connect: ' . mysql_error());
     }
     mysql_select_db("user", $con);
-    $result = mysql_query("select count(*) from orderinfo where deleted != 'bn' and business = '$username'");
+    $visit = "select count(*) from orderinfo where deleted != 'bn' and business = '$username'";
+    if(isset($_GET['sorted']))
+    {
+        switch ($_GET['sorted'])
+        {
+            case '1':
+                $visit = $visit."and orderState != '2'";
+                break;
+        }
+    }
+    if(isset($_GET['search']) && $_GET['search'] != ''){
+        $ser = $_GET['search'];
+        $visit = $visit." and consumer="."'$ser'";
+    }
+    $result = mysql_query($visit);
+    //echo $visit;
     $row = mysql_fetch_array($result);
+
     $orderNum = $row['count(*)'];
+    //echo "<script>alert(\"$orderNum\");</script>";
 ?>
 <html>
 <head>
@@ -23,12 +40,57 @@
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
     <script type="text/javascript">
         var allPageNum = <?php echo floor($orderNum/7) + ($orderNum%7 > 0 ? 1 : 0);?>;
+        var lPENum = <?php echo $orderNum%7;?>;
         var thisPageNum = 1;
+        if(lPENum == 0){
+            lPENum = 7;
+        }
+        <?php
+            if(isset($_GET['sorted']))
+            {
+                $sorted = $_GET['sorted'];
+        ?>
+        var sorted = <?php echo "'$sorted';";?>
+        <?php
+            }else {
+        ?>
+            var sorted = false;
+        <?php
+            }
+        ?>
+        <?php
+        if(isset($_GET['search']))
+        {
+        $search = $_GET['search'];;
+        ?>
+        var search = <?php echo "'$search';";?>
+        <?php
+        }else {
+        ?>
+        var search = false;
+        <?php
+        }
+        ?>
         function getOrderInfo(pageNum) {
             var geter = new XMLHttpRequest();
+            var visit;
             geter.open("POST","control/getOrderInfo.php",false);
             geter.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            geter.send("pageNum="+pageNum);
+            visit = "pageNum=" + pageNum;
+            if(sorted != false)
+            {
+                //alert(sorted);
+                switch (sorted)
+                {
+                    case '1':
+                        visit += "&sorted=1";
+                        break;
+                }
+            }
+            if(search != false && search != ''){
+                visit += "&search=" + search;
+            }
+            geter.send(visit);
             document.getElementById("orderMain").innerHTML = geter.responseText;
         }
         function nextPage() {
@@ -52,7 +114,49 @@
             else {
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
-
+        }
+        function okOrder(orderId){
+            var setOrderInfo = new XMLHttpRequest();
+            setOrderInfo.open("POST","control/setOrderInfo.php",false);
+            setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            setOrderInfo.send("orderId="+orderId + "&method=okOrder");
+            if(sorted == '1')
+            {
+                lPENum -= 1;
+                if(lPENum == 0){
+                    allPageNum -= 1;
+                    if(thisPageNum > allPageNum){
+                        thisPageNum = allPageNum;
+                        getOrderInfo(thisPageNum);
+                    }
+                    if(thisPageNum > 0){
+                        lPENum = 7;
+                    }
+                    document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+                }
+            }
+            getOrderInfo(thisPageNum);
+        }
+        function delOrder(orderId) {
+            var setOrderInfo = new XMLHttpRequest();
+            setOrderInfo.open("POST","control/setOrderInfo.php",false);
+            setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            setOrderInfo.send("orderId="+orderId + "&method=delete");
+            document.getElementById(orderId).innerHTML = "已删除";
+            lPENum -= 1;
+            if(lPENum == 0){
+                allPageNum -= 1;
+                if(thisPageNum > allPageNum){
+                    thisPageNum = allPageNum;
+                    getOrderInfo(thisPageNum);
+                }
+                if(thisPageNum > 0){
+                    lPENum = 7;
+                }
+                document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+            }
+            alert("请联系买家");
+            getOrderInfo(thisPageNum);
         }
     </script>
 </head>
@@ -111,22 +215,19 @@
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="" method="post">
+                <form action="order.php" method="GET">
                     <table class="search-tab">
                         <tr>
                             <th width="120">选择分类:</th>
                             <td>
-                                <select name="search-sort" id="">
+                                <select id="sorted" name="sorted">
                                     <option value="0">全部</option>
-                                    <option value="1">今日文件</option>
-                                    <option value="2">昨日文件</option>
-                                    <option value="3">本月文件</option>
-                                    <option value="4">上月文件</option>
+                                    <option value="1">未打印</option>
                                 </select>
                             </td>
-                            <th width="70">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                            <th width="70">搜索客户:</th>
+                            <td><input class="common-text"   value="" id="search"  name="search" type="text"></td>
+                            <td><input class="btn btn-primary btn2" value="查询"  type="submit"></td>
                         </tr>
                     </table>
                 </form>
@@ -136,9 +237,9 @@
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="insert.php"><i class="icon-font"></i>新增订单</a>
+                        <!--<a href="insert.php"><i class="icon-font"></i>新增订单</a>-->
                         <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
-                        <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
+                        <!--<a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>-->
                     </div>
                 </div>
                 <div class="result-content">
@@ -159,12 +260,26 @@
 
                     </table>
                     <div class="list-page"><a onclick="prevPage()">上一页</a> <p id="page_num_index"></p> <a onclick="nextPage()">下一页</a></div>
-                    <script type="text/javascript">getOrderInfo(1);prevPage();</script>
+
                 </div>
             </form>
         </div>
     </div>
     <!--/main-->
+      <script type="text/javascript">
+          getOrderInfo(1);
+          prevPage();
+          if(sorted != false){
+              var sorter = document.getElementById("sorted");
+              switch (sorted)
+              {
+                  case '1':
+                      sorter.options[1].selected = true;
+                      break;
+              }
+          }
+          document.getElementById("search").value = search;
+      </script>
 </div>
 </body>
 </html>
