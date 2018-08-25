@@ -1,4 +1,28 @@
 <!doctype html>
+<?php
+session_start();
+if(isset($_SESSION['user']) == false){
+    header("location:/user/loginView.php");
+}
+$username = $_SESSION['user'];
+$con = mysql_connect("localhost", "root", "wslzd9877");
+if (!$con) {
+    die('Could not connect: ' . mysql_error());
+}
+mysql_select_db("user", $con);
+if (isset($_GET['orderId']))
+{
+    $orderId = $_GET['orderId'];
+    $visit = "select count(*) from fileinfo where orderId='$orderId'";
+    $result = mysql_query($visit);
+    $row = mysql_fetch_array($result);
+    $orderNum = $row['count(*)'];
+}
+else {
+    header("location:order.php");
+}
+
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -6,6 +30,42 @@
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+    <script type="text/javascript">
+        var allPageNum = <?php echo floor($orderNum/7) + ($orderNum%7 > 0 ? 1 : 0);?>;
+        var thisPageNum = 1;
+        var orderId = <?php echo "'$orderId';"?>
+        function getFiles(pageNum) {
+            var geter = new XMLHttpRequest();
+            var visit;
+            geter.open("POST","control/getFiles.php",false);
+            geter.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            visit = "pageNum=" + pageNum + "&orderId=" + orderId;
+            geter.send(visit);
+            document.getElementById("fileMain").innerHTML = geter.responseText;
+        }
+        function nextPage() {
+            if(thisPageNum + 1 <= allPageNum)
+            {
+                thisPageNum += 1;
+                getFiles(thisPageNum);
+                document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+            }
+            else {
+                alert("已到达最后一页。");
+            }
+        }
+        function prevPage() {
+            if(thisPageNum - 1 >= 1)
+            {
+                thisPageNum -= 1;
+                getFiles(thisPageNum);
+                document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+            }
+            else {
+                document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+            }
+        }
+    </script>
 </head>
 <body>
   <div class="topbar-wrap white">
@@ -38,7 +98,7 @@
                       <ul class="sub-menu">
                         <li><a href="order.php"><i class="icon-font">&#xe005;</i>所有订单</a></li>
                         <li><a href="sore.php"><i class="icon-font">&#xe004;</i>输入提取码</a></li>
-                        <li><a href="document.php"><i class="icon-font">&#xe006;</i>文件管理</a></li>
+
                         <li><a href="people.php"><i class="icon-font">&#xe001;</i>用户管理</a></li>
                       </ul>
                   </li>
@@ -62,22 +122,19 @@
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="/jscss/admin/design/index" method="post">
+                <form action="order.php" method="GET">
                     <table class="search-tab">
                         <tr>
                             <th width="120">选择分类:</th>
                             <td>
-                                <select name="search-sort" id="">
+                                <select id="sorted" name="sorted">
                                     <option value="0">全部</option>
-                                    <option value="1">今日订单</option>
-                                    <option value="2">昨日订单</option>
-                                    <option value="3">本月订单</option>
-                                    <option value="4">上月订单</option>
+                                    <option value="1">未打印</option>
                                 </select>
                             </td>
-                            <th width="70">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                            <th width="70">搜索客户:</th>
+                            <td><input class="common-text"   value="" id="search"  name="search" type="text"></td>
+                            <td><input class="btn btn-primary btn2" value="查询"  type="submit"></td>
                         </tr>
                     </table>
                 </form>
@@ -85,76 +142,34 @@
         </div>
         <div class="result-wrap">
             <form name="myform" id="myform" method="post">
-                <div class="result-title">
-                    <div class="result-list">
-                        <a href="insert.php"><i class="icon-font"></i>新增订单</a>
-                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
-                        <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
-                    </div>
-                </div>
-
                 <div class="result-content">
                     <table class="result-tab" width="100%">
-                        <tr>
-                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
-                            <th>排序</th>
-                            <th>ID</th>
-                            <th>文件名</th>
-                            <th>文件大小</th>
+                        <thead>
+                            <tr>
+                                <th>文件名</th>
+                                <th>色彩</th>
+                                <th>打印份数</th>
+                                <th>纸张类型</th>
+                                <th>其他信息</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fileMain">
 
-                            <th>发布人</th>
-                            <th>提交时间</th>
-                            <th>完成时间</th>
-                            <th>操作</th>
-                        </tr>
-                        <tr>
-                            <td class="tc"><input name="id[]" value="1" type="checkbox"></td>
-                            <td>
-                                <input name="ids[]" value="1" type="hidden">
-                                <input class="common-input sort-input" name="ord[]" value="0" type="text">
-                            </td>
-                            <td>1</td>
-                            <td title="文件1"><a target="_blank" href="#" title="文件1">文件1</a> …
-                            </td>
-                            <td>400kb</td>
+                        </tbody>
 
-                            <td>admin</td>
-                            <td>2018-08-10 21:11:01</td>
-                            <td></td>
-                            <td>
-                                <a class="link-download" href="#">下载</a>
-                                <a class="link-update" href="#">修改</a>
-                                <a class="link-del" href="#">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="tc"><input name="id[]" value="2" type="checkbox"></td>
-                            <td>
-                                <input name="ids[]" value="2" type="hidden">
-                                <input class="common-input sort-input" name="ord[]" value="0" type="text">
-                            </td>
-                            <td>2</td>
-                            <td title="文件2"><a target="_blank" href="#" title="文件2">文件2</a> …
-                            </td>
-                            <td>2563kb</td>
-
-                            <td>admin</td>
-                            <td>2018-08-11 21:11:01</td>
-                            <td>2018-08-12 21:11:01</td>
-                            <td>
-                                <a class="link-download" href="#">下载</a>
-                                <a class="link-update" href="#">修改</a>
-                                <a class="link-del" href="#">删除</a>
-                            </td>
-                        </tr>
                     </table>
 
-                    <div class="list-page"> 2 条 1/1 页</div>
+                    <div class="list-page"><a onclick="prevPage()">上一页</a> <p id="page_num_index"></p> <a onclick="nextPage()">下一页</a></div>
                 </div>
             </form>
         </div>
     </div>
     <!--/main-->
 </div>
+  <script type="text/javascript">
+      getFiles(1);
+      prevPage();
+  </script>
 </body>
 </html>
