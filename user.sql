@@ -1,8 +1,7 @@
 
+
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
 
 
 
@@ -14,22 +13,24 @@ CREATE TABLE IF NOT EXISTS `delfiles` (
 
 
 
+
 CREATE TABLE IF NOT EXISTS `fileinfo` (
   `orderId` char(32) NOT NULL,
   `filePath` varchar(100) NOT NULL,
   `color` char(1) NOT NULL DEFAULT '1',
   `num` int(11) NOT NULL DEFAULT '1',
-  `paperType` int(11) NOT NULL DEFAULT '8',
+  `paperType` int(11) NOT NULL DEFAULT '16',
   `filename` varchar(1000) NOT NULL,
   `otherInfo` varchar(500) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
+
+
 CREATE TABLE IF NOT EXISTS `orderids` (
   `orderId` char(32) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
 
 
 CREATE TABLE IF NOT EXISTS `orderinfo` (
@@ -45,15 +46,12 @@ CREATE TABLE IF NOT EXISTS `orderinfo` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
-
 CREATE TABLE IF NOT EXISTS `printerinfo` (
   `username` char(15) NOT NULL,
-  `color` char(1) NOT NULL,
-  `paperType` int(11) NOT NULL,
+  `color` char(1) NOT NULL DEFAULT '1',
+  `paperType` int(11) NOT NULL DEFAULT '8',
   PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-
 
 CREATE TABLE IF NOT EXISTS `user` (
   `username` char(15) NOT NULL,
@@ -69,4 +67,3 @@ CREATE TABLE IF NOT EXISTS `user` (
   `phone` char(11) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
