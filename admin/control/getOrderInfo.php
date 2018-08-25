@@ -45,12 +45,9 @@ if(isset($_POST['search']))
 {
     $search = $_POST['search'];
 }
-$eNum = "select count(*) from orderinfo where deleted != 'bn' and business = '$username'";
-$eNum = mysql_query($eNum);
-$eNum = mysql_fetch_array($eNum);
-$eNum = $eNum['count(*)'];
-echo "<p style='display: none' id='eNum'>$eNum</p>";
-$visit = "select * from orderinfo where business = '$username'";
+
+
+$visit = "where business = '$username'";
 if(isset($_POST['sorted']))
 {
     switch ($_POST['sorted'])
@@ -65,7 +62,13 @@ if(isset($_POST['search']))
     $search = $_POST['search'];
     $visit = $visit."and consumer='$search'";
 }
-$result = mysql_query($visit);
+
+$eNum = "select count(*) from orderinfo " .$visit." and deleted != 'bn'";
+$eNum = mysql_query($eNum);
+$eNum = mysql_fetch_array($eNum);
+$eNum = $eNum['count(*)'];
+echo "<p style='display: none' id='eNum'>$eNum</p>";
+$result = mysql_query("select * from orderinfo ".$visit);
 for ($i = 0 ; $i < 7 * $pageNum   ; ) {
     $row = mysql_fetch_array($result);
     if($row['deleted'] == 'bn'){
