@@ -302,9 +302,9 @@ $color = $row['color'];
                                       <input id="province" type="text" readonly>
                                       <input id="city" type="text" readonly>
                                       <input id="area" type="text" readonly>
-                                      <input id="other" type="text" readonly>
                                       <input id="lo" type="text" readonly>
                                       <input id="la" type="text" readonly>
+                                      <input id="other" type="text">
                                       <script type="text/javascript">
                                           var map = new BMap.Map("map");
                                           var point = new BMap.Point(116.404, 39.915);
