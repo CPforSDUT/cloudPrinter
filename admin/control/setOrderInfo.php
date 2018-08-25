@@ -25,6 +25,8 @@ switch ($method)
     case 'delete':
         if($row['deleted'] == 'cn'){
             mysql_query("delete from orderinfo where orderId='$orderId'");
+            $tIme =  time();
+            mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
         }
         else {
             mysql_query("UPDATE orderinfo SET deleted='bn' WHERE orderId='$orderId'");

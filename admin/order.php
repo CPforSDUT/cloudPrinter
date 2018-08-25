@@ -41,6 +41,7 @@
     <script type="text/javascript">
         var allPageNum = <?php echo floor($orderNum/7) + ($orderNum%7 > 0 ? 1 : 0);?>;
         var lPENum = <?php echo $orderNum%7;?>;
+        var allENum = <?php echo $orderNum;?>;
         var thisPageNum = 1;
         var checkboxs = Array();
         if(lPENum == 0){
@@ -72,6 +73,25 @@
         <?php
         }
         ?>
+        function update() {
+            getOrderInfo(thisPageNum);
+            var newENum = document.getElementById("eNum").innerHTML;
+            if(newENum > allENum)
+            {
+                allENum = newENum;
+                allPageNum = parseInt(allENum/7);
+                if(allENum % 7 > 0){
+                    allPageNum += 1;
+                }
+                lPENum = allENum % 7;
+                if(lPENum == 0){
+                    lPENum = 7;
+                }
+                document.getElementById("newOrderTips").style.display="block";
+                document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+            }
+
+        }
         function getOrderInfo(pageNum) {
             var geter = new XMLHttpRequest();
             var visit;
@@ -267,6 +287,7 @@
                         <!--<a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>-->
                     </div>
                 </div>
+            <div id="newOrderTips" style="display: none"><p>您有新订单!</p><a onclick="document.getElementById('newOrderTips').style.display='none'">x</a></div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
                         <thead>
@@ -305,7 +326,7 @@
           {
               document.getElementById("search").value = search;
           }
-
+          setInterval("update()",10000);
       </script>
 </div>
 </body>

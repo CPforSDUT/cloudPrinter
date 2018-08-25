@@ -1,4 +1,34 @@
 <!doctype html>
+<?php
+function unescape($str) {
+    $ret = '';
+    $len = strlen ( $str );
+    for($i = 0; $i < $len; $i ++) {
+        if ($str [$i] == '%' && $str [$i + 1] == 'u') {
+            $val = hexdec ( substr ( $str, $i + 2, 4 ) );
+            if ($val < 0x7f)
+                $ret .= chr ( $val );
+            else if ($val < 0x800)
+                $ret .= chr ( 0xc0 | ($val >> 6) ) . chr ( 0x80 | ($val & 0x3f) );
+            else
+                $ret .= chr ( 0xe0 | ($val >> 12) ) . chr ( 0x80 | (($val >> 6) & 0x3f) ) . chr ( 0x80 | ($val & 0x3f) );
+            $i += 5;
+        } else if ($str [$i] == '%') {
+            $ret .= urldecode ( substr ( $str, $i, 3 ) );
+            $i += 2;
+        } else
+            $ret .= $str [$i];
+    }
+    return $ret;
+}
+session_start();
+if(isset($_SESSION['user']) == false){
+    header("location:/user/loginView.php");
+}
+else {
+    $username = $_SESSION['user'];
+}
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -62,10 +92,10 @@
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="" method="post">
+                <form action="people.php" method="get">
                     <table class="search-tab">
                         <tr>
-                            <th width="120">选择分类:</th>
+                            <!--<th width="120">选择分类:</th>
                             <td>
                                 <select name="search-sort" id="">
                                     <option value="0">全部</option>
@@ -74,9 +104,9 @@
                                     <option value="3">本月订单</option>
                                     <option value="4">上月订单</option>
                                 </select>
-                            </td>
+                            </td>-->
                             <th width="70">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
+                            <td><input class="common-text" placeholder="关键字" name="keyword" value="" id="" type="text"></td>
                             <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
                         </tr>
                     </table>
@@ -86,68 +116,59 @@
         <div class="result-wrap">
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
-                    <div class="result-list">
+                    <!--<div class="result-list">
                         <a href="insert.php"><i class="icon-font"></i>新增订单</a>
                         <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
                         <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
                         <tr>
-                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
-                            <th>排序</th>
-                            <th>ID</th>
                             <th>用户名</th>
-                            <th>性别</th>
+                            <th>省份</th>
+                            <th>城市</th>
+                            <th>地区</th>
+                            <th>详细地址</th>
                             <th>联系方式</th>
-                            <th>注册时间</th>
-                            <th>上传文件数</th>
 
-                            <th>操作</th>
                         </tr>
-                        <tr>
-                            <td class="tc"><input name="id[]" value="1" type="checkbox"></td>
-                            <td>
-                                <input name="ids[]" value="1" type="hidden">
-                                <input class="common-input sort-input" name="ord[]" value="0" type="text">
-                            </td>
-                            <td>1</td>
-                            <td title="阿黄"><a target="_blank" href="#" title="阿黄">阿黄</a> …
-                            </td>
-                            <td>男</td>
-                            <td>17853311111</td>
-
-                            <td>2018-08-10 21:11:01</td>
-                            <td>5</td>
-                            <td>
-
-                                <a class="link-update" href="#">修改密码</a>
-                                <a class="link-del" href="#">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="tc"><input name="id[]" value="1" type="checkbox"></td>
-                            <td>
-                                <input name="ids[]" value="1" type="hidden">
-                                <input class="common-input sort-input" name="ord[]" value="0" type="text">
-                            </td>
-                            <td>1</td>
-                            <td title="阿黑"><a target="_blank" href="#" title="阿黑">阿黑</a> …
-                            </td>
-                            <td>女</td>
-                            <td>17853311111</td>
-
-                            <td>2018-08-10 21:11:01</td>
-                            <td>2</td>
-                            <td>
-
-                                <a class="link-update" href="#">修改密码</a>
-                                <a class="link-del" href="#">删除</a>
-                            </td>
-                        </tr>
+                        <?php
+                            if(isset($_GET['keyword'])) {
+                                $keyword = $_GET['keyword'];
+                                $con = mysql_connect("localhost", "root", "wslzd9877");
+                                if (!$con) {
+                                    die('Could not connect: ' . mysql_error());
+                                }
+                                mysql_select_db("user", $con);
+                                $result = mysql_query("select * from orderinfo where business='$username' and consumer='$keyword'");
+                                $row = mysql_fetch_array($result);
+                                if($row != false) {
+                                    $result = mysql_query("select * from user where username='$keyword'");
+                                    $row = mysql_fetch_array($result);
+                                    if($row != false ) {
+                                        $province = unescape($row['province']);
+                                        $city = unescape($row['city']);
+                                        $area = unescape($row['area']);
+                                        $other = unescape($row['other']);
+                                        $lo = $row['lo'];
+                                        $la = $row['la'];
+                                        $phone = $row['phone'];
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $keyword;?></td>
+                                            <td><?php echo $province;?></td>
+                                            <td><?php echo $city;?></td>
+                                            <td><?php echo $area;?></td>
+                                            <td><?php echo $other;?></td>
+                                            <td><?php echo $phone;?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                            }
+                        ?>
                     </table>
-                    <div class="list-page"> 2 条 1/1 页</div>
                 </div>
             </form>
         </div>

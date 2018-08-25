@@ -1,4 +1,4 @@
 
 <script>
-    alert("3"-1);
+    alert(parseInt(3/2));
 </script>

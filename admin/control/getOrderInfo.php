@@ -45,6 +45,11 @@ if(isset($_POST['search']))
 {
     $search = $_POST['search'];
 }
+$eNum = "select count(*) from orderinfo where deleted != 'bn' and business = '$username'";
+$eNum = mysql_query($eNum);
+$eNum = mysql_fetch_array($eNum);
+$eNum = $eNum['count(*)'];
+echo "<p style='display: none' id='eNum'>$eNum</p>";
 $visit = "select * from orderinfo where business = '$username'";
 if(isset($_POST['sorted']))
 {
@@ -84,7 +89,7 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
      echo "<td class=\"tc\"><input onclick=\"checkbox('$orderId')\" id='check$i' type=\"checkbox\"></td>";
      echo "<td id='$orderId'>$orderState</td>";
      echo "<td>$cPhone</td>";
-     echo "<td>$consumer</td>";
+     echo "<td><a href='people.php?keyword=$consumer'>$consumer</a></td>";
      echo "<td>$time</td>";
      echo "<td>";
      echo "<a class=\"link-download\" href=\"document.php?orderId=$orderId\" >下载</a> ";
