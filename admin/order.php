@@ -42,6 +42,7 @@
         var allPageNum = <?php echo floor($orderNum/7) + ($orderNum%7 > 0 ? 1 : 0);?>;
         var lPENum = <?php echo $orderNum%7;?>;
         var thisPageNum = 1;
+        var checkboxs = Array();
         if(lPENum == 0){
             lPENum = 7;
         }
@@ -155,8 +156,33 @@
                 }
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
-            alert("请联系买家");
             getOrderInfo(thisPageNum);
+        }
+        function checkbox(orderId) {
+            if(checkboxs[orderId] == undefined) {
+                checkboxs[orderId] = true;
+            }
+            else if(checkboxs[orderId] == true) {
+                checkboxs[orderId] = false;
+            }else {
+                checkboxs[orderId] = true;
+            }
+        }
+        function delOrders() {
+            var each;
+            for (each in checkboxs)
+            {
+                if(checkboxs[each] == true){
+                    delOrder(each);
+                }
+            }
+            document.getElementById("allChoose").checked = false;
+        }
+        function allChoose() {
+            for(var i = 0 ; i < 7 ; i ++)
+            {
+                document.getElementById("check"+i).click();
+            }
         }
     </script>
 </head>
@@ -234,11 +260,10 @@
             </div>
         </div>
         <div class="result-wrap">
-            <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
                         <!--<a href="insert.php"><i class="icon-font"></i>新增订单</a>-->
-                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                        <a id="batchDel" onclick="delOrders()"><i class="icon-font"></i>批量删除</a>
                         <!--<a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>-->
                     </div>
                 </div>
@@ -246,7 +271,7 @@
                     <table class="result-tab" width="100%">
                         <thead>
                             <tr>
-                                <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                                <th class="tc" width="5%"><input onclick="allChoose()" id="allChoose" type="checkbox"></th>
                                 <th>订单状态</th>
                                 <th>联系方式</th>
                                 <th>发布人</th>
@@ -260,9 +285,7 @@
 
                     </table>
                     <div class="list-page"><a onclick="prevPage()">上一页</a> <p id="page_num_index"></p> <a onclick="nextPage()">下一页</a></div>
-
                 </div>
-            </form>
         </div>
     </div>
     <!--/main-->

@@ -81,7 +81,7 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
     $cPhone = $phoneGeter['phone'];
     $time = toPureTime($row['deadline']);
     $orderId = $row['orderId'];
-     echo "<td class=\"tc\"><input onclick=\"checkbox($i)\" type=\"checkbox\"></td>";
+     echo "<td class=\"tc\"><input onclick=\"checkbox('$orderId')\" id='check$i' type=\"checkbox\"></td>";
      echo "<td id='$orderId'>$orderState</td>";
      echo "<td>$cPhone</td>";
      echo "<td>$consumer</td>";
