@@ -11,14 +11,22 @@ if (!$con)
 {
     die('Could not connect: ' . mysql_error());
 }
+mysql_select_db("user", $con);
 $orderId = $_POST["orderId"];
 $consumer = $_POST["consumer"];
 $deadline = $_POST["deadline"];
 $business = $_POST["business"];
-$exCode = $_POST["exCode"];
-mysql_select_db("user", $con);
+do{
+    $exCode = rand(100000,999999);
+    $check = mysql_query("select * from orderinfo where business='$business' and exCode='$exCode'");
+    $check = mysql_fetch_array($check);
+}while($check != false);
+
 if (true == mysql_query("INSERT INTO orderinfo (orderId, consumer,business,deadline,exCode)VALUES (\"$orderId\", \"$consumer\",\"$business\",\"$deadline\",\"$exCode\")"))
 {
-    echo "ok";
+    echo $exCode;
     mysql_query("delete from delfiles where orderId = '$orderId'");
+}
+else {
+    echo "failure";
 }

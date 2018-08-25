@@ -1,4 +1,56 @@
 <!doctype html>
+<?php
+function toPureTime($dirtyTime)
+{
+    $year = substr($dirtyTime,0,4);
+    $month = substr($dirtyTime,4,2);
+    $day = substr($dirtyTime,6,2);
+    $hours = substr($dirtyTime,8,2);
+    $min = substr($dirtyTime,10,2);
+    $pure =  "$year-$month-$day $hours:$min";
+    return $pure;
+}
+function unescape($str) {
+    $ret = '';
+    $len = strlen ( $str );
+    for($i = 0; $i < $len; $i ++) {
+        if ($str [$i] == '%' && $str [$i + 1] == 'u') {
+            $val = hexdec ( substr ( $str, $i + 2, 4 ) );
+            if ($val < 0x7f)
+                $ret .= chr ( $val );
+            else if ($val < 0x800)
+                $ret .= chr ( 0xc0 | ($val >> 6) ) . chr ( 0x80 | ($val & 0x3f) );
+            else
+                $ret .= chr ( 0xe0 | ($val >> 12) ) . chr ( 0x80 | (($val >> 6) & 0x3f) ) . chr ( 0x80 | ($val & 0x3f) );
+            $i += 5;
+        } else if ($str [$i] == '%') {
+            $ret .= urldecode ( substr ( $str, $i, 3 ) );
+            $i += 2;
+        } else
+            $ret .= $str [$i];
+    }
+    return $ret;
+}
+session_start();
+if(isset($_SESSION['user']) == false){
+    header("location:/user/loginView.php");
+}
+$username = $_SESSION['user'];
+if(isset($_GET['exCode']))
+{
+    $exCode = $_GET['exCode'];
+    $con = mysql_connect("localhost", "root", "wslzd9877");
+    if (!$con) {
+        die('Could not connect: ' . mysql_error());
+    }
+    mysql_select_db("user", $con);
+    $result = mysql_query("select * from orderinfo where exCode='$exCode' and business='$username'");
+    $row = mysql_fetch_array($result);
+}
+else {
+    $row = false;
+}
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -62,9 +114,37 @@
         </div>
         <div class="search-wrap">
         <div class="tiqu">
-          请输入提取码：
-          <input id="tiquma"></input>
-          <button id="btn-submit" >提取</button>
+            <form action="sore.php" method="get">
+                请输入提取码：
+                <input id="exCode" name="exCode">
+                <button id="btn-submit" type="submit">提取</button>
+                <table class="result-tab" width="100%">
+                    <tr>
+                        <th>买家</th>
+                        <th>提取时间</th>
+                        <th>打印状态</th>
+                        <th>其他信息</th>
+                        <th>其它</th>
+                    </tr>
+                        <?php
+                if($row != false)
+                {
+                    $consumer = $row['consumer'];
+                    $deadline = toPureTime($row['deadline']);
+                    $orderState = $row['orderState'] == '1' ? '未打印' : '打印完成';
+                    $otherInfo = unescape($row['orderInfo']);
+                    $orderId = $row['orderId'];
+                    echo "<tr>";
+                    echo "<td>$consumer</td>";
+                    echo "<td>$deadline</td>";
+                    echo "<td>$orderState</td>";
+                    echo "<td>$otherInfo</td>";
+                    echo "<td><a href='document.php?orderId=$orderId'>查看文件</a></td>";
+                    echo "</tr>";
+                }
+                ?>
+                </table>
+            </form>
         </div>
     </div>
     <!--/main-->

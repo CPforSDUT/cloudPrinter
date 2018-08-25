@@ -168,19 +168,22 @@
         }
         function finishOrder(orderId,username) {
             var time = document.getElementById("datepicker").value;
-            var deadline,exCode = randomNum(100000,999999);
+            var deadline,exCode;
             var business = document.getElementById("user_name").innerHTML;
             var createOrder = new XMLHttpRequest();
             deadline = time.substring(0,4) + time.substring(5,7) + time.substring(8,10) + time.substring(11,13) + time.substring(14,16);
             createOrder.open("POST","/createNewOrder.php",false);
             createOrder.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business+"&exCode="+exCode);
-            if (createOrder.responseText == 'ok')
-            {
+            createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business);
+            exCode = createOrder.responseText;
+            if(exCode != 'failure') {
                 document.getElementById("ok").innerHTML = "<p>OK,提取码：" + exCode + "（请牢记，提取时使用）</p>";
-                document.getElementById("ok").style.display = "block";
-                document.getElementById("form3").style.display = "none";
             }
+            else {
+                document.getElementById("ok").innerHTML = "创建订单失败。";
+            }
+            document.getElementById("ok").style.display = "block";
+            document.getElementById("form3").style.display = "none";
         }
     </script>
 </head>
