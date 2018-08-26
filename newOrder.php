@@ -464,7 +464,6 @@
                     var each;
                     map.clearOverlays();
                     eval(mapInfo.responseText);
-                    alert(mapInfo.responseText);
                     for (each in where)
                     {
                         pt = new BMap.Point(where[each]['lo'],where[each]['la']);
