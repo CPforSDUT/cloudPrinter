@@ -29,7 +29,6 @@ if(isset($_SESSION['user']) == false)
 }
 
     if ($pass == $truepass){
-        echo "<script>alert('login successful!');</script>";
         $type = $_SESSION["type"];
         if($type == '2'){
             header("location:/admin/index.php");
