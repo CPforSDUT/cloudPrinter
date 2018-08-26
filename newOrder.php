@@ -16,25 +16,8 @@
     <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="jqueryui/style.css">
-    <style type="text/css">
-        .dropzone {
-            border: 2px dashed #0087F7;
-            border-radius: 5px;
-            background: white;
-        }
 
-        .dropzone {
-            width: 600px;
-            height: 300px;
-        }
 
-        .dropzone {
-            font-size: 0.8em;
-            font-weight: 200;
-            display: block;
-            margin-top: 1.4rem;
-        }
-    </style>
     <script type="text/javascript">
         var selected,selectedId;
     </script>
@@ -177,7 +160,7 @@
             createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business);
             exCode = createOrder.responseText;
             if(exCode != 'failure') {
-                document.getElementById("ok").innerHTML = "<p>OK,提取码：" + exCode + "（请牢记，提取时使用）</p>";
+                document.getElementById("ok").innerHTML = "<p>您的提取码：" + exCode + "（请牢记，提取时使用）</p>";
             }
             else {
                 document.getElementById("ok").innerHTML = "创建订单失败。";
@@ -412,12 +395,11 @@
                             <a>
                                 <button class="button button-caution button-rounded button-jumbo" id="deadline" onclick="finishOrder(<?php echo "'$orderId','$username'";?>)">完成</a>
                         </div>
-
                     </div>
-                    <div id="ok" style="display: none">
-                        <p>
-                            OK
-                        </p>
+                    <div class="finish" id="ok">
+                        <img src="/image/true.png">
+                        <nav>订单完成</nav>
+                        <a href=#" class="button button-rounded button-primary" id="fin">确定</a>
                     </div>
 
                 </div>

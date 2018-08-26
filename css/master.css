@@ -399,6 +399,43 @@ daohang a:hover .caidan{
     max-width: 180px;
     resize: none;
 }
+
+.finish{
+    position: fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    width: 480px;
+    height: 300px;
+    display: inline-block;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0 , 0.4);
+    z-index: 101;
+    text-align: center;
+    font-weight: bold;
+}
+.finish img,nav,a{
+    position: relative;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin: auto;
+}
+.finish img{
+    margin-top: 20px;
+}
+.finish nav{
+    margin-top: 10px;
+}
+#fin{
+    margin-top: 60px;
+    width: 120px;
+}
 .footer{
     font-size: 18px;
     height: 160px;
@@ -411,5 +448,22 @@ daohang a:hover .caidan{
     text-decoration: none;
     color: #7c7c7c;
     display: inline block;
+}
 
+.dropzone {
+    border: 2px dashed #0087F7;
+    border-radius: 5px;
+    background: white;
+}
+
+.dropzone {
+    width: 600px;
+    height: 300px;
+}
+
+.dropzone {
+    font-size: 0.8em;
+    font-weight: 200;
+    display: block;
+    margin-top: 1.4rem;
 }
