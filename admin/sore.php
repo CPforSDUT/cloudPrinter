@@ -113,20 +113,26 @@ else {
             <div class="crumb-list"><i class="icon-font"></i><a href="index.php">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">输入提取码</span></div>
         </div>
         <div class="search-wrap">
-        <div class="tiqu">
             <form action="sore.php" method="get">
-                请输入提取码：
-                <input id="exCode" name="exCode">
-                <button id="btn-submit" type="submit">提取</button>
-                <table class="result-tab" width="100%">
+                <table class="search-tab">
                     <tr>
-                        <th>买家</th>
-                        <th>提取时间</th>
-                        <th>打印状态</th>
-                        <th>其他信息</th>
-                        <th>其它</th>
+                        <th width="130">请输入提取码：</th>
+                        <td><input class="common-text" id="exCode" name="exCode"></td>
+                        <td><input class="btn btn-primary btn2" name="btn-submit" value="提取" type="submit"></td>
                     </tr>
-                        <?php
+                </table>
+            </form>
+        </div>
+        <div class="result-wrap">
+            <table class="result-tab" width="100%">
+                <tr>
+                    <th>买家</th>
+                    <th>提取时间</th>
+                    <th>打印状态</th>
+                    <th>其他信息</th>
+                    <th>其它</th>
+                </tr>
+                <?php
                 if($row != false)
                 {
                     $consumer = $row['consumer'];
@@ -143,8 +149,6 @@ else {
                     echo "</tr>";
                 }
                 ?>
-                </table>
-            </form>
         </div>
     </div>
     <!--/main-->

@@ -440,7 +440,6 @@
     </div>
 
 <script type="text/javascript">
-
     var map = new BMap.Map("baiduMap");
     var point = new BMap.Point(116.38,39.90);
     map.centerAndZoom(point,8);
@@ -450,7 +449,6 @@
         map.panTo(r.point);
     });
     map.addEventListener("dragend", function(result){
-
         var center = map.getCenter();
         var myGeo = new BMap.Geocoder();
         myGeo.getLocation(new BMap.Point(center.lng ,center.lat ), function(result){

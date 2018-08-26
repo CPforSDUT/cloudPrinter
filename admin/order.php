@@ -264,7 +264,7 @@
                 <form action="order.php" method="GET">
                     <table class="search-tab">
                         <tr>
-                            <th width="120">选择分类:</th>
+                            <th width="90">选择分类:</th>
                             <td>
                                 <select id="sorted" name="sorted">
                                     <option value="0">全部</option>
