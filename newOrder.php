@@ -458,12 +458,13 @@
             var mapInfo = new XMLHttpRequest();
             mapInfo.open("POST","/user/getMapInfo.php",true);
             mapInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            mapInfo.send("province="+escape(addComp.province));
+            mapInfo.send("province="+escape(addComp.province)+"&orderId="+<?php echo "\"$orderId\"";?>);
             mapInfo.onreadystatechange=function() {
                 if (mapInfo.readyState == 4 && mapInfo.status == 200) {
                     var each;
                     map.clearOverlays();
                     eval(mapInfo.responseText);
+                    alert(mapInfo.responseText);
                     for (each in where)
                     {
                         pt = new BMap.Point(where[each]['lo'],where[each]['la']);

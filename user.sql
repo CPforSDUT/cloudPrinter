@@ -1,5 +1,4 @@
 
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -12,8 +11,6 @@ CREATE TABLE IF NOT EXISTS `delfiles` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
-
-
 CREATE TABLE IF NOT EXISTS `fileinfo` (
   `orderId` char(32) NOT NULL,
   `filePath` varchar(100) NOT NULL,
@@ -23,9 +20,6 @@ CREATE TABLE IF NOT EXISTS `fileinfo` (
   `filename` varchar(1000) NOT NULL,
   `otherInfo` varchar(500) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-
-
 
 
 CREATE TABLE IF NOT EXISTS `orderids` (
@@ -49,9 +43,10 @@ CREATE TABLE IF NOT EXISTS `orderinfo` (
 CREATE TABLE IF NOT EXISTS `printerinfo` (
   `username` char(15) NOT NULL,
   `color` char(1) NOT NULL DEFAULT '1',
-  `paperType` int(11) NOT NULL DEFAULT '8',
+  `paperType` int(11) NOT NULL DEFAULT '16',
   PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE IF NOT EXISTS `user` (
   `username` char(15) NOT NULL,
@@ -67,3 +62,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `phone` char(11) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `user` (`username`, `password`, `type`, `province`, `city`, `area`, `other`, `lo`, `la`, `state`, `phone`) VALUES
+('lxs0401', 'wslzd9877', '1', '', '', '', '', '', '', '1', '13280672532'),
+('Lovers', 'wslzd9877', '2', '%u5C71%u4E1C%u7701', '%u9752%u5C9B%u5E02', '%u5E02%u5317%u533A', 'kfldkfls', '120.639978', '36.184754', '2', '13280672532');

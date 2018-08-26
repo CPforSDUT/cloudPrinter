@@ -22,6 +22,7 @@ function unescape($str) {
 }
 session_start();
 $province = $_POST['province'];
+$orderId = $_POST['orderId'];
 if(isset($_SESSION['user']) == false){
     header("location:/user/loginView.php");
 }
@@ -31,9 +32,21 @@ if (!$con)
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
+$needColor = '1';
+$needType = 0;
+$fileNeed = mysql_query("select * from fileinfo where orderId='$orderId'");
+while($fileNeeds = mysql_fetch_array($fileNeed))
+{
+    if($fileNeeds['color'] == '2'){
+        $needColor = '2';
+    }
+    $needType |= $fileNeeds['paperType'];
+}
+
 $result = mysql_query("SELECT * FROM user where province = '$province' and type='2'");
+
 echo "where = Array();";
-for($i = 0 ; $row = mysql_fetch_array($result);$i++ )
+for($i = 0 ; $row = mysql_fetch_array($result);)
 {
     $username = $row['username'];
     $province = $row['province'];
@@ -43,6 +56,21 @@ for($i = 0 ; $row = mysql_fetch_array($result);$i++ )
     $lo = $row['lo'];
     $la = $row['la'];
     $state = $row['state'];
+    $color = '1';
+    $paperType = 16;
+    $printerInfo = mysql_query("select * from printerinfo where username='$username'");
+    $printerInfo = mysql_fetch_array($printerInfo);
+    if($printerInfo != false)
+    {
+        $color = $printerInfo['color'];
+        $paperType = $printerInfo['paperType'];
+    }
+    if($color == '1' && $needColor == '2'){
+        continue;
+    }
+    if(($paperType&$needType)!= $needType ){
+        continue;
+    }
     echo "where[$i] = Array();";
     echo "where[$i]['username'] = '$username';";
     echo "where[$i]['province'] = '$province';";
@@ -52,4 +80,5 @@ for($i = 0 ; $row = mysql_fetch_array($result);$i++ )
     echo "where[$i]['lo'] = $lo;";
     echo "where[$i]['la'] = $la;";
     echo "where[$i]['state'] = '$state';";
+    $i += 1;
 }
