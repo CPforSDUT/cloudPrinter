@@ -4,7 +4,6 @@
 
 <head>
     <title>云打印</title>
-    <link rel="stylesheet" type="text/css" href="/css/master.css">
     <link href="/js/dist/dropzone.css" rel="stylesheet" />
     <link href="/js/dist/basic.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/buttons.css">
@@ -18,13 +17,19 @@
     <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="jqueryui/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/master.css">
 
 
     <script type="text/javascript">
         var selected,selectedId;
     </script>
     <script type="text/javascript">
-
+        function showAndHidden0() {
+            var form0 = document.getElementById("form0");
+            var form1 = document.getElementById("form1");
+            form0.style.display = "none";
+            form1.style.display = "block";
+        }
         function showAndHidden1(orderId) {
 
             var form1 = document.getElementById("form1");
@@ -205,7 +210,6 @@
                 document.getElementById("ok").style.visibility = "visible";
             }
             document.getElementById("ok").style.display = "block";
-            document.getElementById("form3").style.display = "none";
         }
     </script>
 </head>
@@ -213,14 +217,13 @@
 <body>
 <div id="show" style="display: none"></div>
     <div class="container">
+        <div class="hd">
         <div class="header">
             <div class="daohang" id="daohang">
-                <img src="image/logo1.png" alt="logo" id="logo">
+                <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
                 <span id="username">云打印</span>
-                <a id="caidanAndPic">
-
+                <a href="#" id="caidanAndPic">
                     <img src="image/user_img1.png" alt="用户" id="user_pic">
-
                     <div class="caidan" id="caidan">
                         <ul>
                             <li>
@@ -255,10 +258,16 @@
             </div>
 
         </div>
+        </div>
         <div class="main">
-            <span>请填写您的订单</span>
+            <div class="mt">
+                <span>开始云打印</span>
+            </div>
             <div class="m1">
                 <div class="m2">
+                    <div class="form" id="form0">
+                    <a class="button button-glow button-border button-rounded button-primary button-jumbo" id="start" onclick="showAndHidden0()">创建新订单</a>
+                    </div>
                     <div class="form" id="form1">
                         <?php
                             session_start();
@@ -435,26 +444,10 @@
                                 <button class="button button-caution button-rounded button-large" id="deadline" onclick="finishOrder(<?php echo "'$orderId','$username'";?>)">完成</button>
                         </div>
                     </div>
-                    <div class="finish" id="ok" style="visibility: hidden">
-                        <i onclick="document.getElementById('ok').style.visibility='hidden'" class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i>
-                        <img src="/image/true.png">
-                        <nav>提交成功</nav>
-                        <p id="exCode">这里放提取码</p>
-                        <a href="newOrder.php"  class="button button-rounded button-primary" id="fin">再来一单</a>
-                    </div>
-                    <div class="finish" id="nok" style="visibility: hidden">
-                        <i onclick="document.getElementById('nok').style.visibility='hidden'" class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i>
-                        <img src="/image/false.png">
-                        <nav>提交失败</nav>
-                        <p>出现未知错误，请重试！</p>
-                        <a href="newOrder.php" class="button button-rounded button-primary" id="fin">重试</a>
-                    </div>
                 </div>
             </div>
-
         </div>
-
-        <div class="footer">
+        <!-- <div class="footer">
             <br>
             <br>
             <br>
@@ -465,9 +458,31 @@
                 <a href="#">联系我们</a>|
                 <a href="#">联系我们</a>
             </p>
-        </div>
+        </div> -->
     </div>
-
+    <div class="gray" id="ok" style="visibility: hidden">
+                    <div class="finish" id="ok">
+                        <!-- <i onclick="document.getElementById('ok').style.visibility='hidden'" class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i> -->
+                        <img src="/image/true.png">
+                        <nav>提交成功</nav>
+                        <p id="exCode"></p>
+                        <div id="fin">
+                        <a href="#"  class="button button-rounded">查看订单</a>
+                        <a href="newOrder.php"  class="button button-rounded button-primary">再来一单</a>
+                        </div>
+                    </div>
+            </div>
+            <div class="gray" id="nok" style="visibility: hidden">
+                    <div class="finish" id="nok">
+                        <!-- <i onclick="document.gestElementById('nok').style.visibility='hidden'" class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i> -->
+                        <img src="/image/false.png">
+                        <nav>提交失败</nav>
+                        <p>出现未知错误，请重试！</p>
+                        <div id="fin">
+                        <a href="newOrder.php" class="button button-rounded button-primary">重试</a>
+                        </div>
+                    </div>
+            </div>
 <script type="text/javascript">
     var map = new BMap.Map("baiduMap");
     var point = new BMap.Point(116.38,39.90);

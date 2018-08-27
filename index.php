@@ -17,6 +17,8 @@ if(isset($_SESSION['user']))
   <link rel="stylesheet" href="css/jquery.fullPage.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/layui.css">
+  <link rel="stylesheet" type="text/css" href="/css/master.css">
+  <link rel="stylesheet" href="css/buttons.css">
   <script src="js/layui.all.js"></script>
   <script src="js/jquery-1.8.3.min.js"></script>
   <script src="js/jquery.fullPage.js"></script>
@@ -91,11 +93,35 @@ if(isset($_SESSION['user']))
 
 
   	</div>
-
+    <div class="container">
   	<div class="section">
-  		<div class="slide"><h3>第二屏的第一屏</h3></div>
-  		<div class="slide"><h3>第二屏的第二屏</h3></div>
-  		<div class="slide"><h3>第二屏的第三屏</h3></div>
+      
+        <div class="hd">
+        <div class="header">
+            <div class="daohang" id="daohang">
+                <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
+                <span>
+                    <a href="/user/loginView.php">登陆</a>&nbsp;|&nbsp;
+                    <a href="/user/registeredView.php">注册</a>
+                </span>
+            </div>
+
+        </div>
+        </div>
+        <div class="main">
+            <div class="mt">
+                <span>开始云打印</span>
+            </div>
+            <div class="m1">
+                <div class="m2">
+                    <div class="form" id="form0">
+                    <a class="button button-glow button-border button-rounded button-primary button-jumbo" id="start" onclick="showAndHidden0()">创建新订单</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+  		<!-- <div class="slide"><h3>第二屏的第二屏</h3></div>
+  		<div class="slide"><h3>第二屏的第三屏</h3></div> -->
   	</div>
   	<div class="section">
   		<h3>第三屏</h3>
