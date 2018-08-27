@@ -8,6 +8,8 @@
     <link href="/js/dist/dropzone.css" rel="stylesheet" />
     <link href="/js/dist/basic.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/layui.css">
+    <script src="js/layui.all.js"></script>
     <script src="/js/dist/dropzone.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=04uLKfHLu2zT9eKoaSk2WsXC0ekF3aF3" charset="UTF-8"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js" charset="UTF-8"></script>
@@ -397,9 +399,10 @@
                         </div>
                     </div>
                     <div class="finish" id="ok">
+                        <i class="layui-icon layui-icon-close" style="font-size: 30px; color: #x1006; position: absolute; right:0; margin:6px;"></i>  
                         <img src="/image/true.png">
                         <nav>订单完成</nav>
-                        <a href=#" class="button button-rounded button-primary" id="fin">确定</a>
+                        <a href="#" class="button button-rounded button-primary" id="fin">确定</a>
                     </div>
 
                 </div>
