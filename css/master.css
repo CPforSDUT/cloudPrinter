@@ -452,6 +452,7 @@ daohang a:hover .caidan{
     margin: auto;
     top: 220px;
     width: 120px;
+    padding: 0;
 }
 .jdt{
     position: absolute;

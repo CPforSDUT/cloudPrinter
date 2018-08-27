@@ -174,10 +174,11 @@
             createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business);
             exCode = createOrder.responseText;
             if(exCode != 'failure') {
-                document.getElementById("ok").innerHTML = "<p>您的提取码：" + exCode + "（请牢记，提取时使用）</p>";
+                document.getElementById("exCode").innerHTML = "您的提取码：" + exCode + "（请牢记，提取时使用）";
+                document.getElementById("ok").style.visibility = "visible";
             }
             else {
-                document.getElementById("ok").innerHTML = "创建订单失败。";
+                document.getElementById("ok").style.visibility = "visible";
             }
             document.getElementById("ok").style.display = "block";
             document.getElementById("form3").style.display = "none";
@@ -410,19 +411,19 @@
                                 <button class="button button-caution button-rounded button-large" id="deadline" onclick="finishOrder(<?php echo "'$orderId','$username'";?>)">完成</button>
                         </div>
                     </div>
-                    <div class="finish" id="ok">
-                        <i class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i>  
+                    <div class="finish" id="ok" style="visibility: hidden">
+                        <i onclick="document.getElementById('ok').style.visibility='hidden'" class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i>
                         <img src="/image/true.png">
                         <nav>提交成功</nav>
-                        <p>这里放提取码</p>
-                        <a href="#" class="button button-rounded button-primary" id="fin">确定</a>
+                        <p id="exCode">这里放提取码</p>
+                        <a href="newOrder.php"  class="button button-rounded button-primary" id="fin">再来一单</a>
                     </div>
-                    <div class="finish" id="nok">
-                        <i class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i>  
+                    <div class="finish" id="nok" style="visibility: hidden">
+                        <i onclick="document.getElementById('nok').style.visibility='hidden'" class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i>
                         <img src="/image/false.png">
                         <nav>提交失败</nav>
                         <p>出现未知错误，请重试！</p>
-                        <a href="#" class="button button-rounded button-primary" id="fin">确定</a>
+                        <a href="newOrder.php" class="button button-rounded button-primary" id="fin">重试</a>
                     </div>
                 </div>
             </div>
