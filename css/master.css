@@ -287,18 +287,24 @@ daohang a:hover .caidan{
 
 .go{
     position: absolute;
-    width: 700px;
+    width: 100%;
     top:440px;
-    font-size: 32px;
     text-align: center;
     z-index: 20;
 }
 .go button{
-    width: 240px;
-    position: absolute;
-    left: 25%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-family:"微软雅黑";
+    font-weight: bold;
 }
-
+#deadline{
+    width: 172px;
+}
 #data_select{
     padding-top: 2px;
     position: absolute;
@@ -431,11 +437,31 @@ daohang a:hover .caidan{
 }
 .finish nav{
     margin-top: 10px;
+    color: #28262C;
+    font-weight: bolder;
+    font-size: 24px;
+}
+.finish p{
+    margin-top: 18px;
 }
 #fin{
-    margin-top: 60px;
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    margin: auto;
+    top: 220px;
     width: 120px;
 }
+.jdt{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    margin: auto;
+    top: 660px;
+}
+
 .footer{
     font-size: 18px;
     height: 160px;

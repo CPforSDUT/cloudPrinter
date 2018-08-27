@@ -56,6 +56,18 @@
             form2.style.display = "none";
             form3.style.display = "block";
         }
+        function showAndHidden3() {
+            var form2 = document.getElementById("form2");
+            var form1 = document.getElementById("form1");
+            form2.style.display = "none";
+            form1.style.display = "block";
+        }
+        function showAndHidden4() {
+            var form3 = document.getElementById("form3");
+            var form2 = document.getElementById("form2");
+            form3.style.display = "none";
+            form2.style.display = "block";
+        }
         function showCaidan() {
             var caidan = document.getElementById("caidan");
             caidan.style.display = "block";
@@ -248,7 +260,6 @@
                             <!--<nav>请将文件拖拽至此</nav>-->
                             <input type="hidden"  name="orderId" value=<?php echo "'$orderId'";?> />
                         </form>
-
                         <script type="text/javascript">
                             var delFile=new XMLHttpRequest();
                             Dropzone.options.mydropzone = {
@@ -265,13 +276,12 @@
                                 }
                             };
                         </script>
-
-
                         <span>*请上传不大于20M的文件</span>
                         <div class="go" id="go_one">
-                            <a>
-                                <button class="button button-caution button-rounded button-jumbo" onclick="showAndHidden1(<?php echo "'$orderId'";?>)">下一步</a>
+                                <!-- <button class="button button-highlight button-rounded button-large">上一步</button> -->
+                                <button class="button button-action button-rounded button-large" onclick="showAndHidden1(<?php echo "'$orderId'";?>)">下一步</button>
                         </div>
+                        <img src="/image/jdt1.png" class="jdt">
                         <?php
                         mysql_query("INSERT INTO orderids (orderId) VALUES (\"$orderId\")");
                         ?>
@@ -353,9 +363,10 @@
                                 }
                             </script>
                         </form>
+                        <img src="/image/jdt2.png" class="jdt">
                         <div class="go" id="go_two">
-                            <a>
-                                <button class="button button-caution button-rounded button-jumbo" onclick="showAndHidden2()">下一步</a>
+                        <button class="button button-highlight button-rounded button-large" onclick="showAndHidden3()">上一步</button>
+                                <button class="button button-action button-rounded button-large" onclick="showAndHidden2()">下一步</button>
                         </div>
                         <!--<nav>打印参数</nav>-->
                     </div>
@@ -393,18 +404,26 @@
                                 </tbody>
                             </table>
                         </div>
+                        <img src="/image/jdt3.png" class="jdt">
                         <div class="go" id="go_three">
-                            <a>
-                                <button class="button button-caution button-rounded button-jumbo" id="deadline" onclick="finishOrder(<?php echo "'$orderId','$username'";?>)">完成</a>
+                        <button class="button button-highlight button-rounded button-large" onclick="showAndHidden4()">上一步</button>
+                                <button class="button button-caution button-rounded button-large" id="deadline" onclick="finishOrder(<?php echo "'$orderId','$username'";?>)">完成</button>
                         </div>
                     </div>
                     <div class="finish" id="ok">
-                        <i class="layui-icon layui-icon-close" style="font-size: 30px; color: #x1006; position: absolute; right:0; margin:6px;"></i>  
+                        <i class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i>  
                         <img src="/image/true.png">
-                        <nav>订单完成</nav>
+                        <nav>提交成功</nav>
+                        <p>这里放提取码</p>
                         <a href="#" class="button button-rounded button-primary" id="fin">确定</a>
                     </div>
-
+                    <div class="finish" id="nok">
+                        <i class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i>  
+                        <img src="/image/false.png">
+                        <nav>提交失败</nav>
+                        <p>出现未知错误，请重试！</p>
+                        <a href="#" class="button button-rounded button-primary" id="fin">确定</a>
+                    </div>
                 </div>
             </div>
 
