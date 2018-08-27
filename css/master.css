@@ -158,12 +158,13 @@ daohang a:hover .caidan{
     font-size: 56px;
 }
 .m1{
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
     margin: auto;
-    margin-top: 0;
     overflow: hidden;
     height: 100%;
-    width: 1440px;
+    max-width: 1440px;
     background-image:url(../image/paper.png);
     background-size:100% 100%;
     background-position-x: center;
@@ -182,7 +183,6 @@ daohang a:hover .caidan{
     color: #7c7c7c;
     text-align: left;
     display: block;
-
 }
 .form{
     margin: auto;
