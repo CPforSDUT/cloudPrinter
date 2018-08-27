@@ -260,6 +260,7 @@
         </div>
         </div>
         <div class="main">
+        <div class="m0">
             <div class="mt">
                 <span>开始云打印</span>
             </div>
@@ -447,6 +448,8 @@
                 </div>
             </div>
         </div>
+        </div>
+        
         <!-- <div class="footer">
             <br>
             <br>
