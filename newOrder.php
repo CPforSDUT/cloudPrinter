@@ -150,6 +150,30 @@
                 document.getElementById("state").innerText = state;
             });
         }
+        function search(keyword)
+        {
+            var each;
+            for(each in where)
+            {
+                if(where[each]['username'].toLocaleLowerCase() == keyword.toLocaleLowerCase())
+                {
+                    document.getElementById('user_name').innerHTML = where[each]['username'];
+                    document.getElementById('province').innerHTML = unescape(where[each]['province']);
+                    document.getElementById('city').innerHTML = unescape(where[each]['city']);
+                    document.getElementById('area').innerHTML = unescape(where[each]['area']);
+                    document.getElementById('other').innerHTML = unescape(where[each]['other']);
+                    var state;
+                    if(where[each]['state'] == '1'){
+                        state = "打烊";
+                    }
+                    else {
+                        state= "开张";
+                    }
+                    document.getElementById("state").innerText = state;
+                    break;
+                }
+            }
+        }
         function randomNum(minNum,maxNum){
             switch(arguments.length){
                 case 1:
@@ -374,7 +398,7 @@
 
                     <div class="form" id="form3">
                         <form action="">
-                            <input id="map_search" type="search" placeholder="输入打印店名来查找" size="50">
+                            <input id="map_search" onchange="search(document.getElementById('map_search').value)" type="search" placeholder="输入打印店名来查找" size="50">
                         </form>
                         <div id="baiduMap"></div>
                         <div class="mapform" id="mapform">
