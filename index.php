@@ -2,9 +2,8 @@
 <html lang="zh-CN">
 <?php
 session_start();
-if(isset($_SESSION['user']))
-{
-    if($_SESSION['type'] == '2'){
+if (isset($_SESSION['user'])) {
+    if ($_SESSION['type'] == '2') {
         header("location:/admin/index.php");
     }
 }
