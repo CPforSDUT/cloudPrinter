@@ -54,16 +54,7 @@ if(isset($_SESSION['user']))
         }
     </script>
   <script type="text/javascript">
-  $(function() {
 
-      $('#bosteam').fullpage({
-          navigation: true,
-      });
-      autoScrolling();
-  });
-    $(window).resize(function(){
-        autoScrolling();
-    });
 
     function showlogin() {
             var black1 = document.getElementById("black1");
@@ -73,22 +64,29 @@ if(isset($_SESSION['user']))
             var black1 = document.getElementById("black1");
             black1.style.display = "none";
         }
-    function autoScrolling(){
-        var $ww = $(window).width();
-        if($ww < 1024){
-            $.fn.fullpage.setAutoScrolling(false);
-        } else {
-            $.fn.fullpage.setAutoScrolling(true);
+    $(function(){
+        $('#bosteam').fullpage({
+            navigation: true,
+        });
+        $(window).resize(function(){
+            autoScrolling();
+        });
+        function autoScrolling(){
+            var $ww = $(window).width();
+            if($ww < 1024){
+                $.fn.fullpage.setAutoScrolling(false);
+            } else {
+                $.fn.fullpage.setAutoScrolling(true);
+            }
         }
-    }
+        autoScrolling();
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+        //…
+    });
 
 
-
-  layui.use('element', function(){
-    var element = layui.element;
-
-    //…
-  });
 
   </script>
 
@@ -104,41 +102,39 @@ if(isset($_SESSION['user']))
             <span>没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></span>
     </form>
 </div>
-    <div id="bosteam">
-        <div class="section">
-            <video id="bgvideo" autoplay="autoplay" width="100%">
-                <source src="bg.webm" type="video/webm" />
-                <source src="bg.mp4" type="video/mp4" />
-                <!--<source src="bg.ogv" type="video/ogg" />还没转换这个格式-->
-                您的浏览器不支持 video 标签。请使用更先进的浏览器,如<a href="http://www.google.cn/chrome/browser/" target="_blank">Chrome浏览器</a>或<a
-                    href="http://www.firefox.com.cn/download/" target="_blank">Firefox浏览器</a>
-            </video>
+<div id="bosteam">
+    <div class="section">
+        <video id="bgvideo" autoplay="autoplay" width="100%">
+            <source src="bg.webm" type="video/webm" />
+            <source src="bg.mp4" type="video/mp4" />
+            <!--<source src="bg.ogv" type="video/ogg" />
+            还没转换这个格式-->
+            您的浏览器不支持 video 标签。请使用更先进的浏览器,如<a href="http://www.google.cn/chrome/browser/" target="_blank">Chrome浏览器</a>或<a href="http://www.firefox.com.cn/download/" target="_blank">Firefox浏览器</a>
+        </video>
 
-            <h3>云打印</h3>
-            <p class="speak">上传您的文档并选择最近的打印店，即刻体验快捷高效的打印新方式。</p>
-            <br>
-            <center>
-                <!-- <a class="layui-btn layui-btn-radius layui-btn-primary" href="/user/loginView.php">登 录</a> -->
-                <a class="layui-btn layui-btn-radius layui-btn-primary" onclick="showlogin()">登 录</a>
-                <a class="layui-btn layui-btn-radius layui-btn-primary" href="/user/registeredView.php">注 册</a>
-            </center>
-        </div>
-
+        <h3>云打印</h3>
+        <p class="speak">上传您的文档并选择最近的打印店，即刻体验快捷高效的打印新方式。</p>
+        <br>
+        <center>
+            <a class="layui-btn layui-btn-radius layui-btn-primary" href="/user/loginView.php">登 录</a>
+            <a class="layui-btn layui-btn-radius layui-btn-primary" href="/user/registeredView.php">注 册</a>
+        </center>
         <!--
-      <ul class="layui-nav">   采用layui框架写导航
-        <div class="logo">
-          <img src="images/cloud.png" />
-          <span>Cloud Printer</span>
-        </div>
+              <ul class="layui-nav">   采用layui框架写导航
+                <div class="logo">
+                  <img src="images/cloud.png" />
+                  <span>Cloud Printer</span>
+                </div>
+                <li class="layui-nav-item">
+                  <a href="">登录</a>
+                </li>
+                <li class="layui-nav-item">
+                  <a href="">注册<span class="layui-badge-dot"></span></a>
+                </li>
+              </ul>
+            -->
 
-        <li class="layui-nav-item">
-          <a href="">登录</a>
-        </li>
-        <li class="layui-nav-item">
-          <a href="">注册<span class="layui-badge-dot"></span></a>
-        </li>
-      </ul>
-    -->
+
     </div>
 
     <div class="container">
@@ -168,7 +164,6 @@ if(isset($_SESSION['user']))
             </div>
         </div>
     </div>
-
     <div class="section">
   		<h3>第三屏</h3>
   	</div>
