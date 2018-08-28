@@ -15,10 +15,11 @@ if(isset($_SESSION['user']))
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>云打印</title>
   <link rel="stylesheet" href="css/jquery.fullPage.css">
+  
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/layui.css">
-  <link rel="stylesheet" type="text/css" href="/css/master.css">
   <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" type="text/css" href="/css/master.css">
   <link rel="stylesheet" href="css/buttons.css">
   <script src="js/layui.all.js"></script>
   <script src="js/jquery-1.8.3.min.js"></script>
@@ -36,10 +37,13 @@ if(isset($_SESSION['user']))
     });
 
     function showlogin() {
-            var bgc = document.getElementById("bgc");
-            bgc.style.display = "block";
+            var black1 = document.getElementById("black1");
+            black1.style.display = "block";
         }
-
+    function closelogin() {
+            var black1 = document.getElementById("black1");
+            black1.style.display = "none";
+        }
     function autoScrolling(){
         var $ww = $(window).width();
         if($ww < 1024){
@@ -64,8 +68,9 @@ if(isset($_SESSION['user']))
 
 </head>
 <body>
-<div class="gray" id="bgc">
-    <form id="login_box" action="/user/login.php" method="post" onsubmit="return check()">
+<div class="black1" id="black1">
+    <form class="login_box" id="login_box" action="/user/login.php" method="post" onsubmit="return check()">
+            <a id="closebox" onclick="closelogin()"><i class="layui-icon layui-icon-close" style="font-size: 30px; color: #x1006;"></i></a>
             <nav>登录</nav>
             <input type="text" name="username" id="username" placeholder="请输入账号">
             <input type="password" name="password" id="password" placeholder="请输入密码">

@@ -493,7 +493,7 @@ daohang a:hover .caidan{
     margin-right: 10px;
 }
 .gray{
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     background: rgba(0, 0, 0 , 0.3);

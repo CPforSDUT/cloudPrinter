@@ -7,23 +7,29 @@
     padding: 0px;
     margin: 0px;
 } */
-.gray{
-    position: absolute;
+.black1{
+    position: fixed;
     left: 0;
     top: 0;
-    background: rgba(0, 0, 0 , 0.3);
+    background: rgba(0, 0, 0 ,0.6);
     width: 100%;
     height: 100%;
     z-index: 102;
 }
-#bgc{
-    display: none;
+#black1{
+    display:block;
 }
-#login_box input{
+#closebox{
+    position:absolute;
+    text-align: right;
+    right: 6px;
+    top: 6px;
+}
+.login_box input{
     height: 28px;
     margin-top: 6px;
 }
-#login_box{
+.login_box{
     width: 400px;
     height: 500px;
     position: fixed;
@@ -32,19 +38,18 @@
     padding: 30px 60px 30px 60px;
     background-color: rgb(250, 250, 250);
     box-shadow: 0 3px 2px rgba(0, 0, 0 , 0.1);
-    z-index: 7;
+    z-index: 103;
     border-radius: 15px;
     font-size: 18px;
     color: #28262C;
     text-align: center;
-    z-index: 1;
     display: block；
 }
-#login_box nav{
+.login_box nav{
     font:32px bold;
     margin-bottom: 30px;
 }
-#login_box input{
+.login_box input{
     font-size: 18px;
     width: 260px;
     height: 40px;
