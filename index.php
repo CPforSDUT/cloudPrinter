@@ -15,7 +15,7 @@ if(isset($_SESSION['user']))
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>云打印</title>
   <link rel="stylesheet" href="css/jquery.fullPage.css">
-  
+
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/layui.css">
   <link rel="stylesheet" href="css/login.css">
@@ -24,14 +24,43 @@ if(isset($_SESSION['user']))
   <script src="js/layui.all.js"></script>
   <script src="js/jquery-1.8.3.min.js"></script>
   <script src="js/jquery.fullPage.js"></script>
+    <script type="text/javascript">
+        function check_code() {
+            console.log(1);
+            //获取账号
+            var code =document.getElementById("username").value;
+            var reg = /^\w{6,12}$/;
+            if(reg.test(code)) {
+                return true;
+            } else {
+                alert("用户名错误,必须为6-12位字母或数字或下划线");
+                return false;
+            }
+        }
+        function check_pwd(){
+            console.log(2);
+            var code2 =document.getElementById("password").value;
+            var reg2 = /^\w{6,16}$/;
+            if(reg2.test(code2)) {
+                return true;
+            } else {
+                alert("密码错误,必须为6-16位字母或数字或下划线");
+                return false;
+            }
 
-  <script>
-  $(function(){
-  	$('#bosteam').fullpage({
-  		navigation: true,
-  	});
+        }
+        function check() {
+            return check_code() && check_pwd();
+        }
+    </script>
+  <script type="text/javascript">
+  $(function() {
 
-
+      $('#bosteam').fullpage({
+          navigation: true,
+      });
+      autoScrolling();
+  });
     $(window).resize(function(){
         autoScrolling();
     });
@@ -53,10 +82,7 @@ if(isset($_SESSION['user']))
         }
     }
 
-    autoScrolling();
 
-
-  });
 
   layui.use('element', function(){
     var element = layui.element;
@@ -70,11 +96,11 @@ if(isset($_SESSION['user']))
 <body>
 <div class="black1" id="black1">
     <form class="login_box" id="login_box" action="/user/login.php" method="post" onsubmit="return check()">
-            <a id="closebox" onclick="closelogin()"><i class="layui-icon layui-icon-close" style="font-size: 30px; color: #x1006;"></i></a>
+            <a id="closebox"><i onclick="closelogin()" class="layui-icon layui-icon-close" style="font-size: 30px; color: #x1006;"></i></a>
             <nav>登录</nav>
-            <input type="text" name="username" id="username" placeholder="请输入账号">
-            <input type="password" name="password" id="password" placeholder="请输入密码">
-            <a href="#" id="dl" class="button button-block button-rounded button-primary button-large">立即登陆</a>
+            <input type="text" name="username" id="username" placeholder="请输入账号" />
+            <input type="password" name="password" id="password" placeholder="请输入密码" />
+        <button id="dl" type="submit" class="button button-block button-rounded button-primary button-large">立即登陆</button>
             <span>没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></span>
     </form>
 </div>

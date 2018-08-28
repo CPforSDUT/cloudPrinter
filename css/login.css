@@ -17,13 +17,14 @@
     z-index: 102;
 }
 #black1{
-    display:block;
+    display:none;
 }
 #closebox{
+    height: 30px;
     position:absolute;
     text-align: right;
-    right: 6px;
-    top: 6px;
+    top: -90%;
+    right: 3%;
 }
 .login_box input{
     height: 28px;

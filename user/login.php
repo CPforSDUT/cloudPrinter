@@ -28,7 +28,7 @@ if(isset($_SESSION['user']) == false)
     $truepass = $row['password'];
 }
 
-    if ($pass == $truepass){
+    if (isset($pass) && isset($truepass) && $pass == $truepass){
         $type = $_SESSION["type"];
         if($type == '2'){
             header("location:/admin/index.php");
