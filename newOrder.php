@@ -221,7 +221,7 @@
         <div class="header">
             <div class="daohang" id="daohang">
                 <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
-                <span id="username">云打印</span>
+                <span id="uname">云打印</span>
                 <a href="#" id="caidanAndPic">
                     <img src="image/user_img1.png" alt="用户" id="user_pic">
                     <div class="caidan" id="caidan">

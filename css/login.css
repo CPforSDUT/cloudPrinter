@@ -1,36 +1,34 @@
-body{
-    background-color: #eeeeee;
-    font-size: 18px;
-    text-align: center;
-    color: #28262C;
-    z-index: 1;
+/* body{
+    
     /* background-color: rgb(34, 154, 224); */
 }
-*{
+/* *{
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
+} */
+.gray{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0 , 0.3);
+    width: 100%;
+    height: 100%;
+    z-index: 102;
 }
-input{
+#bgc{
+    display: none;
+}
+#login_box input{
     height: 28px;
-    font-size: 18px;
-    margin: 6px;
-}
-.login{
-    max-width: 100%;
-    height: auto;
-    display: block;
-    position: relative;
-    left:0;top:0;
-    z-index: 6;
-    
+    margin-top: 6px;
 }
 #login_box{
     width: 400px;
     height: 500px;
-    position: relative;
+    position: fixed;
+    top: 0;right: 0;left: 0;bottom: 0;
     margin: auto;
-    margin-top: 200px;
     padding: 30px 60px 30px 60px;
     background-color: rgb(250, 250, 250);
     box-shadow: 0 3px 2px rgba(0, 0, 0 , 0.1);
@@ -38,28 +36,24 @@ input{
     border-radius: 15px;
     font-size: 18px;
     color: #28262C;
-
+    text-align: center;
+    z-index: 1;
+    display: block；
 }
 #login_box nav{
     font:32px bold;
     margin-bottom: 30px;
 }
 #login_box input{
+    font-size: 18px;
     width: 260px;
     height: 40px;
     margin-bottom: 10px;
 }
 #dl{
+    margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    text-decoration: none;  
-    color: #ffffff;
-    background-color: #28d3ae;
     width: 260px;
     font-size: 24px;
-}
-input[type=submit]{
-
-    height: 80px;
-    border: 0px;
 }

@@ -81,6 +81,7 @@
 
 <body>
     <div class="container">
+        <div class="hd">
         <div class="header">
             <div class="daohang">
                 <img src="../image/logo1.png" alt="logo" id="logo">
@@ -90,9 +91,11 @@
                 </span>
             </div>
         </div>
+        </div>
+        
         <div class="regist">
             <div id="accordion">
-                <div class="card">
+                <div class="card" id="card1">
                     <div class="card-header" id="headingOne">
                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             注册云打印用户
@@ -101,7 +104,7 @@
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <form action="/user/registered.php" method="post" onsubmit="return check(1)">
-                                <div class="form">
+                                <div class="form" id="fo1">
                                     <nav class="biaoti">用户注册</nav>
                                     <HR align="center" width="100%" color="#3E5C76" SIZE="3">
                                     <div class="form_left">
@@ -117,7 +120,7 @@
                                         <input type="hidden" name="type" value="1" >
                                     </div>
                                 </div>
-                                <div class="submit">
+                                <div class="submit" id="sb1">
                                     <button type="submit" class="button button-glow button-rounded button-raised button-primary" ">完成</button>
                                 </div>
                             </form>
@@ -125,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" id="card2">
                     <div class="card-header" id="headingTwo">
                         <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             成为云打印商家
@@ -134,9 +137,10 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body">
                             <form action="/user/registered.php" method="post" onsubmit="return check(2)">
-                                <div class="form">
+                                <div class="form" id="fo2">
                                     <nav class="biaoti" id="btTwo">商家注册</nav>
                                     <HR align="center" width="100%" color="#3E5C76" SIZE="3">
+                                    <div class="fa">
                                     <div class="form_left">
                                         <nav>店铺名称：</nav>
                                         <nav>密码：</nav>
@@ -152,6 +156,8 @@
                                         <br/>
                                         <input type="text" name="phone" id="phone2">
                                     </div>
+                                    </div>
+                                    <div class="fb">
                                     <div id="map"></div>
                                     <div id="position">
                                         <input type="hidden" name="type" value="2" />
@@ -176,6 +182,8 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    </div>
+                                    
                                 </div>
 
                                 <script type="text/javascript">
@@ -219,18 +227,17 @@
                                             }
                                         });
                                     })
-
                                 </script>
                                 <div class="submit">
-                                <button type="submit" class="button button-glow button-rounded button-raised button-primary">完成</button>
-                                </div>
+                                    <button type="submit" class="button button-glow button-rounded button-raised button-primary">完成</button>
+                                    </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer">
+        <!-- <div class="footer">
             <br>
             <br>
             <br>
@@ -241,7 +248,7 @@
                 <a href="#">联系我们</a>|
                 <a href="#">联系我们</a>
             </p>
-        </div>
+        </div> -->
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
