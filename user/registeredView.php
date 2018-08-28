@@ -190,7 +190,11 @@
                                     var map = new BMap.Map("map");
                                     var point = new BMap.Point(116.404, 39.915);
                                     var x,y;
+                                    map.setMapStyle({
+                                        styleJson:
+                                    });
                                     map.centerAndZoom(point, 10);
+
                                     map.addControl(new BMap.GeolocationControl());
                                     map.addControl(new BMap.NavigationControl());
                                     var geolocation = new BMap.Geolocation();
