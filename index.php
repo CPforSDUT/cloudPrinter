@@ -116,7 +116,7 @@ if(isset($_SESSION['user']))
         <p class="speak">上传您的文档并选择最近的打印店，即刻体验快捷高效的打印新方式。</p>
         <br>
         <center>
-            <a class="layui-btn layui-btn-radius layui-btn-primary" href="/user/loginView.php">登 录</a>
+            <a class="layui-btn layui-btn-radius layui-btn-primary" onclick="showlogin()">登 录</a>
             <a class="layui-btn layui-btn-radius layui-btn-primary" href="/user/registeredView.php">注 册</a>
         </center>
         <!--
