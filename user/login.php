@@ -33,7 +33,9 @@ if(isset($_SESSION['user']) == false)
         if($type == '2'){
             header("location:/admin/index.php");
         }
-
+        else {
+            header("location:/newOrder.php");
+        }
     }
     else {
         echo "<script type='text/javascript'>alert(\"用户名或密码错误\");</script>";

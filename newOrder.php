@@ -1,4 +1,15 @@
-<?php ob_start(); ?>
+<?php ob_start();
+session_start();
+if(isset($_SESSION['user']) == false){
+    header("location:/user/loginView.php");
+}
+$con = mysql_connect("localhost","root","wslzd9877");
+if (!$con)
+{
+    die('Could not connect: ' . mysql_error());
+}
+$username = $_SESSION['user'];
+?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -221,23 +232,23 @@
         <div class="header">
             <div class="daohang" id="daohang">
                 <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
-                <span id="uname">云打印</span>
+                <span id="uname"><?php echo "$username";?></span>
                 <a href="#" id="caidanAndPic">
                     <img src="image/user_img1.png" alt="用户" id="user_pic">
                     <div class="caidan" id="caidan">
                         <ul>
                             <li>
-                                <a href="#">个人信息</a>
+                                <a href="user-admin/user-information.php">个人信息</a>
                             </li>
                             <li>
-                                <a href="#">订单处理</a>
+                                <a href="user-admin/user-order.php">订单处理</a>
                             </li>
                             <li>
-                                <a href="#">修改密码</a>
+                                <a href="user-admin/user-information.php">修改密码</a>
                             </li>
-                            <li>
+             <!--               <li>
                                 <a href="#">其他功能</a>
-                            </li>
+                            </li>-->
                             <li>
                                 <a href="/user/logout.php">退出账户</a>
                             </li>
@@ -270,16 +281,7 @@
                     </div>
                     <div class="form" id="form1">
                         <?php
-                            session_start();
-                            if(isset($_SESSION['user']) == false){
-                                header("location:/user/loginView.php");
-                            }
-                            $con = mysql_connect("localhost","root","wslzd9877");
-                            if (!$con)
-                            {
-                                die('Could not connect: ' . mysql_error());
-                            }
-                            $username = $_SESSION['user'];
+
                             mysql_select_db("user", $con);
                             session_set_cookie_params(24 * 3600);
                             do{
