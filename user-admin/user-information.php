@@ -11,7 +11,9 @@ if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
-
+$other = mysql_query("select * from user where username = '$username'");
+$other = mysql_fetch_array($other);
+$other = $other['other'];
 ?>
 <head>
     <title>cloud Print</title>
@@ -60,7 +62,7 @@ mysql_select_db("user", $con);
                     <div class="layui-form-item">
                       <label class="layui-form-label" >地址</label>
                       <div class="layui-input-block">
-                        <input type="text" id="address" name="address" required  lay-verify="required" placeholder="请输入常用收货地址" autocomplete="off" class="layui-input">
+                        <input type="text" id="address" name="address" required  lay-verify="required" placeholder="请输入常用收货地址"  autocomplete="off" class="layui-input">
                       </div>
                     </div>
                     <div class="layui-form-item">
@@ -103,6 +105,8 @@ mysql_select_db("user", $con);
                   </script>
 
                   <script>
+                      var address = <?php echo "'$other'";?>;
+                      document.getElementById('address').value =  unescape(address);
                   layui.use('upload', function(){
                     var upload = layui.upload;
 
