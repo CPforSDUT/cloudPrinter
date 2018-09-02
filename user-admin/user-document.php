@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['user']) == false){
+    header("location:/user/loginView.php");
+}
+$orderId = $_GET['orderId'];
+$username = $_SESSION['user'];
+?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -9,6 +17,18 @@
     <script src="../js/layui.all.js"></script>
     <script src="../js/jquery-1.8.3.min.js"></script>
     <script src="../js/jquery.fullPage.js"></script>
+    <script type="text/javascript">
+        function getFiles() {
+            var geter = new XMLHttpRequest();
+            var visit;
+            var orderId = <?php echo "'$orderId'";?>;
+            geter.open("POST","control/getFiles.php",false);
+            geter.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            visit =  "orderId=" + orderId;
+            geter.send(visit);
+            document.getElementById("fileMain").innerHTML = geter.responseText;
+        }
+    </script>
 </head>
 
 <body>
@@ -16,7 +36,7 @@
         <div class="header">
             <div class="daohang">
                 <img src="../image/logo1.png" alt="logo" id="logo">
-                <span>Chooooooogle</span>
+                <span><?php echo "$username";?></span>
                 <img src="../image/user_img1.png" alt="用户" id="user_pic">
             </div>
 
@@ -52,25 +72,14 @@
                     </colgroup>
                     <thead>
                       <tr>
-                        <th>订单</th>
-                        <th>发起时间</th>
-                        <th>状态</th>
-                        <th>操作</th>
+                        <th>文件名</th>
+                        <th>颜色</th>
+                        <th>打印数量</th>
+                        <th>纸张大小</th>
+                          <th>其他信息</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>文档1-2018-11-11-001</td>
-                        <td>2018-11-11</td>
-                        <td>已完成</td>
-                        <td><a href="#">删除</a>||<a href="#">查看</a></td>
-                      </tr>
-                      <tr>
-                        <td>文档2-2018-11-11-002</td>
-                        <td>2018-11-11</td>
-                        <td>已完成</td>
-                        <td><a href="#">删除</a>||<a href="#">查看</a></td>
-                      </tr>
+                    <tbody id="fileMain">
                     </tbody>
                   </table>
 
@@ -80,5 +89,7 @@
         </div>
     </div>
 </body>
-
+<script>
+    getFiles();
+</script>
 </html>

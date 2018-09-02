@@ -1,0 +1,28 @@
+<?php
+session_start();
+if(isset($_SESSION['user']) == false){
+    header("location:/user/loginView.php");
+}
+$username = $_SESSION['user'];
+$orderId = $_POST['orderId'];
+$con = mysql_connect("localhost", "root", "wslzd9877");
+if (!$con) {
+    die('Could not connect: ' . mysql_error());
+}
+mysql_select_db("user", $con);
+$result = mysql_query("select * from orderinfo where orderId = '$orderId'");
+$row = mysql_fetch_array($result);
+if($row['consumer'] == $username){
+
+    if($row['deleted'] == 'bn'){
+        mysql_query("delete from orderinfo where orderId='$orderId'");
+        $tIme =  time();
+        mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
+    }
+    else {
+        mysql_query("UPDATE orderinfo SET deleted='cn' WHERE orderId='$orderId'");
+    }
+}
+
+
+

@@ -1,6 +1,12 @@
+<?php
+session_start();
+if(isset($_SESSION['user']) == false){
+    header("location:/user/loginView.php");
+}
+$username = $_SESSION['user'];
+?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
 <head>
     <title>cloud Print</title>
     <link rel="stylesheet" type="text/css" href="../css/master.css">
@@ -9,6 +15,22 @@
     <script src="../js/layui.all.js"></script>
     <script src="../js/jquery-1.8.3.min.js"></script>
     <script src="../js/jquery.fullPage.js"></script>
+    <script type="text/javascript">
+        function getOrderInfo() {
+            var orderInfo = new XMLHttpRequest();
+            orderInfo.open('POST',"control/getOrderInfo.php",false);
+            orderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            orderInfo.send();
+            document.getElementById('orderMain').innerHTML = orderInfo.responseText;
+        }
+        function delOrder(orderId) {
+            var delOrder = new XMLHttpRequest();
+            delOrder.open("POST","control/delFile.php",false);
+            delOrder.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            delOrder.send("orderId="+orderId);
+            getOrderInfo();
+        }
+    </script>
 </head>
 
 <body>
@@ -16,7 +38,7 @@
         <div class="header">
             <div class="daohang">
                 <img src="../image/logo1.png" alt="logo" id="logo">
-                <span>Chooooooogle</span>
+                <span><?php echo "$username";?></span>
                 <img src="../image/user_img1.png" alt="用户" id="user_pic">
             </div>
 
@@ -52,25 +74,13 @@
                     </colgroup>
                     <thead>
                       <tr>
-                        <th>文件名</th>
-                        <th>上传时间</th>
+                        <th>商家</th>
+                        <th>取件时间</th>
                         <th>状态</th>
                         <th>操作</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>文档1</td>
-                        <td>2018-11-11</td>
-                        <td>已完成</td>
-                        <td><a href="#">删除</a>||<a href="#">查看</a></td>
-                      </tr>
-                      <tr>
-                        <td>文档2</td>
-                        <td>2018-11-11</td>
-                        <td>已完成</td>
-                        <td><a href="#">删除</a>||<a href="#">查看</a></td>
-                      </tr>
+                    <tbody id="orderMain">
                     </tbody>
                   </table>
 
@@ -80,5 +90,7 @@
         </div>
     </div>
 </body>
-
+<script>
+    getOrderInfo();
+</script>
 </html>

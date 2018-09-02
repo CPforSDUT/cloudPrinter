@@ -1,6 +1,18 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+session_start();
+if(isset($_SESSION['user']) == false){
+    header("location:/user/loginView.php");
+}
+$username = $_SESSION['user'];
+$con = mysql_connect("localhost", "root", "wslzd9877");
+if (!$con) {
+    die('Could not connect: ' . mysql_error());
+}
+mysql_select_db("user", $con);
 
+?>
 <head>
     <title>cloud Print</title>
     <link rel="stylesheet" type="text/css" href="../css/master.css">
@@ -16,7 +28,7 @@
         <div class="header">
             <div class="daohang">
                 <img src="../image/logo1.png" alt="logo" id="logo">
-                <span>Chooooooogle</span>
+                <span><?php echo "$username";?></span>
                 <img src="../image/user_img1.png" alt="用户" id="user_pic">
             </div>
 
@@ -44,11 +56,11 @@
             <span>请填写您的订单</span>
             <div class="m1">
                 <div class="m2">
-                  <form class="layui-form" action="">
+                  <form class="layui-form" method="post" action="control/changeInfo.php" onsubmit="document.getElementById('address').value = escape(document.getElementById('address').value)">
                     <div class="layui-form-item">
                       <label class="layui-form-label" >地址</label>
                       <div class="layui-input-block">
-                        <input type="text" name="address" required  lay-verify="required" placeholder="请输入常用收货地址" autocomplete="off" class="layui-input">
+                        <input type="text" id="address" name="address" required  lay-verify="required" placeholder="请输入常用收货地址" autocomplete="off" class="layui-input">
                       </div>
                     </div>
                     <div class="layui-form-item">
@@ -59,24 +71,24 @@
                       <div class="layui-form-mid layui-word-aux">不修改请留空</div>
                     </div>
                     <div class="layui-form-item">
-                      <label class="layui-form-label">性别</label>
-                      <div class="layui-input-block">
-                        <input type="radio" name="sex" value="man" title="男">
-                        <input type="radio" name="sex" value="woman" title="女" checked>
-                        <input type="radio" name="sex" value="" title="中性" disabled>
+                        <!--<label class="layui-form-label">性别</label>
+                        <div class="layui-input-block">
+                          <input type="radio" name="sex" value="man" title="男">
+                          <input type="radio" name="sex" value="woman" title="女" checked>
+                          <input type="radio" name="sex" value="" title="中性" disabled>
 
+                        </div>
                       </div>
-                    </div>
-                    <div class="layui-form-item layui-form-text">
-                      <label class="layui-form-label">头像</label>
-                      <button type="button" class="layui-btn" id="test1">
-                        <i class="layui-icon">&#xe67c;</i>上传图片
-                      </button>
+                      <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">头像</label>
+                        <button type="button" class="layui-btn" id="test1">
+                          <i class="layui-icon">&#xe67c;</i>上传图片
+                        </button>-->
 
                     </div>
                     <div class="layui-form-item">
                       <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        <button class="layui-btn" lay-submit lay-filter="formDemo" type="submit">立即提交</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                       </div>
                     </div>

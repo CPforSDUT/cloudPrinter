@@ -126,9 +126,6 @@ else {
                     <table class="result-tab" width="100%">
                         <tr>
                             <th>用户名</th>
-                            <th>省份</th>
-                            <th>城市</th>
-                            <th>地区</th>
                             <th>详细地址</th>
                             <th>联系方式</th>
 
@@ -147,9 +144,6 @@ else {
                                     $result = mysql_query("select * from user where username='$keyword'");
                                     $row = mysql_fetch_array($result);
                                     if($row != false ) {
-                                        $province = unescape($row['province']);
-                                        $city = unescape($row['city']);
-                                        $area = unescape($row['area']);
                                         $other = unescape($row['other']);
                                         $lo = $row['lo'];
                                         $la = $row['la'];
@@ -157,9 +151,6 @@ else {
                                         ?>
                                         <tr>
                                             <td><?php echo $keyword;?></td>
-                                            <td><?php echo $province;?></td>
-                                            <td><?php echo $city;?></td>
-                                            <td><?php echo $area;?></td>
                                             <td><?php echo $other;?></td>
                                             <td><?php echo $phone;?></td>
                                         </tr>

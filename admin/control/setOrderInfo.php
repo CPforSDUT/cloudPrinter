@@ -13,22 +13,20 @@ if (!$con) {
 mysql_select_db("user", $con);
 $result = mysql_query("select * from orderinfo where orderId = '$orderId'");
 $row = mysql_fetch_array($result);
-if($row['business'] != $username){
-    //echo "select * from orderinfo where orderId = '$orderId'";
-    //echo $row['business']."1".$username;
-}
-switch ($method)
-{
-    case 'okOrder':
-        mysql_query("UPDATE orderinfo SET orderState='2' WHERE orderId='$orderId'");
-        break;
-    case 'delete':
-        if($row['deleted'] == 'cn'){
-            mysql_query("delete from orderinfo where orderId='$orderId'");
-            $tIme =  time();
-            mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
-        }
-        else {
-            mysql_query("UPDATE orderinfo SET deleted='bn' WHERE orderId='$orderId'");
-        }
+if($row['business'] == $username){
+    switch ($method)
+    {
+        case 'okOrder':
+            mysql_query("UPDATE orderinfo SET orderState='2' WHERE orderId='$orderId'");
+            break;
+        case 'delete':
+            if($row['deleted'] == 'cn'){
+                mysql_query("delete from orderinfo where orderId='$orderId'");
+                $tIme =  time();
+                mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
+            }
+            else {
+                mysql_query("UPDATE orderinfo SET deleted='bn' WHERE orderId='$orderId'");
+            }
+    }
 }
