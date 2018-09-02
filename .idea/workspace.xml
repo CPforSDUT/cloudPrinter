@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/user-information.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/user-information.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,8 +79,8 @@
       <file leaf-file-name="user-information.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/user-admin/user-information.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="108" column="82" selection-start-line="108" selection-start-column="82" selection-end-line="108" selection-end-column="82" />
+            <state relative-caret-position="133">
+              <caret line="7" selection-start-line="7" selection-end-line="12" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -115,7 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>查询</find>
       <find>&lt;li&gt;&lt;a href=&quot;document.php&quot;&gt;&lt;i class=&quot;icon-font&quot;&gt;&amp;#xe006;&lt;/i&gt;文件管理&lt;/a&gt;&lt;/li&gt;</find>
       <find>echo</find>
       <find>opt</find>
@@ -145,6 +143,7 @@
       <find>choo</find>
       <find>/user/loginView.php</find>
       <find>订单处理</find>
+      <find>insert</find>
     </findStrings>
     <replaceStrings>
       <replace>POST</replace>
@@ -379,7 +378,7 @@
       <workItem from="1535250054626" duration="501000" />
       <workItem from="1535360720821" duration="2364000" />
       <workItem from="1535450364162" duration="720000" />
-      <workItem from="1535884783162" duration="5422000" />
+      <workItem from="1535884783162" duration="7603000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -392,10 +391,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293918000" />
+    <option name="totallyTimeSpent" value="296099000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="14" />
@@ -770,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/user-admin/user-information.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="108" column="82" selection-start-line="108" selection-start-column="82" selection-end-line="108" selection-end-column="82" />
+        <state relative-caret-position="133">
+          <caret line="7" selection-start-line="7" selection-end-line="12" selection-end-column="30" />
         </state>
       </provider>
     </entry>
