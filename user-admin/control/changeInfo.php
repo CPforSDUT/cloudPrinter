@@ -7,7 +7,7 @@
  */
 session_start();
 if(isset($_SESSION['user']) == false){
-    header("location:/user/loginView.php");
+    header("location:/index.php");
 }
 $username = $_SESSION['user'];
 $con = mysql_connect("localhost", "root", "wslzd9877");

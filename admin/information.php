@@ -2,7 +2,7 @@
 <?php
 session_start();
 if(isset($_SESSION['user']) == false){
-    header("location:/user/loginView.php");
+    header("location:/index.php");
 }
 else {
     $username = $_SESSION['user'];

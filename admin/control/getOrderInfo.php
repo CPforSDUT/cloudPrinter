@@ -26,7 +26,7 @@ function toPureTime($dirtyTime)
 }
 session_start();
 if(isset($_SESSION['user']) == false){
-    header("location:/user/loginView.php");
+    header("location:/index.php");
 }
 $username = $_SESSION['user'];
 $pageNum = $_POST['pageNum'] - 1;

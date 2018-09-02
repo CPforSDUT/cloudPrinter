@@ -18,7 +18,7 @@ for ($i = 0 ; $i < 22 ; $i ++)
 }
 session_start();
 if(isset($_SESSION['user']) == false){
-    header("location:/user/loginView.php");
+    header("location:/index.php");
 }
 $con = mysql_connect("localhost","root","wslzd9877");
 if (!$con)
