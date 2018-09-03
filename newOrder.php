@@ -469,7 +469,7 @@ $username = $_SESSION['user'];
                         <nav>提交成功</nav>
                         <p id="exCode"></p>
                         <div id="fin">
-                        <a href="#"  class="button button-rounded">查看订单</a>
+                        <a href="#"  href="/user-admin/user-order.php" class="button button-rounded">查看订单</a>
                         <a href="newOrder.php"  class="button button-rounded button-primary">再来一单</a>
                         </div>
                     </div>
