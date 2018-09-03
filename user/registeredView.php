@@ -86,7 +86,7 @@
             <div class="daohang">
                 <img src="../image/logo1.png" alt="logo" id="logo">
                 <span>
-                    <a href="/index.php">登陆</a>&nbsp;|&nbsp;
+                    <a href="/index.php">返回</a>
                 </span>
             </div>
         </div>

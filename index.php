@@ -143,8 +143,7 @@ if (isset($_SESSION['user'])) {
                     <div class="daohang" id="daohang">
                         <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
                         <span>
-                            <a href="/user/loginView.php">登陆</a>&nbsp;|&nbsp;
-                            <a href="/user/registeredView.php">注册</a>
+                            <a href="/index.php">返回</a>
                         </span>
                     </div>
                 </div>
