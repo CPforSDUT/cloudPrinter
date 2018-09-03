@@ -17,10 +17,16 @@ if (!$con) {
 mysql_select_db("user", $con);
 $address = $_POST['address'];
 $password = $_POST['password'];
+echo $password;
+
 if($address != ''){
     mysql_query("UPDATE user SET other='$address' WHERE username = '$username'");
 }
+
 if($password != ''){
     mysql_query("UPDATE user SET password='$password' WHERE username = '$username'");
+    header('location:/user/logout.php');
 }
-header("location:/user-admin/user-order.php");
+else {
+    header("location:/user-admin/user-order.php");
+}

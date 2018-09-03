@@ -359,7 +359,7 @@ $color = $row['color'];
                           </table>
                   </div>
             </div>
-
+<!--
             <div class="result-content" id="persionnal">
               <div class="search-wrap">
                   <div class="search-content">
@@ -377,7 +377,7 @@ $color = $row['color'];
                           </table>
                       </form>
                   </div>
-            </div>
+            </div>-->
 
 <center>
   <input class="btn btn-primary" value="提交" onclick="submitInfo()" type="submit">
