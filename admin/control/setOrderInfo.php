@@ -13,7 +13,8 @@ if (!$con) {
 mysql_select_db("user", $con);
 $result = mysql_query("select * from orderinfo where orderId = '$orderId'");
 $row = mysql_fetch_array($result);
-if($row['business'] == $username){
+
+if(strnatcasecmp($username,$row['business']) == 0){
     switch ($method)
     {
         case 'okOrder':
