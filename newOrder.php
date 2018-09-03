@@ -208,19 +208,22 @@ $username = $_SESSION['user'];
             var deadline,exCode;
             var business = document.getElementById("user_name").innerHTML;
             var createOrder = new XMLHttpRequest();
-            deadline = time.substring(0,4) + time.substring(5,7) + time.substring(8,10) + time.substring(11,13) + time.substring(14,16);
-            createOrder.open("POST","/createNewOrder.php",false);
-            createOrder.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business);
-            exCode = createOrder.responseText;
-            if(exCode != 'failure') {
-                document.getElementById("exCode").innerHTML = "您的提取码：" + exCode + "（请牢记，提取时使用）";
-                document.getElementById("ok").style.visibility = "visible";
+            if(business != '')
+            {
+                deadline = time.substring(0,4) + time.substring(5,7) + time.substring(8,10) + time.substring(11,13) + time.substring(14,16);
+                createOrder.open("POST","/createNewOrder.php",false);
+                createOrder.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business);
+                exCode = createOrder.responseText;
+                if(exCode != 'failure') {
+                    document.getElementById("exCode").innerHTML = "您的提取码：" + exCode + "（请牢记，提取时使用）";
+                    document.getElementById("ok").style.visibility = "visible";
+                }
+                else {
+                    document.getElementById("ok").style.visibility = "visible";
+                }
+                document.getElementById("ok").style.display = "block";
             }
-            else {
-                document.getElementById("ok").style.visibility = "visible";
-            }
-            document.getElementById("ok").style.display = "block";
         }
     </script>
 </head>
