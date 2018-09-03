@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['user']) == false){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
 $username = $_SESSION['user'];

@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-if (isset($_SESSION["user"]) == false)
-{
+if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
+
     echo "<script type='text/javascript'>alert(\"请重新登陆。\");</script>";
     echo "<script>window.location.href='/index.php';</script> ";
 }

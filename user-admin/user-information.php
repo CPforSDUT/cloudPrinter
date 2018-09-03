@@ -2,7 +2,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 session_start();
-if(isset($_SESSION['user']) == false){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
 }
 $username = $_SESSION['user'];

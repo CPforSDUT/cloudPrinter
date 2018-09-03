@@ -1,6 +1,6 @@
 <?php ob_start();
 session_start();
-if(isset($_SESSION['user']) == false){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
 }
 $con = mysql_connect("localhost","root","wslzd9877");
