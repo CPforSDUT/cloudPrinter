@@ -12,7 +12,7 @@ if (!$con) {
 mysql_select_db("user", $con);
 $result = mysql_query("select * from orderinfo where orderId = '$orderId'");
 $row = mysql_fetch_array($result);
-if($row['consumer'] == $username){
+if(strnatcasecmp($username,$row['consumer']) == 0){
 
     if($row['deleted'] == 'bn'){
         mysql_query("delete from orderinfo where orderId='$orderId'");
