@@ -141,7 +141,6 @@
             setOrderInfo.open("POST","control/setOrderInfo.php",false);
             setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             setOrderInfo.send("orderId="+orderId + "&method=okOrder");
-            alert(setOrderInfo.responseText);
             if(sorted == '1')
             {
                 lPENum -= 1;
