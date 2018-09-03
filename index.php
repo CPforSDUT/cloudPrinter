@@ -6,6 +6,9 @@ if (isset($_SESSION['user'])) {
     if ($_SESSION['type'] == '2') {
         header("location:/admin/index.php");
     }
+    else{
+        header("location:/newOrder.php");
+    }
 }
 ?>
 <head>
