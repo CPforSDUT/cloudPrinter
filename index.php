@@ -98,8 +98,8 @@ if (isset($_SESSION['user'])) {
     <form class="login_box" id="login_box" action="/user/login.php" method="post" onsubmit="return check()">
             <a id="closebox"><i onclick="closelogin()" class="layui-icon layui-icon-close" style="font-size: 30px; color: #x1006;"></i></a>
             <nav>登录</nav>
-            <input type="text" name="username" id="username" placeholder="请输入账号" />
-            <input type="password" name="password" id="password" placeholder="请输入密码" />
+            <input type="text" name="username" id="username" placeholder="账号" />
+            <input type="password" name="password" id="password" placeholder="密码" />
         <button id="dl" type="submit" class="button button-block button-rounded button-primary button-large">立即登陆</button>
             <span>没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></span>
     </form>
