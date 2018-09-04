@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/0ebf8b7f9149d1ef1f4ab3bfda576da2c6496427665a82ee089b203f7a0e7979.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/3a3d55005df2d0f59a13f3adebfc6710c07e290cff29e73d826a014a38cbed69.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/499bd2b6180930129fd275aa3827475bef0d605d00ea05f18fe12331e5b302fb.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/69f02321bf4e44891f97a80748dd557c88973446ead58f30078faa6665a9a29f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/7fbc3c70019973cb43e24bd47ad4c7577f9fe10929cf4e873c17262624ed9f1c.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/9eab036ad9df400c142ad101ecb6cb69dd9bf1b8eaa221698228544b215cfe1e.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/b7a1fc319d1088ea38234559f71d76c7c2850896072c17d4b46d4c1a305fa0dd.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/bb3dafda02eac1f72683cecdfcb225f201197da31ea0cf08a27c2f70dd1f33cf.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/d720d74fbbb67240f2653dd662cb8e56f0a7765ca95f6fa15470dd7afb206dca.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/e4ea7f6fac9d4b44b0cd256109dd3ab26111cb4241f7585d60dc671be66f9561.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/upload/edfb5fbb6374b090dd2087d68793a4cb172a24d8d1e1a8266f82570a7763cd59.c" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,6 +47,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="437">
               <caret line="113" column="70" lean-forward="true" selection-start-line="113" selection-start-column="70" selection-end-line="113" selection-end-column="70" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -245,7 +260,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="17" />
     <option name="width" value="1378" />
@@ -382,10 +397,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="303806000" />
+    <option name="totallyTimeSpent" value="304014000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19985358" />
@@ -733,6 +748,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="113" column="70" lean-forward="true" selection-start-line="113" selection-start-column="70" selection-end-line="113" selection-end-column="70" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
