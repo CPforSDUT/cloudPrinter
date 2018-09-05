@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/changePass.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/control/changePwd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/document.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/document.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/information.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/information.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/insert.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/insert.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/people.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/people.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/sore.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/sore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/newOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/user-document.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/user-document.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/user-information.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/user-information.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/user-order.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/user-order.php" afterDir="false" />
-    </list>
+    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -395,7 +380,7 @@
       <workItem from="1535450364162" duration="720000" />
       <workItem from="1535884783162" duration="9976000" />
       <workItem from="1535982065728" duration="66000" />
-      <workItem from="1536123462716" duration="8440000" />
+      <workItem from="1536123462716" duration="8795000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -408,7 +393,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="315421000" />
+    <option name="totallyTimeSpent" value="315776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
