@@ -17,9 +17,9 @@ $other = $other['other'];
 ?>
 <head>
     <title>cloud Print</title>
-    <link rel="stylesheet" type="text/css" href="../css/master.css">
     <link rel="stylesheet" href="../css/layui.css">
     <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="../css/master.css">
     <script src="../js/layui.all.js"></script>
     <script src="../js/jquery-1.8.3.min.js"></script>
     <script src="../js/jquery.fullPage.js"></script>
@@ -27,10 +27,12 @@ $other = $other['other'];
         function showCaidan() {
             var caidan = document.getElementById("caidan");
             caidan.style.display = "block";
+            document.getElementById("user_pic").src="../image/user_img.png";
         }
         function hiddenCaidan() {
             var caidan = document.getElementById("caidan");
             caidan.style.display = "none";
+            document.getElementById("user_pic").src="../image/user_img1.png";
         }
     </script>
 </head>
@@ -64,7 +66,6 @@ $other = $other['other'];
             </div>
         </div>
         <div class="main">
-            <span>请填写您的订单</span>
             <div class="m1">
                 <div class="m2">
                   <form class="layui-form" method="post" action="control/changeInfo.php" onsubmit="document.getElementById('address').value = escape(document.getElementById('address').value)">

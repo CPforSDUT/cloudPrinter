@@ -87,10 +87,12 @@ $username = $_SESSION['user'];
         function showCaidan() {
             var caidan = document.getElementById("caidan");
             caidan.style.display = "block";
+            document.getElementById("user_pic").src="../image/user_img.png";
         }
         function hiddenCaidan() {
             var caidan = document.getElementById("caidan");
             caidan.style.display = "none";
+            document.getElementById("user_pic").src="../image/user_img1.png";
         }
         function changefile(orderId,fileName) {
             var paperNum = document.getElementById("paper_num").value;

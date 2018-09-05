@@ -176,7 +176,7 @@ $color = $row['color'];
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">
 
-                <li><a href="#">修改密码</a></li>
+                <li><a href="changePass.php">修改密码</a></li>
                 <li><a href="/user/logout.php">退出</a></li>
             </ul>
         </div>
@@ -359,6 +359,7 @@ $color = $row['color'];
                           </table>
                   </div>
             </div>
+
 <!--
             <div class="result-content" id="persionnal">
               <div class="search-wrap">
