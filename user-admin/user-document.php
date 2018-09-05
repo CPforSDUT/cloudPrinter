@@ -28,37 +28,46 @@ $username = $_SESSION['user'];
             geter.send(visit);
             document.getElementById("fileMain").innerHTML = geter.responseText;
         }
+        function showCaidan() {
+            var caidan = document.getElementById("caidan");
+            caidan.style.display = "block";
+        }
+        function hiddenCaidan() {
+            var caidan = document.getElementById("caidan");
+            caidan.style.display = "none";
+        }
     </script>
 </head>
 
 <body>
     <div class="container">
         <div class="header">
-            <div class="daohang">
+            <div class="daohang" id="daohang" onmouseleave="hiddenCaidan()">
                 <img src="../image/logo1.png" alt="logo" id="logo">
-                <span><?php echo "$username";?></span>
-                <img src="../image/user_img1.png" alt="用户" id="user_pic">
+                <span id="uname"><?php echo "$username";?></span>
+                <img src="../image/user_img1.png" alt="用户" id="user_pic" onclick="showCaidan()">
+                <div class="caidan" id="caidan">
+                    <ul>
+                        <li>
+                            <a href="/user-admin/user-information.php">个人信息</a>
+                        </li>
+                        <li>
+                            <a href="/user-admin/user-order.php">订单处理</a>
+                        </li>
+                        <li>
+                            <a href="/user-admin/user-information.php">修改密码</a>
+                        </li>
+                        <!--               <li>
+                                           <a href="#">其他功能</a>
+                                       </li>-->
+                        <li>
+                            <a href="/user/logout.php">退出账户</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="caidan">
-                <ul>
-                    <li>
-                        <a href="#">个人信息</a>
-                    </li>
-                    <li>
-                        <a href="#">订单处理</a>
-                    </li>
-                    <li>
-                        <a href="#">修改密码</a>
-                    </li>
-                    <li>
-                        <a href="#">其他功能</a>
-                    </li>
-                    <li>
-                        <a href="#">退出账户</a>
-                    </li>
-                </ul>
-            </div>
+
         </div>
         <div class="main">
             <span>请填写您的订单</span>

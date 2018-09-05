@@ -9,9 +9,10 @@ $username = $_SESSION['user'];
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
     <title>cloud Print</title>
-    <link rel="stylesheet" type="text/css" href="../css/master.css">
     <link rel="stylesheet" href="../css/layui.css">
     <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="../css/master.css">
+
     <script src="../js/layui.all.js"></script>
     <script src="../js/jquery-1.8.3.min.js"></script>
     <script src="../js/jquery.fullPage.js"></script>
@@ -30,38 +31,56 @@ $username = $_SESSION['user'];
             delOrder.send("orderId="+orderId);
             getOrderInfo();
         }
+        function showCaidan() {
+            var caidan = document.getElementById("caidan");
+            caidan.style.display = "block";
+        }
+        function hiddenCaidan() {
+            var caidan = document.getElementById("caidan");
+            caidan.style.display = "none";
+        }
     </script>
 </head>
 
 <body>
     <div class="container">
         <div class="header">
-            <div class="daohang">
+            <div class="daohang" id="daohang" onmouseleave="hiddenCaidan()">
                 <img src="../image/logo1.png" alt="logo" id="logo">
-                <span><?php echo "$username";?></span>
-                <img src="../image/user_img1.png" alt="用户" id="user_pic">
+                <span id="uname"><?php echo "$username";?></span>
+                <img src="../image/user_img1.png" alt="用户" id="user_pic" onclick="showCaidan()">
+                <div class="caidan" id="caidan">
+                    <ul>
+                        <li>
+                            <a href="/user-admin/user-information.php">个人信息</a>
+                        </li>
+                        <li>
+                            <a href="/user-admin/user-order.php">订单处理</a>
+                        </li>
+                        <li>
+                            <a href="/user-admin/user-information.php">修改密码</a>
+                        </li>
+                        <!--               <li>
+                                           <a href="#">其他功能</a>
+                                       </li>-->
+                        <li>
+                            <a href="/user/logout.php">退出账户</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="caidan">
-                <ul>
-                    <li>
-                        <a href="#">个人信息</a>
-                    </li>
-                    <li>
-                        <a href="#">订单处理</a>
-                    </li>
-                    <li>
-                        <a href="#">修改密码</a>
-                    </li>
-                    <li>
-                        <a href="#">其他功能</a>
-                    </li>
-                    <li>
-                        <a href="#">退出账户</a>
-                    </li>
-                </ul>
-            </div>
+            <script type="text/javascript">
+                var userPic = document.getElementById("user_pic");
+                var daohang = document.getElementById("daohang");
+                userPic.addEventListener("click", function () {
+                    showCaidan();
+                });
+                daohang.addEventListener("mouseleave", function () {
+                    hiddenCaidan();
+                });
+            </script>
         </div>
+
         <div class="main">
             <span>请填写您的订单</span>
             <div class="m1">
