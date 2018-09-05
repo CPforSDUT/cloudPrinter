@@ -83,6 +83,7 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
     }
     echo "<tr>";
     $orderState = $row['orderState'] == '1' ? '未打印' : '打印完成';
+    $orderState = $row['deleted'] == 'cn' ? "被买家删除":$orderState;
     $consumer = $row['consumer'];
     $phoneGeter = mysql_query("select * from user where username = '$consumer'");
     $phoneGeter = mysql_fetch_array($phoneGeter);

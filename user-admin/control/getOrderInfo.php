@@ -34,6 +34,7 @@ while($info = mysql_fetch_array($infos))
 {
     $time = toPureTime($info['deadline']);
     $state = $info['orderState'] == '1' ? "未打印":"打印完成";
+    $state = $info['deleted'] == 'bn' ? "被商家删除" : $state;
     $orderId = $info['orderId'];
     $business = $info['business'];
     echo "<tr>";
