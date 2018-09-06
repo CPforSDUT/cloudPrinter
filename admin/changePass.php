@@ -4,6 +4,7 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
 $password = $_SESSION['pass'];
+
 ?>
 <!DOCTYPE html>
 

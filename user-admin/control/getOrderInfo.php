@@ -23,12 +23,17 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
 }
 else {
     $username = $_SESSION['user'];
+    $password = $_SESSION['pass'];
 }
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+    header("location:/index.php");
+    exit();
+}
 $infos = mysql_query("select * from orderinfo where consumer='$username' and deleted!='cn'");
 while($info = mysql_fetch_array($infos))
 {

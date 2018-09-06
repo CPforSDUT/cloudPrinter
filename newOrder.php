@@ -9,6 +9,7 @@ if (!$con)
     die('Could not connect: ' . mysql_error());
 }
 $username = $_SESSION['user'];
+$password = $_SESSION['pass'];
 ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -288,6 +289,10 @@ $username = $_SESSION['user'];
                         <?php
 
                             mysql_select_db("user", $con);
+                        if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+                            header("location:/index.php");
+                            exit();
+                        }
                             session_set_cookie_params(24 * 3600);
                             do{
                                 $orderId = md5($username+time()+rand(0,getrandmax()));

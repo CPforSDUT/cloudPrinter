@@ -42,6 +42,7 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
 $username = $_SESSION['user'];
+$password = $_SESSION['pass'];
 $pageNum = $_POST['pageNum'] - 1;
 $orderId = $_POST['orderId'];
 
@@ -50,7 +51,13 @@ if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
-
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+    header("location:/index.php");
+    exit();
+}
+if(mysql_fetch_array(mysql_query("select * from orderinfo where orderId='$orderId' and business='$username'")) == false){
+    exit();
+}
 $visit = "select * from fileinfo where orderId= '$orderId'";
 $result = mysql_query($visit);
 for ($i = 0 ; $i < 7 * $pageNum   ;  $i ++) {

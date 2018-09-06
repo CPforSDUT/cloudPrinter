@@ -24,7 +24,9 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     exit;
 }
+
 $username = $_SESSION['user'];
+$password = $_SESSION['pass'];
 $filePath = $_GET['filePath'];
 $filename = unescape($_GET['filename']);
 $orderId = $_GET['orderId'];
@@ -34,6 +36,11 @@ if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
+
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+    header("location:/index.php");
+    exit();
+}
 $result = mysql_query("select * from orderinfo where orderId='$orderId' and business='$username'");
 $row = mysql_fetch_array($result);
 $result2 = mysql_query("select * from fileinfo where orderId='$orderId' and filePath='$filePath'");
