@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/changePass.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/changePass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/download.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/download.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/getFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/getFiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/getOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/getOrderInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/setOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/setOrderInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/information.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/information.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createNewOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/createNewOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/newOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/changeInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/changeInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/delFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/delFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/getFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/getFiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" afterDir="false" />
-    </list>
+    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,11 +74,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createNewOrder.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createNewOrder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/createNewOrder.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
               <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layui.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/layui.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="2" column="6200" selection-start-line="2" selection-start-column="6200" selection-end-line="2" selection-end-column="6200" />
             </state>
           </provider>
         </entry>
@@ -102,15 +97,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
               <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getFiles.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/control/getFiles.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -261,8 +247,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="95" />
-    <option name="y" value="-8" />
+    <option name="x" value="-575" />
+    <option name="y" value="83" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -404,7 +390,7 @@
       <workItem from="1535884783162" duration="9976000" />
       <workItem from="1535982065728" duration="66000" />
       <workItem from="1536123462716" duration="11693000" />
-      <workItem from="1536209768339" duration="6778000" />
+      <workItem from="1536209768339" duration="7181000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -417,10 +403,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="325452000" />
+    <option name="totallyTimeSpent" value="325855000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-575" y="83" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="4" />
@@ -634,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/layui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="2" column="6200" selection-start-line="2" selection-start-column="6200" selection-end-line="2" selection-end-column="6200" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user-admin/user-information.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -769,6 +748,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/layui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="2" column="6200" selection-start-line="2" selection-start-column="6200" selection-end-line="2" selection-end-column="6200" />
         </state>
       </provider>
     </entry>
