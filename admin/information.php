@@ -298,7 +298,7 @@ $color = $row['color'];
                               <tr>
                                   <th width="120">地理位置</th>
                                   <td>
-                                      <div id="map"></div>
+                                      <div id="map"><p style="position: absolute;top: 50%,right:50%">请设置使浏览器允许使用百度地图插件。</p></div>
                                       <input id="province" type="text" readonly>
                                       <input id="city" type="text" readonly>
                                       <input id="area" type="text" readonly>

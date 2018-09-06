@@ -157,7 +157,7 @@
                                     </div>
                                     </div>
                                     <div class="fb">
-                                    <div id="map"></div>
+                                    <div id="map"><p style="position: absolute;top: 50%,right:50%">请设置使浏览器允许使用百度地图插件。</p></div>
                                     <div id="position">
                                         <input type="hidden" name="type" value="2" />
                                         <table cellspacing="0" id="mapinfo">
