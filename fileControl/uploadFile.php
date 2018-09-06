@@ -53,7 +53,7 @@ if(isset($_FILES['file'])){
         $hashname = hash_file('sha256', $_FILES["file"]["tmp_name"], false);
         $hashPath = "upload/" . "$hashname." . substr($_FILES["file"]["name"], strrpos($_FILES["file"]["name"], '.') + 1);
         $fileNmae = escape($_FILES["file"]["name"]);
-        $orderId = $_POST['orderId'];
+        $orderId = mysql_escape_string($_POST['orderId']);
 
         if (file_exists($hashPath) == false) {
             move_uploaded_file($_FILES["file"]["tmp_name"], $hashPath);
