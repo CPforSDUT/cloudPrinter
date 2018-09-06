@@ -5,8 +5,8 @@ import time
 import  os
 class cloudPrintDB:
     def __init__(self):
-        db = MySQLdb.connect("127.0.0.1", "root", "wslzd9877", "user", charset='utf8')
-        self.mysql = db.cursor()
+        self.db = MySQLdb.connect("127.0.0.1", "root", "wslzd9877", "user", charset='utf8')
+        self.mysql = self.db.cursor()
     def getDelOrders(self):
         deleted =  Queue.Queue()
         len = self.mysql.execute("select * from delfiles")
@@ -31,6 +31,8 @@ class cloudPrintDB:
                     os.remove("C:/phpStudy/PHPTutorial/WWW/fileControl/"+file)
             else :
                 self.mysql.execute("DELETE FROM fileinfo WHERE orderId='" + thisOrder + "'")
-
+		self.comait()
+	def comait(self):
+		self.db.commit()
 a = cloudPrintDB()
 a.delOrders(a.getDelOrders())
