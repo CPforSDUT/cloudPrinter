@@ -3,10 +3,10 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
-$username = $_SESSION['user'];
-$password = $_SESSION['pass'];
-$method = $_POST['method'];
-$orderId = $_POST['orderId'];
+$username = mysql_escape_string($_SESSION['user']);
+$password = mysql_escape_string($_SESSION['pass']);
+$method = mysql_escape_string($_POST['method']);
+$orderId = mysql_escape_string($_POST['orderId']);
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {
     die('Could not connect: ' . mysql_error());

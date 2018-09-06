@@ -21,8 +21,8 @@ function unescape($str) {
     return $ret;
 }
 session_start();
-$province = $_POST['province'];
-$orderId = $_POST['orderId'];
+$province = mysql_escape_string($_POST['province']);
+$orderId = mysql_escape_string($_POST['orderId']);
 if(isset($_SESSION['user']) == false){
     header("location:/index.php");
 }

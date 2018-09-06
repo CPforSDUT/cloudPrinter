@@ -6,8 +6,8 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     echo "<script type='text/javascript'>alert(\"请重新登陆。\");</script>";
     echo "<script>window.location.href='/index.php';</script> ";
 }
-$username = $_SESSION['user'];
-$password = $_SESSION['pass'];
+$username = mysql_escape_string($_SESSION['user']);
+$password = mysql_escape_string($_SESSION['pass']);
 
 $con = mysql_connect("localhost","root","wslzd9877");
 if (!$con)
@@ -20,15 +20,15 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
     header("location:/index.php");
     exit();
 }
-$orderId = $_POST["orderId"];
-$consumer = $_POST["consumer"];
-$deadline = $_POST["deadline"];
-$business = $_POST["business"];
+$orderId =  mysql_escape_string($_POST["orderId"]);
+$consumer = mysql_escape_string($_POST["consumer"]);
+$deadline = mysql_escape_string($_POST["deadline"]);
+$business = mysql_escape_string($_POST["business"]);
 if(mysql_fetch_array(mysql_query("select * from orderinfo where orderId='$orderId'"))!=false
     || mysql_fetch_array(mysql_query("select * from orderids where orderId='$orderId'"))==false
-        || mysql_fetch_array(mysql_query("select * from user where consumer='$consumer'"))==false
-            || mysql_fetch_array(mysql_query("select * from user where business='$business'"))==false){
-    echo "failure";
+        || mysql_fetch_array(mysql_query("select * from user where username='$consumer' and type='1'"))==false
+            || mysql_fetch_array(mysql_query("select * from user where username='$business' and type='2'"))==false){
+    echo "select * from user where consumer='$consumer'";
         exit();
 }
 do{

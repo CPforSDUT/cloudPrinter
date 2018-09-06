@@ -3,8 +3,8 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
 }
-$orderId = $_GET['orderId'];
-$username = $_SESSION['user'];
+$orderId = mysql_escape_string($_GET['orderId']);
+$username = mysql_escape_string($_SESSION['user']);
 ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

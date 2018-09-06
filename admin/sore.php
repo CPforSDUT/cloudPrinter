@@ -35,10 +35,10 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
-$username = $_SESSION['user'];
+$username = mysql_escape_string($_SESSION['user']);
 if(isset($_GET['exCode']))
 {
-    $exCode = $_GET['exCode'];
+    $exCode = mysql_escape_string($_GET['exCode']);
     $con = mysql_connect("localhost", "root", "wslzd9877");
     if (!$con) {
         die('Could not connect: ' . mysql_error());

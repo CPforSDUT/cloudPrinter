@@ -18,8 +18,8 @@ session_start();
 
 if(isset($_SESSION['user']) == false)
 {
-    $user = $_POST["username"];
-    $pass = $_POST["password"];
+    $user = mysql_escape_string($_POST["username"]);
+    $pass = mysql_escape_string($_POST["password"]);
     $_SESSION['user'] = $user;
     $_SESSION['pass'] = $pass;
     $result = mysql_query("SELECT * FROM user WHERE username= \"$user\"");

@@ -3,10 +3,10 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
-$password = $_SESSION['pass'];
-$username = $_SESSION['user'];
-$upass = $_POST['password'];
-$opass = $_POST['oPassword'];
+$password = mysql_escape_string($_SESSION['pass']);
+$username = mysql_escape_string($_SESSION['user']);
+$upass = mysql_escape_string($_POST['password']);
+$opass = mysql_escape_string($_POST['oPassword']);
 if($opass == $password){
     $con = mysql_connect("localhost", "root", "wslzd9877");
     if (!$con) {

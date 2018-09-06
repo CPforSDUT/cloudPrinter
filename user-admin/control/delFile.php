@@ -3,9 +3,9 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
 }
-$username = $_SESSION['user'];
-$password = $_SESSION['pass'];
-$orderId = $_POST['orderId'];
+$username = mysql_escape_string($_SESSION['user']);
+$password = mysql_escape_string($_SESSION['pass']);
+$orderId = mysql_escape_string($_POST['orderId']);
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {
     die('Could not connect: ' . mysql_error());

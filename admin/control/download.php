@@ -25,11 +25,11 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     exit;
 }
 
-$username = $_SESSION['user'];
-$password = $_SESSION['pass'];
-$filePath = $_GET['filePath'];
+$username = mysql_escape_string($_SESSION['user']);
+$password = mysql_escape_string($_SESSION['pass']);
+$filePath = mysql_escape_string($_GET['filePath']);
 $filename = unescape($_GET['filename']);
-$orderId = $_GET['orderId'];
+$orderId = mysql_escape_string($_GET['orderId']);
 
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {

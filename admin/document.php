@@ -4,7 +4,7 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
-$username = $_SESSION['user'];
+$username = mysql_escape_string($_SESSION['user']);
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {
     die('Could not connect: ' . mysql_error());
@@ -12,7 +12,7 @@ if (!$con) {
 mysql_select_db("user", $con);
 if (isset($_GET['orderId']))
 {
-    $orderId = $_GET['orderId'];
+    $orderId = mysql_escape_string($_GET['orderId']);
     $visit = "select count(*) from fileinfo where orderId='$orderId'";
     $result = mysql_query($visit);
     $row = mysql_fetch_array($result);

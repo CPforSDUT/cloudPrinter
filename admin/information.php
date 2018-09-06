@@ -5,8 +5,8 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
 else {
-    $username = $_SESSION['user'];
-    $password = $_SESSION['pass'];
+    $username = mysql_escape_string($_SESSION['user']);
+    $password = mysql_escape_string($_SESSION['pass']);
 }
 $con = mysql_connect("localhost","root","wslzd9877");
 if (!$con)

@@ -26,7 +26,7 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
 else {
-    $username = $_SESSION['user'];
+    $username = mysql_escape_string($_SESSION['user']);
 }
 ?>
 <html>
@@ -132,7 +132,7 @@ else {
                         </tr>
                         <?php
                             if(isset($_GET['keyword'])) {
-                                $keyword = $_GET['keyword'];
+                                $keyword = mysql_escape_string($_GET['keyword']);
                                 $con = mysql_connect("localhost", "root", "wslzd9877");
                                 if (!$con) {
                                     die('Could not connect: ' . mysql_error());

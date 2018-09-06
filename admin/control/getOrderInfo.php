@@ -28,11 +28,11 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
-$username = $_SESSION['user'];
-$password = $_SESSION['pass'];
+$username = mysql_escape_string($_SESSION['user']);
+$password = mysql_escape_string($_SESSION['pass']);
 $pageNum = $_POST['pageNum'] - 1;
 if(isset($_POST['sorted'])){
-    $sorted = $_POST['sorted'];
+    $sorted = mysql_escape_string($_POST['sorted']);
 }
 else {
     $sorted = false;
@@ -48,7 +48,7 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
 }
 if(isset($_POST['search']))
 {
-    $search = $_POST['search'];
+    $search = mysql_escape_string($_POST['search']);
 }
 
 
@@ -64,7 +64,7 @@ if(isset($_POST['sorted']))
 }
 if(isset($_POST['search']))
 {
-    $search = $_POST['search'];
+    $search = mysql_escape_string($_POST['search']);
     $visit = $visit."and consumer='$search'";
 }
 

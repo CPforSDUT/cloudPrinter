@@ -4,7 +4,7 @@
     if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
         header("location:/index.php");
     }
-    $username = $_SESSION['user'];
+    $username = mysql_escape_string($_SESSION['user']);
     $con = mysql_connect("localhost", "root", "wslzd9877");
     if (!$con) {
         die('Could not connect: ' . mysql_error());
@@ -13,7 +13,7 @@
     $visit = "select count(*) from orderinfo where deleted != 'bn' and business = '$username'";
     if(isset($_GET['sorted']))
     {
-        switch ($_GET['sorted'])
+        switch (mysql_escape_string($_GET['sorted']))
         {
             case '1':
                 $visit = $visit."and orderState != '2'";
@@ -21,7 +21,7 @@
         }
     }
     if(isset($_GET['search']) && $_GET['search'] != ''){
-        $ser = $_GET['search'];
+        $ser = mysql_escape_string($_GET['search']);
         $visit = $visit." and consumer="."'$ser'";
     }
     $result = mysql_query($visit);
@@ -50,7 +50,7 @@
         <?php
             if(isset($_GET['sorted']))
             {
-                $sorted = $_GET['sorted'];
+                $sorted = mysql_escape_string($_GET['sorted']);
         ?>
         var sorted = <?php echo "'$sorted';";?>
         <?php
@@ -63,7 +63,7 @@
         <?php
         if(isset($_GET['search']))
         {
-        $search = $_GET['search'];;
+        $search = mysql_escape_string($_GET['search']);
         ?>
         var search = <?php echo "'$search';";?>
         <?php

@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
-$password = $_SESSION['pass'];
+$password = mysql_escape_string($_SESSION['pass']);
 
 ?>
 <!DOCTYPE html>

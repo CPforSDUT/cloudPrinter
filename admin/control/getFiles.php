@@ -41,10 +41,10 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
     header("location:/index.php");
 }
-$username = $_SESSION['user'];
-$password = $_SESSION['pass'];
+$username = mysql_escape_string($_SESSION['user']);
+$password = mysql_escape_string($_SESSION['pass']);
 $pageNum = $_POST['pageNum'] - 1;
-$orderId = $_POST['orderId'];
+$orderId = mysql_escape_string($_POST['orderId']);
 
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {

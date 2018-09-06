@@ -5,7 +5,7 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
 }
-$username = $_SESSION['user'];
+$username = mysql_escape_string($_SESSION['user']);
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {
     die('Could not connect: ' . mysql_error());

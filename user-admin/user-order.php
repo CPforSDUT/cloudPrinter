@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
 }
-$username = $_SESSION['user'];
+$username = mysql_escape_string($_SESSION['user']);
 ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

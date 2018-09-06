@@ -9,8 +9,8 @@ session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
 }
-$username = $_SESSION['user'];
-$password = $_SESSION['pass'];
+$username = mysql_escape_string($_SESSION['user']);
+$password = mysql_escape_string($_SESSION['pass']);
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {
     die('Could not connect: ' . mysql_error());
@@ -20,8 +20,8 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
     header("location:/index.php");
     exit();
 }
-$address = $_POST['address'];
-$password = $_POST['password'];
+$address = mysql_escape_string($_POST['address']);
+$password = mysql_escape_string($_POST['password']);
 echo $password;
 
 if($address != ''){
