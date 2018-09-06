@@ -84,7 +84,7 @@
         <div class="hd">
         <div class="header">
             <div class="daohang">
-                <img src="../image/logo1.png" alt="logo" id="logo">
+                <a href="/index.php"><img src="../image/logo1.png" alt="logo" id="logo"></a>
                 <span>
                     <a href="/index.php">返回</a>
                 </span>

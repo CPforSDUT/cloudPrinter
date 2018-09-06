@@ -46,11 +46,14 @@ $username = $_SESSION['user'];
     <div class="container">
         <div class="header">
             <div class="daohang" id="daohang" onmouseleave="hiddenCaidan()">
-                <img src="../image/logo1.png" alt="logo" id="logo">
+                <a href="/index.php"><img src="../image/logo1.png" alt="logo" id="logo"></a>
                 <span id="uname"><?php echo "$username";?></span>
                 <img src="../image/user_img1.png" alt="用户" id="user_pic" onclick="showCaidan()">
                 <div class="caidan" id="caidan">
                     <ul>
+                        <li>
+                            <a href="/newOrder.php">新订单</a>
+                        </li>
                         <li>
                             <a href="/user-admin/user-information.php">个人信息</a>
                         </li>
@@ -72,31 +75,25 @@ $username = $_SESSION['user'];
 
 
         </div>
-        <div class="main">
-            <div class="m1">
-                <div class="m2">
-                  <table class="layui-table">
-                    <colgroup>
-                      <col width="150">
-                      <col width="200">
-                      <col>
-                    </colgroup>
-                    <thead>
-                      <tr>
-                        <th>文件名</th>
-                        <th>颜色</th>
-                        <th>打印数量</th>
-                        <th>纸张大小</th>
-                          <th>其他信息</th>
-                      </tr>
-                    </thead>
-                    <tbody id="fileMain">
-                    </tbody>
-                  </table>
-
-                </div>
-
-            </div>
+        <div class="main" style="background: #f9f9f9">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>文件名</th>
+                    <th>颜色</th>
+                    <th>打印数量</th>
+                    <th>纸张大小</th>
+                    <th>其他信息</th>
+                </tr>
+                </thead>
+                <tbody id="fileMain">
+                </tbody>
+            </table>
         </div>
     </div>
 </body>

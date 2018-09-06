@@ -41,11 +41,14 @@ $other = $other['other'];
     <div class="container">
         <div class="header">
             <div class="daohang" id="daohang"  onmouseleave="hiddenCaidan()">
-                <img src="../image/logo1.png" alt="logo" id="logo">
+                <a href="/index.php"><img src="../image/logo1.png" alt="logo" id="logo"></a>
                 <span id="uname"><?php echo "$username";?></span>
                 <img src="../image/user_img1.png" alt="用户" id="user_pic" onclick="showCaidan()">
                 <div class="caidan" id="caidan">
                     <ul>
+                        <li>
+                            <a href="/newOrder.php">新订单</a>
+                        </li>
                         <li>
                             <a href="/user-admin/user-information.php">个人信息</a>
                         </li>
@@ -75,7 +78,7 @@ $other = $other['other'];
                         <input type="text" id="address" name="address" required  lay-verify="required" placeholder="请输入常用收货地址"  autocomplete="off" class="layui-input">
                       </div>
                     </div>
-                    <div class="layui-form-item">
+                    <div class="layui-form-item" >
                       <label class="layui-form-label">密码</label>
                       <div class="layui-input-inline">
                         <input type="password" name="password"  placeholder="请输入新密码" autocomplete="off" class="layui-input">
@@ -99,7 +102,7 @@ $other = $other['other'];
 
                     </div>
                     <div class="layui-form-item">
-                      <div class="layui-input-block">
+                      <div class="layui-input-block" style="margin: 0 auto;height: 38px;width: 179px;">
                         <button class="layui-btn" lay-submit lay-filter="formDemo" type="submit">立即提交</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                       </div>
