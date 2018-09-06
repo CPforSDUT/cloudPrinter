@@ -416,7 +416,7 @@ $username = $_SESSION['user'];
                         <form action="">
                             <input id="map_search" onchange="search(document.getElementById('map_search').value)" type="search" placeholder="输入打印店名来查找" size="50">
                         </form>
-                        <div id="baiduMap"></div>
+                        <div id="baiduMap"><p style="position: absolute;top: 50%,right:50%">请设置使浏览器允许使用百度地图插件。</p></div>
                         <div class="mapform" id="mapform">
                             <table cellspacing="0">
                                 <thead>
