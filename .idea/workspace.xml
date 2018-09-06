@@ -3,28 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/changePass.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/changePass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/changePwd.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/changePwd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/download.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/download.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/getFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/getFiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/getOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/getOrderInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/setOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/setOrderInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/document.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/document.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/information.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/information.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/people.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/people.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/sore.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/sore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createNewOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/createNewOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/changeInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/changeInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/delFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/delFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/getFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/getFiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/user-document.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/user-document.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/user-information.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/user-information.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/user-order.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/user-order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/getMapInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/getMapInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/registered.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/registered.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/businessView.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/delFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/fileControl/delFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/getFileInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/fileControl/getFileInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/getFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/fileControl/getFiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/setFileInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/fileControl/setFileInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/uploadFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/fileControl/uploadFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileControl/userView.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,83 +20,74 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user-information.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user-admin/user-information.php">
+      <file leaf-file-name="delFile.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fileControl/delFile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="32" />
+            <state relative-caret-position="825">
+              <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/order.php">
+      <file leaf-file-name="changePass.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/changePass.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="65" column="55" lean-forward="true" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+            <state relative-caret-position="95">
+              <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registered.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/registered.php">
+      <file leaf-file-name="document.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/document.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+            <state relative-caret-position="266">
+              <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user-admin/user-order.php">
+      <file leaf-file-name="getFiles.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fileControl/getFiles.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2033">
-              <caret line="107" column="14" lean-forward="true" selection-start-line="107" selection-start-column="14" selection-end-line="107" selection-end-column="14" />
+            <state relative-caret-position="266">
+              <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="people.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/people.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="147" column="47" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sore.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/sore.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getMapInfo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/getMapInfo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/login.php">
+      <file leaf-file-name="setFileInfo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fileControl/setFileInfo.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createNewOrder.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/createNewOrder.php">
+      <file leaf-file-name="uploadFile.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fileControl/uploadFile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+            <state relative-caret-position="-570">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getFileInfo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fileControl/getFileInfo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setOrderInfo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/control/setOrderInfo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="50" lean-forward="true" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -119,8 +95,17 @@
       <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1761">
-              <caret line="294" column="25" selection-start-line="294" selection-start-column="25" selection-end-line="294" selection-end-column="25" />
+            <state relative-caret-position="297">
+              <caret line="318" column="123" selection-start-line="318" selection-start-column="123" selection-end-line="318" selection-end-column="123" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="delFile.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user-admin/control/delFile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-30">
+              <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -136,7 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>exCode</find>
       <find>fin</find>
       <find>x</find>
       <find>black1</find>
@@ -166,6 +150,7 @@
       <find>.layui-input</find>
       <find>passsword</find>
       <find>.layui-form-label</find>
+      <find>remove</find>
     </findStrings>
     <replaceStrings>
       <replace>POST</replace>
@@ -205,24 +190,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/fileControl/businessView.php" />
         <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/homepage.html" />
         <option value="$PROJECT_DIR$/js/dropzone.js" />
         <option value="$PROJECT_DIR$/user/loginView2.php" />
         <option value="$PROJECT_DIR$/user/registeredView2.php" />
         <option value="$PROJECT_DIR$/js/dist/dropzone.js" />
-        <option value="$PROJECT_DIR$/fileControl/uploadFile.php" />
-        <option value="$PROJECT_DIR$/fileControl/setFileInfo.php" />
         <option value="$PROJECT_DIR$/user/logout.php" />
         <option value="$PROJECT_DIR$/fileControl/userView.php" />
         <option value="$PROJECT_DIR$/admin/information.html" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/fileControl/getFileInfo.php" />
         <option value="$PROJECT_DIR$/admin/css/main.css" />
         <option value="$PROJECT_DIR$/css/registered.css" />
-        <option value="$PROJECT_DIR$/fileControl/delFile.php" />
-        <option value="$PROJECT_DIR$/fileControl/getFiles.php" />
         <option value="$PROJECT_DIR$/admin/getFiles.php" />
         <option value="$PROJECT_DIR$/user/loginView.php" />
         <option value="$PROJECT_DIR$/test.php" />
@@ -233,7 +212,6 @@
         <option value="$PROJECT_DIR$/user/registeredView.php" />
         <option value="$PROJECT_DIR$/css/master.css" />
         <option value="$PROJECT_DIR$/css/layui.css" />
-        <option value="$PROJECT_DIR$/newOrder.php" />
         <option value="$PROJECT_DIR$/admin/control/changePwd.php" />
         <option value="$PROJECT_DIR$/admin/control/download.php" />
         <option value="$PROJECT_DIR$/admin/control/getFiles.php" />
@@ -256,6 +234,13 @@
         <option value="$PROJECT_DIR$/user-admin/user-information.php" />
         <option value="$PROJECT_DIR$/user-admin/user-order.php" />
         <option value="$PROJECT_DIR$/createNewOrder.php" />
+        <option value="$PROJECT_DIR$/fileControl/businessView.php" />
+        <option value="$PROJECT_DIR$/fileControl/getFileInfo.php" />
+        <option value="$PROJECT_DIR$/fileControl/getFiles.php" />
+        <option value="$PROJECT_DIR$/fileControl/uploadFile.php" />
+        <option value="$PROJECT_DIR$/fileControl/setFileInfo.php" />
+        <option value="$PROJECT_DIR$/newOrder.php" />
+        <option value="$PROJECT_DIR$/fileControl/delFile.php" />
       </list>
     </option>
   </component>
@@ -310,6 +295,11 @@
               <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
               <item name="WWW" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WWW" type="462c0819:PsiDirectoryNode" />
+              <item name="fileControl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
@@ -410,6 +400,7 @@
       <workItem from="1536123462716" duration="11693000" />
       <workItem from="1536209768339" duration="7181000" />
       <workItem from="1536223411643" duration="3188000" />
+      <workItem from="1536249885862" duration="3071000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -422,10 +413,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329105000" />
+    <option name="totallyTimeSpent" value="332176000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20204978" />
@@ -453,19 +444,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20204978" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49853587" weight="0.3290938" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49853587" weight="0.0" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49853587" weight="0.3290938" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5014641" side_tool="true" weight="0.08585056" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="8" />
@@ -488,8 +479,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/information.html" />
-    <entry file="file://$PROJECT_DIR$/admin/index.html" />
     <entry file="file://$PROJECT_DIR$/js/dist/dropzone.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -512,16 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fileControl/uploadFile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="66" column="127" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fileControl/setFileInfo.php" />
-    <entry file="file://$PROJECT_DIR$/fileControl/getFileInfo.php" />
-    <entry file="file://$PROJECT_DIR$/fileControl/delFile.php" />
     <entry file="file://$PROJECT_DIR$/admin/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -540,7 +519,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html" />
-    <entry file="file://$PROJECT_DIR$/fileControl/getFiles.php" />
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -621,13 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user-admin/control/delFile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user-admin/control/getFiles.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-182">
@@ -656,23 +627,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/information.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1235">
+          <caret line="65" column="55" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/people.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2793">
+          <caret line="147" column="47" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/sore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/getMapInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/registered.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user-admin/user-order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2033">
+          <caret line="107" column="14" selection-start-line="107" selection-start-column="14" selection-end-line="107" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user-admin/user-information.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createNewOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/control/download.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
+        <state relative-caret-position="589">
           <caret line="31" column="49" lean-forward="true" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/control/getFiles.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="570">
           <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/control/getOrderInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-950">
+        <state relative-caret-position="418">
           <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
           <folding>
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
@@ -682,14 +723,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/control/setOrderInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-106">
+        <state relative-caret-position="152">
           <caret line="8" column="50" lean-forward="true" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/changePass.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-361">
+        <state relative-caret-position="95">
           <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
         </state>
       </provider>
@@ -701,80 +742,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/information.php">
+    <entry file="file://$PROJECT_DIR$/fileControl/userView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+        <state relative-caret-position="-684" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileControl/businessView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/order.php">
+    <entry file="file://$PROJECT_DIR$/user-admin/control/delFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="65" column="55" lean-forward="true" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/people.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="147" column="47" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/sore.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/getMapInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/registered.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user-admin/user-order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2033">
-          <caret line="107" column="14" lean-forward="true" selection-start-line="107" selection-start-column="14" selection-end-line="107" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user-admin/user-information.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="32" />
+        <state relative-caret-position="-30">
+          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/newOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1761">
-          <caret line="294" column="25" selection-start-line="294" selection-start-column="25" selection-end-line="294" selection-end-column="25" />
+        <state relative-caret-position="297">
+          <caret line="318" column="123" selection-start-line="318" selection-start-column="123" selection-end-line="318" selection-end-column="123" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createNewOrder.php">
+    <entry file="file://$PROJECT_DIR$/fileControl/delFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+        <state relative-caret-position="825">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileControl/getFileInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileControl/getFiles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileControl/setFileInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileControl/uploadFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-570">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>
