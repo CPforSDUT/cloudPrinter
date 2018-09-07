@@ -160,7 +160,7 @@ if (isset($_SESSION['user'])) {
                 <div class="m1">
                     <div class="m2">
                         <div class="form" id="form0">
-                            <a class="button button-glow button-border button-rounded button-primary button-jumbo" id="start" onclick="showAndHidden0()">创建新订单</a>
+                            <a class="button button-glow button-border button-rounded button-primary button-jumbo" id="start" onclick="showlogin()">创建新订单</a>
                         </div>
                     </div>
                 </div>

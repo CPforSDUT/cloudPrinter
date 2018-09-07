@@ -35,17 +35,22 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
     exit();
 }
 $infos = mysql_query("select * from orderinfo where consumer='$username' and deleted!='cn'");
-while($info = mysql_fetch_array($infos))
-{
-    $time = toPureTime($info['deadline']);
-    $state = $info['orderState'] == '1' ? "未打印":"打印完成";
-    $state = $info['deleted'] == 'bn' ? "被商家删除" : $state;
-    $orderId = $info['orderId'];
-    $business = $info['business'];
-    echo "<tr>";
-    echo "<td>$business</td>";
-    echo "<td>$time</td>";
-    echo "<td>$state</td>";
-    echo "<td><a href='#' onclick=\"delOrder('$orderId')\"=>删除</a>||<a href='user-document.php?orderId=$orderId'>查看</a></td>";
-    echo "<tr>";
+$info = mysql_fetch_array($infos);
+if($info == false){
+    echo "<img style=\"max-width: 383px;min-width: 383px;overflow: hidden; \" src='/image/no_file.png'/>";
+}
+else {
+    do{
+        $time = toPureTime($info['deadline']);
+        $state = $info['orderState'] == '1' ? "未打印":"打印完成";
+        $state = $info['deleted'] == 'bn' ? "被商家删除" : $state;
+        $orderId = $info['orderId'];
+        $business = $info['business'];
+        echo "<tr>";
+        echo "<td>$business</td>";
+        echo "<td>$time</td>";
+        echo "<td>$state</td>";
+        echo "<td><a href='#' onclick=\"delOrder('$orderId')\"=>删除</a>||<a href='user-document.php?orderId=$orderId'>查看</a></td>";
+        echo "<tr>";
+    }while($info = mysql_fetch_array($infos));
 }

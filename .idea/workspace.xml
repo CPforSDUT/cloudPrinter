@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/insert.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/no file.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/registeredView.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/registeredView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,8 +31,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="153" column="22" lean-forward="true" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
+            <state relative-caret-position="155">
+              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
               <folding>
                 <element signature="n#style#0;n#i#0;n#a#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -44,11 +42,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registeredView.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="getOrderInfo.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/user-admin/control/getOrderInfo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="41" column="6" lean-forward="true" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registeredView.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/registeredView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="147" column="5" lean-forward="true" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
+            <state relative-caret-position="19">
+              <caret line="159" column="121" selection-start-line="159" selection-start-column="121" selection-end-line="159" selection-end-column="121" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -97,13 +107,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dropzone.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/dropzone.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-342" />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="dropzone.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/dist/dropzone.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -131,7 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>订单处理</find>
       <find>/index.php</find>
       <find>Intervel</find>
       <find>&lt;a href=&quot;/user/loginView.php&quot;&gt;登</find>
@@ -161,6 +163,7 @@
       <find>black1</find>
       <find>返回</find>
       <find>password</find>
+      <find>创建</find>
     </findStrings>
     <replaceStrings>
       <replace>POST</replace>
@@ -233,7 +236,6 @@
         <option value="$PROJECT_DIR$/user-admin/control/changeInfo.php" />
         <option value="$PROJECT_DIR$/user-admin/control/delFile.php" />
         <option value="$PROJECT_DIR$/user-admin/control/getFiles.php" />
-        <option value="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" />
         <option value="$PROJECT_DIR$/createNewOrder.php" />
         <option value="$PROJECT_DIR$/fileControl/businessView.php" />
         <option value="$PROJECT_DIR$/fileControl/getFileInfo.php" />
@@ -249,8 +251,9 @@
         <option value="$PROJECT_DIR$/admin/order.php" />
         <option value="$PROJECT_DIR$/admin/changePass.php" />
         <option value="$PROJECT_DIR$/css/login.css" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/user/registeredView.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" />
       </list>
     </option>
   </component>
@@ -420,7 +423,7 @@
       <workItem from="1536209768339" duration="7181000" />
       <workItem from="1536223411643" duration="3188000" />
       <workItem from="1536249885862" duration="4338000" />
-      <workItem from="1536279270559" duration="5632000" />
+      <workItem from="1536279270559" duration="7095000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -433,7 +436,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="339075000" />
+    <option name="totallyTimeSpent" value="340538000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -445,7 +448,7 @@
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49853587" weight="0.3290938" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.20204978" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20204978" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49853587" weight="0.0" />
@@ -558,13 +561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-182">
           <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user-admin/control/getOrderInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -809,10 +805,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/user/registeredView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="159" column="121" selection-start-line="159" selection-start-column="121" selection-end-line="159" selection-end-column="121" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="153" column="22" lean-forward="true" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
+        <state relative-caret-position="155">
+          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
           <folding>
             <element signature="n#style#0;n#i#0;n#a#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -821,12 +827,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/registeredView.php">
+    <entry file="file://$PROJECT_DIR$/user-admin/control/getOrderInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="147" column="5" lean-forward="true" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
+        <state relative-caret-position="293">
+          <caret line="41" column="6" lean-forward="true" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
