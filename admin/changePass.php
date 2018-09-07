@@ -75,7 +75,7 @@ function submit() {
 
 <div id="content">
 <div class="page">
-<div class="titlee"><div class="back"></div><font class="titleee"><font class="lanzh">更改密码</font><font class="lanen lannone">Alter password</font></font></div>
+<div class="titlee"><div class="back"></div><font class="titleee"><font class="lanzh">更改密码</font></div>
 <p class="notice"><b><font class="lanzh">切勿使用常用密码！</font></b></p>
 <p class="notice" style="color:red"><font class="lanzh">密码必须为6-12位字母或数字或下划线。</font>
 <table border="0" align="center" style="font-size:22px;display:inline-block;margin-top:40px">
