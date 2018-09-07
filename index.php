@@ -23,6 +23,7 @@ if (isset($_SESSION['user'])) {
   <link rel="stylesheet" href="css/login.css">
   <link rel="stylesheet" type="text/css" href="/css/master.css">
   <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/intru.css">
   <script src="js/layui.all.js"></script>
   <script src="js/jquery-1.8.3.min.js"></script>
   <script src="js/jquery.fullPage.js"></script>
@@ -68,6 +69,7 @@ if (isset($_SESSION['user'])) {
         }
     $(function(){
         $('#bosteam').fullpage({
+         
             navigation: true,
         });
         $(window).resize(function(){
@@ -166,7 +168,17 @@ if (isset($_SESSION['user'])) {
         </div>
     </div>
     <div class="section">
-  		<h3>第三屏</h3>
+    <div class="title">支持多种设备传输打印</div>
+        <div class="animation"><img src="image/animation.gif" id="ani"></div>
+        <div class="bk-down">
+            <div class="left">
+                <div class="up">通过浏览器打印</div>
+                <div class="down">兼容手机端/pc端多种浏览器,只需安装浏览器即可选择文件上传打印</div>
+            </div>
+            <div class="right">
+                <img src="image/upload.png" id="ys">
+            </div>
+        </div>
   	</div>
   	<div class="section">
   		<h3>第四屏</h3>
