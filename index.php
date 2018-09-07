@@ -148,7 +148,7 @@ if (isset($_SESSION['user'])) {
                     <div class="daohang" id="daohang">
                         <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
                         <span>
-                            <a href="/index.php">返回</a>
+                            <a href="/index.php?login=">登录</a> | <a href="/user/registeredView.php">注册</a>
                         </span>
                     </div>
                 </div>
@@ -184,6 +184,13 @@ if (isset($_SESSION['user'])) {
   		<h3>第四屏</h3>
   		<p>这是最后一屏</p>
   	</div>
+    <script>
+        <?php
+        if(isset($_GET['login']) == true){
+            echo "showlogin();";
+        }
+        ?>
+    </script>
 
 </body>
 </html>
