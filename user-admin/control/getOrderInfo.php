@@ -37,7 +37,7 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
 $infos = mysql_query("select * from orderinfo where consumer='$username' and deleted!='cn'");
 $info = mysql_fetch_array($infos);
 if($info == false){
-    echo "<img style=\"max-width: 383px;min-width: 383px;overflow: hidden; \" src='/image/no_file.png'/>";
+    echo "<div  style=\"text-align: center;position: absolute;width: 100%;\"><img style=\"max-width: 383px;min-width: 383px; overflow: hidden;margin: 0 auto;\" src='/image/no_file.png'/></div>";
 }
 else {
     do{
