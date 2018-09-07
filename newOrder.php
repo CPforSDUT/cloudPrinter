@@ -88,7 +88,7 @@ $password = $_SESSION['pass'];
         function showCaidan() {
             var caidan = document.getElementById("caidan");
             caidan.style.display = "block";
-            document.getElementById("user_pic").src="../image/user_img.png";
+            document.getElementById("user_pic").src="../image/user_img1.png";
         }
         function hiddenCaidan() {
             var caidan = document.getElementById("caidan");
@@ -240,7 +240,7 @@ $password = $_SESSION['pass'];
                 <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
                 <span id="uname"><?php echo "$username";?></span>
                 <a href="#" id="caidanAndPic">
-                    <img src="image/user_img1.png" alt="用户" id="user_pic">
+                    <img src="image/user_img1.png" alt="用户" id="user_pic" onmouseover="document.getElementById('user_pic').src='image/user_img.png'">
                     <div class="caidan" id="caidan">
                         <ul>
                             <li>

@@ -32,7 +32,7 @@ $username = mysql_escape_string($_SESSION['user']);
         function showCaidan() {
             var caidan = document.getElementById("caidan");
             caidan.style.display = "block";
-            document.getElementById("user_pic").src="../image/user_img.png";
+            document.getElementById("user_pic").src="../image/user_img1.png";
         }
         function hiddenCaidan() {
             var caidan = document.getElementById("caidan");
@@ -48,7 +48,7 @@ $username = mysql_escape_string($_SESSION['user']);
             <div class="daohang" id="daohang" onmouseleave="hiddenCaidan()">
                 <a href="/index.php"><img src="../image/logo1.png" alt="logo" id="logo"></a>
                 <span id="uname"><?php echo "$username";?></span>
-                <img src="../image/user_img1.png" alt="用户" id="user_pic" onclick="showCaidan()">
+                <img src="../image/user_img1.png" alt="用户" id="user_pic" onclick="showCaidan()"  onmouseover="document.getElementById('user_pic').src='../image/user_img.png'">
                 <div class="caidan" id="caidan">
                     <ul>
                         <li>
