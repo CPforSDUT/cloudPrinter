@@ -32,7 +32,6 @@ $password = $_SESSION['pass'];
     <link rel="stylesheet" href="jqueryui/style.css">
     <link rel="stylesheet" type="text/css" href="/css/master.css">
 
-
     <script type="text/javascript">
         var selected,selectedId;
     </script>
@@ -245,6 +244,44 @@ $password = $_SESSION['pass'];
             else {
                 alert('请选择商家。');
             }
+        }
+        function getLocation() {
+<?php
+            $html = file_get_contents("http://pv.sohu.com/cityjson?ie=utf-8");
+            echo $html;
+?>
+            var location = new XMLHttpRequest();
+            location.open("POST","getLocation.php",false);
+            location.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            location.send("province="+returnCitySN['cname']);
+            var f = new Function(location.responseText);
+            return f();
+
+        }
+        function getTag(map) {
+            var center = map.getCenter();
+            var myGeo = new BMap.Geocoder();
+            myGeo.getLocation(new BMap.Point(center.lng ,center.lat ), function(result){
+                var addComp = result.addressComponents;
+                var mapInfo = new XMLHttpRequest();
+                mapInfo.open("POST","/user/getMapInfo.php",true);
+                mapInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                mapInfo.send("province="+escape(addComp.province)+"&orderId="+<?php echo "\"$orderId\"";?>);
+                mapInfo.onreadystatechange=function() {
+                    if (mapInfo.readyState == 4 && mapInfo.status == 200) {
+                        var each;
+                        map.clearOverlays();
+                        eval(mapInfo.responseText);
+                        for (each in where)
+                        {
+                            pt = new BMap.Point(where[each]['lo'],where[each]['la']);
+                            mark=new BMap.Marker(pt);
+                            map.addOverlay(mark);
+                            createTag(mark,where[each]);
+                        }
+                    }
+                }
+            });
         }
     </script>
 </head>
@@ -515,39 +552,15 @@ $password = $_SESSION['pass'];
             </div>
 <script type="text/javascript">
     var map = new BMap.Map("baiduMap");
-    var point = new BMap.Point(116.38,39.90);
-    map.centerAndZoom(point,8);
+    var c = getLocation();
+    var point = new BMap.Point(c[0],c[1]);
+    map.centerAndZoom(point,13);
     map.addControl(new BMap.GeolocationControl());
-    var geolocation = new BMap.Geolocation();
-    geolocation.getCurrentPosition(function(r){
-        map.panTo(r.point);
-    });
+    map.addControl(new BMap.NavigationControl());
     map.addEventListener("dragend", function(result){
-        var center = map.getCenter();
-        var myGeo = new BMap.Geocoder();
-        myGeo.getLocation(new BMap.Point(center.lng ,center.lat ), function(result){
-            var addComp = result.addressComponents;
-            var mapInfo = new XMLHttpRequest();
-            mapInfo.open("POST","/user/getMapInfo.php",true);
-            mapInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            mapInfo.send("province="+escape(addComp.province)+"&orderId="+<?php echo "\"$orderId\"";?>);
-            mapInfo.onreadystatechange=function() {
-                if (mapInfo.readyState == 4 && mapInfo.status == 200) {
-                    var each;
-                    map.clearOverlays();
-                    eval(mapInfo.responseText);
-                    for (each in where)
-                    {
-                        pt = new BMap.Point(where[each]['lo'],where[each]['la']);
-                        mark=new BMap.Marker(pt);
-                        map.addOverlay(mark);
-                        createTag(mark,where[each]);
-                    }
-                }
-            }
-        });
+        getTag(map);
     });
-
+    getTag(map);
 </script>
 </body>
 
