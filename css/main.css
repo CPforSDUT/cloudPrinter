@@ -50,6 +50,14 @@ h3{
     width: auto;
     height: auto;
     z-index: -100;
-    background: url('') no-repeat;
+    background: url('images/bg-video.png') no-repeat;
     background-size: cover;
+}
+.section{
+	background-color:#fff;
+}
+@media screen and (max-width: 600px) {
+
+
+	
 }

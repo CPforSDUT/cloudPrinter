@@ -15,6 +15,7 @@ $password = mysql_escape_string($_SESSION['pass']);
 
 <link href="./css/blankcur.css" rel="stylesheet"><title>CloudPrint密码修改中心</title>
 <!--button-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="./css/normalize.css">
 <link rel="stylesheet" type="text/css" href="./css/button.css">
 <link rel="stylesheet" type="text/css" href="./css/button-r.css">
