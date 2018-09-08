@@ -74,10 +74,18 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; $i ++)
     $paperType = getFileType($row['paperType']);
     $filename = unescape($row['filename']);
     $otherInfo = unescape($row['otherInfo']);
+    $paperWay = $row['paperWay'];
+    if($paperWay == '1'){
+        $paperWay = '竖向';
+    }
+    else {
+        $paperWay = '横向';
+    }
     echo "<tr>";
     echo "<td>$filename</td>";
     echo "<td>$color</td>";
     echo "<td>$num</td>";
+    echo "<td>$paperWay</td>";
     echo "<td>$paperType</td>";
     echo "<td>$otherInfo</td>";
     echo "<td><a class=\"link-download\" href=\"control/download.php?orderId=$orderId&filePath=$filePath&filename=$filename\">下载</a></td>";

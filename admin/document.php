@@ -149,8 +149,9 @@ else {
                                 <th>文件名</th>
                                 <th>色彩</th>
                                 <th>打印份数</th>
+                                <th>纸张方向</th>
                                 <th>纸张类型</th>
-                                <th>其他信息</th>
+                                <th>备注</th>
                                 <th>操作</th>
                             </tr>
                         </thead>

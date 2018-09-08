@@ -87,8 +87,9 @@ $username = mysql_escape_string($_SESSION['user']);
                     <th>文件名</th>
                     <th>颜色</th>
                     <th>打印数量</th>
+                    <th>纸张方向</th>
                     <th>纸张大小</th>
-                    <th>其他信息</th>
+                    <th>备注</th>
                 </tr>
                 </thead>
                 <tbody id="fileMain">

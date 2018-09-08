@@ -25,11 +25,11 @@ $num = $row['num'];
 $color = $row['color'];
 $paperType  = $row['paperType'];
 $otherInfo = $row['otherInfo'];
-
+$paperWay = $row['paperWay'];
 for ($i = 0 ; $paperType!=$paperSizes2[$i] ;$i ++ );
 $paperType = $paperSizes[$i];
 echo "<p id=\"paperNum\">$num</p>";
 echo "<p id=\"paperSize\">$paperType</p>";
 echo "<p id=\"Color\">$color</p>";
 echo "<p id=\"otherInfo\">$otherInfo</p>";
-
+echo "<p id=\"paperWay\">$paperWay</p>";
