@@ -17,6 +17,7 @@ $other = $other['other'];
 ?>
 <head>
     <title>cloud Print</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/layui.css">
     <link rel="stylesheet" href="../css/buttons.css">
     <link rel="stylesheet" type="text/css" href="../css/master.css">

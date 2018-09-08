@@ -22,6 +22,27 @@
 .search-tab tr{line-height: 35px;}
 .search-tab th{text-align: right;padding-right:10px;font-weight: normal;}
 .search-tab td{padding: 0 5px;}
+@media screen and (max-width: 600px) {
+	/*
+	
+	.sidebar-wrap{
+		display:none;
+	}
+	.main-wrap{
+		margin-left: 0px;
+		min-height:100%;
+	}
+	*/
+	.result-content{
+		width:623px;
+		
+	}
+	.search-wrap{
+		width:623px;
+	}
+	
+}
+
 .common-text{height: 23px;line-height: 23px;padding: 2px 4px;border: 1px solid #ccc;background: #fff;border-radius:5px;}
 .result-wrap{padding:10px 20px;border-bottom: 1px solid #e5e5e5;}
 .result-title{line-height: 35px;padding-bottom: 5px;overflow: hidden;}
@@ -56,3 +77,6 @@
 .res-lab{color: #909090;}
 .res-info{font-size: 15px;}
 .sort-input{width: 25px;text-align: center;}
+@media (max-width: 600px) {
+  .res-lab{display: inline-block;width: 50px;padding-right: 3px;text-align: right; !important}
+}

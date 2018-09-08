@@ -16,6 +16,7 @@ $password = $_SESSION['pass'];
 
 <head>
     <title>云打印</title>
+	<meta name="viewport" content="width=device-width, initial-scale=0.7">
     <link href="/js/dist/dropzone.css" rel="stylesheet" />
     <link href="/js/dist/basic.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/buttons.css">

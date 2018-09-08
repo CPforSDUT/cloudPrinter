@@ -13,11 +13,10 @@ if (isset($_SESSION['user'])) {
 ?>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>云打印</title>
   <link rel="stylesheet" href="css/jquery.fullPage.css">
-
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/layui.css">
   <link rel="stylesheet" href="css/login.css">
@@ -57,8 +56,7 @@ if (isset($_SESSION['user'])) {
         }
     </script>
   <script type="text/javascript">
-
-
+  
     function showlogin() {
             var black1 = document.getElementById("black1");
             black1.style.display = "block";
@@ -69,7 +67,7 @@ if (isset($_SESSION['user'])) {
         }
     $(function(){
         $('#bosteam').fullpage({
-         
+			sectionsColor: ['#33aafe', '', '#fff', '#33aafe'],
             navigation: true,
         });
         $(window).resize(function(){
@@ -108,13 +106,16 @@ if (isset($_SESSION['user'])) {
 </div>
 <div id="bosteam">
     <div class="section">
+	
         <video id="bgvideo" autoplay="autoplay" width="100%">
             <source src="bg.webm" type="video/webm" />
             <source src="bg.mp4" type="video/mp4" />
             <!--<source src="bg.ogv" type="video/ogg" />
             还没转换这个格式-->
             您的浏览器不支持 video 标签。请使用更先进的浏览器,如<a href="http://www.google.cn/chrome/browser/" target="_blank">Chrome浏览器</a>或<a href="http://www.firefox.com.cn/download/" target="_blank">Firefox浏览器</a>
+            您的浏览器不支持 video 标签。请使用更先进的浏览器,如<a href="http://www.google.cn/chrome/browser/" target="_blank">Chrome浏览器</a>或<a href="http://www.firefox.com.cn/download/" target="_blank">Firefox浏览器</a>
         </video>
+		
 
         <h3>云打印</h3>
         <p class="speak">上传您的文档并选择最近的打印店，即刻体验快捷高效的打印新方式。</p>
@@ -137,8 +138,7 @@ if (isset($_SESSION['user'])) {
                 </li>
               </ul>
             -->
-
-
+	
     </div>
 
     <div class="container">
@@ -168,21 +168,47 @@ if (isset($_SESSION['user'])) {
         </div>
     </div>
     <div class="section">
-    <div class="title">支持多种设备传输打印</div>
-        <div class="animation"><img src="image/animation.gif" id="ani"></div>
-        <div class="bk-down">
-            <div class="left">
-                <div class="up">通过浏览器打印</div>
-                <div class="down">兼容手机端/pc端多种浏览器,只需安装浏览器即可选择文件上传打印</div>
-            </div>
-            <div class="right">
-                <img src="image/upload.png" id="ys">
-            </div>
-        </div>
-  	</div>
+		<div class="set-white">
+			<div class="title">支持多种设备传输打印</div>
+				<div class="animation"><img src="image/animation.gif" id="ani"></div>
+				<div class="bk-down">
+					<div class="left">
+						<div class="up">通过浏览器打印</div>
+						<div class="down">兼容手机端/pc端多种浏览器,只需安装浏览器即可选择文件上传打印</div>
+					</div>
+					<div class="right1" >
+						<img src="image/upload.png" id="ys" style="width:502px; height:332px;">
+					</div>
+				</div>
+			</div>
+	</div>
   	<div class="section">
-  		<h3>第四屏</h3>
-  		<p>这是最后一屏</p>
+			
+				  <div class="title">为何要使用云打印功能？</div>
+			  <div class="bk">
+				  <div class="up">
+					  <div class="left">
+						  <div class="bt"><img src="image/safe.png"/>&nbsp;&nbsp;安全可靠</div>
+						  <div class="nr">一旦打印完成，用户可以随时选择删除在服务器的相应文档。</div>
+					  </div>
+					  <div class="right">
+						  <div class="bt"><img src="image/fb.png" />&nbsp;&nbsp;方便实用</div>
+						  <div class="nr">用户可以通过任意设备浏览器传输文件，实现随时下单。</div>
+					  </div>
+				  </div>
+
+				  <div class="down">
+					  <div class="left">
+						  <div class="bt"><img src="image/mb.png" />&nbsp;&nbsp;打印迅速</div>
+						  <div class="nr">用户通过提取码可以实现到店即取，为用户节省时间。</div>
+					  </div>
+					  <div class="right">
+						  <div class="bt"><img src="image/hb.png" />&nbsp;&nbsp;货比三家</div>
+						  <div class="nr">多家打印店提供服务，用户可以自由选择打印店。</div>
+					  </div>
+				  </div>
+			  </div>
+		
   	</div>
     <script>
         <?php
