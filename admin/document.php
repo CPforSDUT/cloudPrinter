@@ -66,6 +66,15 @@ else {
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
         }
+		function menu()
+		{
+			if(document.getElementById('menu').style.display == 'none'){
+				document.getElementById('menu').style.display='block';
+			}
+			else {
+				document.getElementById('menu').style.display='none';
+			}
+		}
     </script>
 </head>
 <body>
@@ -73,10 +82,7 @@ else {
       <div class="topbar-inner clearfix">
           <div class="topbar-logo-wrap clearfix">
               <h1 class="topbar-logo none"><a href="index.php" class="navbar-brand">后台管理</a></h1>
-              <ul class="navbar-list clearfix">
-                  <li><a class="on" href="index.php">首页</a></li>
-
-              </ul>
+              
           </div>
           <div class="top-info-wrap">
               <ul class="top-info-list clearfix">
@@ -85,6 +91,8 @@ else {
                   <li><a href="/user/logout.php">退出</a></li>
               </ul>
           </div>
+		  <span onclick="menu()"><i class="fa fa-bars"></i></span>
+		  
       </div>
   </div>
   <div class="container clearfix">
