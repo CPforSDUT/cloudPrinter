@@ -67,7 +67,7 @@ if (isset($_SESSION['user'])) {
         }
     $(function(){
         $('#bosteam').fullpage({
-			sectionsColor: ['', '', '#33aafe', ''],
+			sectionsColor: ['', '', '#f3fcff', ''],
             navigation: false,
         });
         $(window).resize(function(){
@@ -109,10 +109,22 @@ if (isset($_SESSION['user'])) {
     <div class="section">
 	
         <video id="bgvideo" autoplay="autoplay" width="100%">
-            <source src="bg.webm" type="video/webm" />
-            <source src="bg.mp4" type="video/mp4" />
-            <!--<source src="bg.ogv" type="video/ogg" />
-            还没转换这个格式-->
+		
+			
+		<source src="https://sdut1.oss-cn-beijing.aliyuncs.com/bg.mp4" type="video/mp4" />
+           
+            <!--
+            <source src="https://sdut1.oss-cn-beijing.aliyuncs.com/bg.mp4" type="video/mp4" />
+            还没转换这个格式
+			
+			<div class="video-bg-con">
+                <video poster="" muted="muted" loop="" class="vidbacking-active-block-back" style="background: url('http://apk.dalongyun.com/dalongyun_page/v2.0.1/indexs/index-section1-bg.jpg') no-repeat center center; background-size: cover;opacity: 1;width:100%;height:100%; object-fit: fill">
+                    <source src="http://apk.dalongyun.com/dalongyun_page/v2.0.1/indexs/bg.mp4" type="video/mp4">
+                </video>
+            </div>
+
+			
+			-->
             您的浏览器不支持 video 标签。请使用更先进的浏览器,如<a href="http://www.google.cn/chrome/browser/" target="_blank">Chrome浏览器</a>或<a href="http://www.firefox.com.cn/download/" target="_blank">Firefox浏览器</a>
             您的浏览器不支持 video 标签。请使用更先进的浏览器,如<a href="http://www.google.cn/chrome/browser/" target="_blank">Chrome浏览器</a>或<a href="http://www.firefox.com.cn/download/" target="_blank">Firefox浏览器</a>
         </video>
@@ -144,19 +156,18 @@ if (isset($_SESSION['user'])) {
 
     
     <div class="section">
-		    <div class="hd">
+		    <div class="hd" style="top:0px;">
                 <div class="header">
                     <div class="daohang" id="daohang">
                         <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
                         <span>
-                            <a href="/index.php?login=">登录</a> | <a href="/user/registeredView.php">注册</a>
+                            <a href="#" onclick="showlogin()">登录</a> | <a href="/user/registeredView.php">注册</a>
                         </span>
                     </div>
                 </div>
             </div>
 	
-	
-	
+
 	
 		<div class="set-white">
 			<div class="title">支持多种设备传输打印</div>
@@ -167,7 +178,7 @@ if (isset($_SESSION['user'])) {
 						<div class="down">兼容手机端/pc端多种浏览器,只需安装浏览器即可选择文件上传打印</div>
 					</div>
 					<div class="right1" >
-						<img src="image/upload.png" id="ys" style="width:502px; height:332px;">
+						<img src="image/upload.png" id="ys" style="width:303px; height:200px;">
 					</div>
 				</div>
 		</div>
@@ -179,7 +190,7 @@ if (isset($_SESSION['user'])) {
                     <div class="daohang" id="daohang">
                         <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
                         <span>
-                            <a href="/index.php?login=">登录</a> | <a href="/user/registeredView.php">注册</a>
+                            <a href="#" onclick="showlogin()">登录</a> | <a href="/user/registeredView.php">注册</a>
                         </span>
                     </div>
                 </div>
@@ -214,12 +225,12 @@ if (isset($_SESSION['user'])) {
 	
 	
 	<div class="section">
-            <div class="hd">
+            <div class="hd" style="top:0px;">
                 <div class="header">
                     <div class="daohang" id="daohang">
                         <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
                         <span>
-                            <a href="/index.php?login=">登录</a> | <a href="/user/registeredView.php">注册</a>
+                            <a href="#" onclick="showlogin()">登录</a> | <a href="/user/registeredView.php">注册</a>
                         </span>
                     </div>
                 </div>
