@@ -80,20 +80,22 @@ function submit() {
 <p class="notice"><b><font class="lanzh">切勿使用常用密码！</font></b></p>
 <p class="notice" style="color:red"><font class="lanzh">密码必须为6-12位字母或数字或下划线。</font>
 <table border="0" align="center" style="font-size:22px;display:inline-block;margin-top:40px">
-<tr>
+
+
+<tr height="50">
     <td align="left"><font class="lanzh">旧密码</font></td>
     <td><input class="pass" name="passo" id="passo"></td>
 </tr>
-<tr>
+<tr height="50">
 
     <td align="left"><font class="lanzh">新密码</font>
 <td><input class="pass" name="pass1" id="pass1"></td></tr>
 
-<tr><td align="left"><font class="lanzh">确认新密码
+<tr height="50"><td align="left"><font class="lanzh">确认新密码
 <td><input class="pass" name="pass1c" id="pass1c"></td></tr>
 
-<tr><td colspan="2"><font class="alterpassalert" style="color:red"></font></td></tr>
-<tr><td colspan="2"><font class="alterpassbut" onclick="submit()"><font class="lanzh">修改密码</font><font class="lanen lannone">Submit</font></font></td></tr>
+<tr height="60"><td colspan="2"><font class="alterpassalert" style="color:red"></font></td></tr>
+<tr height="60"><td colspan="2"><font class="alterpassbut" onclick="submit()"><font class="lanzh">修改密码</font><font class="lanen lannone">Submit</font></font></td></tr>
 </tbody></table>
 
 

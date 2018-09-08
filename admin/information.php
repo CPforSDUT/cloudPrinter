@@ -208,9 +208,9 @@ $color = $row['color'];
                     <a href="#"><i class="icon-font">&#xe018;</i>商家信息设置</a>
                     <ul class="sub-menu">
                         <li><a href="#state"><i class="icon-font">&#xe000;</i>营业状态</a></li>
-                        <li><a href="#print_info"><i class="icon-font">&#xe018;</i>打印参数</a></li>
+                        <li><a href="#print_info"><i class="icon-font">&#xe018;</i>打印机参数</a></li>
                         <li><a href="#location"><i class="icon-font">&#xe021;</i>地理位置</a></li>
-                        <li><a href="#persionnal"><i class="icon-font">&#xe014;</i>修改密码</a></li>
+                        <li><a href="#persionnal"><i class="icon-font">&#xe014;</i>头像和其他</a></li>
                     </ul>
                 </li>
             </ul>
@@ -263,7 +263,7 @@ $color = $row['color'];
                                       <span class="res-info"><input name="printer-information" id="printType9" type="checkbox" value="" onclick="paperTypeClick(9)" />A8 </span>
                                       <span class="res-info"><input name="printer-information" id="printType10" type="checkbox" value="" onclick="paperTypeClick(10)" />A9 </span>
                                       <span class="res-info"><input name="printer-information" id="printType11" type="checkbox" value="" onclick="paperTypeClick(11)" />A10 </span>
-                                      <br/>
+                                      <br />
                                       <span class="res-info"><input name="printer-information" id="printType12" type="checkbox" value="" onclick="paperTypeClick(12)" />B0 </span>
                                       <span class="res-info"><input name="printer-information" id="printType13" type="checkbox" value="" onclick="paperTypeClick(13)" />B1 </span>
                                       <span class="res-info"><input name="printer-information" id="printType14" type="checkbox" value="" onclick="paperTypeClick(14)" />B2 </span>
@@ -359,43 +359,7 @@ $color = $row['color'];
                                           })
 
                                       </script>
-                            
-                                  </td>
-                              </tr>
-                          </table>
-                  </div>
-            </div>
-            <div class="result-content">
-              <div class="search-wrap">
-                  <div class="search-content">
-                          <table class="search-tab">
-                              <tr>
-                                  <th width="120">修改密码:</th>
-                                  <td>
 
-<table class="changepass" style="font-size:22px;display:inline-block;margin-left:240px">
-<tr>
-    <td>
-        <span class="input_tab">旧密码</span>
-        </td>
-    <td><input class="pass" name="passo" id="passo"></td>
-</tr>
-<tr>
-
-    <td><span class="input_tab">新密码</span>
-<td><input class="pass" name="pass1" id="pass1"></td></tr>
-
-<tr><td><span class="input_tab">确认新密码</span>
-<td><input class="pass" name="pass1c" id="pass1c"></td></tr>
-<tr><td colspan="2"><button class="button button-rounded button-plus" onclick="submit()">修改密码</a></td></tr>
-<tr><td colspan="2"><p class="notice" style="color:red;font-size:12px;">*密码必须为6-12位字母或数字或下划线。</p></td></tr>
-</tbody></table>
-
-
-
-
-
-</div>
                                   </td>
                               </tr>
                           </table>
@@ -423,7 +387,7 @@ $color = $row['color'];
             </div>-->
 
 <center>
-  <input class="btn btn-primary"id="sbt" value="提交" onclick="submitInfo()" type="submit">
+  <input class="btn btn-primary" value="提交" onclick="submitInfo()" type="submit">
 </center>
         </div>
     </div>

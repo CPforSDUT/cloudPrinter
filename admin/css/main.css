@@ -42,7 +42,7 @@
 	}
 	
 }
-#sbt{margin-top: 10px;}
+
 .common-text{height: 23px;line-height: 23px;padding: 2px 4px;border: 1px solid #ccc;background: #fff;border-radius:5px;}
 .result-wrap{padding:10px 20px;border-bottom: 1px solid #e5e5e5;}
 .result-title{line-height: 35px;padding-bottom: 5px;overflow: hidden;}
@@ -53,7 +53,6 @@
 .result-tab th{font-weight: normal;font-size: 15px;text-align: left;background: url(../images/tab-thbg.png) #f9f9f9 0 bottom repeat-x;}
 .result-tab th,.result-tab td{padding:5px;border-bottom: 1px solid #ddd;border-right: 1px solid #e1e1e1;}
 .result-tab tr{line-height:35px;}
-.result-tab thead th{font-weight: bolder;}
 .result-tab th.tc,.result-tab td.tc{text-align: center;}
 .result-tab tr:nth-child(odd){background: #f9f9f9;}
 .result-tab tr:hover{background: #f1f1f1;}
@@ -79,11 +78,5 @@
 .res-info{font-size: 15px;}
 .sort-input{width: 25px;text-align: center;}
 @media (max-width: 600px) {
-  .res-lab{display: inline-block;width: 50px;padding-right: 3px;text-align: right；!important}
-}
-.changepass span{
-	font-size: 15px;
-}
-.pass{
-	font-size: 15px;
+  .res-lab{display: inline-block;width: 50px;padding-right: 3px;text-align: right; !important}
 }
