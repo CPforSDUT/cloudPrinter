@@ -107,9 +107,9 @@ else {
                       <a href="#"><i class="icon-font">&#xe018;</i>商家信息设置</a>
                       <ul class="sub-menu">
                         <li><a href="information.php"><i class="icon-font">&#xe000;</i>营业状态</a></li>
-                        <li><a href="information.php"><i class="icon-font">&#xe018;</i>打印机参数</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe018;</i>打印参数</a></li>
                         <li><a href="information.php"><i class="icon-font">&#xe021;</i>地理位置</a></li>
-                        <li><a href="information.php"><i class="icon-font">&#xe014;</i>头像和其他</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe014;</i>修改密码</a></li>
                       </ul>
                   </li>
               </ul>
