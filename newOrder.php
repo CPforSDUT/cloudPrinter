@@ -101,10 +101,12 @@ $password = $_SESSION['pass'];
             var paperSize = document.getElementById("paper_size").value;
             var color = document.getElementById("color").value;
             var otherInfo = document.getElementById("other_info").value;
+            var paperWay = document.getElementById("orientation").value;
             var setinfo = new XMLHttpRequest();
+
             setinfo.open("POST","/fileControl/setFileInfo.php",true);
             setinfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            setinfo.send("paperNum="+paperNum+"&paperSize="+paperSize+"&color="+color+"&otherInfo="+escape(otherInfo)+"&orderId="+orderId+"&fileName="+escape(fileName));
+            setinfo.send("paperNum="+paperNum+"&paperSize="+paperSize+"&color="+color+"&otherInfo="+escape(otherInfo)+"&orderId="+orderId+"&fileName="+escape(fileName)+"&paperWay="+paperWay);
             //alert("paperNum="+paperNum+"&paperSize="+paperSize+"&color="+color+"&otherInfo="+escape(otherInfo)+"&orderId="+orderId+"&fileName="+escape(fileName));
         }
         function getFileInfo(orderId,fileName,i) {
@@ -132,7 +134,7 @@ $password = $_SESSION['pass'];
                     var paperSize = document.getElementById("paper_size");
                     var color = document.getElementById("color");
                     var otherInfo = document.getElementById("other_info");
-
+                    var paper_way = document.getElementById("orientation");
 
                     paperNum.value = document.getElementById("paperNum").innerText;
                     otherInfo.value = unescape(document.getElementById("otherInfo").innerText);
@@ -144,6 +146,12 @@ $password = $_SESSION['pass'];
                     }
                     else {
                         color.options[1].selected = true;
+                    }
+                    if(document.getElementById("paperWay").innerText == '1'){
+                        paper_way.options[0].selected = true;
+                    }
+                    else {
+                        paper_way.options[1].selected = true;
                     }
                 }
             }
@@ -323,7 +331,7 @@ $password = $_SESSION['pass'];
                                 }
                             };
                         </script>
-                        <span>*请上传不大于20M的文件</span>
+                        <span>*请上传最多8个不大于20M的文件</span>
                         <div class="go" id="go_one">
                                 <!-- <button class="button button-highlight button-rounded button-large">上一步</button> -->
                                 <button class="button button-action button-rounded button-large" onclick="showAndHidden1(<?php echo "'$orderId'";?>)">下一步</button>
@@ -385,12 +393,11 @@ $password = $_SESSION['pass'];
                                     <option value="2">是</option>
                                 </select>
                                 <br>
-                                <input type="number" id="paper_num" value="1"/>
+                                <input type="number" id="paper_num" value="1" onchange="if(document.getElementById('paper_num').value <= 0)document.getElementById('paper_num').value = 1"/>
                                 <br>
                                 <select  id="orientation">
-                                    <option value="1">竖版</option>
+                                    <option value="1" selected>竖版</option>
                                     <option value="2">横板</option>
-                                    <option value="0" selected>默认</option>
                                 </select>
                                 <br>
                                 <textarea rows="6" cols="20" id="other_info"></textarea>
@@ -402,6 +409,7 @@ $password = $_SESSION['pass'];
                                 elements[1] = document.getElementById("color");
                                 elements[2] = document.getElementById("paper_num");
                                 elements[3] = document.getElementById("other_info");
+                                elements[4] = document.getElementById("orientation");
                                 for (element in elements)
                                 {
                                     elements[element].addEventListener("change",function () {
