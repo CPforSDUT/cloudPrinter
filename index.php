@@ -67,8 +67,8 @@ if (isset($_SESSION['user'])) {
         }
     $(function(){
         $('#bosteam').fullpage({
-			sectionsColor: ['#33aafe', '', '#fff', '#33aafe'],
-            navigation: true,
+			sectionsColor: ['', '', '#33aafe', ''],
+            navigation: false,
         });
         $(window).resize(function(){
             autoScrolling();
@@ -102,6 +102,7 @@ if (isset($_SESSION['user'])) {
             <input type="password" name="password"  class="button button-rounded button-tiny" id="password" style="text-align:left;" placeholder="请输入密码" />
         <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登陆</button>
             <span>没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></span>
+			<span>默认账号ceshi123密码12345aaa</>
     </form>
 </div>
 <div id="bosteam">
@@ -141,9 +142,9 @@ if (isset($_SESSION['user'])) {
 	
     </div>
 
-    <div class="container">
-        <div class="section">
-            <div class="hd">
+    
+    <div class="section">
+		    <div class="hd">
                 <div class="header">
                     <div class="daohang" id="daohang">
                         <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
@@ -153,21 +154,10 @@ if (isset($_SESSION['user'])) {
                     </div>
                 </div>
             </div>
-            <div class="main">
-                <div class="mt">
-                    <span>开始云打印</span>
-                </div>
-                <div class="m1">
-                    <div class="m2">
-                        <div class="form" id="form0">
-                            <a class="button button-glow button-border button-rounded button-primary button-jumbo" id="start" onclick="showlogin()">创建新订单</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="section">
+	
+	
+	
+	
 		<div class="set-white">
 			<div class="title">支持多种设备传输打印</div>
 				<div class="animation"><img src="image/animation.gif" id="ani"></div>
@@ -180,11 +170,22 @@ if (isset($_SESSION['user'])) {
 						<img src="image/upload.png" id="ys" style="width:502px; height:332px;">
 					</div>
 				</div>
-			</div>
+		</div>
 	</div>
+	
   	<div class="section">
+		    <div class="hd" style="top:0px;">
+                <div class="header">
+                    <div class="daohang" id="daohang">
+                        <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
+                        <span>
+                            <a href="/index.php?login=">登录</a> | <a href="/user/registeredView.php">注册</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
 			
-				  <div class="title">为何要使用云打印功能？</div>
+			<div class="title">为何要使用云打印功能？</div>
 			  <div class="bk">
 				  <div class="up">
 					  <div class="left">
@@ -210,6 +211,34 @@ if (isset($_SESSION['user'])) {
 			  </div>
 		
   	</div>
+	
+	
+	<div class="section">
+            <div class="hd">
+                <div class="header">
+                    <div class="daohang" id="daohang">
+                        <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
+                        <span>
+                            <a href="/index.php?login=">登录</a> | <a href="/user/registeredView.php">注册</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="mt">
+                    <span>开始云打印</span>
+                </div>
+                <div class="m1">
+                    <div class="m2">
+                        <div class="form" id="form0">
+                            <a class="button button-glow button-border button-rounded button-primary button-jumbo" id="start" onclick="showlogin()">开始云打印</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+	</div>
     <script>
         <?php
         if(isset($_GET['login']) == true){
