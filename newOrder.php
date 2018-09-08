@@ -168,6 +168,7 @@ $password = $_SESSION['pass'];
                 document.getElementById('city').innerHTML = unescape(info['city']);
                 document.getElementById('area').innerHTML = unescape(info['area']);
                 document.getElementById('other').innerHTML = unescape(info['other']);
+                document.getElementById("map_search").value = info['username'];
                 var state;
                 if(info['state'] == '1'){
                     state = "打烊";
@@ -223,18 +224,26 @@ $password = $_SESSION['pass'];
             if(business != '')
             {
                 deadline = time.substring(0,4) + time.substring(5,7) + time.substring(8,10) + time.substring(11,13) + time.substring(14,16);
+                if(deadline.length != 12){
+                    alert("请选择取件时间!");
+                    return ;
+                }
                 createOrder.open("POST","/createNewOrder.php",false);
                 createOrder.setRequestHeader("Content-type","application/x-www-form-urlencoded");
                 createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business);
-                exCode = createOrder.responseText;
-                if(exCode != 'failure') {
+                eval(createOrder.responseText);
+                if(typeof(exCode) == 'number') {
                     document.getElementById("exCode").innerHTML = "您的提取码：" + exCode + "（请牢记，提取时使用）";
                     document.getElementById("ok").style.visibility = "visible";
+                    document.getElementById("ok").style.display = "block";
                 }
-                else {
-                    document.getElementById("ok").style.visibility = "visible";
+                else{
+                    document.getElementById("nok").style.visibility = "visible";
+                    document.getElementById("nok").style.display = "block";
                 }
-                document.getElementById("ok").style.display = "block";
+            }
+            else {
+                alert('请选择商家。');
             }
         }
     </script>
