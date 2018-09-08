@@ -28,7 +28,6 @@ if(mysql_fetch_array(mysql_query("select * from orderinfo where orderId='$orderI
     || mysql_fetch_array(mysql_query("select * from orderids where orderId='$orderId'"))==false
         || mysql_fetch_array(mysql_query("select * from user where username='$consumer' and type='1'"))==false
             || mysql_fetch_array(mysql_query("select * from user where username='$business' and type='2'"))==false){
-    echo "select * from user where consumer='$consumer'";
         exit();
 }
 do{
@@ -39,9 +38,9 @@ do{
 
 if (true == mysql_query("INSERT INTO orderinfo (orderId, consumer,business,deadline,exCode)VALUES (\"$orderId\", \"$consumer\",\"$business\",\"$deadline\",\"$exCode\")"))
 {
-    echo $exCode;
+    echo "exCode = $exCode;";
     mysql_query("delete from delfiles where orderId = '$orderId'");
 }
 else {
-    echo "failure";
+    echo "exCode = 'failure';";
 }
