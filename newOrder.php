@@ -31,7 +31,7 @@ $password = $_SESSION['pass'];
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="jqueryui/style.css">
     <link rel="stylesheet" type="text/css" href="/css/master.css">
-
+    <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
     <script type="text/javascript">
         var selected,selectedId;
     </script>
@@ -246,17 +246,12 @@ $password = $_SESSION['pass'];
             }
         }
         function getLocation() {
-<?php
-            $html = file_get_contents("http://pv.sohu.com/cityjson?ie=utf-8");
-            echo $html;
-?>
             var location = new XMLHttpRequest();
             location.open("POST","getLocation.php",false);
             location.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             location.send("province="+returnCitySN['cname']);
-            var f = new Function(location.responseText);
-            return f();
-
+            var res = new Function(location.responseText);
+            return res();
         }
         function getTag(map) {
             var center = map.getCenter();

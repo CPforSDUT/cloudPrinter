@@ -6,3 +6,4 @@ echo "var res = Array();\n";
 echo "res[0]=tpoint['result']['location']['lng'];\n";
 echo "res[1]=tpoint['result']['location']['lat'];\n";
 echo "return res;\n";
+?>
