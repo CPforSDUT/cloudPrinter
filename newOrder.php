@@ -256,6 +256,7 @@ $password = $_SESSION['pass'];
         function getTag(map) {
             var center = map.getCenter();
             var myGeo = new BMap.Geocoder();
+            var myIcon = new BMap.Icon('image/icon.png',new BMap.Size(32,32));
             myGeo.getLocation(new BMap.Point(center.lng ,center.lat ), function(result){
                 var addComp = result.addressComponents;
                 var mapInfo = new XMLHttpRequest();
@@ -270,7 +271,9 @@ $password = $_SESSION['pass'];
                         for (each in where)
                         {
                             pt = new BMap.Point(where[each]['lo'],where[each]['la']);
-                            mark=new BMap.Marker(pt);
+                            mark=new BMap.Marker(pt,{icon:myIcon});
+                            mark.setAnimation(BMAP_ANIMATION_BOUNCE);
+
                             map.addOverlay(mark);
                             createTag(mark,where[each]);
                         }
