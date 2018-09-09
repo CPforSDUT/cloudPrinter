@@ -46,6 +46,9 @@
     z-index: 102;
     display:none;
 }
+.login_box span{
+    color: rgb(161, 161, 161);
+}
 #login_info{
     font-size: 18px;
 }
