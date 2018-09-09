@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <?php
 session_start();
@@ -6,8 +6,11 @@ if (isset($_SESSION['user'])) {
     if ($_SESSION['type'] == '2') {
         header("location:/admin/index.php");
     }
-    else{
+    else if($_SESSION['type'] == '1'){
         header("location:/newOrder.php");
+    }
+    else if($_SESSION['type'] == '3'){
+        header("location:/super-admin/index.php");
     }
 }
 ?>
@@ -128,14 +131,18 @@ if (isset($_SESSION['user'])) {
 <div class="black1" id="black1">
     <form class="login_box" id="login_box" action="/user/login.php" method="post" onsubmit="return check()">
             <a id="closebox"><i onclick="closelogin()" class="layui-icon layui-icon-close" style="font-size: 30px; color: #x1006;"></i></a>
-            <nav>登录</nav>
-            <input type="text" name="username" class="button button-rounded button-tiny" id="username" style="text-align:left;"placeholder="请输入账号" value="ceshi123" >
-            <input type="password" name="password"  class="button button-rounded button-tiny" id="password" style="text-align:left;" placeholder="请输入密码" value="12345aaa" />
-        <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登陆</button>
-            <span>没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></span><br>
-			<span id="morenzh"><a href="#" onclick="zduser()">用户账号ceshi123密码12345aaa</a><br><a href="#" onclick="zdshang()">商家账号shangjia密码12345aaa</a><br><a href="#" onclick="zdadmin()">管理员账号admin密码admin</a></span>
 
-   </form>
+            <nav id="title">登录</nav>
+            <input type="text" name="username" class="button button-rounded button-tiny" id="username" style="text-align:left;"placeholder="请输入账号" />
+            <input type="password" name="password"  class="button button-rounded button-tiny" id="password" style="text-align:left;" placeholder="请输入密码" />
+        <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登陆</button>
+            <nav id="login_info">没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></nav>
+            <br>
+            <span class="login_tips">默认用户账号:ceshi123</span><br>
+            <span class="login_tips">默认用户密码:12345aaa</span><br>
+            <span class="login_tips">默认商家账号:ceshi123</span><br>
+            <span class="login_tips">默认商家密码:12345aaa</span>
+    </form>
 </div>
 <div id="bosteam">
     <div class="section">
@@ -197,9 +204,6 @@ if (isset($_SESSION['user'])) {
                     </div>
                 </div>
             </div>
-	
-
-	
 		<div class="set-white">
 			<div class="title">支持多种设备传输打印</div>
 				<div class="animation"><img src="image/animation.gif" id="ani"></div>
@@ -233,7 +237,7 @@ if (isset($_SESSION['user'])) {
 			  <div class="bk">
 				  <div class="up">
 					  <div class="left">
-						  <div class="bt"><img src="image/safe.png"/>&nbsp;&nbsp;安全可靠</div>
+						  <div class="bt"><img src="image/safe.png" style="margin:4px;"/>&nbsp;&nbsp;安全可靠</div>
 						  <div class="nr">一旦打印完成，用户可以随时选择删除在服务器的相应文档。</div>
 					  </div>
 					  <div class="right">

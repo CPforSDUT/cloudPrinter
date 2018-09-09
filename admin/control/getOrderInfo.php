@@ -25,7 +25,7 @@ function toPureTime($dirtyTime)
     return $pure;
 }
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
     header("location:/index.php");
 }
 $username = mysql_escape_string($_SESSION['user']);
@@ -73,19 +73,11 @@ $eNum = mysql_query($eNum);
 $eNum = mysql_fetch_array($eNum);
 $eNum = $eNum['count(*)'];
 echo "<p style='display: none' id='eNum'>$eNum</p>";
-$result = mysql_query("select * from orderinfo ".$visit);
-for ($i = 0 ; $i < 7 * $pageNum   ; ) {
-    $row = mysql_fetch_array($result);
-    if($row['deleted'] == 'bn'){
-        continue;
-    }
-    $i += 1;
-}
+$pageNum *= 7;
+$result = mysql_query("select * from orderinfo ".$visit." and deleted != 'bn' limit $pageNum,7");
+
 for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
 {
-    if($row['deleted'] == 'bn'){
-        continue;
-    }
     echo "<tr>";
     $orderState = $row['orderState'] == '1' ? '未打印' : '打印完成';
     $orderState = $row['deleted'] == 'cn' ? "被买家删除":$orderState;

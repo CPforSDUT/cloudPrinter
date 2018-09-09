@@ -18,7 +18,7 @@ function toPureTime($dirtyTime)
     return $pure;
 }
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '1'){
     header("location:/index.php");
 }
 else {

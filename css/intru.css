@@ -99,6 +99,7 @@
 
 
 .title{
+	
     text-align:center;
     font-size:60px;
     color:#888b8d;
@@ -124,7 +125,7 @@
 
 }
 .bk-down .left{
-    width:300px;
+    max-width:300px;
     height:180px;
 }
 .bk-down .left .up{
@@ -140,10 +141,11 @@
 .bk-down .right{
     height:240px;
     margin-left:200px;
+	
 
 }
 .bk-down .right img{
-    width: 300px;
+    max-width: 300px;
 }
 
 .set-white{
@@ -156,12 +158,12 @@
 
 
 .left img{
-    width:32px;
+    max-width:32px;
     height:32px;
    
 }
 .right img{
-    width:32px;
+    max-width:32px;
     height:32px;
    
 }

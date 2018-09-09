@@ -6,7 +6,7 @@
  * Time: 20:03
  */
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '1'){
     header("location:/index.php");
 }
 $username = mysql_escape_string($_SESSION['user']);

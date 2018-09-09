@@ -21,7 +21,7 @@ function unescape($str) {
     return $ret;
 }
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '3'){
     exit;
 }
 
@@ -37,16 +37,11 @@ if (!$con) {
 }
 mysql_select_db("user", $con);
 
-if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'  and type ='3'")) == false){
     header("location:/index.php");
     exit();
 }
-$result = mysql_query("select * from orderinfo where orderId='$orderId' and business='$username'");
-$row = mysql_fetch_array($result);
-$result2 = mysql_query("select * from fileinfo where orderId='$orderId' and filePath='$filePath'");
-$row2 = mysql_fetch_array($result2);
-$filePath = "../../fileControl/".$filePath;
-if($row != false && $row2 != false){
+$filePath = "../../../".$filePath;
     if( !file_exists($filePath)){
         exit;
     } else {
@@ -62,5 +57,4 @@ if($row != false && $row2 != false){
             fclose($file);
         }
     }
-}
 
