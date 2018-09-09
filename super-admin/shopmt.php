@@ -105,7 +105,7 @@ else {
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="people.php" method="get">
+                <form action="shopmt.php" method="get">
                     <table class="search-tab">
                         <tr>
                             <!--<th width="120">选择分类:</th>
@@ -119,7 +119,7 @@ else {
                                 </select>
                             </td>-->
                             <th width="78">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keyword" value="" id="" type="text"></td>
+                            <td><input class="common-text" placeholder="关键字" name="keyword" value="" id="keyword" type="text"></td>
                             <td><input class="btn btn-primary btn2" value="查询" type="submit"></td>
                         </tr>
                     </table>
@@ -150,18 +150,55 @@ else {
                                     die('Could not connect: ' . mysql_error());
                                 }
                                 mysql_select_db("user", $con);
-                                $visit = "select DISTINCT consumer from orderinfo where business='$username'";
 
+                        $count = "select count(*) as countnums from user where type='2'";
+
+                        if(isset($_GET['keyword']) && $_GET['keyword']!=''){
+                            $count = $count." and username='$keyword'";
+
+                        }
+
+                        $userobj=mysql_query($count);
+                        $userrows=mysql_fetch_array($userobj);
+                        $addcount=$userrows['countnums'];
+
+                        $num=7;
+                        $pages=ceil($addcount/$num);
+
+
+                        $page=$_GET['page'];
+                        if(isset($_GET['page'])==false)
+                        {
+                            $page=1;
+                        }
+                        if($page<=1)
+                        {
+                            $page=1;
+                        }
+                        if($page>$pages)
+                        {
+                            $page=$pages;
+                        }
+
+                        $offset=($page-1 < 0 ?0:$page-1 )*$num;
+                        $pageup=$page-1;
+                        $pagedown=$page+1;
+
+
+                        $visit = "select * from user where type='2'";
                                 if(isset($_GET['keyword']) == true && $_GET['keyword'] != ''){
-                                    $visit = $visit . " and consumer='$keyword'";
+                                    $visit = $visit . " and username='$keyword'";
+                                    $pagedown = $pagedown.'&keyword='.$_GET['keyword'];
+                                    $pageup= $pageup."&keyword=".$_GET['keyword'];
                                 }
-                                $result = mysql_query($visit);
 
-                                while($row = mysql_fetch_array($result)) {
-                                    $consumer = $row['consumer'];
-                                    $result2 = mysql_query("select * from user where username='$consumer'");
-                                    $row = mysql_fetch_array($result2);
+                                $result2 = mysql_query("$visit limit $offset,$num");
+                                echo "$visit limit $offset,$num";
+                                while( $row = mysql_fetch_array($result2)) {
+
+
                                     if($row != false ) {
+                                        $consumer = $row['username'];
                                         $other = unescape($row['other']);
                                         $phone = $row['phone'];
                                         ?>
@@ -175,11 +212,26 @@ else {
                                 }
                         ?>
                     </table>
+                    <div class="list-page"><a href="shopmt.php?page=<?php echo $pageup;?>">上一页</a><p id="pageNum"></p><a href="shopmt.php?page=<?php echo $pagedown;?>">下一页</a></div>
                 </div>
             </form>
         </div>
     </div>
     <!--/main-->
 </div>
+  <script type="text/javascript">
+
+      <?php
+      if(isset($_GET['keyword'])  && $_GET['keyword']!=''){
+      ?>
+      document.getElementById("keyword").value = <?php echo "'$keyword'";?>;
+      <?php
+
+      }
+      echo "document.getElementById('pageNum').innerHTML='第$page/$pages 页';";
+      ?>
+
+  </script>
 </body>
+
 </html>

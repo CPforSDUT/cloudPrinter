@@ -5,31 +5,6 @@
         header("location:/index.php");
     }
     $username = mysql_escape_string($_SESSION['user']);
-    $con = mysql_connect("localhost", "root", "wslzd9877");
-    if (!$con) {
-        die('Could not connect: ' . mysql_error());
-    }
-    mysql_select_db("user", $con);
-    $visit = "select count(*) from orderinfo where deleted != 'bn' and business = '$username'";
-    if(isset($_GET['sorted']))
-    {
-        switch (mysql_escape_string($_GET['sorted']))
-        {
-            case '1':
-                $visit = $visit."and orderState != '2'";
-                break;
-        }
-    }
-    if(isset($_GET['search']) && $_GET['search'] != ''){
-        $ser = mysql_escape_string($_GET['search']);
-        $visit = $visit." and consumer="."'$ser'";
-    }
-    $result = mysql_query($visit);
-    //echo $visit;
-    $row = mysql_fetch_array($result);
-
-    $orderNum = $row['count(*)'];
-    //echo "<script>alert(\"$orderNum\");</script>";
 ?>
 <html>
 <head>
@@ -42,14 +17,12 @@
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
     <script type="text/javascript">
-        var allPageNum = <?php echo floor($orderNum/7) + ($orderNum%7 > 0 ? 1 : 0);?>;
-        var lPENum = <?php echo $orderNum%7;?>;
-        var allENum = <?php echo $orderNum;?>;
+        var allPageNum ;
+        var lPENum;
+        var allENum = 0;
         var thisPageNum = 1;
         var checkboxs = Array();
-        if(lPENum == 0){
-            lPENum = 7;
-        }
+
         <?php
             if(isset($_GET['sorted']))
             {
@@ -326,8 +299,7 @@
     </div>
     <!--/main-->
       <script type="text/javascript">
-          getOrderInfo(1);
-          prevPage();
+          update();
           if(sorted != false){
               var sorter = document.getElementById("sorted");
               switch (sorted)
