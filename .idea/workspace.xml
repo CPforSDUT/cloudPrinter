@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getLocation.php" beforeDir="false" afterPath="$PROJECT_DIR$/getLocation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/newOrder.php" afterDir="false" />
-    </list>
+    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,23 +11,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/newOrder.php">
+      <file leaf-file-name="order.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="573" column="13" selection-start-line="573" selection-start-column="13" selection-end-line="573" selection-end-column="13" />
+            <state relative-caret-position="-4305">
+              <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getOrderInfo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/super-admin/control/getOrderInfo.php">
+      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="94" column="30" lean-forward="true" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="258">
+              <caret line="257" column="61" selection-start-line="257" selection-start-column="61" selection-end-line="257" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -74,8 +67,8 @@
       <file leaf-file-name="information.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/information.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="361" column="100" selection-start-line="361" selection-start-column="100" selection-end-line="361" selection-end-column="100" />
+            <state relative-caret-position="206">
+              <caret line="354" column="100" selection-start-line="354" selection-start-column="100" selection-end-line="354" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -252,7 +245,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="6" />
     <option name="y" value="41" />
     <option name="width" value="1378" />
@@ -376,7 +369,7 @@
       <workItem from="1536249885862" duration="4338000" />
       <workItem from="1536279270559" duration="18470000" />
       <workItem from="1536410990934" duration="3146000" />
-      <workItem from="1536414214785" duration="39125000" />
+      <workItem from="1536414214785" duration="39799000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -389,10 +382,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394184000" />
+    <option name="totallyTimeSpent" value="394858000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.20131771" />
@@ -706,13 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fileControl/uploadFile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
@@ -769,8 +755,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/information.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="361" column="100" selection-start-line="361" selection-start-column="100" selection-end-line="361" selection-end-column="100" />
+        <state relative-caret-position="206">
+          <caret line="354" column="100" selection-start-line="354" selection-start-column="100" selection-end-line="354" selection-end-column="100" />
         </state>
       </provider>
     </entry>
@@ -824,8 +810,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/newOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="573" column="13" selection-start-line="573" selection-start-column="13" selection-end-line="573" selection-end-column="13" />
+        <state relative-caret-position="258">
+          <caret line="257" column="61" selection-start-line="257" selection-start-column="61" selection-end-line="257" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4305">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
         </state>
       </provider>
     </entry>

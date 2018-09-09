@@ -19,7 +19,7 @@
     <script type="text/javascript">
         var allPageNum ;
         var lPENum;
-        var allENum = 0;
+        var allENum = -1;
         var thisPageNum = 1;
         var checkboxs = Array();
 
@@ -54,6 +54,9 @@
             var newENum = document.getElementById("eNum").innerHTML;
             if(newENum > allENum)
             {
+                if(allENum != -1){
+                    document.getElementById("newOrderTips").style.display="block";
+                }
                 allENum = newENum;
                 allPageNum = parseInt(allENum/7);
                 if(allENum % 7 > 0){
@@ -63,7 +66,7 @@
                 if(lPENum == 0){
                     lPENum = 7;
                 }
-                document.getElementById("newOrderTips").style.display="block";
+
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
 
