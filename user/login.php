@@ -45,7 +45,7 @@ if(isset($_SESSION['user']) == false)
         }
     }
     else {
-        echo "<script type='text/javascript'>q
+        echo "<script type='text/javascript'>
 		alert(\"用户名或密码错误\");</script>";
         session_destroy();
         echo "<script>window.location.href='/index.php';</script> ";

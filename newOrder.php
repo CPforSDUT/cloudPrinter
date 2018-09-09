@@ -33,7 +33,8 @@ $password = $_SESSION['pass'];
     <link rel="stylesheet" type="text/css" href="/css/master.css">
 	<style>
 	.layui-laydate-footer span {
-		margin-right: 140px;
+		margin-right: 1px;
+		float:left;
 	}
 	</style>
     <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>

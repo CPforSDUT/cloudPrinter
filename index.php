@@ -133,15 +133,12 @@ if (isset($_SESSION['user'])) {
             <a id="closebox"><i onclick="closelogin()" class="layui-icon layui-icon-close" style="font-size: 30px; color: #x1006;"></i></a>
 
             <nav id="title">登录</nav>
-            <input type="text" name="username" class="button button-rounded button-tiny" id="username" style="text-align:left;"placeholder="请输入账号" />
-            <input type="password" name="password"  class="button button-rounded button-tiny" id="password" style="text-align:left;" placeholder="请输入密码" />
+            <input type="text" name="username" class="button button-rounded button-tiny" id="username" style="text-align:left;"placeholder="请输入账号" value="ceshi123" />
+            <input type="password" name="password"  class="button button-rounded button-tiny" id="password" style="text-align:left;" placeholder="请输入密码" value="12345aaa" />
         <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登陆</button>
-            <nav id="login_info">没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></nav>
+            <nav id="login_info">没有账号？<a href="/user/registeredView.php" id="zc">马上注册</a></nav>
             <br>
-            <span class="login_tips">默认用户账号:ceshi123</span><br>
-            <span class="login_tips">默认用户密码:12345aaa</span><br>
-            <span class="login_tips">默认商家账号:ceshi123</span><br>
-            <span class="login_tips">默认商家密码:12345aaa</span>
+            <span class="login_tips"><a href="#" onclick="zduser()">用户账号:ceshi123密码:12345aaa<br></a><a href="#" onclick="zdshang()">商家账号:shangjia密码：12345aaa<br></a><a href="#" onclick="zdadmin()">管理员账号：admin密码:admin<br></a></span>
     </form>
 </div>
 <div id="bosteam">
