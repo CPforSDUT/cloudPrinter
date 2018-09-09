@@ -1,6 +1,6 @@
 <?php ob_start();
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] != '1'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
 }
 $con = mysql_connect("localhost","root","wslzd9877");
@@ -31,6 +31,11 @@ $password = $_SESSION['pass'];
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="jqueryui/style.css">
     <link rel="stylesheet" type="text/css" href="/css/master.css">
+	<style>
+	.layui-laydate-footer span {
+		margin-right: 140px;
+	}
+	</style>
     <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
     <script type="text/javascript">
         var selected,selectedId;
@@ -509,7 +514,7 @@ $password = $_SESSION['pass'];
 									elem: '#datepicker' //指定元素
 									,format: 'MM月dd日HH点mm分' //可任意组合
 									,type: 'datetime'
-									,range: true 
+									
 								  });
 								});
 								</script>
