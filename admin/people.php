@@ -122,7 +122,7 @@ else {
                             </td>-->
                             <th width="78">关键字:</th>
                             <td><input class="common-text" placeholder="关键字" name="keyword" value="" id="" type="text"></td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                            <td><input class="btn btn-primary btn2" value="查询" type="submit"></td>
                         </tr>
                     </table>
                 </form>
@@ -146,33 +146,35 @@ else {
 
                         </tr>
                         <?php
-                            if(isset($_GET['keyword'])) {
                                 $keyword = mysql_escape_string($_GET['keyword']);
                                 $con = mysql_connect("localhost", "root", "wslzd9877");
                                 if (!$con) {
                                     die('Could not connect: ' . mysql_error());
                                 }
                                 mysql_select_db("user", $con);
-                                $result = mysql_query("select * from orderinfo where business='$username' and consumer='$keyword'");
-                                $row = mysql_fetch_array($result);
-                                if($row != false) {
-                                    $result = mysql_query("select * from user where username='$keyword'");
-                                    $row = mysql_fetch_array($result);
+                                $visit = "select DISTINCT consumer from orderinfo where business='$username'";
+
+                                if(isset($_GET['keyword']) == true && $_GET['keyword'] != ''){
+                                    $visit = $visit . " and consumer='$keyword'";
+                                }
+                                $result = mysql_query($visit);
+
+                                while($row = mysql_fetch_array($result)) {
+                                    $consumer = $row['consumer'];
+                                    $result2 = mysql_query("select * from user where username='$consumer'");
+                                    $row = mysql_fetch_array($result2);
                                     if($row != false ) {
                                         $other = unescape($row['other']);
-                                        $lo = $row['lo'];
-                                        $la = $row['la'];
                                         $phone = $row['phone'];
                                         ?>
                                         <tr>
-                                            <td><?php echo $keyword;?></td>
+                                            <td><?php echo $consumer;?></td>
                                             <td><?php echo $other;?></td>
                                             <td><?php echo $phone;?></td>
                                         </tr>
                                         <?php
                                     }
                                 }
-                            }
                         ?>
                     </table>
                 </div>

@@ -310,7 +310,6 @@
                             <tr>
                                 <th class="tc" width="5%"><input onclick="allChoose()" id="allChoose" type="checkbox"></th>
                                 <th>订单状态</th>
-                                <th>联系方式</th>
                                 <th>发布人</th>
                                 <th>完成时间</th>
                                 <th>操作</th>
