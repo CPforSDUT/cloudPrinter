@@ -1,4 +1,106 @@
+@media screen and (max-width: 600px) {
+
+.card{
+    width: 300px !important;
+    position: relative;
+    margin: auto;
+	}
+.biaoti{
+    position: relative;
+    text-align: left;
+    margin-bottom: 2px;
+    font-size: 1.3rem !important;
+    color: #3E5C76;
+	}
+.form_left{
+    text-align: right !important;
+    margin-top: 5px;
+    width: 90px !important;
+    position: absolute;
+    float: left;
+    padding-top: 2px;
+	font-size:18px;
+}
+.form_right{
+    position: absolute;
+    margin-top: 12px;
+    text-align: left;
+    margin-left: 100px !important;
+    float: left;
+}
+input{
+	width:120px;
+}
+#map{
+    width: 250px !important;
+    height: 150px !important;
+    position: relative;
+    border-radius: 6px;
+}
+
+#mapinfo{
+    width: 250px;
+    position: relative;
+    border-color: #ffffff;
+    text-align: center;
+}
+#mapinfo td{
+    max-width: 44px;
+    height: 30px;
+    border-color: #ffffff;
+    border: #ffffff solid 1px;
+    border-radius: 4px;
+    padding: 4px;
+}
+#mapinfo tbody{
+    background-color: #e8edff;
+}
+#ttwo{
+    background-color: #e8edff;
+    max-width: 44px;
+    height: 30px;
+    color: #b9c9fe;
+    padding: 4px;
+    font-size: 10px;
+    text-align: center;
+}
+#tone{
+    background-color: #b9c9fe;
+    max-width: 44px;
+    height: 30px;
+    padding: 4px;
+    color: #003399;
+    font-size: 16px;
+    font-weight: bold;
+}
+#mapinfo input{
+    text-align: center;
+    height: 18px;
+    font-size: 10px;
+    max-width: 44px;
+    text-decoration: none;
+    background-color: #e8edff;
+    color: #b9c9fe;
+}
+#jingdu{display:none;}
+#weidu{display:none;}
+#shengfen{display:none;}
+#province{display:none;}
+#lo{display:none;}
+#la{display:none;}
+.lo_box{
+    width: 40px !important;
+    border: 0px;
+    background: #2D93CA;
+    color: white;
+}
+
+}
+
 body{background-color: #ffffff;}
+input{
+	box-shadow:5px 3px 2px #bebebe;
+}
 .container{
     padding: 0;
     height:100%;
@@ -68,7 +170,7 @@ body{background-color: #ffffff;}
 .card-header a{
     font-weight: bold;
     display: inline block;
-    font-size: 22px;
+    font-size: 1.5rem;
 }
 .card body{
     max-height: 100%;

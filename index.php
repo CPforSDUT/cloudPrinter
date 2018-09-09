@@ -68,7 +68,7 @@ if (isset($_SESSION['user'])) {
     $(function(){
         $('#bosteam').fullpage({
 			sectionsColor: ['', '', '#f3fcff', ''],
-            navigation: false,
+            navigation: true,
         });
         $(window).resize(function(){
             autoScrolling();
@@ -101,7 +101,7 @@ if (isset($_SESSION['user'])) {
             <input type="text" name="username" class="button button-rounded button-tiny" id="username" style="text-align:left;"placeholder="请输入账号" />
             <input type="password" name="password"  class="button button-rounded button-tiny" id="password" style="text-align:left;" placeholder="请输入密码" />
         <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登陆</button>
-            <span>没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></span>
+            <span>没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></span><br>
 			<span>默认账号ceshi123密码12345aaa</>
     </form>
 </div>

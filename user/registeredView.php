@@ -163,11 +163,11 @@
                                         <table cellspacing="0" id="mapinfo">
                                             <thead>
                                                 <tr id="tone">
-                                                    <td>省份</td>
-                                                    <td>城市</td>
-                                                    <td>区域</td>
-                                                    <td>经</td>
-                                                    <td>纬</td>
+                                                    <td id="shengfen">省份</td>
+                                                    <td id="chengshi">城市</td>
+                                                    <td id="quyu">区域</td>
+                                                    <td id="jingdu">经</td>
+                                                    <td id="weidu">纬</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
