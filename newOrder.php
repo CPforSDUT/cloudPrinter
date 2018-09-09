@@ -568,12 +568,25 @@ $password = $_SESSION['pass'];
                     </div>
             </div>
 <script type="text/javascript">
+
     var map = new BMap.Map("baiduMap");
     var c = getLocation();
-    var point = new BMap.Point(c[0],c[1]);
-    map.centerAndZoom(point,13);
-    map.addControl(new BMap.GeolocationControl());
-    map.addControl(new BMap.NavigationControl());
+    if(c == false){
+        var point = new BMap.Point(116.98,36.67);
+        map.centerAndZoom(point,13);
+        map.addControl(new BMap.GeolocationControl());
+        map.addControl(new BMap.NavigationControl());
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(r){
+            map.panTo(r.point);
+        });
+    }
+    else {
+        var point = new BMap.Point(c[0],c[1]);
+        map.centerAndZoom(point,13);
+        map.addControl(new BMap.GeolocationControl());
+        map.addControl(new BMap.NavigationControl());
+    }
     map.addEventListener("dragend", function(result){
         getTag(map);
     });
