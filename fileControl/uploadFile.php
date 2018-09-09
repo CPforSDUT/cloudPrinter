@@ -56,7 +56,7 @@ if(isset($_FILES['file'])){
         $orderId = mysql_escape_string($_POST['orderId']);
 
         if (file_exists($hashPath) == false) {
-            move_uploaded_file($_FILES["file"]["tmp_name"], $hashPath);
+            move_uploaded_file($_FILES["file"]["tmp_name"], "../../$hashPath");
         }
         $con = mysql_connect("localhost", "root", "wslzd9877");
         if (!$con) {

@@ -21,7 +21,7 @@ function unescape($str) {
     return $ret;
 }
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
     exit;
 }
 
@@ -45,7 +45,7 @@ $result = mysql_query("select * from orderinfo where orderId='$orderId' and busi
 $row = mysql_fetch_array($result);
 $result2 = mysql_query("select * from fileinfo where orderId='$orderId' and filePath='$filePath'");
 $row2 = mysql_fetch_array($result2);
-$filePath = "../../fileControl/".$filePath;
+$filePath = "../../../".$filePath;
 if($row != false && $row2 != false){
     if( !file_exists($filePath)){
         exit;

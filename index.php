@@ -6,8 +6,11 @@ if (isset($_SESSION['user'])) {
     if ($_SESSION['type'] == '2') {
         header("location:/admin/index.php");
     }
-    else{
+    else if($_SESSION['type'] == '1'){
         header("location:/newOrder.php");
+    }
+    else if($_SESSION['type'] == '3'){
+        header("location:/super-admin/index.php");
     }
 }
 ?>

@@ -34,8 +34,11 @@ if(isset($_SESSION['user']) == false)
         if($type == '2'){
             header("location:/admin/index.php");
         }
-        else {
+        else if($type == '1'){
             header("location:/newOrder.php");
+        }
+        else if($type == '3'){
+            header("location:/super-admin/index.php");
         }
     }
     else {

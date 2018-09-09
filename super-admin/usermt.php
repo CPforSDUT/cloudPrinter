@@ -22,7 +22,7 @@ function unescape($str) {
     return $ret;
 }
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '3'){
     header("location:/index.php");
 }
 else {
@@ -83,7 +83,7 @@ else {
                     <ul class="sub-menu">
                         <li><a href="order.php"><i class="icon-font">&#xe005;</i>所有订单</a></li>
 						<li><a href="document.php"><i class="icon-font">&#xe005;</i>所有文件</a></li>
-                        
+
                     </ul>
                 </li>
                 <li>
@@ -91,7 +91,7 @@ else {
                     <ul class="sub-menu">
                       <li><a href="shopmt.php"><i class="icon-font">&#xe000;</i>商家管理</a></li>
                       <li><a href="usermt.php"><i class="icon-font">&#xe018;</i>用户管理</a></li>
-                    
+
                     </ul>
                   </li>
               </ul>
@@ -135,6 +135,7 @@ else {
                         <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
                     </div>
                 </div> -->
+
                 <div class="result-content">
                     <table class="result-tab" width="100%">
                         <tr>
@@ -143,6 +144,7 @@ else {
                             <th>联系方式</th>
 
                         </tr>
+
                         <?php
                                 $keyword = mysql_escape_string($_GET['keyword']);
                                 $con = mysql_connect("localhost", "root", "wslzd9877");
@@ -150,18 +152,44 @@ else {
                                     die('Could not connect: ' . mysql_error());
                                 }
                                 mysql_select_db("user", $con);
-                                $visit = "select DISTINCT consumer from orderinfo where business='$username'";
+                        $usersql="select count(*)as countnums from user where type='1'";
+                        $userobj=mysql_query("select count(*)as countnums from user where type='1'");
+                        $userrows=mysql_fetch_array($userobj);
+                        $addcount=$userrows['countnums'];
+                        var_dump($addcount);
+                        $num=7;
+                        $pages=ceil($addcount/$num);
+                        var_dump($pages);
+
+                            $page=$_GET['page'];
+                            if(isset($page)==false)
+                            {
+                                $page=1;
+                            }
+                            if($page<=1)
+                            {
+                                $page=1;
+                            }
+                            if($page>$pages)
+                            {
+                                $page=$pages;
+                            }
+                        var_dump($page);
+                        $offset=($page-1)*$num;
+                        $pageup=$page-1;
+                        $pagedown=$page+1;
+
+
+                        $visit = "select * from user where type='1'limit $offset,$num";
+                        var_dump($visit);
 
                                 if(isset($_GET['keyword']) == true && $_GET['keyword'] != ''){
-                                    $visit = $visit . " and consumer='$keyword'";
+                                    $visit = $visit . " and username='$keyword'";
                                 }
                                 $result = mysql_query($visit);
 
-                                while($row = mysql_fetch_array($result)) {
-                                    $consumer = $row['consumer'];
-                                    $result2 = mysql_query("select * from user where username='$consumer'");
-                                    $row = mysql_fetch_array($result2);
-                                    if($row != false ) {
+                                    while($row = mysql_fetch_array($result)) {
+                                        $consumer = $row['username'];
                                         $other = unescape($row['other']);
                                         $phone = $row['phone'];
                                         ?>
@@ -172,9 +200,10 @@ else {
                                         </tr>
                                         <?php
                                     }
-                                }
                         ?>
                     </table>
+
+                    <div class="list-page"><a href="usermt.php?page=<?php echo $pageup;?>">上一页</a><a href="usermt.php?page=<?php echo $pagedown;?>">下一页</a></div>
                 </div>
             </form>
         </div>

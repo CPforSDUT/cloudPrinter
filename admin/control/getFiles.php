@@ -38,7 +38,7 @@ function getFileType($fileType)
     return $paperSizes[$i];
 }
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
     header("location:/index.php");
 }
 $username = mysql_escape_string($_SESSION['user']);
@@ -58,12 +58,10 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
 if(mysql_fetch_array(mysql_query("select * from orderinfo where orderId='$orderId' and business='$username'")) == false){
     exit();
 }
-$visit = "select * from fileinfo where orderId= '$orderId'";
-$result = mysql_query($visit);
-for ($i = 0 ; $i < 7 * $pageNum   ;  $i ++) {
-    $row = mysql_fetch_array($result);
+$pageNum *= 7;
 
-}
+$visit = "select * from fileinfo where orderId= '$orderId' limit $pageNum,7";
+$result = mysql_query($visit);
 
 for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; $i ++)
 {

@@ -38,7 +38,7 @@ function getFileType($fileType)
     return $paperSizes[$i];
 }
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '3'){
     header("location:/index.php");
 }
 $username = mysql_escape_string($_SESSION['user']);
@@ -55,15 +55,15 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
     header("location:/index.php");
     exit();
 }
-if(mysql_fetch_array(mysql_query("select * from orderinfo where orderId='$orderId' and business='$username'")) == false){
+$visit = "where 1=1 ";
+if($orderId != 'false'){
+    $visit = $visit . " and orderId='$orderId'";
+}
+if(mysql_fetch_array(mysql_query("select * from orderinfo $visit")) == false){
     exit();
 }
-$visit = "select * from fileinfo where orderId= '$orderId'";
-$result = mysql_query($visit);
-for ($i = 0 ; $i < 7 * $pageNum   ;  $i ++) {
-    $row = mysql_fetch_array($result);
-
-}
+$pageNum *= 7;
+$result = mysql_query("select * from fileinfo $visit limit $pageNum,7");
 
 for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; $i ++)
 {
@@ -75,6 +75,7 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; $i ++)
     $filename = unescape($row['filename']);
     $otherInfo = unescape($row['otherInfo']);
     $paperWay = $row['paperWay'];
+    $orderId = $row['orderId'];
     if($paperWay == '1'){
         $paperWay = '竖向';
     }

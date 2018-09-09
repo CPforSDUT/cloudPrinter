@@ -1,7 +1,7 @@
 <!doctype html>
 <?php
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
     header("location:/index.php");
 }
 $username = mysql_escape_string($_SESSION['user']);

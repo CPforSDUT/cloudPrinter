@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <?php
     session_start();
-    if(isset($_SESSION['user']) == false || $_SESSION['type'] == '1'){
+    if(isset($_SESSION['user']) == false || $_SESSION['type'] != '3'){
         header("location:/index.php");
     }
     $username = mysql_escape_string($_SESSION['user']);
@@ -10,7 +10,7 @@
         die('Could not connect: ' . mysql_error());
     }
     mysql_select_db("user", $con);
-    $visit = "select count(*) from orderinfo where deleted != 'bn' and business = '$username'";
+    $visit = "select count(*) from orderinfo where 1=1 ";
     if(isset($_GET['sorted']))
     {
         switch (mysql_escape_string($_GET['sorted']))
@@ -22,7 +22,7 @@
     }
     if(isset($_GET['search']) && $_GET['search'] != ''){
         $ser = mysql_escape_string($_GET['search']);
-        $visit = $visit." and consumer="."'$ser'";
+        $visit = $visit." and (consumer='$ser' or business='$ser') ";
     }
     $result = mysql_query($visit);
     //echo $visit;
@@ -309,6 +309,7 @@
                                 <th class="tc" width="5%"><input onclick="allChoose()" id="allChoose" type="checkbox"></th>
                                 <th>订单状态</th>
                                 <th>发布人</th>
+                                <th>商家</th>
                                 <th>完成时间</th>
                                 <th>操作</th>
                             </tr>
