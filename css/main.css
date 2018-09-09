@@ -53,3 +53,6 @@ h3{
     background: url('https://sdut1.oss-cn-beijing.aliyuncs.com/sdutcpbg.png') no-repeat;
     background-size: cover;
 }
+.login_tips a{
+  color: rgb(94, 94, 94);
+}

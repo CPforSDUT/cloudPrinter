@@ -513,7 +513,7 @@ $password = $_SESSION['pass'];
 								  //执行一个laydate实例
 								  laydate.render({
 									elem: '#datepicker' //指定元素
-									,format: 'MM月dd日HH点mm分' //可任意组合
+									,format: 'yyyy-MM-dd HH:mm' //可任意组合
 									,type: 'datetime'
 									
 								  });
