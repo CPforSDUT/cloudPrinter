@@ -208,8 +208,7 @@
                                     map.addEventListener("click", function(e){   //点击事件
 
                                         var myGeo = new BMap.Geocoder();
-                                        center = map.getCenter();
-                                        myGeo.getLocation(new BMap.Point(center.lng ,center.lat ), function(result){
+                                        myGeo.getLocation(new BMap.Point(e.point.lng,e.point.lat ), function(result){
                                             if (result){
                                                 var addComp = result.addressComponents;
                                                 var pt = null;
