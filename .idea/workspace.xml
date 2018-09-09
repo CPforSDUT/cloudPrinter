@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/newOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/newOrder.php" afterDir="false" />
-    </list>
+    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,20 +38,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="master.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="master.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/master.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11039">
-              <caret line="581" column="26" selection-start-line="581" selection-start-column="26" selection-end-line="581" selection-end-column="26" />
+            <state relative-caret-position="377">
+              <caret line="330" column="16" selection-start-line="330" selection-start-column="16" selection-end-line="330" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="480" column="47" lean-forward="true" selection-start-line="480" selection-start-column="47" selection-end-line="480" selection-end-column="47" />
+            <state relative-caret-position="190">
+              <caret line="481" column="47" selection-start-line="481" selection-start-column="47" selection-end-line="481" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -343,7 +341,7 @@
       <workItem from="1536249885862" duration="4338000" />
       <workItem from="1536279270559" duration="18470000" />
       <workItem from="1536410990934" duration="3146000" />
-      <workItem from="1536414214785" duration="4562000" />
+      <workItem from="1536414214785" duration="4963000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -356,10 +354,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359621000" />
+    <option name="totallyTimeSpent" value="360022000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
+    <frame x="-7" y="2" width="1378" height="733" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.20204978" />
@@ -685,13 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/master.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11039">
-          <caret line="581" column="26" selection-start-line="581" selection-start-column="26" selection-end-line="581" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/order.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4579">
@@ -732,8 +723,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/newOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="480" column="47" lean-forward="true" selection-start-line="480" selection-start-column="47" selection-end-line="480" selection-end-column="47" />
+        <state relative-caret-position="190">
+          <caret line="481" column="47" selection-start-line="481" selection-start-column="47" selection-end-line="481" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/master.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="330" column="16" selection-start-line="330" selection-start-column="16" selection-end-line="330" selection-end-column="16" />
         </state>
       </provider>
     </entry>
