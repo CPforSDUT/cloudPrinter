@@ -56,7 +56,7 @@ if(isset($_POST["username"])) {
     {
         mysql_query("INSERT INTO user (username, password,type,la,lo,province,city,area,other,state,phone) VALUES (\"$user\", \"$pass\",\"$type\",\"$la\",\"$lo\",\"$province\",\"$city\",\"$area\",\"$other\",\"1\",\"$phone\")");
         mysql_close($con);
-        header("location:/index.php");
+        header("location:/index.php?login=");
     }
     else
     {
