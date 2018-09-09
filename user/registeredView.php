@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../css/master.css">
     <link rel="stylesheet" type="text/css" href="../css/registered.css">
     <link rel="stylesheet" href="../css/buttons.css">
+	<link rel="stylesheet" href="../css/layui.css">
+	<script src="../js/layui.all.js"></script>
     <title>Regist</title>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=04uLKfHLu2zT9eKoaSk2WsXC0ekF3aF3" charset="UTF-8"></script>
     <script type="text/javascript">
@@ -27,7 +29,7 @@
             if(reg.test(code)) {
                 return true;
             } else {
-                alert("用户名错误,必须为6-12位字母或数字或下划线");
+                layer.msg("用户名错误,必须为6-12位字母或数字或下划线");
                 return false;
             }
         }
@@ -45,7 +47,7 @@
             if(reg2.test(code2)) {
                 return true;
             } else {
-                alert("密码错误,必须为6-16位字母或数字或下划线");
+				layer.msg("密码错误,必须为6-16位字母或数字或下划线");
                 return false;
             }
 
@@ -59,7 +61,7 @@
            }
            if(phone.length != 11)
            {
-               alert("请不要中二， 输入正确的手机号。")
+				layer.msg("请不要中二， 输入正确的手机号。")
                return false;
            }
             return true;
@@ -69,7 +71,7 @@
            {
                var other = document.getElementById("other") , province = document.getElementById("province");
                if(other.value == '' || province.value == ''){
-                   alert("请输入详细地址和选择你的坐标。");
+                   layer.msg("请输入详细地址和选择你的坐标。");
                    return false;
                }
            }
@@ -112,10 +114,10 @@
                                         <nav>手机：</nav>
                                     </div>
                                     <div class="form_right">
-                                        <input type="text" name="username" id="usernamE">
+                                        <input type="text" id="usernamE" >
                                         <br>
-                                        <input type="password" name="password" id="password">
-                                        <input type="text" name="phone" id="phone1">
+                                        <input type="password"  name="password" id="password" >
+										<input type="text"  name="phone" id="phone1" >
                                         <input type="hidden" name="type" value="1" >
                                     </div>
                                 </div>
@@ -202,7 +204,7 @@
                                             map.panTo(r.point);
                                         }
                                         else {
-                                            alert('无法获取位置信息 错误码:'+this.getStatus());
+                                            layer.msg('无法获取位置信息 错误码:'+this.getStatus());
                                         }
                                     });
                                     map.addEventListener("click", function(e){   //点击事件

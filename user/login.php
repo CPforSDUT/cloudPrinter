@@ -5,6 +5,9 @@
  * Date: 2018/7/16
  * Time: 8:33
  */
+
+	
+	
     header("Content-Type: text/html;charset=utf-8");
     $con = mysql_connect("localhost","root","wslzd9877");
     if (!$con)
@@ -39,7 +42,8 @@ if(isset($_SESSION['user']) == false)
         }
     }
     else {
-        echo "<script type='text/javascript'>alert(\"用户名或密码错误\");</script>";
+        echo "<script type='text/javascript'>q
+		alert(\"用户名或密码错误\");</script>";
         session_destroy();
         echo "<script>window.location.href='/index.php';</script> ";
     }

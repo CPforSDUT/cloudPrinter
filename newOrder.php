@@ -496,9 +496,24 @@ $password = $_SESSION['pass'];
                                     <td id="area"></td>
                                     <td id="state"></td>
                                     <td id="other"></td>
-                                    <td id="gettime"><input type="datetime-local" id="datepicker" date_format="mm-dd" style="border-style:none"></td>
+                                    <td id="gettime"><input type="datetime" class="layui-input" id="datepicker"></td>
+									<!--<input type="datetime-local" id="datepicker" date_format="mm-dd" style="border-style:none">-->
                                 </tr>
                                 </tbody>
+								<script>
+								layui.use('laydate', function(){
+								  var laydate = layui.laydate;
+								  
+								  //执行一个laydate实例
+								  laydate.render({
+									elem: '#datepicker' //指定元素
+									,format: 'MM月dd日HH点mm分' //可任意组合
+									,type: 'datetime'
+									,range: true 
+								  });
+								});
+								</script>
+
                             </table>
                         </div>
                         <img src="/image/jdt3.png" class="jdt">

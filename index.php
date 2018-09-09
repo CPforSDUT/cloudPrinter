@@ -35,7 +35,8 @@ if (isset($_SESSION['user'])) {
             if(reg.test(code)) {
                 return true;
             } else {
-                alert("用户名错误,必须为6-12位字母或数字或下划线");
+					
+                   layer.msg("用户名错误,必须为6-12位字母或数字或下划线");//alert("用户名错误,必须为6-12位字母或数字或下划线");
                 return false;
             }
         }
@@ -46,7 +47,7 @@ if (isset($_SESSION['user'])) {
             if(reg2.test(code2)) {
                 return true;
             } else {
-                alert("密码错误,必须为6-16位字母或数字或下划线");
+                layer.msg("密码错误,必须为6-16位字母或数字或下划线");
                 return false;
             }
 
@@ -66,10 +67,21 @@ if (isset($_SESSION['user'])) {
             black1.style.display = "none";
         }
     $(function(){
-        $('#bosteam').fullpage({
+		var windowWidth = $(window).width();
+			if(windowWidth < 640){
+				$('#bosteam').fullpage({
+			sectionsColor: ['', '', '#f3fcff', ''],
+            navigation: false,
+        });
+			}
+			if(windowWidth >= 640){
+				$('#bosteam').fullpage({
 			sectionsColor: ['', '', '#f3fcff', ''],
             navigation: true,
         });
+			}
+	
+        
         $(window).resize(function(){
             autoScrolling();
         });
@@ -91,23 +103,43 @@ if (isset($_SESSION['user'])) {
 
 
   </script>
-
+  <script type="text/javascript">
+	function zduser(){
+        var zduser_acc=document.getElementById("username");
+        var zduser_pass=document.getElementById("password");
+        zduser_acc.value="ceshi123";
+		zduser_pass.value="12345aaa";
+    }
+	function zdshang(){
+        var zduser_acc=document.getElementById("username");
+        var zduser_pass=document.getElementById("password");
+        zduser_acc.value="shangjia";
+		zduser_pass.value="12345aaa";
+    }
+	function zdadmin(){
+        var zduser_acc=document.getElementById("username");
+        var zduser_pass=document.getElementById("password");
+        zduser_acc.value="admin";
+		zduser_pass.value="admin";
+    }
+  </script>
 </head>
 <body>
 <div class="black1" id="black1">
     <form class="login_box" id="login_box" action="/user/login.php" method="post" onsubmit="return check()">
             <a id="closebox"><i onclick="closelogin()" class="layui-icon layui-icon-close" style="font-size: 30px; color: #x1006;"></i></a>
             <nav>登录</nav>
-            <input type="text" name="username" class="button button-rounded button-tiny" id="username" style="text-align:left;"placeholder="请输入账号" />
-            <input type="password" name="password"  class="button button-rounded button-tiny" id="password" style="text-align:left;" placeholder="请输入密码" />
+            <input type="text" name="username" class="button button-rounded button-tiny" id="username" style="text-align:left;"placeholder="请输入账号" value="ceshi123" >
+            <input type="password" name="password"  class="button button-rounded button-tiny" id="password" style="text-align:left;" placeholder="请输入密码" value="12345aaa" />
         <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登陆</button>
             <span>没有账号？马上<a href="/user/registeredView.php" id="zc">注册</a></span><br>
-			<span>默认账号ceshi123密码12345aaa</>
-    </form>
+			<span id="morenzh"><a href="#" onclick="zduser()">用户账号ceshi123密码12345aaa</a><br><a href="#" onclick="zdshang()">商家账号shangjia密码12345aaa</a><br><a href="#" onclick="zdadmin()">管理员账号admin密码admin</a></span>
+
+   </form>
 </div>
 <div id="bosteam">
     <div class="section">
-	
+		
         <video id="bgvideo" autoplay="autoplay" width="100%">
 		
 			
@@ -151,12 +183,11 @@ if (isset($_SESSION['user'])) {
                 </li>
               </ul>
             -->
-	
     </div>
 
     
     <div class="section">
-		    <div class="hd" style="top:0px;">
+		    <div class="hd" style="postion:fixed;top:0px;">
                 <div class="header">
                     <div class="daohang" id="daohang">
                         <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
@@ -178,14 +209,16 @@ if (isset($_SESSION['user'])) {
 						<div class="down">兼容手机端/pc端多种浏览器,只需安装浏览器即可选择文件上传打印</div>
 					</div>
 					<div class="right1" >
-						<img src="image/upload.png" id="ys" style="width:303px; height:200px;">
+						<center>
+						<img src="image/upload.png" id="ys" style="">
+						</center>
 					</div>
 				</div>
 		</div>
 	</div>
 	
   	<div class="section">
-		    <div class="hd" style="top:0px;">
+		    <div class="hd" style="postion:fixed;top:0px;">
                 <div class="header">
                     <div class="daohang" id="daohang">
                         <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>
@@ -225,7 +258,7 @@ if (isset($_SESSION['user'])) {
 	
 	
 	<div class="section">
-            <div class="hd" style="top:0px;">
+            <div class="hd" style="postion:fixed;top:0px;">
                 <div class="header">
                     <div class="daohang" id="daohang">
                         <a href="newOrder.php"><img src="image/logo1.png" alt="logo" id="logo"></a>

@@ -1,5 +1,8 @@
 @media screen and (max-width: 600px) {
-
+	
+	.position{
+		display:none;
+	}
 .card{
     width: 300px !important;
     position: relative;
@@ -61,7 +64,7 @@ input{
     height: 30px;
     color: #b9c9fe;
     padding: 4px;
-    font-size: 10px;
+    font-size: 5px;
     text-align: center;
 }
 #tone{
@@ -82,12 +85,18 @@ input{
     background-color: #e8edff;
     color: #b9c9fe;
 }
-#jingdu{display:none;}
-#weidu{display:none;}
+/*
 #shengfen{display:none;}
 #province{display:none;}
+#jingdu{display:none;}
 #lo{display:none;}
+#weidu{display:none;}
 #la{display:none;}
+*/
+table{
+	display:none;
+}
+
 .lo_box{
     width: 40px !important;
     border: 0px;
