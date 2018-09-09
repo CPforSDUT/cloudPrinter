@@ -477,24 +477,22 @@ $password = $_SESSION['pass'];
                                 <thead>
                                 <tr>
                                     <td>店名</td>
-                                    <td>距离</td>
                                     <td>省份</td>
                                     <td>城市</td>
                                     <td>区域</td>
-                                    <td id="other1">详细<br>地址</td>
                                     <td>营业<br>状态</td>
+                                    <td id="other1">详细<br>地址</td>
                                     <td id="gettime1">提取时间</td>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>    <!--这里是内容 -->
                                     <td id="user_name"></td>
-                                    <td id="distance"></td>
                                     <td id="province"></td>
                                     <td id="city"></td>
                                     <td id="area"></td>
-                                    <td id="other"></td>
                                     <td id="state"></td>
+                                    <td id="other"></td>
                                     <td id="gettime"><input type="datetime-local" id="datepicker" date_format="mm-dd" style="border-style:none"></td>
                                 </tr>
                                 </tbody>

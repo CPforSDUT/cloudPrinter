@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getLocation.php" beforeDir="false" afterPath="$PROJECT_DIR$/getLocation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/newOrder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +16,8 @@
       <file leaf-file-name="order.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4313">
-              <caret line="227" column="8" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
+            <state relative-caret-position="4579">
+              <caret line="241" column="8" selection-start-line="241" selection-start-column="8" selection-end-line="241" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -28,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/admin/document.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3021">
-              <caret line="167" selection-start-line="167" selection-end-line="167" />
+              <caret line="181" selection-start-line="181" selection-end-line="181" />
             </state>
           </provider>
         </entry>
@@ -54,8 +52,8 @@
       <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/newOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="248" column="48" lean-forward="true" selection-start-line="248" selection-start-column="48" selection-end-line="248" selection-end-column="48" />
+            <state relative-caret-position="171">
+              <caret line="480" column="47" lean-forward="true" selection-start-line="480" selection-start-column="47" selection-end-line="480" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -250,7 +248,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -345,7 +343,7 @@
       <workItem from="1536249885862" duration="4338000" />
       <workItem from="1536279270559" duration="18470000" />
       <workItem from="1536410990934" duration="3146000" />
-      <workItem from="1536414214785" duration="4292000" />
+      <workItem from="1536414214785" duration="4562000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -358,7 +356,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359351000" />
+    <option name="totallyTimeSpent" value="359621000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
@@ -676,7 +674,7 @@
     <entry file="file://$PROJECT_DIR$/admin/document.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3021">
-          <caret line="167" selection-start-line="167" selection-end-line="167" />
+          <caret line="181" selection-start-line="181" selection-end-line="181" />
         </state>
       </provider>
     </entry>
@@ -696,8 +694,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4313">
-          <caret line="227" column="8" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
+        <state relative-caret-position="4579">
+          <caret line="241" column="8" selection-start-line="241" selection-start-column="8" selection-end-line="241" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -734,8 +732,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/newOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="248" column="48" lean-forward="true" selection-start-line="248" selection-start-column="48" selection-end-line="248" selection-end-column="48" />
+        <state relative-caret-position="171">
+          <caret line="480" column="47" lean-forward="true" selection-start-line="480" selection-start-column="47" selection-end-line="480" selection-end-column="47" />
         </state>
       </provider>
     </entry>
