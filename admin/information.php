@@ -61,6 +61,8 @@ $color = $row['color'];
     <title>后台管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=04uLKfHLu2zT9eKoaSk2WsXC0ekF3aF3" charset="UTF-8"></script>
@@ -75,6 +77,17 @@ $color = $row['color'];
             /* border: 10px dashed #62c1fb; */
         }
     </style>
+	<script type="text/javascript">
+		function menu()
+		{
+			if(document.getElementById('menu').style.display == 'none'){
+				document.getElementById('menu').style.display='block';
+			}
+			else {
+				document.getElementById('menu').style.display='none';
+			}
+		}
+	</script>
     <script type="text/javascript">
         var paperType = Array();
         var paperSizes2 = Array(1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576,2097152);
@@ -186,10 +199,11 @@ $color = $row['color'];
                 <li><a href="/user/logout.php">退出</a></li>
             </ul>
         </div>
+				  <span onclick="menu()"><i class="fa fa-bars"></i></span>
     </div>
 </div>
 <div class="container clearfix">
-    <div class="sidebar-wrap">
+    <div class="sidebar-wrap" id="menu">
         <div class="sidebar-title">
             <h1>后台管理</h1>
         </div>
