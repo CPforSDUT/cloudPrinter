@@ -105,7 +105,7 @@ else {
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="people.php" method="get">
+                <form action="usermt.php" method="get">
                     <table class="search-tab">
                         <tr>
                             <!--<th width="120">选择分类:</th>
@@ -119,7 +119,7 @@ else {
                                 </select>
                             </td>-->
                             <th width="78">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keyword" value="" id="" type="text"></td>
+                            <td><input class="common-text" placeholder="关键字" name="keyword" value="" id="keyword" type="text"></td>
                             <td><input class="btn btn-primary btn2" value="查询" type="submit"></td>
                         </tr>
                     </table>
@@ -152,14 +152,19 @@ else {
                                     die('Could not connect: ' . mysql_error());
                                 }
                                 mysql_select_db("user", $con);
-                        $usersql="select count(*)as countnums from user where type='1'";
-                        $userobj=mysql_query("select count(*)as countnums from user where type='1'");
+                                $count = "select count(*)as countnums from user where type='1'";
+
+                        if(isset($_GET['keyword']) && $_GET['keyword']!=''){
+                            $count = $count." and username='$keyword'";
+                        }
+
+                        $userobj=mysql_query($count);
                         $userrows=mysql_fetch_array($userobj);
                         $addcount=$userrows['countnums'];
-                        var_dump($addcount);
+
                         $num=7;
                         $pages=ceil($addcount/$num);
-                        var_dump($pages);
+
 
                             $page=$_GET['page'];
                             if(isset($page)==false)
@@ -174,18 +179,22 @@ else {
                             {
                                 $page=$pages;
                             }
-                        var_dump($page);
-                        $offset=($page-1)*$num;
+
+                        $offset=($page-1 < 0 ?0:$page-1 )*$num;
                         $pageup=$page-1;
                         $pagedown=$page+1;
 
 
-                        $visit = "select * from user where type='1'limit $offset,$num";
-                        var_dump($visit);
+                        $visit = "select * from user where type='1'";
+
 
                                 if(isset($_GET['keyword']) == true && $_GET['keyword'] != ''){
                                     $visit = $visit . " and username='$keyword'";
+                                    $pageup = $pageup ."&keyword=". $keyword;
+                                    $pagedown = $pagedown."&keyword=".$keyword;
+
                                 }
+                                $visit = $visit . " limit $offset,$num";
                                 $result = mysql_query($visit);
 
                                     while($row = mysql_fetch_array($result)) {
@@ -203,12 +212,26 @@ else {
                         ?>
                     </table>
 
-                    <div class="list-page"><a href="usermt.php?page=<?php echo $pageup;?>">上一页</a><a href="usermt.php?page=<?php echo $pagedown;?>">下一页</a></div>
+                    <div class="list-page"><a href="usermt.php?page=<?php echo $pageup;?>">上一页</a><p id="pageNum"></p><a href="usermt.php?page=<?php echo $pagedown;?>">下一页</a></div>
                 </div>
             </form>
         </div>
     </div>
     <!--/main-->
+
 </div>
+  <script type="text/javascript">
+
+      <?php
+      if(isset($_GET['keyword'])  && $_GET['keyword']!=''){
+      ?>
+      document.getElementById("keyword").value = <?php echo "'$keyword'";?>;
+      <?php
+
+      }
+          echo "document.getElementById('pageNum').innerHTML='第$page/$pages 页';";
+      ?>
+
+  </script>
 </body>
 </html>

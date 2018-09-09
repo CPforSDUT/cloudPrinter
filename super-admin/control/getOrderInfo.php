@@ -87,8 +87,8 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
     $orderId = $row['orderId'];
      echo "<td class=\"tc\"><input onclick=\"checkbox('$orderId')\" id='check$i' type=\"checkbox\"></td>";
      echo "<td id='$orderId'>$orderState</td>";
-     echo "<td><a href='people.php?keyword=$consumer'>$consumer</a></td>";
-     echo "<td><a href='people.php?keyword=$business'>$business</a></td>";
+     echo "<td><a href='usermt.php?keyword=$consumer'>$consumer</a></td>";
+     echo "<td><a href='shopmt.php?keyword=$business'>$business</a></td>";
      echo "<td>$time</td>";
      echo "<td>";
      echo "<a class=\"link-download\" href=\"document.php?orderId=$orderId\" >下载</a> ";

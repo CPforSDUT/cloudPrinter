@@ -82,7 +82,23 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '3'){
         <div class="crumb-wrap">
             <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎使用云打印系统<span></span></span></div>
         </div>
+                    <?php
+                    $con = mysql_connect("localhost", "root", "wslzd9877");
+                    if (!$con) {
+                        die('Could not connect: ' . mysql_error());
+                    }
+                    mysql_select_db("user", $con);
+                    $obj2=mysql_query("select count(*) as count2 from user where type='2'");
+                    $rows2=mysql_fetch_array($obj2);
+                    $obj1=mysql_query("select count(*) as count2 from user where type='1'");
+                    $rows1=mysql_fetch_array($obj1);
+                    $objorderinfo=mysql_query("select count(*) as countorderinfo from orderinfo");
+                    $rowsorderinfo=mysql_fetch_array($objorderinfo);
+                    $objfileinfo=mysql_query("select count(*) as countfileinfo from fileinfo");
+                    $rowsfileinfo=mysql_fetch_array($objfileinfo);
 
+
+                    ?>
 
         <div class="result-wrap">
             <div class="result-title">
@@ -91,10 +107,10 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '3'){
             <div class="result-content">
                 <ul class="sys-info-list">
                     <li>
-                        <label class="res-lab">商家：</label><span class="res-info">5位</span><br>
-                        <label class="res-lab">用户：</label><span class="res-info">10位</span><br>
-                        <label class="res-lab">订单：</label><span class="res-info">30个</span><br>
-                        <label class="res-lab">文件：</label><span class="res-info">30个，占用40M空间。</span><br>
+                        <label class="res-lab">商家：</label><span class="res-info"><?php echo $rows2['count2'];?>位</span><br>
+                        <label class="res-lab">用户：</label><span class="res-info"><?php echo $rows1['count2'];?>位</span><br>
+                        <label class="res-lab">订单：</label><span class="res-info"><?php echo $rowsorderinfo['countorderinfo'];?>个</span><br>
+                        <label class="res-lab">文件：</label><span class="res-info"><?php echo $rowsfileinfo['countfileinfo'];?>个</span><br>
                     </li>
 
                 </ul>
