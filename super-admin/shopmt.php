@@ -193,7 +193,6 @@ else {
                                 }
 
                                 $result2 = mysql_query("$visit limit $offset,$num");
-                                echo "$visit limit $offset,$num";
                                 while( $row = mysql_fetch_array($result2)) {
 
 
