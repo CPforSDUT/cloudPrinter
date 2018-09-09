@@ -170,9 +170,6 @@ if (isset($_SESSION['user'])) {
                     </div>
                 </div>
             </div>
-	
-
-	
 		<div class="set-white">
 			<div class="title">支持多种设备传输打印</div>
 				<div class="animation"><img src="image/animation.gif" id="ani"></div>
@@ -204,7 +201,7 @@ if (isset($_SESSION['user'])) {
 			  <div class="bk">
 				  <div class="up">
 					  <div class="left">
-						  <div class="bt"><img src="image/safe.png"/>&nbsp;&nbsp;安全可靠</div>
+						  <div class="bt"><img src="image/safe.png" style="margin:4px;"/>&nbsp;&nbsp;安全可靠</div>
 						  <div class="nr">一旦打印完成，用户可以随时选择删除在服务器的相应文档。</div>
 					  </div>
 					  <div class="right">
