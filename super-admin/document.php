@@ -21,7 +21,7 @@ else {
 }
 
     $result = mysql_query($visit);
-echo $visit;
+
     $row = mysql_fetch_array($result);
     $orderNum = $row['count(*)'];
 
