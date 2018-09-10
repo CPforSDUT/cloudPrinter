@@ -1,6 +1,31 @@
 
 @media screen and (max-width: 600px) {
-	#
+	.finish{
+    position: fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    width: 340px !important;
+    height: 320px !important;
+    display: inline-block;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0 , 0.4);
+    z-index: 101;
+    text-align: center;
+    font-weight: bold;
+	}
+	.finish nav{
+    margin-top: 10px;
+    color: #28262C;
+    font-weight: bolder;
+    font-size: 16px !important;
+}
+	
+	
 	.m2{
 		margin-top:0px;
 	}
