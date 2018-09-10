@@ -1,10 +1,10 @@
 <?php
-session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] != '3'){
-    header("location:/index.php");
-}
-$password = mysql_escape_string($_SESSION['pass']);
-
+    session_start();
+    if(isset($_SESSION['user']) == false || $_SESSION['type'] != '3'){
+        header("location:/index.php");
+    }
+    $password = mysql_escape_string($_SESSION['pass']);
+    if(isset($_GET['']))
 ?>
 <!DOCTYPE html>
 

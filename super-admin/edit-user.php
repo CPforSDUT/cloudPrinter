@@ -1,4 +1,23 @@
 <!doctype html>
+<?php
+session_start();
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '3'){
+    header("location:/index.php");
+}
+$username = mysql_escape_string($_SESSION['user']);
+$password = mysql_escape_string($_SESSION['pass']);
+$con = mysql_connect("localhost","root","wslzd9877");
+if (!$con)
+{
+    die('Could not connect: ' . mysql_error());
+}
+mysql_select_db("user", $con);
+
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+    header("location:/index.php");
+    exit();
+}
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -16,7 +35,42 @@
 				document.getElementById('menu').style.display='none';
 			}
 		}
+		function init() {
+            <?php
+            if(isset($_GET['cUser']))
+            {
+                $cUser = $_GET['cUser'];
+                $info = mysql_query("select * from user where username='$cUser'");
+                $row = mysql_fetch_array($info);
+                if($row != false)
+                {
+                    $cUser = $row['username'];
+                    $cPass = $row['password'];
+                    $cOther = $row['other'];
+                    $cPhone = $row['phone'];
+                    echo "document.getElementById('cUser').value='$cUser';";
+                    echo "document.getElementById('cPass').value='$cPass';";
+                    echo "document.getElementById('cOther').value='$cOther';";
+                    echo "document.getElementById('cPhone').value='$cPhone';";
+                }
+            }
+            if(isset($_POST['cUser']))
+            {
+                $cUser = $_POST['cUser'];
+                $cPass = $_POST['cPass'];
+                $cOther = $_POST['cOther'];
+                $cPhone = $_POST['cPhone'];
+                echo "document.getElementById('cUser').value='$cUser';";
+                echo "document.getElementById('cPass').value='$cPass';";
+                echo "document.getElementById('cOther').value='$cOther';";
+                echo "document.getElementById('cPhone').value='$cPhone';";
+                mysql_query("UPDATE user SET username='$cUser',password='$cPass',other='$cOther',phone='$cPhone' where username='$cUser'");
+                echo "alert('修改成功!');";
+            }
+            ?>
+        }
 	</script>
+
 </head>
 <body>
   <div class="topbar-wrap white">
@@ -71,26 +125,27 @@
         </div>
         <div class="result-wrap">
             <div class="result-content">
-                <form action="" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                <form action="edit-user.php" method="post" id="myform" name="myform" enctype="multipart/form-data">
                     <table class="insert-tab" width="100%">
                         <tbody>
+
                             <tr>
                                 <th>用户名：</th>
                                 <td>
-                                    <input class="common-text" id="title" name="title" size="50" value="" type="text">
+                                    <input class="common-text" id="cUser" name="cUser" size="50" value="" type="text">
                                 </td>
                             </tr>
                             <tr>
                                 <th>密码：</th>
-                                <td><input class="common-text" name="author" size="50" value="admin" type="text"></td>
+                                <td><input class="common-text" id="cPass" name="cPass" size="50" value="admin" type="password"></td>
                             </tr>
 							<tr>
                                 <th>详细地址：</th>
-                                <td><input class="common-text" name="author" size="50" value="admin" type="text"></td>
+                                <td><input class="common-text" id="cOther" name="cOther" size="50" value="admin" type="text"></td>
                             </tr>
 							<tr>
                                 <th>电话号码：</th>
-                                <td><input class="common-text" name="author" size="50" value="admin" type="text"></td>
+                                <td><input class="common-text" id="cPhone" name="cPhone" size="50" value="admin" type="text"></td>
                             </tr>
                             <tr>
                                 <th></th>
@@ -105,6 +160,9 @@
         </div>
 
     </div>
+      <script type="text/javascript">
+          init();
+      </script>
     <!--/main-->
 </div>
 </body>

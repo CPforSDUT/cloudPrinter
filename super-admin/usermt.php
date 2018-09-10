@@ -142,7 +142,7 @@ else {
                             <th>用户名</th>
                             <th>详细地址</th>
                             <th>联系方式</th>
-
+                            <th>修改</th>
                         </tr>
 
                         <?php
@@ -206,6 +206,7 @@ else {
                                             <td><?php echo $consumer;?></td>
                                             <td><?php echo $other;?></td>
                                             <td><?php echo $phone;?></td>
+                                            <td><a href=<?php echo "edit-user.php?cUser=$consumer";?>>修改</a></td>
                                         </tr>
                                         <?php
                                     }
