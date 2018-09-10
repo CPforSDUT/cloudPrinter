@@ -34,7 +34,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>后台管理</title>
+    <title>超级管理员后台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
 	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
@@ -244,7 +244,7 @@
   <div class="container clearfix">
       <div class="sidebar-wrap" id="menu">
           <div class="sidebar-title">
-              <h1>后台管理</h1>
+              <h1>超管后台</h1>
           </div>
           <div class="sidebar-content">
               <ul class="sidebar-list">
