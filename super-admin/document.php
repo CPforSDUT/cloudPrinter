@@ -31,7 +31,7 @@ else {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>后台管理</title>
+    <title>超级管理员后台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
 	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
@@ -102,6 +102,10 @@ else {
           <div class="topbar-logo-wrap clearfix">
               <h1 class="topbar-logo none"><a href="index.php" class="navbar-brand">后台管理</a></h1>
               
+			   <ul class="navbar-list clearfix">
+                  <li><a class="on" href="index.php">首页</a></li>
+
+              </ul>
           </div>
           <div class="top-info-wrap">
               <ul class="top-info-list clearfix">
@@ -117,7 +121,7 @@ else {
   <div class="container clearfix">
       <div class="sidebar-wrap" id="menu">
           <div class="sidebar-title">
-              <h1>后台管理</h1>
+              <h1>超管后台</h1>
           </div>
           <div class="sidebar-content">
               <ul class="sidebar-list">

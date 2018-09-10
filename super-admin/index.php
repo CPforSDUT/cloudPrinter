@@ -54,7 +54,7 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '3'){
 <div class="container clearfix">
     <div class="sidebar-wrap" id="menu">
         <div class="sidebar-title">
-            <h1>后台管理</h1>
+            <h1>超管后台</h1>
         </div>
         <div class="sidebar-content">
             <ul class="sidebar-list">
