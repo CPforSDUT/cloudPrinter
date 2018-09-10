@@ -84,11 +84,14 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
     $consumer = $row['consumer'];
     $phoneGeter = mysql_query("select * from user where username = '$consumer'");
     $phoneGeter = mysql_fetch_array($phoneGeter);
-    $time = toPureTime($row['deadline']);
+    $exCode = $row['exCode'];
+	$time = toPureTime($row['deadline']);
+	
     $orderId = $row['orderId'];
      echo "<td class=\"tc\"><input onclick=\"checkbox('$orderId')\" id='check$i' type=\"checkbox\"></td>";
      echo "<td id='$orderId'>$orderState</td>";
      echo "<td><a href='people.php?keyword=$consumer'>$consumer</a></td>";
+	 echo "<td>$exCode</td>";
      echo "<td>$time</td>";
      echo "<td>";
      echo "<a class=\"link-download\" href=\"document.php?orderId=$orderId\" >下载</a> ";
