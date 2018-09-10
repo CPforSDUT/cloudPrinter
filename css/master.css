@@ -1,7 +1,4 @@
-@media screen and (max-width: 1024px) {
-body{transform:scale(0.8);
-	-webkit-transform:scale(0.8);}
-}
+
 @media screen and (max-width: 600px) {
 	#
 	.m2{
@@ -45,11 +42,10 @@ body{transform:scale(0.8);
       left: 0;
       right: 0;
       bottom: 0;
-	  top:20px;
       margin: auto;
       overflow: hidden;
-      height: 50%;
-      width:80%;
+      height: 250px;
+      width:400px;
       background-image:url(../image/paper.png);
       background-position-x: center;
       background-position-y: bottom;

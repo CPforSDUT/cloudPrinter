@@ -335,9 +335,7 @@ $password = $_SESSION['pass'];
         </div>
         </div>
         <div class="main">
-            <div class="mt">
-                <span>开始云打印</span>
-            </div>
+            
             <div class="m1">
                 <div class="m2">
                     <div class="form" id="form0">

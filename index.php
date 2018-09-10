@@ -123,8 +123,8 @@ if (isset($_SESSION['user'])) {
 	function zdadmin(){
         var zduser_acc=document.getElementById("username");
         var zduser_pass=document.getElementById("password");
-        zduser_acc.value="admin";
-		zduser_pass.value="admin";
+        zduser_acc.value="admini";
+		zduser_pass.value="admini";
     }
   </script>
 </head>
@@ -139,7 +139,7 @@ if (isset($_SESSION['user'])) {
         <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登陆</button>
             <nav id="login_info">没有账号？<a href="/user/registeredView.php" id="zc">马上注册</a></nav>
             <br>
-            <span class="login_tips"><a href="#" onclick="zduser()">用户账号:ceshi123密码:12345aaa<br></a><a href="#" onclick="zdshang()">商家账号:shangjia密码：12345aaa<br></a><a href="#" onclick="zdadmin()">管理员账号：admin密码:admin<br></a></span>
+            <span class="login_tips"><a href="#" onclick="zduser()">用户账号:ceshi123密码:12345aaa<br></a><a href="#" onclick="zdshang()">商家账号:shangjia密码：12345aaa<br></a><a href="#" onclick="zdadmin()">管理员账号：admini密码:admini<br></a></span>
     </form>
 </div>
 <div id="bosteam">
