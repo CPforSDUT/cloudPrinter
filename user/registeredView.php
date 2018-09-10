@@ -114,7 +114,7 @@
                                         <nav>手机：</nav>
                                     </div>
                                     <div class="form_right">
-                                        <input type="text" id="usernamE" >
+                                        <input type="text" id="usernamE" name="username">
                                         <br>
                                         <input type="password"  name="password" id="password" >
 										<input type="text"  name="phone" id="phone1" >

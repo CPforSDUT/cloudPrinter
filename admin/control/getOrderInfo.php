@@ -31,6 +31,8 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
 $username = mysql_escape_string($_SESSION['user']);
 $password = mysql_escape_string($_SESSION['pass']);
 $pageNum = $_POST['pageNum'] - 1;
+
+if($pageNum < 0)$pageNum = 0;
 if(isset($_POST['sorted'])){
     $sorted = mysql_escape_string($_POST['sorted']);
 }
@@ -42,7 +44,7 @@ if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
-if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password' and type='2'")) == false){
     header("location:/index.php");
     exit();
 }
@@ -88,16 +90,16 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
 	$time = toPureTime($row['deadline']);
 	
     $orderId = $row['orderId'];
-     echo "<td class=\"tc\"><input onclick=\"checkbox('$orderId')\" id='check$i' type=\"checkbox\"></td>";
-     echo "<td id='$orderId'>$orderState</td>";
-     echo "<td><a href='people.php?keyword=$consumer'>$consumer</a></td>";
-	 echo "<td>$exCode</td>";
-     echo "<td>$time</td>";
-     echo "<td>";
-     echo "<a class=\"link-download\" href=\"document.php?orderId=$orderId\" >下载</a> ";
-     echo "<a class=\"link-update\" onclick=\"okOrder('$orderId')\">打印完成</a> ";
-     echo "<a class=\"link-del\" onclick=\"delOrder('$orderId')\">删除</a>";
-     echo "</td>";
-    echo "</tr>";
+     echo "<td class=\"tc\"><input onclick=\"checkbox('$orderId',$i)\" id='check$i' type=\"checkbox\"></td>\n";
+     echo "<td id='$orderId'>$orderState</td>\n";
+     echo "<td><a href='people.php?keyword=$consumer'>$consumer</a></td>\n";
+	 echo "<td>$exCode</td>\n";
+     echo "<td>$time</td>\n";
+     echo "<td>\n";
+     echo "<a class=\"link-download\" href=\"document.php?orderId=$orderId\" >下载</a> \n";
+     echo "<a class=\"link-update\" onclick=\"okOrder('$orderId',$i)\">打印完成</a>\n";
+     echo "<a class=\"link-del\" onclick=\"delOrder('$orderId',$i)\" id='del$i'>删除</a>\n";
+     echo "</td>\n";
+    echo "</tr>\n";
     $i += 1;
 }

@@ -1,42 +1,68 @@
 ﻿<!doctype html>
 <?php
-    session_start();
-    if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
-        header("location:/index.php");
+session_start();
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
+    header("location:/index.php");
+}
+$username = mysql_escape_string($_SESSION['user']);
+$con = mysql_connect("localhost", "root", "wslzd9877");
+if (!$con) {
+    die('Could not connect: ' . mysql_error());
+}
+mysql_select_db("user", $con);
+$visit = "select count(*) from orderinfo where deleted != 'bn' and business = '$username'";
+if(isset($_GET['sorted']))
+{
+    switch (mysql_escape_string($_GET['sorted']))
+    {
+        case '1':
+            $visit = $visit."and orderState != '2'";
+            break;
     }
-    $username = mysql_escape_string($_SESSION['user']);
+}
+if(isset($_GET['search']) && $_GET['search'] != ''){
+    $ser = mysql_escape_string($_GET['search']);
+    $visit = $visit." and consumer="."'$ser'";
+}
+$result = mysql_query($visit);
+//echo $visit;
+$row = mysql_fetch_array($result);
+$orderNum = $row['count(*)'];
+//echo "<script>alert(\"$orderNum\");</script>";
 ?>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>后台管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="http://dayin.sdut1.com/js/layui.all.js"></script>
-	<link href="http://dayin.sdut1.com/css/layui.css" rel="stylesheet">
+    <script src="http://dayin.sdut1.com/js/layui.all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
-	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
     <script type="text/javascript">
-        var allPageNum ;
-        var lPENum;
-        var allENum = -1;
+        var allPageNum = <?php echo floor($orderNum/7) + ($orderNum%7 > 0 ? 1 : 0);?>;
+        var lPENum = <?php echo $orderNum%7;?>;
+        var allENum = <?php echo $orderNum;?>;
         var thisPageNum = 1;
         var checkboxs = Array();
-
+        var trueCheckboxs = Array();
+        if(lPENum == 0){
+            lPENum = 7;
+        }
         <?php
-            if(isset($_GET['sorted']))
-            {
-                $sorted = mysql_escape_string($_GET['sorted']);
+        if(isset($_GET['sorted']))
+        {
+        $sorted = mysql_escape_string($_GET['sorted']);
         ?>
         var sorted = <?php echo "'$sorted';";?>
         <?php
-            }else {
+        }else {
         ?>
-            var sorted = false;
+        var sorted = false;
         <?php
-            }
+        }
         ?>
         <?php
         if(isset($_GET['search']))
@@ -51,18 +77,21 @@
         <?php
         }
         ?>
+        function checkClear() {
+            for(each in checkboxs) {
+                checkboxs[each] = false;
+            }
+            for(each in trueCheckboxs) {
+                trueCheckboxs[each] = false;
+            }
+        }
         function update() {
             getOrderInfo(thisPageNum);
             var newENum = document.getElementById("eNum").innerHTML;
-            if(newENum > allENum)
+            if(newENum != allENum)
             {
-                if(allENum != -1){
-					layer.open({
-					  title: '您有新的订单'
-					  ,content: '收到了新打印请求，请及时处理！'
-					});     
-  
-                    
+                if(newENum > allENum){
+                    document.getElementById("newOrderTips").style.display="block";
                 }
                 allENum = newENum;
                 allPageNum = parseInt(allENum/7);
@@ -76,7 +105,10 @@
 
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
-
+            for(each in trueCheckboxs)
+            {
+                document.getElementById("check"+each).checked = trueCheckboxs[each];
+            }
         }
         function getOrderInfo(pageNum) {
             var geter = new XMLHttpRequest();
@@ -99,6 +131,7 @@
             }
             geter.send(visit);
             document.getElementById("orderMain").innerHTML = geter.responseText;
+            //alert(geter.responseText);
         }
         function nextPage() {
             if(thisPageNum + 1 <= allPageNum)
@@ -110,6 +143,7 @@
             else {
                 alert("已到达最后一页。");
             }
+            checkClear()
         }
         function prevPage() {
             if(thisPageNum - 1 >= 1)
@@ -121,8 +155,9 @@
             else {
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
+            checkClear()
         }
-        function okOrder(orderId){
+        function okOrder(orderId,id){
             var setOrderInfo = new XMLHttpRequest();
             setOrderInfo.open("POST","control/setOrderInfo.php",false);
             setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -138,52 +173,67 @@
                     }
                     if(thisPageNum > 0){
                         lPENum = 7;
+                    }else {
+                        thisPageNum = 1;
                     }
                     document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+                    checkboxs[orderId] = false;
+                    trueCheckboxs[id] = false;
                 }
             }
-
             getOrderInfo(thisPageNum);
         }
-        function delOrder(orderId) {
+        function delOrder(orderId,id) {
+            //alert(orderId+" "+id);
             var setOrderInfo = new XMLHttpRequest();
             setOrderInfo.open("POST","control/setOrderInfo.php",false);
             setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             setOrderInfo.send("orderId="+orderId + "&method=delete");
             document.getElementById(orderId).innerHTML = "已删除";
             lPENum -= 1;
+            allENum -= 1;
             if(lPENum == 0){
                 allPageNum -= 1;
+                //if(allPageNum <= 0)allPageNum = 1;
                 if(thisPageNum > allPageNum){
                     thisPageNum = allPageNum;
                     getOrderInfo(thisPageNum);
                 }
                 if(thisPageNum > 0){
                     lPENum = 7;
+                }else {
+                    thisPageNum = 1;
                 }
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
             getOrderInfo(thisPageNum);
+            checkboxs[orderId] = false;
+            trueCheckboxs[id] = false;
+
         }
-        function checkbox(orderId) {
-            if(checkboxs[orderId] == undefined) {
+        function checkbox(orderId,id) {
+            if(document.getElementById("check"+id).checked == true)
+            {
                 checkboxs[orderId] = true;
+                trueCheckboxs[id] = true;
             }
-            else if(checkboxs[orderId] == true) {
+            else {
                 checkboxs[orderId] = false;
-            }else {
-                checkboxs[orderId] = true;
+                trueCheckboxs[id] = false;
             }
         }
         function delOrders() {
             var each;
+            document.getElementById("allChoose").checked = false;
             for (each in checkboxs)
             {
                 if(checkboxs[each] == true){
-                    delOrder(each);
+                    delOrder(each,0);
                 }
             }
-            document.getElementById("allChoose").checked = false;
+            checkClear();
+            update();
+
         }
         function allChoose() {
             for(var i = 0 ; i < 7 ; i ++)
@@ -191,15 +241,15 @@
                 document.getElementById("check"+i).click();
             }
         }
-		function menu()
-		{
-			if(document.getElementById('menu').style.display == 'none'){
-				document.getElementById('menu').style.display='block';
-			}
-			else {
-				document.getElementById('menu').style.display='none';
-			}
-		}
+        function menu()
+        {
+            if(document.getElementById('menu').style.display == 'none'){
+                document.getElementById('menu').style.display='block';
+            }
+            else {
+                document.getElementById('menu').style.display='none';
+            }
+        }
     </script>
 </head>
 <body>
@@ -215,13 +265,13 @@
           <div class="top-info-wrap">
               <ul class="top-info-list clearfix">
 
-                  <li><a href="changePass.php">修改密码</a></li>
+                  <li><a href="information.php">修改密码</a></li>
                   <li><a href="/user/logout.php">退出</a></li>
               </ul>
           </div>
-		  
+
 		  <span onclick="menu()"><i class="fa fa-bars"></i></span>
-		  
+
       </div>
   </div>
   <div class="container clearfix">
@@ -309,7 +359,8 @@
     </div>
     <!--/main-->
       <script type="text/javascript">
-          update();
+          getOrderInfo(1);
+          prevPage();
           if(sorted != false){
               var sorter = document.getElementById("sorted");
               switch (sorted)

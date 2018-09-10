@@ -12,27 +12,22 @@ if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
-if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password' and type='3'")) == false){
     header("location:/index.php");
     exit();
 }
 $result = mysql_query("select * from orderinfo where orderId = '$orderId'");
 $row = mysql_fetch_array($result);
-
-if(strnatcasecmp($username,$row['business']) == 0){
+if($row != false)
+{
     switch ($method)
     {
-        case 'okOrder':
-            mysql_query("UPDATE orderinfo SET orderState='2' WHERE orderId='$orderId'");
-            break;
         case 'delete':
-            if($row['deleted'] == 'cn'){
-                mysql_query("delete from orderinfo where orderId='$orderId'");
-                $tIme =  time();
-                mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
-            }
-            else {
-                mysql_query("UPDATE orderinfo SET deleted='bn' WHERE orderId='$orderId'");
-            }
+            mysql_query("delete from orderinfo where orderId='$orderId'");
+            $tIme =  time();
+            mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
+            break;
     }
+
 }
+

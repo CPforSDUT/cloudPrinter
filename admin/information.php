@@ -14,7 +14,7 @@ if (!$con)
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
-if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password' and type='2'")) == false){
     header("location:/index.php");
     exit();
 }
@@ -180,6 +180,49 @@ $color = $row['color'];
                 }
 
         }
+
+        function check_pwd(){
+            console.log(2);
+            var code2 =document.getElementById("pass1").value;
+            var reg2 = /^\w{6,16}$/;
+            if(reg2.test(code2)) {
+                return true;
+            } else {
+                alert("密码错误,必须为6-16位字母或数字或下划线");
+                return false;
+            }
+
+        }
+        function check() {
+
+
+            var pass1,pass1c;
+            pass1 =document.getElementById("pass1").value;
+            pass1c = document.getElementById("pass1c").value;
+            if(pass1!=pass1c){
+                alert("请重新确认密码！");
+                return false;
+            }
+            return check_pwd();
+        }
+        function submit() {
+            if(check() != false){
+                var pass1 =document.getElementById("pass1").value;
+                var passo = document.getElementById("passo").value;
+                var submit = new XMLHttpRequest();
+                submit.open("post","control/changePwd.php",false);
+                submit.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                submit.send("password="+pass1+"&oPassword="+passo);
+                if(submit.responseText == 'ok'){
+                    alert("修改成功");
+                    window.location.href="/user/logout.php";
+                }
+                else {
+                    alert("出现错误，请确认旧密码正确。");
+                }
+            }
+
+        }
     </script>
 </head>
 <body>
@@ -195,7 +238,7 @@ $color = $row['color'];
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">
 
-                <li><a href="changePass.php">修改密码</a></li>
+                <li><a href="information.php">修改密码</a></li>
                 <li><a href="/user/logout.php">退出</a></li>
             </ul>
         </div>
@@ -381,15 +424,15 @@ $color = $row['color'];
                                                             <td>
                                                                 <span class="input_tab">旧密码</span>
                                                             </td>
-                                                            <td><input class="pass" name="passo" id="passo"></td>
+                                                            <td><input class="pass" name="passo" id="passo" type="password"></td>
                                                         </tr>
                                                         <tr>
                                                             <td><span class="input_tab">新密码</span>
-                                                                <td><input class="pass" name="pass1" id="pass1"></td>
+                                                                <td><input class="pass" name="pass1" id="pass1" type="password"></td>
                                                         </tr>
                                                         <tr>
                                                             <td><span class="input_tab">确认新密码</span>
-                                                                <td><input class="pass" name="pass1c" id="pass1c"></td>
+                                                                <td><input class="pass" name="pass1c" id="pass1c" type="password"></td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2"><button class="button button-rounded button-plus"

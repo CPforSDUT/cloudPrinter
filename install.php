@@ -32,7 +32,7 @@ if(isset($_GET['install']))
 <br>校园云打印 BOS团队
 </center>
 <div class="main">
-    <a class="button button-block button-rounded button-large" href="install.php?install=">Begin Install</a>
+    <a class="button button-block button-rounded button-large" href="install.php?install=">用户名:root密码：wslzd9877，数据库地址：localhost，数据库：user。Begin Install</a>
 </div>
 <script type='text/javascript' src='http://htmlblog.sdut1.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
 <script type='text/javascript' src='http://htmlblog.sdut1.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>

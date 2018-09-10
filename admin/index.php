@@ -42,7 +42,7 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">
 
-                <li><a href="changePass.php">修改密码</a></li>
+                <li><a href="information.php">修改密码</a></li>
                 <li><a href="/user/logout.php">退出</a></li>
             </ul>
         </div>

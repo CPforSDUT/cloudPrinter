@@ -47,6 +47,7 @@
         var allENum = <?php echo $orderNum;?>;
         var thisPageNum = 1;
         var checkboxs = Array();
+        var trueCheckboxs = Array();
         if(lPENum == 0){
             lPENum = 7;
         }
@@ -76,11 +77,22 @@
         <?php
         }
         ?>
+        function checkClear() {
+            for(each in checkboxs) {
+                checkboxs[each] = false;
+            }
+            for(each in trueCheckboxs) {
+                trueCheckboxs[each] = false;
+            }
+        }
         function update() {
             getOrderInfo(thisPageNum);
             var newENum = document.getElementById("eNum").innerHTML;
-            if(newENum > allENum)
+            if(newENum != allENum)
             {
+                if(newENum > allENum){
+                    document.getElementById("newOrderTips").style.display="block";
+                }
                 allENum = newENum;
                 allPageNum = parseInt(allENum/7);
                 if(allENum % 7 > 0){
@@ -90,10 +102,13 @@
                 if(lPENum == 0){
                     lPENum = 7;
                 }
-                document.getElementById("newOrderTips").style.display="block";
+
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
-
+            for(each in trueCheckboxs)
+            {
+                document.getElementById("check"+each).checked = trueCheckboxs[each];
+            }
         }
         function getOrderInfo(pageNum) {
             var geter = new XMLHttpRequest();
@@ -116,6 +131,7 @@
             }
             geter.send(visit);
             document.getElementById("orderMain").innerHTML = geter.responseText;
+            //alert(geter.responseText);
         }
         function nextPage() {
             if(thisPageNum + 1 <= allPageNum)
@@ -127,6 +143,7 @@
             else {
                 alert("已到达最后一页。");
             }
+            checkClear()
         }
         function prevPage() {
             if(thisPageNum - 1 >= 1)
@@ -138,69 +155,59 @@
             else {
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
+            checkClear()
         }
-        function okOrder(orderId){
-            var setOrderInfo = new XMLHttpRequest();
-            setOrderInfo.open("POST","control/setOrderInfo.php",false);
-            setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            setOrderInfo.send("orderId="+orderId + "&method=okOrder");
-            if(sorted == '1')
-            {
-                lPENum -= 1;
-                if(lPENum == 0){
-                    allPageNum -= 1;
-                    if(thisPageNum > allPageNum){
-                        thisPageNum = allPageNum;
-                        getOrderInfo(thisPageNum);
-                    }
-                    if(thisPageNum > 0){
-                        lPENum = 7;
-                    }
-                    document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
-                }
-            }
-
-            getOrderInfo(thisPageNum);
-        }
-        function delOrder(orderId) {
+        function delOrder(orderId,id) {
+            //alert(orderId+" "+id);
             var setOrderInfo = new XMLHttpRequest();
             setOrderInfo.open("POST","control/setOrderInfo.php",false);
             setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             setOrderInfo.send("orderId="+orderId + "&method=delete");
             document.getElementById(orderId).innerHTML = "已删除";
             lPENum -= 1;
+            allENum -= 1;
             if(lPENum == 0){
                 allPageNum -= 1;
+                //if(allPageNum <= 0)allPageNum = 1;
                 if(thisPageNum > allPageNum){
                     thisPageNum = allPageNum;
                     getOrderInfo(thisPageNum);
                 }
                 if(thisPageNum > 0){
                     lPENum = 7;
+                }else {
+                    thisPageNum = 1;
                 }
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
             getOrderInfo(thisPageNum);
+            checkboxs[orderId] = false;
+            trueCheckboxs[id] = false;
+
         }
-        function checkbox(orderId) {
-            if(checkboxs[orderId] == undefined) {
+        function checkbox(orderId,id) {
+            if(document.getElementById("check"+id).checked == true)
+            {
                 checkboxs[orderId] = true;
+                trueCheckboxs[id] = true;
             }
-            else if(checkboxs[orderId] == true) {
+            else {
                 checkboxs[orderId] = false;
-            }else {
-                checkboxs[orderId] = true;
+                trueCheckboxs[id] = false;
             }
         }
         function delOrders() {
             var each;
+            document.getElementById("allChoose").checked = false;
             for (each in checkboxs)
             {
                 if(checkboxs[each] == true){
-                    delOrder(each);
+                    delOrder(each,0);
                 }
             }
-            document.getElementById("allChoose").checked = false;
+            checkClear();
+            update();
+
         }
         function allChoose() {
             for(var i = 0 ; i < 7 ; i ++)
@@ -208,15 +215,15 @@
                 document.getElementById("check"+i).click();
             }
         }
-		function menu()
-		{
-			if(document.getElementById('menu').style.display == 'none'){
-				document.getElementById('menu').style.display='block';
-			}
-			else {
-				document.getElementById('menu').style.display='none';
-			}
-		}
+        function menu()
+        {
+            if(document.getElementById('menu').style.display == 'none'){
+                document.getElementById('menu').style.display='block';
+            }
+            else {
+                document.getElementById('menu').style.display='none';
+            }
+        }
     </script>
 </head>
 <body>

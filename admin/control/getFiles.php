@@ -51,7 +51,7 @@ if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
-if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password' and type='2'")) == false){
     header("location:/index.php");
     exit();
 }

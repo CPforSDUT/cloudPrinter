@@ -41,6 +41,7 @@ $password = $_SESSION['pass'];
         var selected,selectedId;
     </script>
     <script type="text/javascript">
+        var orderId;
         function showAndHidden0() {
             var form0 = document.getElementById("form0");
             var form1 = document.getElementById("form1");
@@ -267,7 +268,7 @@ $password = $_SESSION['pass'];
                 var mapInfo = new XMLHttpRequest();
                 mapInfo.open("POST","/user/getMapInfo.php",true);
                 mapInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-                mapInfo.send("province="+escape(addComp.province)+"&orderId="+<?php echo "\"$orderId\"";?>);
+                mapInfo.send("province="+escape(addComp.province)+"&orderId="+orderId);
                 mapInfo.onreadystatechange=function() {
                     if (mapInfo.readyState == 4 && mapInfo.status == 200) {
                         var each;
@@ -572,7 +573,7 @@ $password = $_SESSION['pass'];
                     </div>
             </div>
 <script type="text/javascript">
-
+orderId = <?php echo "'$orderId';";?>
     var map = new BMap.Map("baiduMap");
     var c = getLocation();
     if(c == false){
