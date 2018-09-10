@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no"> 
+<title>测试页面</title> 
+<style type="text/css"> 
+div { 
+width: 600px; 
+text-align: center; 
+font-size: 4em; 
+color: #333; 
+} 
+</style> 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script> 
+<script type="text/javascript"> 
+$(function() { 
+var r = document.body.offsetWidth / window.screen.availWidth; 
+$(document.body).css("-webkit-transform","scale(" + r + ")"); 
+}); 
+$(window).resize(function() { 
+var r = document.body.offsetWidth / window.screen.availWidth; 
+$(document.body).css("-webkit-transform","scale(" + r + ")"); 
+}); 
+</script> 
+</head> 
+<body> 
+<div>改变窗口大小试试，你会发现什么？</div> 
+</body> 
+</html> 

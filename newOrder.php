@@ -29,7 +29,6 @@ $password = $_SESSION['pass'];
     <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
     <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="jqueryui/style.css">
     <link rel="stylesheet" type="text/css" href="/css/master.css">
 	<style>
 	.layui-laydate-footer span {
@@ -66,7 +65,7 @@ $password = $_SESSION['pass'];
                 selected =document.getElementById("selected1").innerHTML;
                 selectedId = "selected1";
                 document.getElementById("selected1").style.color = "#fff";
-                document.getElementById("selected1").style.fontSize = "22px";
+                document.getElementById("selected1").style.fontSize = "16px";
                 document.getElementById("selected1").style.background = "#3c7df1";
             }
             else {
@@ -485,24 +484,26 @@ $password = $_SESSION['pass'];
                             <table cellspacing="0">
                                 <thead>
                                 <tr>
+									 <td id="gettime1">提取时间</td>
                                     <td>店名</td>
                                     <td>省份</td>
                                     <td>城市</td>
                                     <td>区域</td>
                                     <td>营业<br>状态</td>
                                     <td id="other1">详细<br>地址</td>
-                                    <td id="gettime1">提取时间</td>
+                                   
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>    <!--这里是内容 -->
+								    <td id="gettime"><center><input type="datetime" class="layui-input" id="datepicker"></center></td>
                                     <td id="user_name"></td>
                                     <td id="province"></td>
                                     <td id="city"></td>
                                     <td id="area"></td>
                                     <td id="state"></td>
                                     <td id="other"></td>
-                                    <td id="gettime"><input type="datetime" class="layui-input" id="datepicker"></td>
+                                   
 									<!--<input type="datetime-local" id="datepicker" date_format="mm-dd" style="border-style:none">-->
                                 </tr>
                                 </tbody>
@@ -522,6 +523,11 @@ $password = $_SESSION['pass'];
 
                             </table>
                         </div>
+						
+					
+						
+						
+						
                         <img src="/image/jdt3.png" class="jdt">
                         <div class="go" id="go_three">
                         <button class="button button-highlight button-rounded button-large" onclick="showAndHidden4()">上一步</button>

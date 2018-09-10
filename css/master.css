@@ -1,6 +1,18 @@
+@media screen and (max-width: 1024px) {
+body{transform:scale(0.8);
+	-webkit-transform:scale(0.8);}
+}
 @media screen and (max-width: 600px) {
+	#
+	.m2{
+		margin-top:0px;
+	}
+	#form1{
+		height:300px;
+	}
 	#mydropzone{
 		width:300px;
+		height:250px;
 		margin-top:200px;
 		margin-left:auto;
 		margin-right:auto;
@@ -12,10 +24,6 @@
 		font-size:10px;
 		width:330px;
 	}
-	.data_left{
-		font-size:10px;
-		width:320px;
-	}	
   .header{
       max-width: 1440px;
       position: relative;
@@ -37,10 +45,11 @@
       left: 0;
       right: 0;
       bottom: 0;
+	  top:20px;
       margin: auto;
       overflow: hidden;
-      height: 250px;
-      width:400px;
+      height: 50%;
+      width:80%;
       background-image:url(../image/paper.png);
       background-position-x: center;
       background-position-y: bottom;
@@ -88,23 +97,24 @@
 	.cf{
 		width:80px !important;
 		height:200px !important;
-		margin-top:100px !important;
+		margin-top:200px !important;
 		font-size:8px !important;
 		margin-left:5px !important;
 	}
 	#data_left{
 		width:300px !important;
 		font-size:18px !important;
-		margin-top:100px !important;
+		margin-top:200px !important;
 	}
 	#data_right{
 		margin-left:300px !important;
-		margin-top:100px !important;
+		margin-top:200px !important;
 		font-size:18px !important;
 		
 	}
 	textarea{
 		width:60px !important	;
+		height:40px !important;
 	}
 }
 
@@ -294,7 +304,7 @@ daohang a:hover .caidan{
     margin-top: 50px;
     margin-bottom: 50px;
     font-size: 18px;
-    color: #7c7c7c;
+    
     text-align: left;
     display: block;
 }
@@ -417,6 +427,7 @@ daohang a:hover .caidan{
 }
 #gettime1{
     min-width: 180px;
+	background-color:#ffcab7;
 }
 /* #other{
     min-width: 100px;
@@ -463,7 +474,7 @@ daohang a:hover .caidan{
     min-width: 120px;
     max-width: 300px;
     z-index: 11;
-    font-weight: bold;
+    
 }
 #data_select select{
     margin: 0;
@@ -471,17 +482,22 @@ daohang a:hover .caidan{
 }
 #data_left{
     text-align: right;
-    font-size: 22px;
+    font-size: 20px;
     color: #28262C;
     width: 400px;
     position: absolute;
     float: left;
     padding-top: 2px;
+	font-family: "微软雅黑";
+	
 }
 #data_left nav{
     margin:0px;
     margin-bottom: 4px;
+	color: #28262C;
+    font-family: "微软雅黑";
 }
+
 
 .cf{
     position: absolute;
@@ -517,7 +533,7 @@ daohang a:hover .caidan{
 }
 .cf li:hover {
     color: #fff;
-    font-size: 22px;
+    font-size: 16px;
     background: #3c7df1;
 }
 
@@ -657,4 +673,7 @@ daohang a:hover .caidan{
     font-weight: 200;
     display: block;
     margin-top: 1.4rem;
+}
+.mapform-sj{
+	display:none;
 }
