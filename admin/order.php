@@ -36,6 +36,7 @@ $orderNum = $row['count(*)'];
     <title>后台管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://dayin.sdut1.com/js/layui.all.js"></script>
+    <link href="http://dayin.sdut1.com/css/layui.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
