@@ -92,7 +92,12 @@ $orderNum = $row['count(*)'];
             if(newENum != allENum)
             {
                 if(newENum > allENum){
-                    document.getElementById("newOrderTips").style.display="block";
+
+                    layer.open({
+                        title: '您有新的订单'
+                        ,content: '收到了新打印请求，请及时处理！'
+                    });
+
                 }
                 allENum = newENum;
                 allPageNum = parseInt(allENum/7);
@@ -336,7 +341,6 @@ $orderNum = $row['count(*)'];
                         <!--<a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>-->
                     </div>
                 </div>
-            <div id="newOrderTips" style="display: none"><p>您有新订单!</p><a onclick="document.getElementById('newOrderTips').style.display='none'">x</a></div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
                         <thead>
