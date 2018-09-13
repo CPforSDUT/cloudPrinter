@@ -78,6 +78,7 @@ $password = $_SESSION['pass'];
             var form3 = document.getElementById("form3");
             form2.style.display = "none";
             form3.style.display = "block";
+            getTag(map);
         }
         function showAndHidden3() {
             var form2 = document.getElementById("form2");
@@ -263,6 +264,7 @@ $password = $_SESSION['pass'];
             var center = map.getCenter();
             var myGeo = new BMap.Geocoder();
             var myIcon = new BMap.Icon('image/icon.png',new BMap.Size(32,32));
+            map.clearOverlays();
             myGeo.getLocation(new BMap.Point(center.lng ,center.lat ), function(result){
                 var addComp = result.addressComponents;
                 var mapInfo = new XMLHttpRequest();
@@ -272,7 +274,7 @@ $password = $_SESSION['pass'];
                 mapInfo.onreadystatechange=function() {
                     if (mapInfo.readyState == 4 && mapInfo.status == 200) {
                         var each;
-                        map.clearOverlays();
+
                         eval(mapInfo.responseText);
                         for (each in where)
                         {
