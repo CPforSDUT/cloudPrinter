@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/newOrder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,8 +62,8 @@
       <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/newOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="598" column="7" selection-start-line="598" selection-start-column="7" selection-end-line="598" selection-end-column="7" />
+            <state relative-caret-position="-3427">
+              <caret line="88" column="23" lean-forward="true" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -114,8 +115,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>paperWay</find>
-      <find>dropzone</find>
       <find>fuck</find>
       <find>nok</find>
       <find>failure</find>
@@ -144,6 +143,8 @@
       <find>escape</find>
       <find>修改密码</find>
       <find>修改</find>
+      <find>baidu</find>
+      <find>id</find>
     </findStrings>
     <replaceStrings>
       <replace>POST</replace>
@@ -248,7 +249,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="y" value="133" />
     <option name="width" value="1378" />
@@ -326,12 +327,12 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\phpStudy\PHPTutorial\WWW\admin\js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dell\Documents\GitHub\cloudPrinter\admin\control" />
       <recent name="C:\Users\dell\Documents\GitHub\cloudPrinter\fileControl" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\phpStudy\PHPTutorial\WWW\admin\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -403,7 +404,7 @@
       <workItem from="1536553994534" duration="11808000" />
       <workItem from="1536588807412" duration="12523000" />
       <workItem from="1536725733630" duration="1104000" />
-      <workItem from="1536809413732" duration="728000" />
+      <workItem from="1536809413732" duration="2024000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -416,10 +417,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422200000" />
+    <option name="totallyTimeSpent" value="423496000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20058565" />
@@ -804,8 +805,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/newOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="598" column="7" selection-start-line="598" selection-start-column="7" selection-end-line="598" selection-end-column="7" />
+        <state relative-caret-position="-3427">
+          <caret line="88" column="23" lean-forward="true" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
         </state>
       </provider>
     </entry>

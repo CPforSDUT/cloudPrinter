@@ -42,6 +42,7 @@ $password = $_SESSION['pass'];
     </script>
     <script type="text/javascript">
         var orderId;
+        var thisProvince = '';
         function showAndHidden0() {
             var form0 = document.getElementById("form0");
             var form1 = document.getElementById("form1");
@@ -78,6 +79,14 @@ $password = $_SESSION['pass'];
             var form3 = document.getElementById("form3");
             form2.style.display = "none";
             form3.style.display = "block";
+            document.getElementById('user_name').innerHTML = '';
+            document.getElementById('province').innerHTML = '';
+            document.getElementById('city').innerHTML = '';
+            document.getElementById('area').innerHTML = '';
+            document.getElementById('other').innerHTML = '';
+            document.getElementById("map_search").value = '';
+            document.getElementById("state").innerText = '';
+            thisProvince = '';
             getTag(map);
         }
         function showAndHidden3() {
@@ -264,26 +273,29 @@ $password = $_SESSION['pass'];
             var center = map.getCenter();
             var myGeo = new BMap.Geocoder();
             var myIcon = new BMap.Icon('image/icon.png',new BMap.Size(32,32));
-            map.clearOverlays();
             myGeo.getLocation(new BMap.Point(center.lng ,center.lat ), function(result){
                 var addComp = result.addressComponents;
                 var mapInfo = new XMLHttpRequest();
-                mapInfo.open("POST","/user/getMapInfo.php",true);
-                mapInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-                mapInfo.send("province="+escape(addComp.province)+"&orderId="+orderId);
-                mapInfo.onreadystatechange=function() {
-                    if (mapInfo.readyState == 4 && mapInfo.status == 200) {
-                        var each;
+                if(thisProvince != addComp.province)
+                {
+                    thisProvince = addComp.province;
+                    map.clearOverlays();
+                    mapInfo.open("POST", "/user/getMapInfo.php", true);
+                    mapInfo.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    mapInfo.send("province=" + escape(addComp.province) + "&orderId=" + orderId);
+                    mapInfo.onreadystatechange = function () {
+                        if (mapInfo.readyState == 4 && mapInfo.status == 200) {
+                            var each;
 
-                        eval(mapInfo.responseText);
-                        for (each in where)
-                        {
-                            pt = new BMap.Point(where[each]['lo'],where[each]['la']);
-                            mark=new BMap.Marker(pt,{icon:myIcon});
-                            mark.setAnimation(BMAP_ANIMATION_BOUNCE);
+                            eval(mapInfo.responseText);
+                            for (each in where) {
+                                pt = new BMap.Point(where[each]['lo'], where[each]['la']);
+                                mark = new BMap.Marker(pt, {icon: myIcon});
+                                mark.setAnimation(BMAP_ANIMATION_BOUNCE);
 
-                            map.addOverlay(mark);
-                            createTag(mark,where[each]);
+                                map.addOverlay(mark);
+                                createTag(mark, where[each]);
+                            }
                         }
                     }
                 }
