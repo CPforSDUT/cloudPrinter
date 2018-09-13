@@ -597,7 +597,6 @@ orderId = <?php echo "'$orderId';";?>
     map.addEventListener("dragend", function(result){
         getTag(map);
     });
-    getTag(map);
 </script>
 </body>
 
