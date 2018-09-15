@@ -88,6 +88,7 @@ $username = mysql_escape_string($_SESSION['user']);
                     <th>颜色</th>
                     <th>打印数量</th>
                     <th>纸张大小</th>
+                    <th>文档页数</th>
                     <th>纸张方向</th>
                     <th>备注</th>
                 </tr>
