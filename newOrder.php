@@ -61,14 +61,15 @@ $password = $_SESSION['pass'];
             files.send("orderId="+orderId);
             if(files.responseText != '')
             {
-                form1.style.display = "none";
-                form2.style.display = "block";
                 document.getElementById("choosefile").innerHTML = files.responseText;
                 selected =document.getElementById("selected1").innerHTML;
                 selectedId = "selected1";
                 document.getElementById("selected1").style.color = "#fff";
                 document.getElementById("selected1").style.fontSize = "16px";
                 document.getElementById("selected1").style.background = "#3c7df1";
+                getFileInfo(orderId,selected,1);
+                form1.style.display = "none";
+                form2.style.display = "block";
             }
             else {
                 alert("你没有上传文件");
@@ -150,7 +151,9 @@ $password = $_SESSION['pass'];
                     var color = document.getElementById("color");
                     var otherInfo = document.getElementById("other_info");
                     var paper_way = document.getElementById("orientation");
+                    var papers = document.getElementById("papers");
 
+                    papers.innerHTML = document.getElementById("Papers").innerHTML;
                     paperNum.value = document.getElementById("paperNum").innerText;
                     otherInfo.value = unescape(document.getElementById("otherInfo").innerText);
                     paperSizes = Array("A0","A1","A2","A3","A4","A5","A6","A7","A8","A9","A10","B0","B1","B2","B3","B4","B5","B6","B7","B8","B9","B10");
@@ -420,8 +423,9 @@ $password = $_SESSION['pass'];
                             <div id="data_left">
                                 <nav>纸张大小：</nav>
                                 <nav>是否彩印：</nav>
-                                <nav>打印页数：</nav>
+                                <nav>打印数量：</nav>
                                 <nav>纸张方向：</nav>
+                                <nav>文档页数：</nav>
                                 <nav>备注：</nav>
                             </div>
                             <div id="data_right">
@@ -462,6 +466,7 @@ $password = $_SESSION['pass'];
                                     <option value="2">横板</option>
                                 </select>
                                 <br>
+                                <p id="papers">Loading...</p>
                                 <textarea rows="6" cols="20" id="other_info"></textarea>
                             </div>
                             <script type="text/javascript">

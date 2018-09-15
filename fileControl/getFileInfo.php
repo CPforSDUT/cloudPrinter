@@ -26,8 +26,13 @@ $color = $row['color'];
 $paperType  = $row['paperType'];
 $otherInfo = $row['otherInfo'];
 $paperWay = $row['paperWay'];
+$Papers = $row['paperNum'];
+if($Papers < 0){
+    $Papers = "未知";
+}
 for ($i = 0 ; $paperType!=$paperSizes2[$i] ;$i ++ );
 $paperType = $paperSizes[$i];
+echo "<p id=\"Papers\">$Papers</p>";
 echo "<p id=\"paperNum\">$num</p>";
 echo "<p id=\"paperSize\">$paperType</p>";
 echo "<p id=\"Color\">$color</p>";
