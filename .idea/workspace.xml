@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/getFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/getFiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/document.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/document.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/master.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileControl/getFileInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/fileControl/getFileInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileControl/uploadFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/fileControl/uploadFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/newOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/super-admin/control/getFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/super-admin/control/getFiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/super-admin/document.php" beforeDir="false" afterPath="$PROJECT_DIR$/super-admin/document.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/getFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/getFiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/user-document.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/user-document.php" afterDir="false" />
-    </list>
+    <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newOrder.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="107">
-              <caret line="306" column="13" lean-forward="true" selection-start-line="306" selection-start-column="13" selection-end-line="306" selection-end-column="13" />
+              <caret line="306" column="13" selection-start-line="306" selection-start-column="13" selection-end-line="306" selection-end-column="13" />
               <folding>
                 <element signature="e#14967#14988#0#HTML" expanded="true" />
               </folding>
@@ -47,15 +34,15 @@
         <entry file="file://$PROJECT_DIR$/fileControl/getFileInfo.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="46">
-              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uploadFile.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="uploadFile.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fileControl/uploadFile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1528">
+            <state relative-caret-position="1870">
               <caret line="179" column="54" selection-start-line="179" selection-start-column="54" selection-end-line="179" selection-end-column="54" />
               <folding>
                 <element signature="e#5350#5428#0#PHP" />
@@ -68,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/super-admin/document.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="184" column="43" lean-forward="true" selection-start-line="184" selection-start-column="43" selection-end-line="184" selection-end-column="43" />
+              <caret line="184" column="43" selection-start-line="184" selection-start-column="43" selection-end-line="184" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -95,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/admin/control/getFiles.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
-              <caret line="79" column="25" lean-forward="true" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
+              <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -104,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/css/master.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="164">
-              <caret line="505" column="17" lean-forward="true" selection-start-line="505" selection-start-column="17" selection-end-line="505" selection-end-column="17" />
+              <caret line="505" column="17" selection-start-line="505" selection-start-column="17" selection-end-line="505" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -433,7 +420,7 @@
       <workItem from="1536725733630" duration="1104000" />
       <workItem from="1536809413732" duration="19287000" />
       <workItem from="1536934666304" duration="1915000" />
-      <workItem from="1536977062841" duration="7587000" />
+      <workItem from="1536977062841" duration="8193000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -446,7 +433,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="450261000" />
+    <option name="totallyTimeSpent" value="450867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
@@ -786,7 +773,7 @@
     <entry file="file://$PROJECT_DIR$/super-admin/document.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="184" column="43" lean-forward="true" selection-start-line="184" selection-start-column="43" selection-end-line="184" selection-end-column="43" />
+          <caret line="184" column="43" selection-start-line="184" selection-start-column="43" selection-end-line="184" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -814,14 +801,14 @@
     <entry file="file://$PROJECT_DIR$/css/master.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
-          <caret line="505" column="17" lean-forward="true" selection-start-line="505" selection-start-column="17" selection-end-line="505" selection-end-column="17" />
+          <caret line="505" column="17" selection-start-line="505" selection-start-column="17" selection-end-line="505" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/control/getFiles.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
-          <caret line="79" column="25" lean-forward="true" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
+          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -833,26 +820,26 @@
     <entry file="file://$PROJECT_DIR$/fileControl/getFileInfo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fileControl/uploadFile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1528">
-          <caret line="179" column="54" selection-start-line="179" selection-start-column="54" selection-end-line="179" selection-end-column="54" />
-          <folding>
-            <element signature="e#5350#5428#0#PHP" />
-          </folding>
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/newOrder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
-          <caret line="306" column="13" lean-forward="true" selection-start-line="306" selection-start-column="13" selection-end-line="306" selection-end-column="13" />
+          <caret line="306" column="13" selection-start-line="306" selection-start-column="13" selection-end-line="306" selection-end-column="13" />
           <folding>
             <element signature="e#14967#14988#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileControl/uploadFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="179" column="54" selection-start-line="179" selection-start-column="54" selection-end-line="179" selection-end-column="54" />
+          <folding>
+            <element signature="e#5350#5428#0#PHP" />
           </folding>
         </state>
       </provider>
