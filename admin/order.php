@@ -1,41 +1,45 @@
-<!doctype html>
+﻿<!doctype html>
 <?php
-    session_start();
-    if(isset($_SESSION['user']) == false){
-        header("location:/user/loginView.php");
-    }
-    $username = $_SESSION['user'];
-    $con = mysql_connect("localhost", "root", "wslzd9877");
-    if (!$con) {
-        die('Could not connect: ' . mysql_error());
-    }
-    mysql_select_db("user", $con);
-    $visit = "select count(*) from orderinfo where deleted != 'bn' and business = '$username'";
-    if(isset($_GET['sorted']))
+session_start();
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
+    header("location:/index.php");
+}
+$username = mysql_escape_string($_SESSION['user']);
+$con = mysql_connect("localhost", "root", "wslzd9877");
+if (!$con) {
+    die('Could not connect: ' . mysql_error());
+}
+mysql_select_db("user", $con);
+$visit = "select count(*) from orderinfo where deleted != 'bn' and business = '$username'";
+if(isset($_GET['sorted']))
+{
+    switch (mysql_escape_string($_GET['sorted']))
     {
-        switch ($_GET['sorted'])
-        {
-            case '1':
-                $visit = $visit."and orderState != '2'";
-                break;
-        }
+        case '1':
+            $visit = $visit."and orderState != '2'";
+            break;
     }
-    if(isset($_GET['search']) && $_GET['search'] != ''){
-        $ser = $_GET['search'];
-        $visit = $visit." and consumer="."'$ser'";
-    }
-    $result = mysql_query($visit);
-    //echo $visit;
-    $row = mysql_fetch_array($result);
-
-    $orderNum = $row['count(*)'];
-    //echo "<script>alert(\"$orderNum\");</script>";
+}
+if(isset($_GET['search']) && $_GET['search'] != ''){
+    $ser = mysql_escape_string($_GET['search']);
+    $visit = $visit." and consumer="."'$ser'";
+}
+$result = mysql_query($visit);
+//echo $visit;
+$row = mysql_fetch_array($result);
+$orderNum = $row['count(*)'];
+//echo "<script>alert(\"$orderNum\");</script>";
 ?>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://dayin.sdut1.com/js/layui.all.js"></script>
+    <link href="http://dayin.sdut1.com/css/layui.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
     <script type="text/javascript">
@@ -44,26 +48,27 @@
         var allENum = <?php echo $orderNum;?>;
         var thisPageNum = 1;
         var checkboxs = Array();
+        var trueCheckboxs = Array();
         if(lPENum == 0){
             lPENum = 7;
         }
         <?php
-            if(isset($_GET['sorted']))
-            {
-                $sorted = $_GET['sorted'];
+        if(isset($_GET['sorted']))
+        {
+        $sorted = mysql_escape_string($_GET['sorted']);
         ?>
         var sorted = <?php echo "'$sorted';";?>
         <?php
-            }else {
+        }else {
         ?>
-            var sorted = false;
+        var sorted = false;
         <?php
-            }
+        }
         ?>
         <?php
         if(isset($_GET['search']))
         {
-        $search = $_GET['search'];;
+        $search = mysql_escape_string($_GET['search']);
         ?>
         var search = <?php echo "'$search';";?>
         <?php
@@ -73,11 +78,27 @@
         <?php
         }
         ?>
+        function checkClear() {
+            for(each in checkboxs) {
+                checkboxs[each] = false;
+            }
+            for(each in trueCheckboxs) {
+                trueCheckboxs[each] = false;
+            }
+        }
         function update() {
             getOrderInfo(thisPageNum);
             var newENum = document.getElementById("eNum").innerHTML;
-            if(newENum > allENum)
+            if(newENum != allENum)
             {
+                if(newENum > allENum){
+
+                    layer.open({
+                        title: '您有新的订单'
+                        ,content: '收到了新打印请求，请及时处理！'
+                    });
+
+                }
                 allENum = newENum;
                 allPageNum = parseInt(allENum/7);
                 if(allENum % 7 > 0){
@@ -87,10 +108,13 @@
                 if(lPENum == 0){
                     lPENum = 7;
                 }
-                document.getElementById("newOrderTips").style.display="block";
+
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
-
+            for(each in trueCheckboxs)
+            {
+                document.getElementById("check"+each).checked = trueCheckboxs[each];
+            }
         }
         function getOrderInfo(pageNum) {
             var geter = new XMLHttpRequest();
@@ -113,6 +137,7 @@
             }
             geter.send(visit);
             document.getElementById("orderMain").innerHTML = geter.responseText;
+            //alert(geter.responseText);
         }
         function nextPage() {
             if(thisPageNum + 1 <= allPageNum)
@@ -124,6 +149,7 @@
             else {
                 alert("已到达最后一页。");
             }
+            checkClear()
         }
         function prevPage() {
             if(thisPageNum - 1 >= 1)
@@ -135,8 +161,9 @@
             else {
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
+            checkClear()
         }
-        function okOrder(orderId){
+        function okOrder(orderId,id){
             var setOrderInfo = new XMLHttpRequest();
             setOrderInfo.open("POST","control/setOrderInfo.php",false);
             setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -152,56 +179,81 @@
                     }
                     if(thisPageNum > 0){
                         lPENum = 7;
+                    }else {
+                        thisPageNum = 1;
                     }
                     document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
+                    checkboxs[orderId] = false;
+                    trueCheckboxs[id] = false;
                 }
             }
             getOrderInfo(thisPageNum);
         }
-        function delOrder(orderId) {
+        function delOrder(orderId,id) {
+            //alert(orderId+" "+id);
             var setOrderInfo = new XMLHttpRequest();
             setOrderInfo.open("POST","control/setOrderInfo.php",false);
             setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             setOrderInfo.send("orderId="+orderId + "&method=delete");
             document.getElementById(orderId).innerHTML = "已删除";
             lPENum -= 1;
+            allENum -= 1;
             if(lPENum == 0){
                 allPageNum -= 1;
+                //if(allPageNum <= 0)allPageNum = 1;
                 if(thisPageNum > allPageNum){
                     thisPageNum = allPageNum;
                     getOrderInfo(thisPageNum);
                 }
                 if(thisPageNum > 0){
                     lPENum = 7;
+                }else {
+                    thisPageNum = 1;
                 }
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
             getOrderInfo(thisPageNum);
+            checkboxs[orderId] = false;
+            trueCheckboxs[id] = false;
+
         }
-        function checkbox(orderId) {
-            if(checkboxs[orderId] == undefined) {
+        function checkbox(orderId,id) {
+            if(document.getElementById("check"+id).checked == true)
+            {
                 checkboxs[orderId] = true;
+                trueCheckboxs[id] = true;
             }
-            else if(checkboxs[orderId] == true) {
+            else {
                 checkboxs[orderId] = false;
-            }else {
-                checkboxs[orderId] = true;
+                trueCheckboxs[id] = false;
             }
         }
         function delOrders() {
             var each;
+            document.getElementById("allChoose").checked = false;
             for (each in checkboxs)
             {
                 if(checkboxs[each] == true){
-                    delOrder(each);
+                    delOrder(each,0);
                 }
             }
-            document.getElementById("allChoose").checked = false;
+            checkClear();
+            update();
+
         }
         function allChoose() {
             for(var i = 0 ; i < 7 ; i ++)
             {
                 document.getElementById("check"+i).click();
+            }
+        }
+        function menu()
+        {
+            if(document.getElementById('menu').style.display == 'none'){
+                document.getElementById('menu').style.display='block';
+            }
+            else {
+                document.getElementById('menu').style.display='none';
             }
         }
     </script>
@@ -219,14 +271,17 @@
           <div class="top-info-wrap">
               <ul class="top-info-list clearfix">
 
-                  <li><a href="#">修改密码</a></li>
+                  <li><a href="information.php">修改密码</a></li>
                   <li><a href="/user/logout.php">退出</a></li>
               </ul>
           </div>
+
+		  <span onclick="menu()"><i class="fa fa-bars"></i></span>
+
       </div>
   </div>
   <div class="container clearfix">
-      <div class="sidebar-wrap">
+      <div class="sidebar-wrap" id="menu">
           <div class="sidebar-title">
               <h1>后台管理</h1>
           </div>
@@ -237,7 +292,6 @@
                       <ul class="sub-menu">
                         <li><a href="order.php"><i class="icon-font">&#xe005;</i>所有订单</a></li>
                         <li><a href="sore.php"><i class="icon-font">&#xe004;</i>输入提取码</a></li>
-
                         <li><a href="people.php"><i class="icon-font">&#xe001;</i>用户管理</a></li>
                       </ul>
                   </li>
@@ -245,9 +299,9 @@
                       <a href="#"><i class="icon-font">&#xe018;</i>商家信息设置</a>
                       <ul class="sub-menu">
                         <li><a href="information.php"><i class="icon-font">&#xe000;</i>营业状态</a></li>
-                        <li><a href="information.php"><i class="icon-font">&#xe018;</i>打印机参数</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe018;</i>打印参数</a></li>
                         <li><a href="information.php"><i class="icon-font">&#xe021;</i>地理位置</a></li>
-                        <li><a href="information.php"><i class="icon-font">&#xe014;</i>头像和其他</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe014;</i>修改密码</a></li>
                       </ul>
                   </li>
               </ul>
@@ -264,7 +318,7 @@
                 <form action="order.php" method="GET">
                     <table class="search-tab">
                         <tr>
-                            <th width="120">选择分类:</th>
+                            <th width="90">选择分类:</th>
                             <td>
                                 <select id="sorted" name="sorted">
                                     <option value="0">全部</option>
@@ -287,15 +341,14 @@
                         <!--<a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>-->
                     </div>
                 </div>
-            <div id="newOrderTips" style="display: none"><p>您有新订单!</p><a onclick="document.getElementById('newOrderTips').style.display='none'">x</a></div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
                         <thead>
                             <tr>
                                 <th class="tc" width="5%"><input onclick="allChoose()" id="allChoose" type="checkbox"></th>
                                 <th>订单状态</th>
-                                <th>联系方式</th>
                                 <th>发布人</th>
+								<th>提取码</th>
                                 <th>完成时间</th>
                                 <th>操作</th>
                             </tr>

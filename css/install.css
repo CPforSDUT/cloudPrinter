@@ -1,0 +1,15 @@
+.bgrd{
+	background-color:#f1f1f1;
+	
+}
+.main{
+	width:70%;
+	height:60%;
+	background-color:#fff;
+	margin-left:auto;
+	margin-right:auto;
+	box-shadow:5px 5px 50px #444;
+}
+form{
+	margin-top:10px;
+}

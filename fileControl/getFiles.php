@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['user']) == false){
-    header("location:/user/loginView.php");
+    header("location:/index.php");
 }
 function unescape($str) {
     $ret = '';
@@ -24,7 +24,7 @@ function unescape($str) {
     }
     return $ret;
 }
-$orderId = $_POST['orderId'];
+$orderId = mysql_escape_string($_POST['orderId']);
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {
     die('Could not connect: ' . mysql_error());

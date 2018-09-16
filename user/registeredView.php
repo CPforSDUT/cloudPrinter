@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../css/master.css">
     <link rel="stylesheet" type="text/css" href="../css/registered.css">
     <link rel="stylesheet" href="../css/buttons.css">
+	<link rel="stylesheet" href="../css/layui.css">
+	<script src="../js/layui.all.js"></script>
     <title>Regist</title>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=04uLKfHLu2zT9eKoaSk2WsXC0ekF3aF3" charset="UTF-8"></script>
     <script type="text/javascript">
@@ -27,7 +29,7 @@
             if(reg.test(code)) {
                 return true;
             } else {
-                alert("用户名错误,必须为6-12位字母或数字或下划线");
+                layer.msg("用户名错误,必须为6-12位字母或数字或下划线");
                 return false;
             }
         }
@@ -45,7 +47,7 @@
             if(reg2.test(code2)) {
                 return true;
             } else {
-                alert("密码错误,必须为6-16位字母或数字或下划线");
+				layer.msg("密码错误,必须为6-16位字母或数字或下划线");
                 return false;
             }
 
@@ -59,7 +61,7 @@
            }
            if(phone.length != 11)
            {
-               alert("请不要中二， 输入正确的手机号。")
+				layer.msg("请不要中二， 输入正确的手机号。")
                return false;
            }
             return true;
@@ -69,7 +71,7 @@
            {
                var other = document.getElementById("other") , province = document.getElementById("province");
                if(other.value == '' || province.value == ''){
-                   alert("请输入详细地址和选择你的坐标。");
+                   layer.msg("请输入详细地址和选择你的坐标。");
                    return false;
                }
            }
@@ -81,18 +83,20 @@
 
 <body>
     <div class="container">
+        <div class="hd">
         <div class="header">
             <div class="daohang">
-                <img src="../image/logo1.png" alt="logo" id="logo">
+                <a href="/index.php"><img src="../image/logo1.png" alt="logo" id="logo"></a>
                 <span>
-                    <a href="/user/loginView.php">登陆</a>&nbsp;|&nbsp;
-                    <a href="/user/registeredView.php">注册</a>
+                    <a href="/index.php?login=">登录</a> | <a href="/user/registeredView.php">注册</a>
                 </span>
             </div>
         </div>
+        </div>
+        
         <div class="regist">
             <div id="accordion">
-                <div class="card">
+                <div class="card" id="card1">
                     <div class="card-header" id="headingOne">
                         <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             注册云打印用户
@@ -101,7 +105,7 @@
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <form action="/user/registered.php" method="post" onsubmit="return check(1)">
-                                <div class="form">
+                                <div class="form" id="fo1">
                                     <nav class="biaoti">用户注册</nav>
                                     <HR align="center" width="100%" color="#3E5C76" SIZE="3">
                                     <div class="form_left">
@@ -110,14 +114,14 @@
                                         <nav>手机：</nav>
                                     </div>
                                     <div class="form_right">
-                                        <input type="text" name="username" id="usernamE">
+                                        <input type="text" id="usernamE" name="username">
                                         <br>
-                                        <input type="password" name="password" id="password">
-                                        <input type="text" name="phone" id="phone1">
+                                        <input type="password"  name="password" id="password" >
+										<input type="text"  name="phone" id="phone1" >
                                         <input type="hidden" name="type" value="1" >
                                     </div>
                                 </div>
-                                <div class="submit">
+                                <div class="submit" id="sb1">
                                     <button type="submit" class="button button-glow button-rounded button-raised button-primary" ">完成</button>
                                 </div>
                             </form>
@@ -125,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" id="card2">
                     <div class="card-header" id="headingTwo">
                         <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             成为云打印商家
@@ -134,9 +138,10 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body">
                             <form action="/user/registered.php" method="post" onsubmit="return check(2)">
-                                <div class="form">
+                                <div class="form" id="fo2">
                                     <nav class="biaoti" id="btTwo">商家注册</nav>
                                     <HR align="center" width="100%" color="#3E5C76" SIZE="3">
+                                    <div class="fa">
                                     <div class="form_left">
                                         <nav>店铺名称：</nav>
                                         <nav>密码：</nav>
@@ -152,17 +157,19 @@
                                         <br/>
                                         <input type="text" name="phone" id="phone2">
                                     </div>
-                                    <div id="map"></div>
+                                    </div>
+                                    <div class="fb">
+                                    <div id="map"><p style="position: absolute;top: 50%,right:50%">请设置使浏览器允许使用百度地图插件。</p></div>
                                     <div id="position">
                                         <input type="hidden" name="type" value="2" />
                                         <table cellspacing="0" id="mapinfo">
                                             <thead>
                                                 <tr id="tone">
-                                                    <td>省份</td>
-                                                    <td>城市</td>
-                                                    <td>区域</td>
-                                                    <td>经</td>
-                                                    <td>纬</td>
+                                                    <td id="shengfen">省份</td>
+                                                    <td id="chengshi">城市</td>
+                                                    <td id="quyu">区域</td>
+                                                    <td id="jingdu">经</td>
+                                                    <td id="weidu">纬</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -176,6 +183,8 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    </div>
+                                    
                                 </div>
 
                                 <script type="text/javascript">
@@ -183,6 +192,7 @@
                                     var point = new BMap.Point(116.404, 39.915);
                                     var x,y;
                                     map.centerAndZoom(point, 10);
+
                                     map.addControl(new BMap.GeolocationControl());
                                     map.addControl(new BMap.NavigationControl());
                                     var geolocation = new BMap.Geolocation();
@@ -194,14 +204,13 @@
                                             map.panTo(r.point);
                                         }
                                         else {
-                                            alert('无法获取位置信息 错误码:'+this.getStatus());
+                                            layer.msg('无法获取位置信息 错误码:'+this.getStatus());
                                         }
                                     });
                                     map.addEventListener("click", function(e){   //点击事件
 
                                         var myGeo = new BMap.Geocoder();
-                                        center = map.getCenter();
-                                        myGeo.getLocation(new BMap.Point(center.lng ,center.lat ), function(result){
+                                        myGeo.getLocation(new BMap.Point(e.point.lng,e.point.lat ), function(result){
                                             if (result){
                                                 var addComp = result.addressComponents;
                                                 var pt = null;
@@ -219,18 +228,17 @@
                                             }
                                         });
                                     })
-
                                 </script>
                                 <div class="submit">
-                                <button type="submit" class="button button-glow button-rounded button-raised button-primary">完成</button>
-                                </div>
+                                    <button type="submit" class="button button-glow button-rounded button-raised button-primary">完成</button>
+                                    </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer">
+        <!-- <div class="footer">
             <br>
             <br>
             <br>
@@ -241,7 +249,7 @@
                 <a href="#">联系我们</a>|
                 <a href="#">联系我们</a>
             </p>
-        </div>
+        </div> -->
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

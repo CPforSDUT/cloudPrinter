@@ -32,9 +32,9 @@ if (isset($_SESSION["user"]) == false)
     echo "<script type='text/javascript'>alert(\"请重新登陆。\");</script>";
     echo "<script>window.location.href='/index.php';</script> ";
 }
-$before = $_POST['filename'];
-$filename = unescape($before );
-$orderId = $_POST['orderId'];
+
+$filename =  mysql_escape_string($_POST['filename']);
+$orderId = mysql_escape_string($_POST['orderId']);
 $con = mysql_connect("localhost","root","wslzd9877");
 if (!$con)
 {
@@ -44,8 +44,6 @@ mysql_select_db("user", $con);
 $result = mysql_query("select * from fileinfo where orderId = '$orderId' and filename = '$filename'");
 $row = mysql_fetch_array($result);
 $hashPath = $row['filePath'];
-
-$filename = $before ;
 mysql_query("delete from fileinfo where orderId = '$orderId' and filename = '$filename'");
 $result = mysql_query("select * from fileinfo where filePath = '$hashPath'");
 $row = mysql_fetch_array($result);

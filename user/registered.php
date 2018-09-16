@@ -30,16 +30,16 @@ if(isset($_POST["username"])) {
         die('Could not connect: ' . mysql_error());
     }
     mysql_select_db("user", $con);
-    $user = $_POST["username"];
-    $pass = $_POST["password"];
-    $type = $_POST["type"];
-    $phone = $_POST["phone"];
+    $user = mysql_escape_string($_POST["username"]);
+    $pass = mysql_escape_string($_POST["password"]);
+    $type = mysql_escape_string($_POST["type"]);
+    $phone = mysql_escape_string($_POST["phone"]);
     if($type == '2'){
         $province = escape($_POST["province"]);
         $area = escape($_POST["area"]);
         $city = escape($_POST["city"]);
-        $lo = $_POST["lo"];
-        $la = $_POST["la"];
+        $lo = mysql_escape_string($_POST["lo"]);
+        $la = mysql_escape_string($_POST["la"]);
         $other = escape($_POST["other"]);
     }
     else {
@@ -52,11 +52,13 @@ if(isset($_POST["username"])) {
     }
     $result = mysql_query("SELECT * FROM user WHERE username= \"$user\"");
     $row = mysql_fetch_array($result);
+
     if($row == null)
     {
+
         mysql_query("INSERT INTO user (username, password,type,la,lo,province,city,area,other,state,phone) VALUES (\"$user\", \"$pass\",\"$type\",\"$la\",\"$lo\",\"$province\",\"$city\",\"$area\",\"$other\",\"1\",\"$phone\")");
         mysql_close($con);
-        header("location:/user/loginView.php");
+        header("location:/index.php?login=");
     }
     else
     {

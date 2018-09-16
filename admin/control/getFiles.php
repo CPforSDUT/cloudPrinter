@@ -38,25 +38,30 @@ function getFileType($fileType)
     return $paperSizes[$i];
 }
 session_start();
-if(isset($_SESSION['user']) == false){
-    header("location:/user/loginView.php");
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
+    header("location:/index.php");
 }
-$username = $_SESSION['user'];
+$username = mysql_escape_string($_SESSION['user']);
+$password = mysql_escape_string($_SESSION['pass']);
 $pageNum = $_POST['pageNum'] - 1;
-$orderId = $_POST['orderId'];
+$orderId = mysql_escape_string($_POST['orderId']);
 
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
-
-$visit = "select * from fileinfo where orderId= '$orderId'";
-$result = mysql_query($visit);
-for ($i = 0 ; $i < 7 * $pageNum   ;  $i ++) {
-    $row = mysql_fetch_array($result);
-
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password' and type='2'")) == false){
+    header("location:/index.php");
+    exit();
 }
+if(mysql_fetch_array(mysql_query("select * from orderinfo where orderId='$orderId' and business='$username'")) == false){
+    exit();
+}
+$pageNum *= 7;
+
+$visit = "select * from fileinfo where orderId= '$orderId' limit $pageNum,7";
+$result = mysql_query($visit);
 
 for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; $i ++)
 {
@@ -67,10 +72,23 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; $i ++)
     $paperType = getFileType($row['paperType']);
     $filename = unescape($row['filename']);
     $otherInfo = unescape($row['otherInfo']);
+    $paperWay = $row['paperWay'];
+    $Papers = $row['paperNum'];
+    if($Papers < 0){
+        $Papers = '未知';
+    }
+    if($paperWay == '1'){
+        $paperWay = '竖向';
+    }
+    else {
+        $paperWay = '横向';
+    }
     echo "<tr>";
     echo "<td>$filename</td>";
     echo "<td>$color</td>";
     echo "<td>$num</td>";
+    echo "<td>$paperWay</td>";
+    echo "<td>$Papers</td>";
     echo "<td>$paperType</td>";
     echo "<td>$otherInfo</td>";
     echo "<td><a class=\"link-download\" href=\"control/download.php?orderId=$orderId&filePath=$filePath&filename=$filename\">下载</a></td>";

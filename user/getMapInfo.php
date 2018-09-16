@@ -21,10 +21,10 @@ function unescape($str) {
     return $ret;
 }
 session_start();
-$province = $_POST['province'];
-$orderId = $_POST['orderId'];
+$province = mysql_escape_string($_POST['province']);
+$orderId = mysql_escape_string($_POST['orderId']);
 if(isset($_SESSION['user']) == false){
-    header("location:/user/loginView.php");
+    header("location:/index.php");
 }
 $con = mysql_connect("localhost","root","wslzd9877");
 if (!$con)

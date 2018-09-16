@@ -1,5 +1,99 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
+class PDFConverter
+{
+    private $com;
+
+    /**
+     * need to install openoffice and run in the background
+     * soffice -headless-accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard
+     */
+    public function __construct()
+    {
+        try {
+            $this->com = new COM('com.sun.star.ServiceManager');
+        } catch (Exception $e) {
+            die('Please be sure that OpenOffice.org is installed.');
+        }
+    }
+
+    /**
+     * Execute PDF file(absolute path) conversion
+     * @param $source [source file]
+     * @param $export [export file]
+     */
+    public function execute($source, $export)
+    {
+        $source = 'file:///' . str_replace('\\', '/', $source);
+        $export = 'file:///' . str_replace('\\', '/', $export);
+        $this->convertProcess($source, $export);
+    }
+
+    /**
+     * Get the PDF pages
+     * @param $pdf_path [absolute path]
+     * @return int
+     */
+    public function getPages($pdf_path)
+    {
+        if (!file_exists($pdf_path)) return 0;
+        if (!is_readable($pdf_path)) return 0;
+        if ($fp = fopen($pdf_path, 'r')) {
+            $page = 0;
+            while (!feof($fp)) {
+                $line = fgets($fp, 255);
+                if (preg_match('/\/Count [0-9]+/', $line, $matches)) {
+                    preg_match('/[0-9]+/', $matches[0], $matches2);
+                    $page = ($page < $matches2[0]) ? $matches2[0] : $page;
+                }
+            }
+            fclose($fp);
+            return $page;
+        }
+        return 0;
+    }
+
+    private function setProperty($name, $value)
+    {
+        $struct = $this->com->Bridge_GetStruct('com.sun.star.beans.PropertyValue');
+        $struct->Name = $name;
+        $struct->Value = $value;
+        return $struct;
+    }
+
+    private function convertProcess($source, $export)
+    {
+        $desktop_args = array($this->setProperty('Hidden', true));
+        $desktop = $this->com->createInstance('com.sun.star.frame.Desktop');
+        $export_args = array($this->setProperty('FilterName', 'writer_pdf_Export'));
+        $program = $desktop->loadComponentFromURL($source, '_blank', 0, $desktop_args);
+        $program->storeToURL($export, $export_args);
+        $program->close(true);
+    }
+}
+
+function getPdfPages($path)
+{
+    if (!file_exists($path)) return array(false, "文件\"{$path}\"不存在！");
+    if (!is_readable($path)) return array(false, "文件\"{$path}\"不可读！");
+// 打开文件
+    $fp = @fopen($path, "r");
+    if (!$fp) {
+        return array(false, "打开文件\"{$path}\"失败");
+    } else {
+        $max = 0;
+        while (!feof($fp)) {
+            $line = fgets($fp, 255);
+            if (preg_match('/\/Count [0-9]+/', $line, $matches)) {
+                preg_match('/[0-9]+/', $matches[0], $matches2);
+                if ($max < $matches2[0]) $max = $matches2[0];
+            }
+        }
+        fclose($fp);
+// 返回页数
+        return array(true, $max);
+    }
+}
 function escape($str) {
     preg_match_all ( "/[\xc2-\xdf][\x80-\xbf]+|[\xe0-\xef][\x80-\xbf]{2}|[\xf0-\xff][\x80-\xbf]{3}|[\x01-\x7f]+/e", $str, $r );
     //匹配utf-8字符，
@@ -52,11 +146,12 @@ if(isset($_FILES['file'])){
     else {
         $hashname = hash_file('sha256', $_FILES["file"]["tmp_name"], false);
         $hashPath = "upload/" . "$hashname." . substr($_FILES["file"]["name"], strrpos($_FILES["file"]["name"], '.') + 1);
+        $fileType = substr($_FILES["file"]["name"], strrpos($_FILES["file"]["name"], '.') + 1);
         $fileNmae = escape($_FILES["file"]["name"]);
-        $orderId = $_POST['orderId'];
+        $orderId = mysql_escape_string($_POST['orderId']);
 
         if (file_exists($hashPath) == false) {
-            move_uploaded_file($_FILES["file"]["tmp_name"], $hashPath);
+            move_uploaded_file($_FILES["file"]["tmp_name"], "../../$hashPath");
         }
         $con = mysql_connect("localhost", "root", "wslzd9877");
         if (!$con) {
@@ -66,6 +161,30 @@ if(isset($_FILES['file'])){
         if (mysql_num_rows(mysql_query("SELECT * FROM fileinfo where orderId = '$orderId' and filename = '$fileNmae'")) == 0 ) {
             mysql_query("INSERT INTO fileinfo (orderId, filePath,filename)VALUES (\"$orderId\", \"$hashPath\",\"$fileNmae\")");
         }
+        $canTypes = array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx');
+        $converter = new PDFConverter();
+        if($fileType == 'pdf')
+        {
+            $paperNum = getPdfPages("C:/phpStudy/PHPTutorial/upload/"."$hashname." . substr($_FILES["file"]["name"], strrpos($_FILES["file"]["name"], '.') + 1))[1];
+            mysql_query("update fileinfo set paperNum='$paperNum' where orderId='$orderId' and filename='$fileNmae'");
+        }
+        else {
+            foreach ($canTypes as $each)
+            {
+                if($each == $fileType)
+                {
+
+                    $source = "C:/phpStudy/PHPTutorial/upload/"."$hashname." . substr($_FILES["file"]["name"], strrpos($_FILES["file"]["name"], '.') + 1);
+                    $export = "C:/phpStudy/PHPTutorial/convertTemp/"."$hashname.pdf";
+                    $converter->execute($source, $export);
+                    $paperNum = getPdfPages($export)[1];
+                    unlink($export);
+                    mysql_query("update fileinfo set paperNum='$paperNum' where orderId='$orderId' and filename='$fileNmae'");
+                    break;
+                }
+            }
+        }
+
         mysql_close($con);
     }
 }

@@ -1,7 +1,155 @@
+
+@media screen and (max-width: 600px) {
+	.finish{
+    position: fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    width: 340px !important;
+    height: 320px !important;
+    display: inline-block;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0 , 0.4);
+    z-index: 101;
+    text-align: center;
+    font-weight: bold;
+	}
+	.finish nav{
+    margin-top: 10px;
+    color: #28262C;
+    font-weight: bolder;
+    font-size: 16px !important;
+}
+	
+	
+	.m2{
+		margin-top:0px;
+	}
+	#form1{
+		height:300px;
+	}
+	#mydropzone{
+		width:300px;
+		height:250px;
+		margin-top:200px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.jdt{
+		width:200px;
+	}
+	.data_left{
+		font-size:10px;
+		width:330px;
+	}
+  .header{
+      max-width: 1440px;
+      position: relative;
+      height: 40px;
+      margin-top: 0px;
+      margin: auto;
+  }
+  .daohang{
+      padding: 10px;
+      height: 35px;
+      display: block;
+  }
+
+  .go img{
+    width:400px;
+  }
+  .m1{
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      overflow: hidden;
+      height: 250px;
+      width:400px;
+      background-image:url(../image/paper.png);
+      background-position-x: center;
+      background-position-y: bottom;
+      background-repeat: no-repeat;
+  }
+  .form{
+      margin: auto;
+      max-width: 400px;
+      height: 300px;
+      position: relative;
+      /* border: 1px #28262C dashed; */
+  }
+  #logo{
+    float: left;
+    margin-left: 10px;
+	height:20px !important;
+	width:100px !important;
+		}
+	#user_pic{
+			float: right;
+			margin-right: 30px;
+			height:20px;
+			width:20px;
+			
+		}
+	#uname{
+			text-align: right;
+			margin-right: 120px;
+			color: #7c7c7c;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translate(0, -50%);
+			font-size:8px;
+		}
+	.daohang{
+    padding: 10px;
+    height: 40px !important;
+    display: block;
+	}
+	.header{
+	height:40px !important;
+	}
+	
+	.cf{
+		width:80px !important;
+		height:200px !important;
+		margin-top:200px !important;
+		font-size:8px !important;
+		margin-left:5px !important;
+	}
+	#data_left{
+		width:300px !important;
+		font-size:18px !important;
+		margin-top:200px !important;
+	}
+	#data_right{
+		margin-left:300px !important;
+		margin-top:200px !important;
+		font-size:18px !important;
+		
+	}
+	textarea{
+		width:60px !important	;
+		height:40px !important;
+	}
+}
+
+
+#morenzh{
+	font-size:10px;
+	line-height:1px;
+	color:#888;
+	
+}
 body{
-    background-color: #eeeeee;
+    /*background-color: #eeeeee;*/
     font-size: 18px;
-    font-family: Georgia,"Times New Roman","Microsoft YaHei","微软雅黑","STHeiti Light","华文细黑",serif;
+    font-family: "Microsoft YaHei","微软雅黑","STHeiti Light","华文细黑",serif;
     text-align: center;
     color: #28262C;
     z-index: 1;
@@ -18,32 +166,38 @@ body{
     clear: both;
     visibility: hidden;
 }
-input{
+#form2 input{
     max-width: 180px;
     height: 28px;
-    font-size: 18px;
-    margin: 6px;
+    font-size: 16px;
+    margin: 4px;
 }
 select{
     min-width: 60px;
     max-width: 180px;
     min-height: 28px;
-    font-size: 18px;
-    margin: 6px;
+    font-size: 16x;
+    margin: 4px;
 }
 .container{
-    max-width: 1440px;
+    max-width: 100%;
     margin: auto;
 }
+
 /* 导航栏 */
-.header{
-    max-width: 100%;
+.hd{
+    position: absolute;
+    width: 100%;
     background-color: #fff;
+    box-shadow: 0 3px 2px rgba(0, 0, 0 , 0.1);
+    z-index: 100;
+}
+.header{
+    max-width: 1440px;
     position: relative;
     height: 60px;
     margin-top: 0px;
-    box-shadow: 0 3px 2px rgba(0, 0, 0 , 0.1);
-    z-index: 100;
+    margin: auto;
 }
 .daohang{
     padding: 10px;
@@ -72,7 +226,7 @@ select{
     float: right;
     margin-right: 30px;
 }
-#username{
+#uname{
     text-align: right;
     margin-right: 120px;
     color: #7c7c7c;
@@ -97,62 +251,70 @@ select{
     transition: 0.3s;
             -webkit-transition: .5s;
             -moz-transition: .5s; */
-  }   
+  }
 daohang a:hover .caidan{
     display: block;
 }
-.caidan ul {   
-    list-style-type: none;    
-}              
-.caidan li {   
-    font:18px/2 Helvetica, Verdana, sans-serif;   
-    border-bottom: 1px solid #ccc;   
-  }   
-              
-.caidan li:last-child {   
-    border: none;   
-  }   
-              
-.caidan li a {   
-    text-decoration: none;   
-    color: #7c7c7c;   
-    display: block;   
-    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;   
-    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;   
-    -o-transition: font-size 0.3s ease, background-color 0.3s ease;   
-    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;   
-    transition: font-size 0.3s ease, background-color 0.3s ease;   
-}   
-              
-.caidan li a:hover {   
-    font-size: 22px;   
-    background: #f6f6f6;   
+.caidan ul {
+    list-style-type: none;
+}
+.caidan li {
+    font:18px/2 Helvetica, Verdana, sans-serif;
+    border-bottom: 1px solid #ccc;
+  }
+
+.caidan li:last-child {
+    border: none;
+  }
+
+.caidan li a {
+    text-decoration: none;
+    color: #7c7c7c;
+    display: block;
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.caidan li a:hover {
+    font-size: 22px;
+    background: #f6f6f6;
   }
 
  /* 内容 */
 .main{
-    max-width: 1440px;
-    height: 900px;
+    max-width: 100%;
+    height: 100%;
     overflow:visible;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     background: linear-gradient(to top right, #3c7df1, #62c1fb);
-    padding-top: 60px;
+}
+.mt{
+    position: relative;
+    height: 200px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 120px;
     color: #fcfcfc;
     font-size: 56px;
-    
 }
 .m1{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
+    height: 700px;
     background-image:url(../image/paper.png);
     background-position-x: center;
     background-position-y: bottom;
     background-repeat: no-repeat;
-    height: 766px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-
 }
 .m2{
     max-width: 700px;
@@ -160,13 +322,12 @@ daohang a:hover .caidan{
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 136px;
+    margin-top: 50px;
     margin-bottom: 50px;
     font-size: 18px;
-    color: #7c7c7c;
+    
     text-align: left;
     display: block;
-
 }
 .form{
     margin: auto;
@@ -175,11 +336,31 @@ daohang a:hover .caidan{
     position: relative;
     /* border: 1px #28262C dashed; */
 }
+#form0{
+    max-width: 600px;
+    height: 600px;
+    /* background-color: rgb(255, 214, 214); */
+    z-index: 7;
+    display: block;
+}
+#start{
+    width: 300px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    margin-top: 200px;
+    font-size: 32px;
+    font-weight: bold;
+}
 #form1{
     max-width: 600px;
     height: 440px;
     /* background-color: rgb(255, 214, 214); */
     z-index: 7;
+    display: none;
 }
 
 #form1 span{
@@ -191,12 +372,11 @@ daohang a:hover .caidan{
     height: 440px;
     /* background-color: rgb(214, 255, 226); */
     z-index: 8;
-    font-size: 22px;
+    font-size: 18px;
     display: none;
 }
 #form3{
     max-width: 600px;
-    position: relative;
     height: 440px;
     z-index: 9;
     display: none;
@@ -211,17 +391,18 @@ daohang a:hover .caidan{
     /* border: 10px dashed #62c1fb; */
 }
 #map_search{
-    top: 30;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%,0);
+    left: 0;
+    right: 0;
     margin: auto;
-    max-width: 500px;
+    top: 30;
+    width: 80%;
     height: 48px;
     padding-left: 20px;
+    padding-right: 14px;
     font-size: 22px;
     border-radius: 30px;
-    display: inline-block;
+    display: block;
     border: 3px;
     z-index: 12;
 }
@@ -237,7 +418,7 @@ daohang a:hover .caidan{
     margin: auto;
 }
 .mapform td{
-    min-width: 60px;
+    min-width: 70px;
     max-width: 120px;
     height: 36px;
     border-color: #ffffff;
@@ -260,13 +441,15 @@ daohang a:hover .caidan{
     color: #7884aa;
     padding: 2px;
     font-size: 12px;
-    
+
 }
 #gettime{
     min-width: 180px;
 }
 #gettime1{
     min-width: 180px;
+    background-color:#ffcab7;
+    color: #f34628;
 }
 /* #other{
     min-width: 100px;
@@ -287,27 +470,36 @@ daohang a:hover .caidan{
 
 .go{
     position: absolute;
-    width: 700px;
+    width: 100%;
     top:440px;
-    font-size: 32px;
     text-align: center;
     z-index: 20;
 }
 .go button{
-    width: 240px;
-    position: absolute;
-    left: 25%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-family:"微软雅黑";
+    font-weight: bold;
 }
-
+#deadline{
+    width: 172px;
+}
 #data_select{
     padding-top: 2px;
     position: absolute;
     float: left;
-    font-size: 20px;
     min-width: 120px;
     max-width: 300px;
     z-index: 11;
-    font-weight: bold;
+    
+}
+#data_select span{
+    margin-top: 2px;
+    font-size: 18px;
 }
 #data_select select{
     margin: 0;
@@ -315,17 +507,24 @@ daohang a:hover .caidan{
 }
 #data_left{
     text-align: right;
-    font-size: 22px;
+    font-size: 18px;
     color: #28262C;
     width: 400px;
     position: absolute;
     float: left;
     padding-top: 2px;
+	font-family: "微软雅黑";
+	
 }
 #data_left nav{
+    font-size: 18px;
     margin:0px;
+    margin:2px;
     margin-bottom: 4px;
+	color: #28262C;
+    font-family: "微软雅黑";
 }
+
 
 .cf{
     position: absolute;
@@ -338,36 +537,35 @@ daohang a:hover .caidan{
     display: inline-block;
     text-align: center;
 }
-.cf ul {   
-    list-style-type: none;    
-}              
-.cf li {   
-    font:18px/2 Helvetica, Verdana, sans-serif;   
+.cf ul {
+    list-style-type: none;
+}
+.cf li {
+    font:18px/1.5 Helvetica, Verdana, sans-serif;
     border-bottom: 1px solid #ccc;
-}   
-              
-.cf li:last-child {   
+}
+
+.cf li:last-child {
     border: none;
-} 
+}
 .cf li{
-    text-decoration: none;   
-    color: #7c7c7c;   
+    text-decoration: none;
+    color: #7c7c7c;
     display: block;
-    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;   
-    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;   
-    -o-transition: font-size 0.3s ease, background-color 0.3s ease;   
-    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;   
-    transition: font-size 0.3s ease, background-color 0.3s ease;   
-}   
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
 .cf li:hover {
     color: #fff;
-    font-size: 22px;   
-    background: #3c7df1; 
+    font-size: 18px;
+    background: #3c7df1;
 }
 
 #data_right{
-    font-size: 22px;
-    padding-top: 2px;
+    font-size: 16px;
     position: absolute;
     padding-left: 10px;
     text-align: left;
@@ -378,27 +576,100 @@ daohang a:hover .caidan{
 
 #data_right input{
     text-align: right;
-    font-size: 18px;
+    font-size: 16px;
     margin:0px;
-    margin-bottom:4px;
+    margin-bottom:2px;
+    max-width: 60px;
 }
 #data_right select{
-    font-size: 18px;
+    font-size: 16px;
     margin: 0px;
-    margin-bottom:4px;
+    margin-bottom:2px;
 }
 #data_right textarea{
-    font-size: 18px;
+    font-size: 16px;
     margin: 0px;
-    margin-bottom:4px;
+    margin-bottom:2px;
 }
 #paper_num{
+    font-size: 16px;
     max-width: 60px;
 }
 #other_info{
     max-width: 180px;
     resize: none;
 }
+
+.finish{
+    position: fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    width: 480px;
+    height: 300px;
+    display: inline-block;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0 , 0.4);
+    z-index: 101;
+    text-align: center;
+    font-weight: bold;
+}
+.finish img,nav,a{
+    position: relative;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin: auto;
+}
+.finish img{
+    margin-top: 20px;
+}
+.finish nav{
+    margin-top: 10px;
+    color: #28262C;
+    font-weight: bolder;
+    font-size: 24px;
+}
+.finish p{
+    margin-top: 18px;
+    color: #7c7c7c;
+    font-weight: normal;
+}
+#fin{
+    position: absolute;
+    left:0;
+    right:0;
+    margin: auto;
+    top: 220px;
+}
+#fin a{
+    width: 160px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.gray{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0 , 0.3);
+    width: 100%;
+    height: 100%;
+    z-index: 102;
+}
+.jdt{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    margin: auto;
+    top: 660px;
+}
+
 .footer{
     font-size: 18px;
     height: 160px;
@@ -411,5 +682,25 @@ daohang a:hover .caidan{
     text-decoration: none;
     color: #7c7c7c;
     display: inline block;
+}
 
+.dropzone {
+    border: 2px dashed #0087F7;
+    border-radius: 5px;
+    background: white;
+}
+
+.dropzone {
+    width: 600px;
+    height: 340px;
+}
+
+.dropzone {
+    font-size: 0.8em;
+    font-weight: 200;
+    display: block;
+    margin-top: 1.4rem;
+}
+.mapform-sj{
+	display:none;
 }

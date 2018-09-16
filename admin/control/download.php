@@ -21,24 +21,31 @@ function unescape($str) {
     return $ret;
 }
 session_start();
-if(isset($_SESSION['user']) == false){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
     exit;
 }
-$username = $_SESSION['user'];
-$filePath = $_GET['filePath'];
+
+$username = mysql_escape_string($_SESSION['user']);
+$password = mysql_escape_string($_SESSION['pass']);
+$filePath = mysql_escape_string($_GET['filePath']);
 $filename = unescape($_GET['filename']);
-$orderId = $_GET['orderId'];
+$orderId = mysql_escape_string($_GET['orderId']);
 
 $con = mysql_connect("localhost", "root", "wslzd9877");
 if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
+
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password' and type='2'")) == false){
+    header("location:/index.php");
+    exit();
+}
 $result = mysql_query("select * from orderinfo where orderId='$orderId' and business='$username'");
 $row = mysql_fetch_array($result);
 $result2 = mysql_query("select * from fileinfo where orderId='$orderId' and filePath='$filePath'");
 $row2 = mysql_fetch_array($result2);
-$filePath = "../../fileControl/".$filePath;
+$filePath = "../../../".$filePath;
 if($row != false && $row2 != false){
     if( !file_exists($filePath)){
         exit;

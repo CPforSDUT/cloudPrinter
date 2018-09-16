@@ -32,13 +32,13 @@ function unescape($str) {
     return $ret;
 }
 session_start();
-if(isset($_SESSION['user']) == false){
-    header("location:/user/loginView.php");
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
+    header("location:/index.php");
 }
-$username = $_SESSION['user'];
+$username = mysql_escape_string($_SESSION['user']);
 if(isset($_GET['exCode']))
 {
-    $exCode = $_GET['exCode'];
+    $exCode = mysql_escape_string($_GET['exCode']);
     $con = mysql_connect("localhost", "root", "wslzd9877");
     if (!$con) {
         die('Could not connect: ' . mysql_error());
@@ -55,9 +55,23 @@ else {
 <head>
     <meta charset="UTF-8">
     <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+	<script type="text/javascript">
+		function menu()
+		{
+			if(document.getElementById('menu').style.display == 'none'){
+				document.getElementById('menu').style.display='block';
+			}
+			else {
+				document.getElementById('menu').style.display='none';
+			}
+		}
+	</script>
 </head>
 <body>
   <div class="topbar-wrap white">
@@ -72,14 +86,15 @@ else {
           <div class="top-info-wrap">
               <ul class="top-info-list clearfix">
 
-                  <li><a href="#">修改密码</a></li>
+                  <li><a href="information.php">修改密码</a></li>
                   <li><a href="/user/logout.php">退出</a></li>
               </ul>
           </div>
+		  		  <span onclick="menu()"><i class="fa fa-bars"></i></span>
       </div>
   </div>
   <div class="container clearfix">
-      <div class="sidebar-wrap">
+      <div class="sidebar-wrap" id="menu">
           <div class="sidebar-title">
               <h1>后台管理</h1>
           </div>
@@ -98,9 +113,9 @@ else {
                       <a href="#"><i class="icon-font">&#xe018;</i>商家信息设置</a>
                       <ul class="sub-menu">
                         <li><a href="information.php"><i class="icon-font">&#xe000;</i>营业状态</a></li>
-                        <li><a href="information.php"><i class="icon-font">&#xe018;</i>打印机参数</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe018;</i>打印参数</a></li>
                         <li><a href="information.php"><i class="icon-font">&#xe021;</i>地理位置</a></li>
-                        <li><a href="information.php"><i class="icon-font">&#xe014;</i>头像和其他</a></li>
+                        <li><a href="information.php"><i class="icon-font">&#xe014;</i>修改密码</a></li>
                       </ul>
                   </li>
               </ul>
@@ -113,20 +128,26 @@ else {
             <div class="crumb-list"><i class="icon-font"></i><a href="index.php">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">输入提取码</span></div>
         </div>
         <div class="search-wrap">
-        <div class="tiqu">
             <form action="sore.php" method="get">
-                请输入提取码：
-                <input id="exCode" name="exCode">
-                <button id="btn-submit" type="submit">提取</button>
-                <table class="result-tab" width="100%">
+                <table class="search-tab">
                     <tr>
-                        <th>买家</th>
-                        <th>提取时间</th>
-                        <th>打印状态</th>
-                        <th>其他信息</th>
-                        <th>其它</th>
+                        <th width="130">请输入提取码：</th>
+                        <td><input class="common-text" id="exCode" name="exCode"></td>
+                        <td><input class="btn btn-primary btn2" name="btn-submit" value="提取" type="submit"></td>
                     </tr>
-                        <?php
+                </table>
+            </form>
+        </div>
+        <div class="result-wrap">
+            <table class="result-tab" width="100%">
+                <tr>
+                    <th>买家</th>
+                    <th>提取时间</th>
+                    <th>打印状态</th>
+                    <th>其他信息</th>
+                    <th>其它</th>
+                </tr>
+                <?php
                 if($row != false)
                 {
                     $consumer = $row['consumer'];
@@ -143,8 +164,6 @@ else {
                     echo "</tr>";
                 }
                 ?>
-                </table>
-            </form>
         </div>
     </div>
     <!--/main-->
