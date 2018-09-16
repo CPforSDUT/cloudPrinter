@@ -13,6 +13,7 @@ $username = mysql_escape_string($_SESSION['user']);
     <link rel="stylesheet" href="../css/layui.css">
     <link rel="stylesheet" href="../css/buttons.css">
     <link rel="stylesheet" type="text/css" href="../css/master.css">
+    <link rel="stylesheet" href="../css/star.css">
 
     <script src="../js/layui.all.js"></script>
     <script src="../js/jquery-1.8.3.min.js"></script>
