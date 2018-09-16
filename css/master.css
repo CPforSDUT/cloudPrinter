@@ -169,15 +169,15 @@ body{
 #form2 input{
     max-width: 180px;
     height: 28px;
-    font-size: 18px;
-    margin: 6px;
+    font-size: 16px;
+    margin: 4px;
 }
 select{
     min-width: 60px;
     max-width: 180px;
     min-height: 28px;
-    font-size: 18px;
-    margin: 6px;
+    font-size: 16x;
+    margin: 4px;
 }
 .container{
     max-width: 100%;
@@ -372,7 +372,7 @@ daohang a:hover .caidan{
     height: 440px;
     /* background-color: rgb(214, 255, 226); */
     z-index: 8;
-    font-size: 22px;
+    font-size: 18px;
     display: none;
 }
 #form3{
@@ -448,7 +448,8 @@ daohang a:hover .caidan{
 }
 #gettime1{
     min-width: 180px;
-	background-color:#ffcab7;
+    background-color:#ffcab7;
+    color: #f34628;
 }
 /* #other{
     min-width: 100px;
@@ -491,11 +492,14 @@ daohang a:hover .caidan{
     padding-top: 2px;
     position: absolute;
     float: left;
-    font-size: 20px;
     min-width: 120px;
     max-width: 300px;
     z-index: 11;
     
+}
+#data_select span{
+    margin-top: 2px;
+    font-size: 18px;
 }
 #data_select select{
     margin: 0;
@@ -503,7 +507,7 @@ daohang a:hover .caidan{
 }
 #data_left{
     text-align: right;
-    font-size: 20px;
+    font-size: 18px;
     color: #28262C;
     width: 400px;
     position: absolute;
@@ -513,7 +517,9 @@ daohang a:hover .caidan{
 	
 }
 #data_left nav{
+    font-size: 18px;
     margin:0px;
+    margin:2px;
     margin-bottom: 4px;
 	color: #28262C;
     font-family: "微软雅黑";
@@ -535,7 +541,7 @@ daohang a:hover .caidan{
     list-style-type: none;
 }
 .cf li {
-    font:18px/2 Helvetica, Verdana, sans-serif;
+    font:18px/1.5 Helvetica, Verdana, sans-serif;
     border-bottom: 1px solid #ccc;
 }
 
@@ -554,13 +560,12 @@ daohang a:hover .caidan{
 }
 .cf li:hover {
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
     background: #3c7df1;
 }
 
 #data_right{
     font-size: 16px;
-    padding-top: 2px;
     position: absolute;
     padding-left: 10px;
     text-align: left;
@@ -571,22 +576,23 @@ daohang a:hover .caidan{
 
 #data_right input{
     text-align: right;
-    font-size: 18px;
+    font-size: 16px;
     margin:0px;
-    margin-bottom:4px;
+    margin-bottom:2px;
     max-width: 60px;
 }
 #data_right select{
-    font-size: 18px;
+    font-size: 16px;
     margin: 0px;
-    margin-bottom:4px;
+    margin-bottom:2px;
 }
 #data_right textarea{
-    font-size: 18px;
+    font-size: 16px;
     margin: 0px;
-    margin-bottom:4px;
+    margin-bottom:2px;
 }
 #paper_num{
+    font-size: 16px;
     max-width: 60px;
 }
 #other_info{

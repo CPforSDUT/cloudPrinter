@@ -108,7 +108,7 @@ table{
 
 body{background-color: #ffffff;}
 input{
-	box-shadow:5px 3px 2px #bebebe;
+    /* box-shadow:5px 3px 2px hsl(0, 0%, 75%); */
 }
 .container{
     padding: 0;

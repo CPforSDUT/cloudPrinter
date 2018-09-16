@@ -466,7 +466,7 @@ $password = $_SESSION['pass'];
                                     <option value="2">横板</option>
                                 </select>
                                 <br>
-                                <p id="papers">Loading...</p>
+                                <p id="papers" style="margin:0px;font-size:16px;">Loading...</p>
                                 <textarea rows="6" cols="20" id="other_info"></textarea>
                             </div>
                             <script type="text/javascript">
