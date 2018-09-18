@@ -36,13 +36,18 @@ $password = $_SESSION['pass'];
 		float:left;
 	}
 	</style>
-    <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+
     <script type="text/javascript">
         var selected,selectedId;
     </script>
     <script type="text/javascript">
         var orderId;
         var thisProvince = '';
+        var myLo = -1,myLa = -1; //自己的坐标
+        var myMark; //自己的坐标
+        var walk;
+        var maxDis,maxCost,maxScore;
+        var cDis,cCost,cScore;
         function showAndHidden0() {
             var form0 = document.getElementById("form0");
             var form1 = document.getElementById("form1");
@@ -75,19 +80,28 @@ $password = $_SESSION['pass'];
                 alert("你没有上传文件");
             }
         }
+        function clearShopInfo() {
+            document.getElementById('user_name').innerHTML = '';
+            document.getElementById('other').innerHTML = '';
+            document.getElementById("map_search").value = '';
+            document.getElementById("state").innerText = '';
+            document.getElementById("cost").innerText = '';
+            document.getElementById("score").innerText = '';
+            document.getElementById("distance").innerText = '';
+            thisProvince = '';
+        }
         function showAndHidden2() {
             var form2 = document.getElementById("form2");
             var form3 = document.getElementById("form3");
             form2.style.display = "none";
             form3.style.display = "block";
-            document.getElementById('user_name').innerHTML = '';
-            document.getElementById('province').innerHTML = '';
-            document.getElementById('city').innerHTML = '';
-            document.getElementById('area').innerHTML = '';
-            document.getElementById('other').innerHTML = '';
-            document.getElementById("map_search").value = '';
-            document.getElementById("state").innerText = '';
-            thisProvince = '';
+            clearShopInfo();
+            if(myLo == -1 || myLa == -1) {
+                try{
+                    doIpLocation();
+                }
+                catch (e) {}
+            }
             getTag(map);
         }
         function showAndHidden3() {
@@ -174,27 +188,41 @@ $password = $_SESSION['pass'];
                 }
             }
         }
+        function showShopInfo(info) {
+            var province = unescape(info['province']);
+            var city = unescape(info['city']);
+            var area = unescape(info['area']);
+            var other = unescape(info['other']);
+            document.getElementById('user_name').innerHTML = info['username'];
+            document.getElementById('other').innerHTML = province + city + area + other;
+            document.getElementById("map_search").value = info['username'];
+            var state;
+            if(info['state'] == '1'){
+                state = "打烊";
+            }
+            else {
+                state= "开张";
+            }
+            document.getElementById("state").innerText = state;
+        }
         function createTag(marker,info){
 
             //标注
             //var text = m;
             //var infoWindow = new BMap.InfoWindow(text);
             //marker.addEventListener("click", function () { this.openInfoWindow(infoWindow);document.getElementById('printname').value=infoWindow.getContent(); });
-            marker.addEventListener("click", function () {
-                document.getElementById('user_name').innerHTML = info['username'];
-                document.getElementById('province').innerHTML = unescape(info['province']);
-                document.getElementById('city').innerHTML = unescape(info['city']);
-                document.getElementById('area').innerHTML = unescape(info['area']);
-                document.getElementById('other').innerHTML = unescape(info['other']);
-                document.getElementById("map_search").value = info['username'];
-                var state;
-                if(info['state'] == '1'){
-                    state = "打烊";
-                }
-                else {
-                    state= "开张";
-                }
-                document.getElementById("state").innerText = state;
+            marker.addEventListener("click", function (e) {
+                showShopInfo(info);
+                var point = new BMap.Point(myLo,myLa);
+                distance = map.getDistance(point,info['pt']);
+                document.getElementById("distance").innerHTML = (distance/1000).toFixed(2)+"km";
+                document.getElementById("cost").innerHTML = info['cost'];
+                document.getElementById("score").innerHTML = info['score'];
+                cCost = info['cost'];
+                cDis = distance;
+                cScore = info['score'];
+                walk.clearResults();
+                walk.search(point ,info['pt']);
             });
         }
         function search(keyword)
@@ -204,11 +232,12 @@ $password = $_SESSION['pass'];
             {
                 if(where[each]['username'].toLocaleLowerCase() == keyword.toLocaleLowerCase())
                 {
+                    var province = unescape(where[each]['province']);
+                    var city = unescape(where[each]['city']);
+                    var area = unescape(where[each]['area']);
+                    var other = unescape(where[each]['other']);
                     document.getElementById('user_name').innerHTML = where[each]['username'];
-                    document.getElementById('province').innerHTML = unescape(where[each]['province']);
-                    document.getElementById('city').innerHTML = unescape(where[each]['city']);
-                    document.getElementById('area').innerHTML = unescape(where[each]['area']);
-                    document.getElementById('other').innerHTML = unescape(where[each]['other']);
+                    document.getElementById('other').innerHTML = province + city + area + other;
                     var state;
                     if(where[each]['state'] == '1'){
                         state = "打烊";
@@ -234,11 +263,21 @@ $password = $_SESSION['pass'];
                     break;
             }
         }
+        function upWeights() {
+            var update = new XMLHttpRequest();
+            update.open("POST","upWeights.php",false);
+            update.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            if(cScore != maxScore)scoreWeight += maxScore > cScore ? -5 : 5;
+            if(cDis != maxDis)distanceWeight += maxDis < cDis ? -5 : 5;
+            if(cCost != maxCost)costWeight += maxCost < cCost ? -5 : 5;
+            update.send("costW="+costWeight+"&disW="+distanceWeight+"&scoreW="+scoreWeight);
+        }
         function finishOrder(orderId,username) {
             var time = document.getElementById("datepicker").value;
             var deadline,exCode;
             var business = document.getElementById("user_name").innerHTML;
             var createOrder = new XMLHttpRequest();
+
             if(business != '')
             {
                 deadline = time.substring(0,4) + time.substring(5,7) + time.substring(8,10) + time.substring(11,13) + time.substring(14,16);
@@ -246,6 +285,7 @@ $password = $_SESSION['pass'];
                     alert("请选择取件时间!");
                     return ;
                 }
+                upWeights();
                 createOrder.open("POST","/createNewOrder.php",false);
                 createOrder.setRequestHeader("Content-type","application/x-www-form-urlencoded");
                 createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business);
@@ -266,11 +306,19 @@ $password = $_SESSION['pass'];
         }
         function getLocation() {
             var location = new XMLHttpRequest();
-            location.open("POST","getLocation.php",false);
-            location.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            location.send("province="+returnCitySN['cname']);
-            var res = new Function(location.responseText);
-            return res();
+            location.open("GET","getLocation.php",false);
+            location.send();
+            eval(location.responseText);
+            return tpoint;
+        }
+        function doIpLocation() {
+            var point = new BMap.Point(c['content']['point']['x'],c['content']['point']['y']);
+            map.centerAndZoom(point,13);
+            map.addControl(new BMap.GeolocationControl());
+            map.addControl(new BMap.NavigationControl());
+            map.enableScrollWheelZoom(true);
+            myLo = c['content']['point']['x'];
+            myLa = c['content']['point']['y'];
         }
         function getTag(map) {
             var center = map.getCenter();
@@ -289,20 +337,71 @@ $password = $_SESSION['pass'];
                     mapInfo.onreadystatechange = function () {
                         if (mapInfo.readyState == 4 && mapInfo.status == 200) {
                             var each;
-
                             eval(mapInfo.responseText);
                             for (each in where) {
                                 pt = new BMap.Point(where[each]['lo'], where[each]['la']);
                                 mark = new BMap.Marker(pt, {icon: myIcon});
                                 mark.setAnimation(BMAP_ANIMATION_BOUNCE);
-
+                                where[each]['pt'] = pt;
                                 map.addOverlay(mark);
                                 createTag(mark, where[each]);
+                            }
+                            if(myLo != -1 && myLa != -1)
+                            {
+                                setMyLocation(myLo,myLa,map);
                             }
                         }
                     }
                 }
             });
+        }
+
+        function doAlloc(mark) {
+            var maxWeightPoint = -1;
+            var maxWeight;
+            var each;
+
+            var bestShop;
+            var pt = new BMap.Point(myLo,myLa);
+            if(where[0] == undefined){
+                clearShopInfo();
+                return ;
+            }
+            for(each in where)
+            {
+
+                var thisCost = where[each]['cost'] , thisScore = where[each]['score'];
+                var thisDis = map.getDistance(pt,where[each]['pt']);
+
+                var thisWeight = costWeight*(-thisCost) + distanceWeight*(-thisDis/1000) + (thisScore-2)*scoreWeight;
+                if(maxWeightPoint == -1 || thisWeight > maxWeight)
+                {
+                    maxWeight = thisWeight;
+                    maxWeightPoint = where[each]['pt'];
+                    cDis = maxDis = thisDis;
+                    cCost = maxCost = thisCost;
+                    cScore = maxScore = thisScore;
+                    bestShop = where[each];
+                }
+            }
+            walk.clearResults();
+            walk.search( pt,maxWeightPoint);
+            map.addOverlay(mark);
+
+            document.getElementById("distance").innerHTML = (maxDis/1000).toFixed(2)+"km";
+            document.getElementById("cost").innerHTML = maxCost;
+            document.getElementById("score").innerHTML = maxScore.toFixed(1);
+            showShopInfo(bestShop);
+        }
+        function setMyLocation(lo,la,map)
+        {
+            var pt;
+            myLa = la;
+            myLo = lo;
+            map.removeOverlay(myMark);
+            pt = new BMap.Point(lo,la);
+            myMark=new BMap.Marker(pt)
+            doAlloc(myMark);
         }
     </script>
 </head>
@@ -363,6 +462,11 @@ $password = $_SESSION['pass'];
                         <?php
 
                             mysql_select_db("user", $con);
+                            $weights = mysql_query("select * from alloc where username='$username'");
+                            $weights = mysql_fetch_array($weights);
+                            $costW = $weights['cost'];
+                            $distanceW = $weights['distance'];
+                            $scoreW = $weights['score'];
                         if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
                             header("location:/index.php");
                             exit();
@@ -504,11 +608,11 @@ $password = $_SESSION['pass'];
                                 <tr>
 									 <td id="gettime1">提取时间</td>
                                     <td>店名</td>
-                                    <td>省份</td>
-                                    <td>城市</td>
-                                    <td>区域</td>
-                                    <td>营业<br>状态</td>
-                                    <td id="other1">详细<br>地址</td>
+                                    <td>地址</td>
+                                    <td>距离</td>
+                                    <td>价格</td>
+                                    <td>评分</td>
+                                    <td>营业</td>
                                    
                                 </tr>
                                 </thead>
@@ -516,11 +620,11 @@ $password = $_SESSION['pass'];
                                 <tr>    <!--这里是内容 -->
 								    <td id="gettime"><center><input type="datetime" class="layui-input" id="datepicker"></center></td>
                                     <td id="user_name"></td>
-                                    <td id="province"></td>
-                                    <td id="city"></td>
-                                    <td id="area"></td>
-                                    <td id="state"></td>
                                     <td id="other"></td>
+                                    <td id="distance"></td>
+                                    <td id="cost"></td>
+                                    <td id="score"></td>
+                                    <td id="state"></td>
                                    
 									<!--<input type="datetime-local" id="datepicker" date_format="mm-dd" style="border-style:none">-->
                                 </tr>
@@ -541,11 +645,6 @@ $password = $_SESSION['pass'];
 
                             </table>
                         </div>
-						
-					
-						
-						
-						
                         <img src="/image/jdt3.png" class="jdt">
                         <div class="go" id="go_three">
                         <button class="button button-highlight button-rounded button-large" onclick="showAndHidden4()">上一步</button>
@@ -592,27 +691,51 @@ $password = $_SESSION['pass'];
                     </div>
             </div>
 <script type="text/javascript">
-orderId = <?php echo "'$orderId';";?>
+    var orderId = <?php echo "'$orderId';";?>
     var map = new BMap.Map("baiduMap");
     var c = getLocation();
-    if(c == false){
-        var point = new BMap.Point(116.98,36.67);
-        map.centerAndZoom(point,13);
-        map.addControl(new BMap.GeolocationControl());
-        map.addControl(new BMap.NavigationControl());
-        var geolocation = new BMap.Geolocation();
-        geolocation.getCurrentPosition(function(r){
-            map.panTo(r.point);
-        });
-    }
-    else {
-        var point = new BMap.Point(c[0],c[1]);
-        map.centerAndZoom(point,13);
-        map.addControl(new BMap.GeolocationControl());
-        map.addControl(new BMap.NavigationControl());
-    }
+    var costWeight = <?php echo $costW;?>;
+    var distanceWeight = <?php echo $distanceW;?>;
+    var scoreWeight = <?php echo $scoreW;?>;
+    walk = new BMap.RidingRoute(map, {
+        renderOptions: {map: map},
+        onMarkersSet:function(routes) {
+            map.removeOverlay(routes[0].marker); //删除起点
+            map.removeOverlay(routes[1].marker);//删除终点
+        }
+    });
+
+
+    var point = new BMap.Point(116.98,36.67);
+    map.centerAndZoom(point,13);
+    map.addControl(new BMap.GeolocationControl());
+    map.addControl(new BMap.NavigationControl());
+    map.enableScrollWheelZoom(true);
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(r){
+        if(myLo == -1 || myLa == -1)
+        {
+            if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                myLo = r.point.lng;
+                myLa = r.point.lat;
+                map.panTo(r.point);
+            }
+        }
+    });
+
     map.addEventListener("dragend", function(result){
         getTag(map);
+    });
+    map.addEventListener("click", function(e){   //点击事件
+        if(e.overlay){
+            return ;
+        }
+        var myGeo = new BMap.Geocoder();
+        myGeo.getLocation(new BMap.Point(e.point.lng,e.point.lat ), function(result){
+            if (result){
+                setMyLocation(e.point.lng,e.point.lat,map);
+            }
+        });
     });
 </script>
 </body>

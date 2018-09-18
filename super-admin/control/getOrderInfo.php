@@ -80,7 +80,7 @@ $result = mysql_query("select * from orderinfo $visit limit $pageNum,7");
 for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
 {
     echo "<tr>";
-    $orderState = $row['orderState'] == '1' ? '未打印' : '打印完成';
+    $orderState = $row['orderState'] == '1' ? '未打印' : ( $row['orderState'] == '2' ? '打印完成' : "已评价");
     $orderState = $row['deleted'] == 'cn' ? "被买家删除": ($row['deleted'] == 'bn' ? "被商家删除":$orderState);
     $consumer = $row['consumer'];
     $business = $row['business'];

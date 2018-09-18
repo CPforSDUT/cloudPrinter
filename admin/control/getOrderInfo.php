@@ -81,7 +81,7 @@ $result = mysql_query("select * from orderinfo ".$visit." and deleted != 'bn' li
 for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
 {
     echo "<tr>";
-    $orderState = $row['orderState'] == '1' ? '未打印' : '打印完成';
+    $orderState = $row['orderState'] == '1' ? '未打印' : ($row['orderState'] == '2' ?'打印完成' : "已评价");
     $orderState = $row['deleted'] == 'cn' ? "被买家删除":$orderState;
     $consumer = $row['consumer'];
     $phoneGeter = mysql_query("select * from user where username = '$consumer'");
@@ -97,7 +97,7 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
      echo "<td>$time</td>\n";
      echo "<td>\n";
      echo "<a class=\"link-download\" href=\"document.php?orderId=$orderId\" >下载</a> \n";
-     echo "<a class=\"link-update\" onclick=\"okOrder('$orderId',$i)\">打印完成</a>\n";
+     if($row['orderState'] == '1')echo "<a class=\"link-update\" onclick=\"okOrder('$orderId',$i)\">打印完成</a>\n";
      echo "<a class=\"link-del\" onclick=\"delOrder('$orderId',$i)\" id='del$i'>删除</a>\n";
      echo "</td>\n";
     echo "</tr>\n";

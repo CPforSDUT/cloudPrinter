@@ -23,7 +23,7 @@ if(strnatcasecmp($username,$row['business']) == 0){
     switch ($method)
     {
         case 'okOrder':
-            mysql_query("UPDATE orderinfo SET orderState='2' WHERE orderId='$orderId'");
+            if($row['orderState'] == '1') mysql_query("UPDATE orderinfo SET orderState='2' WHERE orderId='$orderId'");
             break;
         case 'delete':
             if($row['deleted'] == 'cn'){

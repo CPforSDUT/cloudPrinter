@@ -108,7 +108,11 @@ $orderNum = $row['count(*)'];
                 if(lPENum == 0){
                     lPENum = 7;
                 }
-
+                if(thisPageNum > allPageNum){
+                    thisPageNum = allPageNum;
+                    if (thisPageNum <= 0)thisPageNum = 1;
+                    getOrderInfo(thisPageNum);
+                }
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
             for(each in trueCheckboxs)

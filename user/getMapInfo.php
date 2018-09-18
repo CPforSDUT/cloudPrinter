@@ -20,6 +20,31 @@ function unescape($str) {
     }
     return $ret;
 }
+function getCost($username,$orderId)
+{
+    //获取商家设置的价格
+    $types = array("A0","A1","A2","A3","A4","A5","A6","A7","A8","A9","A10","B0","B1","B2","B3","B4","B5","B6","B7","B8","B9","B10");
+    $typebs = array(1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576,2097152);
+    $cost = mysql_query("select * from printerinfo where username='$username'");
+    $cost = mysql_fetch_array($cost);
+
+//获取文件价格
+    $filecosts = mysql_query("select * from fileinfo where orderId='$orderId'");
+    $allCost = 0.0;
+    while($filecost = mysql_fetch_array($filecosts))
+    {
+        $type = $filecost['paperType']."|";
+        $paperNum = $filecost['paperNum']."|";
+        for($i = 0 ; $typebs[$i] != $type;$i ++);
+        $type = $types[$i];
+        if($paperNum < 0){
+            continue;
+        }
+        $cost[$type]."|";
+        $allCost += $cost[$type] * $paperNum;
+    }
+    return $allCost;
+}
 session_start();
 $province = mysql_escape_string($_POST['province']);
 $orderId = mysql_escape_string($_POST['orderId']);
@@ -44,11 +69,11 @@ while($fileNeeds = mysql_fetch_array($fileNeed))
 }
 
 $result = mysql_query("SELECT * FROM user where province = '$province' and type='2'");
-
 echo "where = Array();";
 for($i = 0 ; $row = mysql_fetch_array($result);)
 {
     $username = $row['username'];
+    $score = $row['score'];
     $province = $row['province'];
     $city = $row['city'];
     $area = $row['area'];
@@ -60,6 +85,7 @@ for($i = 0 ; $row = mysql_fetch_array($result);)
     $paperType = 16;
     $printerInfo = mysql_query("select * from printerinfo where username='$username'");
     $printerInfo = mysql_fetch_array($printerInfo);
+    $allCost = getCost($row['username'],$orderId);
     if($printerInfo != false)
     {
         $color = $printerInfo['color'];
@@ -72,6 +98,8 @@ for($i = 0 ; $row = mysql_fetch_array($result);)
         continue;
     }
     echo "where[$i] = Array();";
+    echo "where[$i]['cost']=$allCost;";
+    echo "where[$i]['score']=$score;";
     echo "where[$i]['username'] = '$username';";
     echo "where[$i]['province'] = '$province';";
     echo "where[$i]['city'] = '$city';";

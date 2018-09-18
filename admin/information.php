@@ -29,11 +29,18 @@ if(isset($_GET['set']))
     $other = $_GET['other'];
     $lo = $_GET['lo'];
     $la = $_GET['la'];
+	$A0=$_GET['costA0'];$A1=$_GET['costA1'];$A2=$_GET['costA2'];$A3=$_GET['costA3'];$A4=$_GET['costA4'];$A5=$_GET['costA5'];
+	$A6=$_GET['costA6'];$A7=$_GET['costA7'];$A8=$_GET['costA8'];$A9=$_GET['costA9'];$A10=$_GET['costA10'];
+
+	$B0=$_GET['costB0'];$B1=$_GET['costB1'];$B2=$_GET['costB2'];$B3=$_GET['costB3'];$B4=$_GET['costB4'];$B5=$_GET['costB5'];
+	$B6=$_GET['costB6'];$B7=$_GET['costB7'];$B8=$_GET['costB8'];$B9=$_GET['costB9'];$B10=$_GET['costB10'];
+	
+	
     //echo "UPDATE user SET state='$state',province='$province',city='$city',area='$area',other='$other',lo='$lo',la='$la' WHERE username='$username'";
     //echo "UPDATE printerinfo SET color='$color',paperType='$paperType' WHERE username='$username'";
     mysql_query("UPDATE user SET state='$state',province='$province',city='$city',area='$area',other='$other',lo='$lo',la='$la' WHERE username='$username'");
-    mysql_query("UPDATE printerinfo SET color='$color',paperType='$paperType' WHERE username='$username'");
-}
+    mysql_query("UPDATE printerinfo SET color='$color',paperType='$paperType',A0='$A0',A1='$A1',A2='$A2',A3='$A3',A4='$A4',A5='$A5',A6='$A6',A7='$A7',A8='$A8',A9='$A9',A10='$A10',B0='$B0',B1='$B1',B2='$B2',B3='$B3',B4='$B4',B5='$B5',B6='$B6',B7='$B7',B8='$B8',B9='$B9',B10='$B10' WHERE username='$username'");
+	}
 $result = mysql_query("select * from user where username='$username'");
 $row = mysql_fetch_array($result);
 $province = $row['province'];
@@ -101,7 +108,10 @@ $color = $row['color'];
             return res;
         }
         function submitInfo() {
+			
             var state,color,province,city,area,other,paperNum,lo,la;
+			var send;
+			var types = ["costA0","costA1","costA2","costA3","costA4","costA5","costA6","costA7","costA8","costA9","costA10","costB0","costB1","costB2","costB3","costB4","costB5","costB6","costB7","costB8","costB9","costB10"];
             province = escape(document.getElementById("province").value);
             city = escape(document.getElementById("city").value);
             area = escape(document.getElementById("area").value);
@@ -121,7 +131,14 @@ $color = $row['color'];
             else {
                 color = '2';
             }
-            window.location.href='information.php?'+'set=1&state='+state+'&color='+color+'&province='+province+'&city='+city+'&area='+area+'&other='+other+'&paperType='+paperNum+"&lo="+lo+"&la="+la;
+			send = 'information.php?'+'set=1&state='+state+'&color='+color+'&province='+province+'&city='+city+'&area='+area+'&other='+other+'&paperType='+paperNum+"&lo="+lo+"&la="+la;
+			
+			for(var i = 0,costs ; i < 22 ; i ++){
+				costs = document.getElementById(types[i]).value;
+				send = send + "&" + types[i] + "=" + costs;
+			}
+			
+			 window.location.href=send;
         }
 
         function paperTypeToArray(num) {
@@ -310,18 +327,20 @@ $color = $row['color'];
                                   <th>
                                   <label class="res-lab">纸张类型：</label>
                                   <div id="res-box">
-                                      <span class="res-info"><input name="printer-information" id="printType5" type="checkbox" value="" onclick="paperTypeClick(5)" />A4</span>
-                                      <span class="res-info"><input name="printer-information" id="printType17" type="checkbox" value="" onclick="paperTypeClick(17)" />B5&nbsp;</span><br>
-                                      <span class="res-info"><input name="printer-information" id="printType1" type="checkbox" value="" onclick="paperTypeClick(1)"/>A0&nbsp;</span><span class="res-info"><input name="printer-information" id="printType12" type="checkbox" value="" onclick="paperTypeClick(12)" />B0 </span><br>
-                                      <span class="res-info"><input name="printer-information" id="printType2" type="checkbox" value="" onclick="paperTypeClick(2)" />A1&nbsp;</span><span class="res-info"><input name="printer-information" id="printType13" type="checkbox" value="" onclick="paperTypeClick(13)" />B1 </span><br>
-                                      <span class="res-info"><input name="printer-information" id="printType3" type="checkbox" value="" onclick="paperTypeClick(3)" />A2&nbsp;</span><span class="res-info"><input name="printer-information" id="printType14" type="checkbox" value="" onclick="paperTypeClick(14)" />B2 </span><br>
-                                      <span class="res-info"><input name="printer-information" id="printType4" type="checkbox" value="" onclick="paperTypeClick(4)" />A3&nbsp;</span><span class="res-info"><input name="printer-information" id="printType15" type="checkbox" value="" onclick="paperTypeClick(15)" />B3 </span><br>
-                                      <span class="res-info"><input name="printer-information" id="printType6" type="checkbox" value="" onclick="paperTypeClick(6)" />A5&nbsp;</span><span class="res-info"><input name="printer-information" id="printType16" type="checkbox" value="" onclick="paperTypeClick(16)" />B4 </span><br>
-                                      <span class="res-info"><input name="printer-information" id="printType7" type="checkbox" value="" onclick="paperTypeClick(7)" />A6&nbsp;</span><span class="res-info"><input name="printer-information" id="printType18" type="checkbox" value="" onclick="paperTypeClick(18)" />B6 </span><br>
-                                      <span class="res-info"><input name="printer-information" id="printType8" type="checkbox" value="" onclick="paperTypeClick(8)" />A7&nbsp;</span><span class="res-info"><input name="printer-information" id="printType19" type="checkbox" value="" onclick="paperTypeClick(19)" />B7 </span><br>
-                                      <span class="res-info"><input name="printer-information" id="printType9" type="checkbox" value="" onclick="paperTypeClick(9)" />A8&nbsp;</span><span class="res-info"><input name="printer-information" id="printType20" type="checkbox" value="" onclick="paperTypeClick(20)" />B8 </span><br>
-                                      <span class="res-info"><input name="printer-information" id="printType10" type="checkbox" value="" onclick="paperTypeClick(10)" />A9&nbsp;</span><span class="res-info"><input name="printer-information" id="printType21" type="checkbox" value="" onclick="paperTypeClick(21)" />B9 </span><br>
-                                      <span class="res-info"><input name="printer-information" id="printType11" type="checkbox" value="" onclick="paperTypeClick(11)" />A10</span><span class="res-info"><input name="printer-information" id="printType22" type="checkbox" value="" onclick="paperTypeClick(22)" />B10 </span><br>
+
+								  
+                                      <span class="res-info"><input name="printer-information" id="printType5" type="checkbox" value="" onclick="paperTypeClick(5)" />A4</span><input value="<?PHP echo $row['A4'];?>" id="costA4" placeholder="单价" style="width:50px;"/>
+                                      <span class="res-info"><input name="printer-information" id="printType17" type="checkbox" value="" onclick="paperTypeClick(17)" />B5&nbsp;</span><input value="<?PHP echo $row['B5'];?>" id="costB5" placeholder="单价" style="width:40px;"/><br>
+                                      <span class="res-info"><input name="printer-information" id="printType1" type="checkbox" value="" onclick="paperTypeClick(1)"/>A0&nbsp;</span><input value="<?PHP echo $row['A0'];?>" id="costA0" placeholder="单价" style="width:40px;"/><span class="res-info"><input name="printer-information" id="printType12" type="checkbox" value="" onclick="paperTypeClick(12)" />B0 </span><input value="<?PHP echo $row['B0'];?>" id="costB0" placeholder="单价" style="width:40px;"/><br>
+                                      <span class="res-info"><input name="printer-information" id="printType2" type="checkbox" value="" onclick="paperTypeClick(2)" />A1&nbsp;</span><input value="<?PHP echo $row['A1'];?>" id="costA1" placeholder="单价" style="width:40px;"/><span class="res-info"><input name="printer-information" id="printType13" type="checkbox" value="" onclick="paperTypeClick(13)" />B1 </span><input value="<?PHP echo $row['B1'];?>" id="costB1" placeholder="单价" style="width:40px;"/><br>
+                                      <span class="res-info"><input name="printer-information" id="printType3" type="checkbox" value="" onclick="paperTypeClick(3)" />A2&nbsp;</span><input value="<?PHP echo $row['A2'];?>" id="costA2" placeholder="单价" style="width:40px;"/><span class="res-info"><input name="printer-information" id="printType14" type="checkbox" value="" onclick="paperTypeClick(14)" />B2 </span><input value="<?PHP echo $row['B2'];?>" id="costB2" placeholder="单价" style="width:40px;"/><br>
+                                      <span class="res-info"><input name="printer-information" id="printType4" type="checkbox" value="" onclick="paperTypeClick(4)" />A3&nbsp;</span><input value="<?PHP echo $row['A3'];?>" id="costA3" placeholder="单价" style="width:40px;"/><span class="res-info"><input name="printer-information" id="printType15" type="checkbox" value="" onclick="paperTypeClick(15)" />B3 </span><input value="<?PHP echo $row['B3'];?>" id="costB3" placeholder="单价" style="width:40px;"/><br>
+                                      <span class="res-info"><input name="printer-information" id="printType6" type="checkbox" value="" onclick="paperTypeClick(6)" />A5&nbsp;</span><input value="<?PHP echo $row['A5'];?>" id="costA5" placeholder="单价" style="width:40px;"/><span class="res-info"><input name="printer-information" id="printType16" type="checkbox" value="" onclick="paperTypeClick(16)" />B4 </span><input value="<?PHP echo $row['B4'];?>" id="costB4" placeholder="单价" style="width:40px;"/><br>
+                                      <span class="res-info"><input name="printer-information" id="printType7" type="checkbox" value="" onclick="paperTypeClick(7)" />A6&nbsp;</span><input value="<?PHP echo $row['A6'];?>" id="costA6" placeholder="单价" style="width:40px;"/><span class="res-info"><input name="printer-information" id="printType18" type="checkbox" value="" onclick="paperTypeClick(18)" />B6 </span><input value="<?PHP echo $row['B6'];?>" id="costB6" placeholder="单价" style="width:40px;"/><br>
+                                      <span class="res-info"><input name="printer-information" id="printType8" type="checkbox" value="" onclick="paperTypeClick(8)" />A7&nbsp;</span><input value="<?PHP echo $row['A7'];?>" id="costA7" placeholder="单价" style="width:40px;"/><span class="res-info"><input name="printer-information" id="printType19" type="checkbox" value="" onclick="paperTypeClick(19)" />B7 </span><input value="<?PHP echo $row['B7'];?>" id="costB7" placeholder="单价" style="width:40px;"/><br>
+                                      <span class="res-info"><input name="printer-information" id="printType9" type="checkbox" value="" onclick="paperTypeClick(9)" />A8&nbsp;</span><input value="<?PHP echo $row['A8'];?>" id="costA8" placeholder="单价" style="width:40px;"/><span class="res-info"><input name="printer-information" id="printType20" type="checkbox" value="" onclick="paperTypeClick(20)" />B8 </span><input value="<?PHP echo $row['B8'];?>" id="costB8" placeholder="单价" style="width:40px;"/><br>
+                                      <span class="res-info"><input name="printer-information" id="printType10" type="checkbox" value="" onclick="paperTypeClick(10)" />A9&nbsp;</span><input value="<?PHP echo $row['A9'];?>" id="costA9" placeholder="单价" style="width:40px;"/><span class="res-info"><input name="printer-information" id="printType21" type="checkbox" value="" onclick="paperTypeClick(21)" />B9 </span><input value="<?PHP echo $row['B9'];?>" id="costB9" placeholder="单价" style="width:40px;"/><br>
+                                      <span class="res-info"><input name="printer-information" id="printType11" type="checkbox" value="" onclick="paperTypeClick(11)" />A10</span><input value="<?PHP echo $row['A10'];?>" id="costA10" placeholder="单价" style="width:40px;"/><span class="res-info"><input name="printer-information" id="printType22" type="checkbox" value="" onclick="paperTypeClick(22)" />B10 </span><input value="<?PHP echo $row['B10'];?>" id="costB10" placeholder="单价" style="width:40px;"/><br>
                                                   
                                   </div>
                                       
