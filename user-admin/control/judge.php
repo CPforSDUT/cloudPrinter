@@ -36,6 +36,5 @@ if($bScore <= 0.0){
 else if($bScore >= 5.0){
     $bScore = 5.0;
 }
-echo $bScore;
 mysql_query("update user set score='$bScore' where username='$business'");
 mysql_query("update orderinfo set orderState='3' where orderId='$orderId'");

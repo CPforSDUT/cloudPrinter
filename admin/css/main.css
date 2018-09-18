@@ -127,9 +127,12 @@ nav{display:none;}
 .pass{
 	font-size: 12px;
 }
+#zhizhang{
+	width: 100px;
+	margin-right: 60px;
+}
 #res-box{
-	margin-left: 140px;
-	position: relative;
+	position: absolute;
 	width: 200px;
 }
 #res-box span{

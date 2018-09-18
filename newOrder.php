@@ -400,7 +400,7 @@ $password = $_SESSION['pass'];
             myLo = lo;
             map.removeOverlay(myMark);
             pt = new BMap.Point(lo,la);
-            myMark=new BMap.Marker(pt)
+            myMark=new BMap.Marker(pt);
             doAlloc(myMark);
         }
     </script>

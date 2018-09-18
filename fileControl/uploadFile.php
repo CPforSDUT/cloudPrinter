@@ -163,15 +163,24 @@ if(isset($_FILES['file'])){
         }
         $canTypes = array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx');
         $converter = new PDFConverter();
-        if($fileType == 'pdf')
+        if(
+                strcasecmp($fileType,"bmp") == 0  || strcasecmp($fileType,"jpg") == 0  ||
+                strcasecmp($fileType,"jpeg") == 0 || strcasecmp($fileType,"gif") == 0  ||
+                strcasecmp($fileType,"tiff") == 0 || strcasecmp($fileType,"png") == 0
+        )
+        {
+            $paperNum = 1;
+            mysql_query("update fileinfo set paperNum='$paperNum' where orderId='$orderId' and filename='$fileNmae'");
+        }
+        else if($fileType == 'pdf')
         {
             $paperNum = getPdfPages("C:/phpStudy/PHPTutorial/upload/"."$hashname." . substr($_FILES["file"]["name"], strrpos($_FILES["file"]["name"], '.') + 1))[1];
             mysql_query("update fileinfo set paperNum='$paperNum' where orderId='$orderId' and filename='$fileNmae'");
         }
         else {
-            foreach ($canTypes as $each)
+            foreach ($canTypes as $each )
             {
-                if($each == $fileType)
+                if(strcasecmp($each,$fileType) == 0)
                 {
 
                     $source = "C:/phpStudy/PHPTutorial/upload/"."$hashname." . substr($_FILES["file"]["name"], strrpos($_FILES["file"]["name"], '.') + 1);

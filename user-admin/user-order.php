@@ -54,7 +54,6 @@ $username = mysql_escape_string($_SESSION['user']);
             Judge.open("POST","control/judge.php",false);
             Judge.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             Judge.send("orderId="+orderId+"&score="+score);
-            alert(Judge.responseText);
             getOrderInfo();
             orderInfo = Array();
             //document.getElementById("bt" + orderId).innerHTML = orderInfo['bt' + orderId];
