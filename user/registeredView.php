@@ -195,6 +195,7 @@
 
                                     map.addControl(new BMap.GeolocationControl());
                                     map.addControl(new BMap.NavigationControl());
+                                    map.enableScrollWheelZoom(true);
                                     var geolocation = new BMap.Geolocation();
                                     geolocation.getCurrentPosition(function(r){
                                         if(this.getStatus() == BMAP_STATUS_SUCCESS){
