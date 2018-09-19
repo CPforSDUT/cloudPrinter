@@ -704,3 +704,21 @@ daohang a:hover .caidan{
 .mapform-sj{
 	display:none;
 }
+#orderMain a{
+    margin: 10px;
+}
+/* #user_order th{
+    min-width: 400px;
+} */
+#tab4{
+    width: 50%;
+}
+#tab1{
+    width: 10%;
+}
+#tab2{
+    width: 20%;
+}
+#tab3{
+    width: 20%;
+}

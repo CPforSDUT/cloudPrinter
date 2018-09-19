@@ -135,7 +135,7 @@ $username = mysql_escape_string($_SESSION['user']);
         </div>
 
         <div class="main" style="background: #f9f9f9">
-            <table class="layui-table">
+            <table class="layui-table" id="user_order">
                 <colgroup>
                     <col width="150">
                     <col width="200">
@@ -143,10 +143,10 @@ $username = mysql_escape_string($_SESSION['user']);
                 </colgroup>
                 <thead>
                 <tr>
-                    <th>商家</th>
-                    <th>取件时间</th>
-                    <th>状态</th>
-                    <th>操作</th>
+                    <th id="tab1">商家</th>
+                    <th id="tab2">取件时间</th>
+                    <th id="tab3">状态</th>
+                    <th id="tab4">操作</th>
                 </tr>
                 </thead>
                 <tbody id="orderMain">

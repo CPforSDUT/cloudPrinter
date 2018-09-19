@@ -50,8 +50,8 @@ else {
         echo "<td>$business</td>";
         echo "<td>$time</td>";
         echo "<td>$state</td>";
-        echo "<td id='bt$orderId'><a href='#' class=\"button button-rounded button-tiny\" onclick=\"delOrder('$orderId')\"=>删除</a><a class=\"button button-rounded button-tiny\" href='user-document.php?orderId=$orderId'>查看</a>";
-        if($info['orderState'] != '3')echo "<a class=\"button button-rounded button-tiny\"hreaf='#' onclick=\"finish('$orderId')\">完成订单</a>";
+        echo "<td id='bt$orderId'><a href='#' class=\"button button-rounded button-tiny\" onclick=\"delOrder('$orderId')\"=>删除</a><a class=\"button button-primary button-rounded button-tiny\" href='user-document.php?orderId=$orderId'>查看</a>";
+        if($info['orderState'] != '3')echo "<a class=\"button button-action button-rounded button-tiny\"hreaf='#' onclick=\"finish('$orderId')\">完成订单</a>";
         echo "</td>";
         echo "<tr>";
 

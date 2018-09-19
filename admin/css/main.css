@@ -22,6 +22,18 @@
 .search-tab tr{line-height: 35px;}
 .search-tab th{text-align: left;padding-right:10px;font-weight: normal;}
 .search-tab td{padding: 0 5px;}
+#res-box{
+	margin-left: 120px;
+}
+
+#res-box input{
+	max-width: 60px;
+	margin-left: 10px;
+}
+#caiyin{
+	width: 60px;
+	margin-left: 10px;
+}
 @media screen and (max-width: 600px) {
 	/*
 	
@@ -130,12 +142,5 @@ nav{display:none;}
 #zhizhang{
 	width: 100px;
 	margin-right: 60px;
-}
-#res-box{
-	position: absolute;
-	width: 200px;
-}
-#res-box span{
-	margin-right: 30px;
 }
 }
