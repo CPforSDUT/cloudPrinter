@@ -33,15 +33,15 @@ function getCost($username,$orderId)
     $allCost = 0.0;
     while($filecost = mysql_fetch_array($filecosts))
     {
-        $type = $filecost['paperType']."|";
-        $paperNum = $filecost['paperNum']."|";
+        $colorBuff = $filecost['color'] == '2' ? $cost['colorBuff'] : 0;
+        $type = $filecost['paperType'];
+        $paperNum = $filecost['paperNum'];
         for($i = 0 ; $typebs[$i] != $type;$i ++);
         $type = $types[$i];
         if($paperNum < 0){
             continue;
         }
-        $cost[$type]."|";
-        $allCost += $cost[$type] * $paperNum;
+        $allCost += ($cost[$type] + $colorBuff)*$paperNum;
     }
     return $allCost;
 }

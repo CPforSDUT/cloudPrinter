@@ -103,9 +103,8 @@ $other = $other['other'];
 
                     </div>
                     <div class="layui-form-item">
-                      <div class="layui-input-block" style="margin: 0 auto;height: 100%;width: 179px;text-align: center">
-                        <button class="layui-btn" lay-submit lay-filter="formDemo" type="submit">立即提交</button>
-                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                      <div class="layui-input-block" style="margin: 0 auto;height: 100%;width: 100%;text-align: center">
+                        <button class="button button-primary button-rounded button-small" lay-submit lay-filter="formDemo" type="submit">确认修改</button> <button type="reset" style="height: 30px;" class="button button-pill button-tiny">重置</button>
                       </div>
                     </div>
                   </form>
