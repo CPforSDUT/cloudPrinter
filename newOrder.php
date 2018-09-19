@@ -194,7 +194,7 @@ $password = $_SESSION['pass'];
             var area = unescape(info['area']);
             var other = unescape(info['other']);
             document.getElementById('user_name').innerHTML = info['username'];
-            document.getElementById('other').innerHTML = province + city + area + other;
+            document.getElementById('other').innerHTML = other;
             document.getElementById("map_search").value = info['username'];
             var state;
             if(info['state'] == '1'){
@@ -232,20 +232,16 @@ $password = $_SESSION['pass'];
             {
                 if(where[each]['username'].toLocaleLowerCase() == keyword.toLocaleLowerCase())
                 {
-                    var province = unescape(where[each]['province']);
-                    var city = unescape(where[each]['city']);
-                    var area = unescape(where[each]['area']);
-                    var other = unescape(where[each]['other']);
-                    document.getElementById('user_name').innerHTML = where[each]['username'];
-                    document.getElementById('other').innerHTML = province + city + area + other;
-                    var state;
-                    if(where[each]['state'] == '1'){
-                        state = "打烊";
-                    }
-                    else {
-                        state= "开张";
-                    }
-                    document.getElementById("state").innerText = state;
+                    showShopInfo(where[each]);
+                    distance = map.getDistance(point,where[each]['pt']);
+                    document.getElementById("distance").innerHTML = (distance/1000).toFixed(2)+"km";
+                    document.getElementById("cost").innerHTML = where[each]['cost'];
+                    document.getElementById("score").innerHTML = where[each]['score'];
+                    cCost = where[each]['cost'];
+                    cDis = distance;
+                    cScore = where[each]['score'];
+                    walk.clearResults();
+                    walk.search(point ,where[each]['pt']);
                     break;
                 }
             }
