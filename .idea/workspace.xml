@@ -281,11 +281,11 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="507" />
-    <option name="y" value="47" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="229" />
+    <option name="y" value="174" />
+    <option name="width" value="848" />
+    <option name="height" value="677" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -390,9 +390,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="gene.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/gene.php">
-      <method v="2" />
-    </configuration>
+    <configuration name="gene.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/gene.php" />
     <recent_temporary>
       <list>
         <item itemvalue="PHP Script.gene.php" />
