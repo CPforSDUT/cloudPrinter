@@ -228,6 +228,7 @@ $password = $_SESSION['pass'];
         function search(keyword)
         {
             var each;
+            var point = new BMap.Point(myLo,myLa);
             for(each in where)
             {
                 if(where[each]['username'].toLocaleLowerCase() == keyword.toLocaleLowerCase())
