@@ -136,7 +136,7 @@ if (isset($_SESSION['user'])) {
             <nav id="title">登录</nav>
             <input type="text" name="username" class="button button-rounded button-tiny" id="username" style="text-align:left;"placeholder="请输入账号" value="wlwwlw" />
             <input type="password" name="password"  class="button button-rounded button-tiny" id="password" style="text-align:left;" placeholder="请输入密码" value="621129a" />
-        <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登陆</button>
+        <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登录</button>
             <nav id="login_info">没有账号？<a href="/user/registeredView.php" id="zc">马上注册</a></nav>
             <br>
             <span class="login_tips"><a href="#" onclick="zduser()">用户账号:wlwwlw密码:621129a<br></a><a href="#" onclick="zdshang()">商家账号:yanshi12密码：621129aa<br></a><a href="#" onclick="zdadmin()">管理员账号：admini密码:admini<br></a></span>

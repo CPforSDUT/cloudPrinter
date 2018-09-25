@@ -88,19 +88,39 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
 
         <div class="result-wrap">
             <div class="result-title">
-                <h1>商家使用帮助</h1>
+                <h1>推荐打印订单</h1>
             </div>
             <div class="result-content">
                 <ul class="sys-info-list">
                     <li>
-                        <label class="res-lab">第一：</label><span class="res-info">查看所有订单</span><br>
-                        <label class="res-lab">第二：</label><span class="res-info">按照时间顺序依次打印订单</span><br>
-                        <label class="res-lab">第三：</label><span class="res-info">点击打印完成</span><br>
-                        <label class="res-lab">第四：</label><span class="res-info">继续打印</span><br>
+                        <span class="res-info">我们根据算法，综合考虑了打印页数、提取时间、打印份数及特殊要求等因素，智能为您推荐最先打印的订单，您也可以点击左侧所有订单自己进行选择。</span><br>
+                       
                     </li>
 
                 </ul>
             </div>
+			
+			<div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="tc" width="5%"><input onclick="allChoose()" id="allChoose" type="checkbox"></th>
+                                <th>订单状态</th>
+                                <th>发布人</th>
+								<th>提取码</th>
+                                <th>完成时间</th>
+                                <th>操作</th>
+								<th>推荐完成时间</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderMain">
+
+                        </tbody>
+
+                    </table>
+                    <div class="list-page"><a onclick="prevPage()">上一页</a> <p id="page_num_index"></p> <a onclick="nextPage()">下一页</a></div>
+                </div>
+			
         </div>
     </div>
     <!--/main-->

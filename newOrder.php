@@ -497,7 +497,7 @@ $password = $_SESSION['pass'];
                                 }
                             };
                         </script>
-                        <span>*请上传最多8个不大于20M的文件</span>
+                        <span id="bage">*请上传最多8个不大于20M的文件</span>
                         <div class="go" id="go_one">
                                 <!-- <button class="button button-highlight button-rounded button-large">上一步</button> -->
                                 <button class="button button-action button-rounded button-large" onclick="showAndHidden1(<?php echo "'$orderId'";?>)">下一步</button>

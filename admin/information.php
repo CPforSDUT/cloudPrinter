@@ -478,7 +478,7 @@ $colorBuff = $row['colorBuff'];
                                             <tr>
                                                 <th width="120">修改密码：</th>
                                                 <td>
-                                                    <table class="changepass" style="font-size:22px;display:inline-block;margin-left:240px">
+                                                    <table class="changepass" style="font-size:14px;display:inline-block;margin-left:240px">
                                                         <tr>
                                                             <td>
                                                                 <span class="input_tab">旧密码</span>
