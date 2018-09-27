@@ -5,6 +5,18 @@
     margin:0;
     padding:0;
 } */	
+
+@media screen and (max-width: 1500px) {
+.bk-down{
+	display:none !important;
+}
+.set-white .title{
+	margin-top:120px;
+}
+	
+}
+
+
 @media screen and (min-width:300px) and (max-width: 600px) {
   .animation{
 

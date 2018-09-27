@@ -46,14 +46,14 @@
 }
 
 #mydropzone{
-		width:300px !important;
-		height:250px !important;
+		width:400px !important;
+		height:300px !important;
 		margin-top:190px;
 		margin-left:auto;
 		margin-right:auto;
 	}
 #bage{
-	margin-left:40px;
+	margin-left:80px;
 }
 .jdt{
 	display:none;
@@ -67,8 +67,8 @@
 }
 #baiduMap{
     margin: auto;
-    width: 600px;
-    height: 320px;
+    width: 450px !important;
+    height: 320px !important;
     position: relative;
     border-radius: 6px;
     z-index: 10;
@@ -80,7 +80,7 @@
     right: 0;
     margin: auto;
     top: 30;
-    width: 80%;
+    width: 60% !important;
     height: 48px;
     padding-left: 20px;
     padding-right: 14px;
@@ -91,18 +91,20 @@
     z-index: 12;
 }
 .mapform{
-    max-width: 500px !important;
-    height: 180px;
+    max-width: 400px !important;
+    height: 130px;
     top:350px;
     z-index: 12;
 }
 .mapform table{
     text-align: center;
     position: relative;
-    margin: auto;
+    margin-left:auto !important;
+	margin-right:auto !important;
+	left:75px !important;
 }
 .mapform td{
-    min-width: 70px;
+    min-width: 50px !important;
     max-width: 120px;
     height: 36px;
     border-color: #ffffff;
@@ -112,20 +114,38 @@
 }
 .mapform thead{
     background-color: #b9c9fe;
-    min-width: 60px;
-    height: 40px;
+    min-width: 40px !important;
+    height: 30px;
     padding: 4px;
     color: #003399;
     font-size: 18px;
 }
 .mapform tbody{
     background-color: #e8edff;
-    min-width: 60px;
+    min-width: 40px !important;
     height: 36px;
     color: #7884aa;
     padding: 2px;
     font-size: 12px;
 
+}
+#gettime{
+    min-width: 150px !important;
+}
+#gettime1{
+    min-width: 150px !important;
+    background-color:#ffcab7;
+    color: #f34628;
+}
+#data_select{
+    padding-top: 2px;
+    position: absolute;
+    float: left;
+    min-width: 120px;
+    max-width: 300px;
+    z-index: 11;
+	margin-left:50px !important;
+    
 }
 
 }

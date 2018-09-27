@@ -145,7 +145,7 @@ $password = $_SESSION['pass'];
             selected = fileName;
             document.getElementById(selectedId).removeAttribute("style");
             document.getElementById("selected"+i).style.color = "#fff";
-            document.getElementById("selected"+i).style.fontSize = "22px";
+            document.getElementById("selected"+i).style.fontSize = "18px";
             document.getElementById("selected"+i).style.background = "#3c7df1";
             selectedId = "selected" + i;
 
@@ -515,6 +515,7 @@ $password = $_SESSION['pass'];
                                 <!-- <select id="choosefile" name="choosefile" data-edit-select="1" onmousedown="if(this.options.length>3){this.size=8}" onblur="this.size=0" onchange="this.size=0" style="position:absolute;z-index:1">
                                 </select> -->
                                 <div class="cf">
+								
                                     <p id="selected" style="display:none;"></p>
                                     <p id="selctedId" style="display: none;"></p>
                                     <ul id="choosefile">
@@ -530,6 +531,10 @@ $password = $_SESSION['pass'];
                                 <nav>备注：</nav>
                             </div>
                             <div id="data_right">
+							
+									
+							
+							
                                 <select name="paper_size" id="paper_size">
                                     <option value="A0">A0</option>
                                     <option value="A1">A1</option>
@@ -568,7 +573,7 @@ $password = $_SESSION['pass'];
                                 </select>
                                 <br>
                                 <p id="papers" style="margin:0px;font-size:16px;">Loading...</p>
-                                <textarea rows="6" cols="20" id="other_info"></textarea>
+                                <textarea rows="6" cols="15" id="other_info"></textarea>
                             </div>
                             <script type="text/javascript">
                                 var elements = new Array();
@@ -641,6 +646,7 @@ $password = $_SESSION['pass'];
 								</script>
 
                             </table>
+						
                         </div>
                         <img src="/image/jdt3.png" class="jdt">
                         <div class="go" id="go_three">
