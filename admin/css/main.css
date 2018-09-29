@@ -19,6 +19,8 @@
 .crumb-list .icon-font{margin-right: 5px;}
 .crumb-step{margin: 0 5px;color: #b2c2e0;font-family: serif;}
 .search-wrap{padding: 15px 0;border-bottom: 1px solid #e5e5e5;}
+.search-tab {padding-left: 4px;
+}
 .search-tab tr{line-height: 35px;}
 .search-tab th{text-align: left;padding-right:10px;font-weight: normal;}
 .search-tab td{padding: 0 5px;}
