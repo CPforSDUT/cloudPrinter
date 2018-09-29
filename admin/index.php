@@ -9,7 +9,7 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
 <head>
     <meta charset="UTF-8">
     <title>商家后台管理</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
 	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -61,9 +61,9 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
                 <li>
                     <a href="#"><i class="icon-font">&#xe003;</i>订单管理</a>
                     <ul class="sub-menu">
+                        <li><a href="index.php"><i class="icon-font">&#xe017;</i>系统推荐订单</a></li>
                         <li><a href="order.php"><i class="icon-font">&#xe005;</i>所有订单</a></li>
                         <li><a href="sore.php"><i class="icon-font">&#xe004;</i>输入提取码</a></li>
-
                         <li><a href="people.php"><i class="icon-font">&#xe001;</i>用户管理</a></li>
                     </ul>
                 </li>
@@ -85,32 +85,34 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
             <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎使用云打印系统<span></span></span></div>
         </div>
 
-
         <div class="result-wrap">
             <div class="result-title">
                 <h1>推荐打印订单</h1>
             </div>
             <div class="result-content">
-                <ul class="sys-info-list">
-                    <li>
-                        <span class="res-info">我们根据算法，综合考虑了打印页数、提取时间、打印份数及特殊要求等因素，智能为您推荐最先打印的订单，您也可以点击左侧所有订单自己进行选择。</span><br>
-                       
-                    </li>
-
-                </ul>
+              <div class="search-wrap">
+                  <div class="search-content">
+                          <table class="search-tab">
+                              <tr>
+                                  <td>
+                                    <span class="res-info">我们根据算法，综合考虑了打印页数、提取时间、打印份数及特殊要求等因素，智能为您推荐最先打印的订单，您也可以点击左侧所有订单自己进行选择。</span>
+                                  </td>
+                              </tr>
+                          </table>
+                  </div>
             </div>
 			
 			<div class="result-content">
                     <table class="result-tab" width="100%">
                         <thead>
                             <tr>
-                                <th class="tc" width="5%"><input onclick="allChoose()" id="allChoose" type="checkbox"></th>
-                                <th>订单状态</th>
-                                <th>发布人</th>
+                                <th>打印顺序</th>
+                                <th>客户</th>
 								<th>提取码</th>
-                                <th>完成时间</th>
-                                <th>操作</th>
-								<th>推荐完成时间</th>
+                                <th>提交顺序</th>
+                                <th>用户提取时间</th>
+                                <th>打印耗时</th>
+								<th>预计完成时间</th>
                             </tr>
                         </thead>
                         <tbody id="orderMain">
@@ -118,9 +120,6 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
                         </tbody>
 
                     </table>
-                    <div class="list-page"><a onclick="prevPage()">上一页</a> <p id="page_num_index"></p> <a onclick="nextPage()">下一页</a></div>
-                </div>
-			
         </div>
     </div>
     <!--/main-->
