@@ -533,7 +533,10 @@ $password = $_SESSION['pass'];
                                 <nav>备注：</nav>
                             </div>
                             <div id="data_right">
-
+							
+									
+							
+							
                                 <select name="paper_size" id="paper_size">
                                     <option value="A0">A0</option>
                                     <option value="A1">A1</option>
