@@ -1,6 +1,4 @@
 <?php
-
-
 function toPureTime($dirtyTime)
 {
     $year = substr($dirtyTime,0,4);
@@ -28,10 +26,10 @@ function getOrderInfo($username,$Now){
     $ex = mysql_fetch_array($ex);
     $ex = $ex['doOrder'];
     if($ex == 'null') {
-        $sql = mysql_query("select * from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now' order by orderId");
+        $sql = mysql_query("select * from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now'  and orderState='1' order by orderId");
     }
     else {
-        $sql = mysql_query("select * from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now' and orderId!='$ex' order by orderId");
+        $sql = mysql_query("select * from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now' and orderId!='$ex'  and orderState='1' order by orderId");
     }
     $arr = array();
     while($each = mysql_fetch_array($sql)) {
@@ -45,10 +43,10 @@ function getOrderNum($username,$Now)
     $ex = mysql_fetch_array($ex);
     $ex = $ex['doOrder'];
     if($ex == 'null') {
-        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now' order by orderId");
+        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now' and orderState='1' order by orderId");
     }
     else {
-        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now' and orderId!='$ex' order by orderId");
+        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now' and orderId!='$ex'  and orderState='1' order by orderId");
     }
     $count = mysql_fetch_array($count);
     return $count = $count['count(*)'];
@@ -96,18 +94,17 @@ function otherJudge($lifes,$dTimes,$timeS)
 }
 function judge($lifes,$username,$data)
 {
-    $tTime = time();
-
+    $Now = time();
     $dTimes = getOrderDTime($data);
     $speed = getSpeed($username);
     $nTimes = getOrderNTime($speed,$data);
     for($i = 0 ; $i < count($lifes);$i ++)
     {
-        $start = $tTime;
+        $start = $Now;
         $end = $start + $nTimes[$lifes[$i]];
         $timeS[$lifes[$i]][0] = $start;
         $timeS[$lifes[$i]][1] = $end;
-        $tTime = $end;
+        $Now = $end;
     }
     $score = 0;
     for($i = 0 ; $i < count($lifes) ; $i ++)
@@ -203,7 +200,7 @@ function hybrids(&$dnas,$varpos)
 function findBatter($lifes,$username,$Now,$old,$data)
 {
     $orderNum = getOrderNum($username,$Now);
-    $thiss = judge($lifes,$username,$data);
+    $thiss = judge($lifes,$username,$data,$Now);
     if($thiss >= $orderNum && $thiss > $old){
         return $thiss;
     }
@@ -225,6 +222,10 @@ $username = mysql_escape_string($_SESSION['user']);
 $password = mysql_escape_string($_SESSION['pass']);
 if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password' and type='2'")) == false){
     header("location:/index.php");
+    exit();
+}
+if(getOrderNum($username,$Now) <= 0){
+    echo "ok";
     exit();
 }
 $ex = mysql_query("select * from aisort where username='$username'");

@@ -50,9 +50,9 @@ else {
         echo "<td>$business</td>";
         echo "<td>$time</td>";
         echo "<td>$state</td><td id='bt$orderId'>";
-        if($info['orderState'] != '3')echo "<a class=\"button button-primary button-rounded button-tiny\"hreaf='#' onclick=\"finish('$orderId')\">完成订单</a>";
-        echo "<a class=\"button button-rounded button-highlight button-tiny\" href='user-document.php?orderId=$orderId'>查看订单</a><a href='#' class=\"button button-rounded button button-tiny\" onclick=\"delOrder('$orderId')\"=>删除订单</a>";
-       echo "</td>";
+        echo "<a class=\"button button-pill button-tiny\" href='user-document.php?orderId=$orderId'>查看</a><a href='#' style='color=red;' class=\"button button-pill button-tiny\" onclick=\"delOrder('$orderId')\">删除</a>";
+        if($info['orderState'] != '3')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #9E9E9E;' hreaf='#' onclick=\"finish('$orderId')\">★</a>";
+        echo "</td>";
         echo "<tr>";
 
     }while($info = mysql_fetch_array($infos));
