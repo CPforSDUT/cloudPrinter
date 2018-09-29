@@ -8,7 +8,9 @@
     position: relative;
     background: linear-gradient(to top right, #3c7df1, #62c1fb);
 }
+
 .mt{
+    display: none !important;
     position: relative;
     height: 200px;
     left: 0;
@@ -199,11 +201,24 @@
 		width:330px;
 	}
   .header{
-      max-width: 1440px;
+      width: 100% !important;
       position: relative;
       height: 40px;
       margin-top: 0px;
       margin: auto;
+      height:40px !important;
+  }
+  .caidan{
+      width: 100px !important;;
+      margin-top: 40px !important;
+      font-size: 14px !important;
+  }
+  .caidan li {
+    font: 14px/2 Helvetica, Verdana, sans-serif !important;;
+    border-bottom: 1px solid #ccc;
+}
+  #uname{
+      margin-right: 80px !important;
   }
   .daohang{
       padding: 10px;
@@ -262,9 +277,6 @@
     padding: 10px;
     height: 40px !important;
     display: block;
-	}
-	.header{
-	height:40px !important;
 	}
 	
 	.cf{
@@ -345,7 +357,7 @@ select{
     z-index: 100;
 }
 .header{
-    max-width: 100% !important;
+    width: 80%;
     position: relative;
     height: 60px;
     margin-top: 0px;
@@ -685,7 +697,7 @@ daohang a:hover .caidan{
     height: 280px;
     overflow: scroll;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 14px;
     display: inline-block;
     text-align: center;
 }
@@ -693,8 +705,11 @@ daohang a:hover .caidan{
     list-style-type: none;
 }
 .cf li {
-    font:18px/1.5 Helvetica, Verdana, sans-serif;
+    font:16px/1.5 Helvetica, Verdana, sans-serif;
     border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 
 .cf li:last-child {
@@ -712,7 +727,7 @@ daohang a:hover .caidan{
 }
 .cf li:hover {
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
     background: #3c7df1;
 }
 

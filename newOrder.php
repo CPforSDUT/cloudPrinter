@@ -449,7 +449,9 @@ $password = $_SESSION['pass'];
         </div>
         </div>
         <div class="main">
-            
+        <div class="mt">
+                    <nav>请填写您的订单</nav>
+                </div>
             <div class="m1">
                 <div class="m2">
                     <div class="form" id="form0">
@@ -515,7 +517,7 @@ $password = $_SESSION['pass'];
                                 <!-- <select id="choosefile" name="choosefile" data-edit-select="1" onmousedown="if(this.options.length>3){this.size=8}" onblur="this.size=0" onchange="this.size=0" style="position:absolute;z-index:1">
                                 </select> -->
                                 <div class="cf">
-								
+
                                     <p id="selected" style="display:none;"></p>
                                     <p id="selctedId" style="display: none;"></p>
                                     <ul id="choosefile">
@@ -687,7 +689,7 @@ $password = $_SESSION['pass'];
                         <!-- <i onclick="document.gestElementById('nok').style.visibility='hidden'" class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i> -->
                         <img src="/image/false.png">
                         <nav>提交失败</nav>
-                        <p>出现未知错误，请重试！</p>
+                        <p>提取时间未能满足您的需求，请换个时间</p>
                         <div id="fin">
                         <a href="newOrder.php" class="button button-rounded button-primary">重试</a>
                         </div>
