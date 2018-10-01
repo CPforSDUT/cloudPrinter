@@ -8,7 +8,8 @@ if (!$con)
 mysql_select_db("user", $con);
 if(isset($_GET['install']))
 {
-    mysql_query("CREATE TABLE IF NOT EXISTS `alloc` (  `username` char(16) NOT NULL,  `cost` int(11) NOT NULL DEFAULT '60',  `distance` int(11) NOT NULL DEFAULT '70',  `score` int(11) NOT NULL DEFAULT '60') ENGINE=MyISAM DEFAULT CHARSET=utf8");
+    mysql_query("CREATE TABLE IF NOT EXISTS `aisort` (  `username` char(15) DEFAULT NULL,  `sort` varchar(1000) DEFAULT NULL,  `speed` varchar(15) DEFAULT '3',  `doOrder` char(32) DEFAULT 'null',  `hock` char(1) DEFAULT 'n',  `time` char(13) DEFAULT 'null') ENGINE=MyISAM DEFAULT CHARSET=utf8");
+    mysql_query("CREATE TABLE IF NOT EXISTS `alloc` (  `username` char(15) NOT NULL DEFAULT '',  `cost` int(11) NOT NULL DEFAULT '60',  `distance` int(11) NOT NULL DEFAULT '70',  `score` int(11) NOT NULL DEFAULT '60') ENGINE=MyISAM DEFAULT CHARSET=utf8");
     mysql_query("CREATE TABLE IF NOT EXISTS `delfiles` (  `orderId` char(32) NOT NULL,  `time` char(20) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8");
     mysql_query("CREATE TABLE IF NOT EXISTS `fileinfo` (  `orderId` char(32) NOT NULL,  `filePath` varchar(100) NOT NULL,  `color` char(1) NOT NULL DEFAULT '1',  `num` int(11) NOT NULL DEFAULT '1',  `paperType` int(11) NOT NULL DEFAULT '16',  `paperNum` int(11) DEFAULT '-1',  `paperWay` char(1) CHARACTER SET utf32 NOT NULL DEFAULT '1',  `filename` varchar(1000) NOT NULL,  `otherInfo` varchar(500) NOT NULL DEFAULT '') ENGINE=MyISAM DEFAULT CHARSET=utf8");
     mysql_query("CREATE TABLE IF NOT EXISTS `orderids` (  `orderId` char(32) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8");

@@ -53,7 +53,7 @@ if(isset($_POST['search']))
 }
 
 
-$visit = "where 1=1 ";
+$visit = "where 1=1 and orderState!='9' ";
 if(isset($_POST['sorted']))
 {
     switch ($_POST['sorted'])

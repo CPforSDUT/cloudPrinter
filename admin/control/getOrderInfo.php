@@ -70,13 +70,13 @@ if(isset($_POST['search']))
     $visit = $visit."and consumer='$search'";
 }
 
-$eNum = "select count(*) from orderinfo " .$visit." and deleted != 'bn'";
+$eNum = "select count(*) from orderinfo " .$visit." and deleted != 'bn' and orderState!='9'";
 $eNum = mysql_query($eNum);
 $eNum = mysql_fetch_array($eNum);
 $eNum = $eNum['count(*)'];
 echo "<p style='display: none' id='eNum'>$eNum</p>";
 $pageNum *= 7;
-$result = mysql_query("select * from orderinfo ".$visit." and deleted != 'bn' limit $pageNum,7");
+$result = mysql_query("select * from orderinfo ".$visit." and deleted != 'bn' and orderState!='9' limit $pageNum,7");
 
 for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
 {

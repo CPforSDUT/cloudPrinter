@@ -1,5 +1,60 @@
 <?php
 session_start();
+function getOrderInfo($username,$Now){
+    $ex = mysql_query("select * from aisort where username='$username'");
+    $ex = mysql_fetch_array($ex);
+    $ex = $ex['doOrder'];
+    $sql = mysql_query("select * from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and orderId!='$ex'  and orderState='1' order by orderId");
+    $arr = array();
+    while($each = mysql_fetch_array($sql)) {
+        array_push($arr,$each);
+    }
+    return $arr;
+}
+function getOrderSort($username)
+{
+    $sort = mysql_query("select * from aisort where username='$username'");
+    $sort = mysql_fetch_array($sort);
+    $sort = $sort['sort'];
+    $sort = explode("|",$sort);
+    return $sort;
+}
+function sortDelete($username,$orderId)
+{
+    $exx = mysql_query("select * from aisort where username='$username'");
+    $exx = mysql_fetch_array($exx);
+    $ex = $exx['doOrder'];
+    $Now = $exx['time'];
+    $sort = getOrderSort($username);
+    $allOrder = getOrderInfo($username,$Now);
+    if($orderId == $ex)
+    {
+        $newDoOrder = $allOrder[$sort[0]]['orderId'];
+        $sort = array_slice($sort,1);
+        $sort = implode("|",$sort);
+        if($sort == ''){
+            $sql = sprintf("update aisort set sort='%s',doOrder='null' where username='$username'",$sort);
+        }
+        else {
+            $sql = sprintf("update aisort set sort='%s',doOrder='$newDoOrder' where username='$username'",$sort,$newDoOrder);
+        }
+        mysql_query($sql);
+    }
+    else {
+        for($i = 0 ; $i < count($allOrder) && $allOrder[$i]['orderId']!=$orderId ; $i ++);
+        $dSort = $sort[$i];
+        $newSort = array_slice($sort,0,$i) + array_slice($sort,$i + 1);
+        for($j = 0 ; $j < count($newSort) ; $j ++){
+            if($newSort[$j] > $dSort){
+                $newSort[$j] -= 1;
+            }
+        }
+        $newSort = implode("|",$newSort);
+        $sql = sprintf("update aisort set sort='%s' where username='$username'",$newSort);
+        mysql_query($sql);
+    }
+
+}
 if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
     header("location:/index.php");
 }
@@ -24,6 +79,7 @@ if(strnatcasecmp($username,$row['business']) == 0){
     {
         case 'okOrder':
             if($row['orderState'] == '1') mysql_query("UPDATE orderinfo SET orderState='2' WHERE orderId='$orderId'");
+            sortDelete($username,$orderId);
             break;
         case 'delete':
             if($row['deleted'] == 'cn'){
@@ -34,5 +90,6 @@ if(strnatcasecmp($username,$row['business']) == 0){
             else {
                 mysql_query("UPDATE orderinfo SET deleted='bn' WHERE orderId='$orderId'");
             }
+            sortDelete($username,$orderId);
     }
 }

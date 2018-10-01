@@ -26,10 +26,10 @@ function getOrderInfo($username,$Now){
     $ex = mysql_fetch_array($ex);
     $ex = $ex['doOrder'];
     if($ex == 'null') {
-        $sql = mysql_query("select * from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now'  and orderState='1' order by orderId");
+        $sql = mysql_query("select * from orderinfo where business='$username' and deleted='nn' and deadline>'$Now'  and (orderState='1' or orderState='9') order by orderId");
     }
     else {
-        $sql = mysql_query("select * from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now' and orderId!='$ex'  and orderState='1' order by orderId");
+        $sql = mysql_query("select * from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and orderId!='$ex'  and (orderState='1' or orderState='9') order by orderId");
     }
     $arr = array();
     while($each = mysql_fetch_array($sql)) {
@@ -43,10 +43,10 @@ function getOrderNum($username,$Now)
     $ex = mysql_fetch_array($ex);
     $ex = $ex['doOrder'];
     if($ex == 'null') {
-        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now' and orderState='1' order by orderId");
+        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and (orderState='1' or orderState='9') order by orderId");
     }
     else {
-        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted!='bn' and deadline>'$Now' and orderId!='$ex'  and orderState='1' order by orderId");
+        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and orderId!='$ex'  and (orderState='1' or orderState='9') order by orderId");
     }
     $count = mysql_fetch_array($count);
     return $count = $count['count(*)'];
@@ -92,7 +92,7 @@ function otherJudge($lifes,$dTimes,$timeS)
 {
     return 0;
 }
-function judge($lifes,$username,$data)
+function judge($lifes,$username,$data,$Now)
 {
     $Now = time();
     $dTimes = getOrderDTime($data);
@@ -102,14 +102,13 @@ function judge($lifes,$username,$data)
     {
         $start = $Now;
         $end = $start + $nTimes[$lifes[$i]];
-        $timeS[$lifes[$i]][0] = $start;
-        $timeS[$lifes[$i]][1] = $end;
+        $timeS[$lifes[$i]] = $end;
         $Now = $end;
     }
     $score = 0;
     for($i = 0 ; $i < count($lifes) ; $i ++)
     {
-        if($dTimes[$lifes[$i]] > $timeS[$lifes[$i]][1]){
+        if($dTimes[$lifes[$i]] > $timeS[$lifes[$i]] || $dTimes[$lifes[$i]] < time()){
             $score += 1;
         }
     }
@@ -131,14 +130,14 @@ function randLifes($username,$Now)
     }
     return $lifes;
 }
-function natSelect($username,$dnas,$data)
+function natSelect($username,$dnas,$data,$Now)
 {
     $all = 0;
     $lifePower = array();
     $field = array();
     for ($i = 0 ; $i < count($dnas) ; $i++)
     {
-        $thisLife = judge($dnas[$i],$username,$data);
+        $thisLife = judge($dnas[$i],$username,$data,$Now);
         array_push($lifePower,$thisLife);
         $all += $thisLife;
     }
@@ -200,7 +199,7 @@ function hybrids(&$dnas,$varpos)
 function findBatter($lifes,$username,$Now,$old,$data)
 {
     $orderNum = getOrderNum($username,$Now);
-    $thiss = judge($lifes,$username,$data,$Now);
+    $thiss = judge($lifes,$username,$data,strtotime(toPureTime($Now)));
     if($thiss >= $orderNum && $thiss > $old){
         return $thiss;
     }
@@ -210,7 +209,7 @@ function findBatter($lifes,$username,$Now,$old,$data)
 }
 
 session_start();
-if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
+if(isset($_SESSION['user']) == false || $_SESSION['type'] != '1'){
     header("location:/index.php");
 }
 $con = mysql_connect("localhost", "root", "wslzd9877");
@@ -218,24 +217,21 @@ if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("user", $con);
-$username = mysql_escape_string($_SESSION['user']);
-$password = mysql_escape_string($_SESSION['pass']);
-if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password' and type='2'")) == false){
-    header("location:/index.php");
-    exit();
-}
+$username = mysql_escape_string($_GET['business']);
 if(getOrderNum($username,$Now) <= 0){
     echo "ok";
     exit();
 }
-$ex = mysql_query("select * from aisort where username='$username'");
-$ex = mysql_fetch_array($ex);
-$ex = $ex['doOrder'];
-
-$Now = time();
-$Now = date("Ymdhi",$Now);
+$exx = mysql_query("select * from aisort where username='$username'");
+$exx = mysql_fetch_array($exx);
+$ex = $exx['doOrder'];
+$Now = $exx['time'];
+if($Now == 'null')
+{
+    $Now = time();
+    $Now = date("YmdHi",$Now);
+}
 $allOrder = getOrderInfo($username,$Now);
-
 $best = 0;
 $bestLife = 0;
 $times = 0;
@@ -244,7 +240,7 @@ for($i = 0 ; $i < 50 ; $i ++) {
     array_push($dnas,randLifes($username,$Now));
 }
 do{
-    $dnas = natSelect($username,$dnas,$allOrder);
+    $dnas = natSelect($username,$dnas,$allOrder,$Now);
     hybrids($dnas,0.1);
     foreach ($dnas as $each)
     {
@@ -268,11 +264,11 @@ if($best != 0)
         }
         $sort = implode("|",array_slice($bestLife,1));
         $doOrder = $allOrder[$bestLife[0]]['orderId'];
-        $arr = sprintf("update aisort set sort='%s',doOrder='%s' where username='$username'",$sort,$doOrder);
+        $arr = sprintf("update aisort set sort='%s',doOrder='%s',time='$Now' where username='$username'",$sort,$doOrder);
     }
     else {
         $sort = implode("|",$bestLife);
-        $arr = sprintf("update aisort set sort='%s'where username='$username'",$sort);
+        $arr = sprintf("update aisort set sort='%s',time='$Now' where username='$username'",$sort);
     }
     mysql_query($arr);
     echo 'ok';

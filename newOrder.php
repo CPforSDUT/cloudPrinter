@@ -1,4 +1,5 @@
 <?php ob_start();
+
 session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
@@ -10,6 +11,25 @@ if (!$con)
 }
 $username = $_SESSION['user'];
 $password = $_SESSION['pass'];
+mysql_select_db("user", $con);
+$weights = mysql_query("select * from alloc where username='$username'");
+$weights = mysql_fetch_array($weights);
+$costW = $weights['cost'];
+$distanceW = $weights['distance'];
+$scoreW = $weights['score'];
+if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
+    header("location:/index.php");
+    exit();
+}
+session_set_cookie_params(24 * 3600);
+do{
+    $orderId = md5($username+time()+rand(0,getrandmax()));
+    $result = mysql_query("SELECT * FROM orderids where orderId = \"$orderId\"");
+    $row = mysql_fetch_array($result);
+}while($row != false);
+$tIme =  time();
+mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
+
 ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,6 +51,45 @@ $password = $_SESSION['pass'];
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/master.css">
 	<style>
+        .spinner {
+            margin: 100px auto 0;
+            width: 150px;
+            text-align: center;
+        }
+        .spinner > div {
+            width: 30px;
+            height: 30px;
+            background-color: #67CF22;
+
+            border-radius: 100%;
+            display: inline-block;
+            -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+            animation: bouncedelay 1.4s infinite ease-in-out;
+            /* Prevent first frame from flickering when animation starts */
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        .spinner .bounce1 {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+        }
+        .spinner .bounce2 {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+        }
+        @-webkit-keyframes bouncedelay {
+            0%, 80%, 100% { -webkit-transform: scale(0.0) }
+            40% { -webkit-transform: scale(1.0) }
+        }
+        @keyframes bouncedelay {
+            0%, 80%, 100% {
+                transform: scale(0.0);
+                -webkit-transform: scale(0.0);
+            } 40% {
+                  transform: scale(1.0);
+                  -webkit-transform: scale(1.0);
+              }
+        }
 	.layui-laydate-footer span {
 		margin-right: 1px;
 		float:left;
@@ -283,19 +342,33 @@ $password = $_SESSION['pass'];
                     return ;
                 }
                 upWeights();
-                createOrder.open("POST","/createNewOrder.php",false);
+                document.getElementById("waiting").style.display='block';
+                createOrder.open("POST","/createNewOrder.php",true);
                 createOrder.setRequestHeader("Content-type","application/x-www-form-urlencoded");
                 createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business);
-                eval(createOrder.responseText);
-                if(typeof(exCode) == 'number') {
-                    document.getElementById("exCode").innerHTML = "您的提取码：" + exCode + "（请牢记，提取时使用）";
-                    document.getElementById("ok").style.visibility = "visible";
-                    document.getElementById("ok").style.display = "block";
+                createOrder.timeout = 600000;
+                createOrder.onreadystatechange = function () {
+                    if (createOrder.readyState == 4 && createOrder.status == 200) {
+                        document.getElementById("waiting").style.display='none';
+                        eval(createOrder.responseText);
+                        if(typeof(exCode) == 'number') {
+                            document.getElementById("exCode").innerHTML = "您的提取码：" + exCode + "（请牢记，提取时使用）";
+                            document.getElementById("ok").style.visibility = "visible";
+                            document.getElementById("ok").style.display = "block";
+                        }
+                        if(exCode == 'timeout')
+                        {
+                            document.getElementById("nok").style.visibility = "visible";
+                            document.getElementById("nok").style.display = "block";
+                            document.getElementById("fail_info").innerHTML = "系统繁忙请稍后重试！";
+                        }
+                        else{
+                            document.getElementById("nok").style.visibility = "visible";
+                            document.getElementById("nok").style.display = "block";
+                        }
+                    }
                 }
-                else{
-                    document.getElementById("nok").style.visibility = "visible";
-                    document.getElementById("nok").style.display = "block";
-                }
+
             }
             else {
                 alert('请选择商家。');
@@ -458,27 +531,7 @@ $password = $_SESSION['pass'];
                     <a class="button button-glow button-border button-rounded button-primary button-jumbo" id="start" onclick="showAndHidden0()">创建新订单</a>
                     </div>
                     <div class="form" id="form1">
-                        <?php
 
-                            mysql_select_db("user", $con);
-                            $weights = mysql_query("select * from alloc where username='$username'");
-                            $weights = mysql_fetch_array($weights);
-                            $costW = $weights['cost'];
-                            $distanceW = $weights['distance'];
-                            $scoreW = $weights['score'];
-                        if(mysql_fetch_array(mysql_query("select * from user where username='$username' and password='$password'")) == false){
-                            header("location:/index.php");
-                            exit();
-                        }
-                            session_set_cookie_params(24 * 3600);
-                            do{
-                                $orderId = md5($username+time()+rand(0,getrandmax()));
-                                $result = mysql_query("SELECT * FROM orderids where orderId = \"$orderId\"");
-                                $row = mysql_fetch_array($result);
-                            }while($row != false);
-                            $tIme =  time();
-                            mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
-                        ?>
                         <form id="mydropzone" action="/fileControl/uploadFile.php" method="post" class="dropzone">
                             <!--<nav>请将文件拖拽至此</nav>-->
                             <input type="hidden"  name="orderId" value=<?php echo "'$orderId'";?> />
@@ -684,14 +737,21 @@ $password = $_SESSION['pass'];
                         </div>
                     </div>
             </div>
+            <div class="gray" id="waiting" style="display:none;">
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
             <div class="gray" id="nok" style="visibility: hidden">
                     <div class="finish" id="nok">
                         <!-- <i onclick="document.gestElementById('nok').style.visibility='hidden'" class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i> -->
                         <img src="/image/false.png">
                         <nav>提交失败</nav>
-                        <p>提取时间未能满足您的需求，请换个时间</p>
+                        <p id="fail_info">提取时间未能满足您的需求，请换个时间</p>
                         <div id="fin">
-                        <a href="newOrder.php" class="button button-rounded button-primary">重试</a>
+                        <a href="#" onclick="document.getElementById('nok').style.display='none'" class="button button-rounded button-primary">重试</a>
                         </div>
                     </div>
             </div>

@@ -34,7 +34,7 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
     header("location:/index.php");
     exit();
 }
-$infos = mysql_query("select * from orderinfo where consumer='$username' and deleted!='cn'");
+$infos = mysql_query("select * from orderinfo where consumer='$username' and deleted!='cn' and orderState!='9' ");
 $info = mysql_fetch_array($infos);
 if($info == false){
     echo "<div  style=\"text-align: center;position: absolute;width: 100%;\"><img style=\"max-width: 383px;min-width: 383px; overflow: hidden;margin: 0 auto;\" src='/image/no_file.png'/></div>";
@@ -51,7 +51,7 @@ else {
         echo "<td>$time</td>";
         echo "<td>$state</td><td id='bt$orderId'>";
         echo "<a class=\"button button-pill button-tiny\" href='user-document.php?orderId=$orderId'>查看</a><a href='#' style='color=red;' class=\"button button-pill button-tiny\" onclick=\"delOrder('$orderId')\">删除</a>";
-        if($info['orderState'] != '3')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #9E9E9E;' hreaf='#' onclick=\"finish('$orderId')\">★</a>";
+        if($info['orderState'] == '2')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #9E9E9E;' hreaf='#' onclick=\"finish('$orderId')\">★</a>";
         echo "</td>";
         echo "<tr>";
 

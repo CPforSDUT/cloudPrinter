@@ -26,6 +26,27 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
 				document.getElementById('menu').style.display='none';
 			}
 		}
+		function init() {
+            var sort = new XMLHttpRequest();
+            sort.open("POST","control/sortInit.php",false);
+            sort.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            sort.send();
+            document.getElementById("orderMain").innerHTML = sort.responseText;
+        }
+        function okOrder(orderId){
+            var setOrderInfo = new XMLHttpRequest();
+            setOrderInfo.open("POST","control/setOrderInfo.php",false);
+            setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            setOrderInfo.send("orderId="+orderId + "&method=okOrder");
+        }
+        function delOrder(orderId) {
+            //alert(orderId+" "+id);
+            var setOrderInfo = new XMLHttpRequest();
+            setOrderInfo.open("POST","control/setOrderInfo.php",false);
+            setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            setOrderInfo.send("orderId="+orderId + "&method=delete");
+
+        }
 	</script>
 </head>
 <body>
@@ -109,10 +130,10 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
                                 <th>打印顺序</th>
                                 <th>客户</th>
 								<th>提取码</th>
-                                <th>提交顺序</th>
-                                <th>用户提取时间</th>
                                 <th>打印耗时</th>
-								<th>预计完成时间</th>
+                                <th>最晚完成时间</th>
+                                <th>用户提取时间</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody id="orderMain">
@@ -124,5 +145,8 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
     </div>
     <!--/main-->
 </div>
+        <script>
+            init();
+        </script>
 </body>
 </html>

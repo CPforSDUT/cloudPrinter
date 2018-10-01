@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if(isset($_SESSION['user']) == false || $_SESSION['type'] != '1'){
     header("location:/index.php");
 }
@@ -21,7 +22,7 @@ $orderId = mysql_escape_string($_POST['orderId']);
 $score = mysql_escape_string($_POST['score']);
 $business = mysql_query("select * from orderinfo where orderId='$orderId'");
 $business = mysql_fetch_array($business);
-if($business['orderState'] == '3'){
+if($business['orderState'] == '3' || $business['orderState'] == '1'){
     exit();
 }
 $business = $business['business'];
