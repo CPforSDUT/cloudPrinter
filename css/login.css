@@ -17,8 +17,8 @@
     text-align: center;
     display: block；
 }
-#title{
-    font:32px bold;
+#login_title{
+    font:24px bold;
     margin-bottom: 4px;
 }
 .login_box input{
@@ -98,7 +98,7 @@
     width: 260px;
     font-size: 24px;
 }
-#title{
+#login_title{
     font:32px bold;
     margin-bottom: 30px;
 }

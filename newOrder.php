@@ -1,4 +1,4 @@
-<?php ob_start();
+﻿<?php ob_start();
 session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
@@ -145,7 +145,7 @@ $password = $_SESSION['pass'];
             selected = fileName;
             document.getElementById(selectedId).removeAttribute("style");
             document.getElementById("selected"+i).style.color = "#fff";
-            document.getElementById("selected"+i).style.fontSize = "22px";
+            document.getElementById("selected"+i).style.fontSize = "18px";
             document.getElementById("selected"+i).style.background = "#3c7df1";
             selectedId = "selected" + i;
 
@@ -449,7 +449,9 @@ $password = $_SESSION['pass'];
         </div>
         </div>
         <div class="main">
-            
+        <div class="mt">
+                    <nav> </nav>
+                </div>
             <div class="m1">
                 <div class="m2">
                     <div class="form" id="form0">
@@ -497,7 +499,7 @@ $password = $_SESSION['pass'];
                                 }
                             };
                         </script>
-                        <span>*请上传最多8个不大于20M的文件</span>
+                        <span id="bage">*请上传最多8个不大于20M的文件</span>
                         <div class="go" id="go_one">
                                 <!-- <button class="button button-highlight button-rounded button-large">上一步</button> -->
                                 <button class="button button-action button-rounded button-large" onclick="showAndHidden1(<?php echo "'$orderId'";?>)">下一步</button>
@@ -515,6 +517,7 @@ $password = $_SESSION['pass'];
                                 <!-- <select id="choosefile" name="choosefile" data-edit-select="1" onmousedown="if(this.options.length>3){this.size=8}" onblur="this.size=0" onchange="this.size=0" style="position:absolute;z-index:1">
                                 </select> -->
                                 <div class="cf">
+
                                     <p id="selected" style="display:none;"></p>
                                     <p id="selctedId" style="display: none;"></p>
                                     <ul id="choosefile">
@@ -530,6 +533,10 @@ $password = $_SESSION['pass'];
                                 <nav>备注：</nav>
                             </div>
                             <div id="data_right">
+							
+									
+							
+							
                                 <select name="paper_size" id="paper_size">
                                     <option value="A0">A0</option>
                                     <option value="A1">A1</option>
@@ -568,7 +575,7 @@ $password = $_SESSION['pass'];
                                 </select>
                                 <br>
                                 <p id="papers" style="margin:0px;font-size:16px;">Loading...</p>
-                                <textarea rows="6" cols="20" id="other_info"></textarea>
+                                <textarea rows="6" cols="15" id="other_info"></textarea>
                             </div>
                             <script type="text/javascript">
                                 var elements = new Array();
@@ -641,6 +648,7 @@ $password = $_SESSION['pass'];
 								</script>
 
                             </table>
+						
                         </div>
                         <img src="/image/jdt3.png" class="jdt">
                         <div class="go" id="go_three">
@@ -681,7 +689,7 @@ $password = $_SESSION['pass'];
                         <!-- <i onclick="document.gestElementById('nok').style.visibility='hidden'" class="layui-icon layui-icon-close" style="font-size: 24px; color: #x1006; position: absolute; right:0; margin:6px;"></i> -->
                         <img src="/image/false.png">
                         <nav>提交失败</nav>
-                        <p>出现未知错误，请重试！</p>
+                        <p>提取时间未能满足您的需求，请换个时间</p>
                         <div id="fin">
                         <a href="newOrder.php" class="button button-rounded button-primary">重试</a>
                         </div>

@@ -1,5 +1,166 @@
+@media screen and (max-width: 1500px) {
+.main{
+    max-width: 100%;
+    height: 1000px;
+    overflow:visible;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    background: linear-gradient(to top right, #3c7df1, #62c1fb);
+}
+
+.mt{
+    display: none !important;
+    position: relative;
+    height: 200px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 120px;
+    color: #fcfcfc;
+    font-size: 56px;
+}
+.m1{
+    background-image:url(../image/paper4.png) !important;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+}
+.m2{
+    max-width: 700px;
+    max-height: 600px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px !important;
+    margin-bottom: 50px;
+    font-size: 18px;
+    
+    text-align: left;
+    display: block;
+}
+.form{
+    margin: auto;
+    max-width: 600px;
+    height: 440px;
+    position: relative;
+    /* border: 1px #28262C dashed; */
+}
+
+#mydropzone{
+		width:400px !important;
+		height:300px !important;
+		margin-top:190px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+#bage{
+	margin-left:80px;
+}
+.jdt{
+	display:none;
+}
+
+#form3{
+    max-width: 600px;
+    height: 440px;
+    z-index: 9;
+    display: none;
+}
+#baiduMap{
+    margin: auto;
+    width: 450px !important;
+    height: 320px !important;
+    position: relative;
+    border-radius: 6px;
+    z-index: 10;
+    /* border: 10px dashed #62c1fb; */
+}
+#map_search{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 30;
+    width: 60% !important;
+    height: 48px;
+    padding-left: 20px;
+    padding-right: 14px;
+    font-size: 22px;
+    border-radius: 30px;
+    display: block;
+    border: 3px;
+    z-index: 12;
+}
+.mapform{
+    max-width: 400px !important;
+    height: 130px;
+    top:350px;
+    z-index: 12;
+}
+.mapform table{
+    text-align: center;
+    position: relative;
+    margin-left:auto !important;
+	margin-right:auto !important;
+	left:75px !important;
+}
+.mapform td{
+    min-width: 50px !important;
+    max-width: 120px;
+    height: 36px;
+    border-color: #ffffff;
+    border: #ffffff solid 1px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.mapform thead{
+    background-color: #b9c9fe;
+    min-width: 40px !important;
+    height: 30px;
+    padding: 4px;
+    color: #003399;
+    font-size: 18px;
+}
+.mapform tbody{
+    background-color: #e8edff;
+    min-width: 40px !important;
+    height: 36px;
+    color: #7884aa;
+    padding: 2px;
+    font-size: 12px;
+
+}
+#gettime{
+    min-width: 150px !important;
+}
+#gettime1{
+    min-width: 150px !important;
+    background-color:#ffcab7;
+    color: #f34628;
+}
+#data_select{
+    padding-top: 2px;
+    position: absolute;
+    float: left;
+    min-width: 120px;
+    max-width: 300px;
+    z-index: 11;
+	margin-left:50px !important;
+    
+}
+
+}
+
 
 @media screen and (max-width: 600px) {
+	.mapform table{
+    text-align: center;
+    position: relative;
+    margin-left:auto !important;
+	margin-right:auto !important;
+	left:1px !important;
+}
 	.finish{
     position: fixed;
     margin:auto;
@@ -47,11 +208,24 @@
 		width:330px;
 	}
   .header{
-      max-width: 1440px;
+      width: 100% !important;
       position: relative;
       height: 40px;
       margin-top: 0px;
       margin: auto;
+      height:40px !important;
+  }
+  .caidan{
+      width: 100px !important;;
+      margin-top: 40px !important;
+      font-size: 14px !important;
+  }
+  .caidan li {
+    font: 14px/2 Helvetica, Verdana, sans-serif !important;;
+    border-bottom: 1px solid #ccc;
+}
+  #uname{
+      margin-right: 80px !important;
   }
   .daohang{
       padding: 10px;
@@ -111,25 +285,22 @@
     height: 40px !important;
     display: block;
 	}
-	.header{
-	height:40px !important;
-	}
 	
 	.cf{
 		width:80px !important;
 		height:200px !important;
-		margin-top:200px !important;
+		margin-top:50px !important;
 		font-size:8px !important;
 		margin-left:5px !important;
 	}
 	#data_left{
-		width:300px !important;
+		width:330px !important;
 		font-size:18px !important;
-		margin-top:200px !important;
+		margin-top:50px !important;
 	}
 	#data_right{
 		margin-left:300px !important;
-		margin-top:200px !important;
+		margin-top:50px !important;
 		font-size:18px !important;
 		
 	}
@@ -193,7 +364,7 @@ select{
     z-index: 100;
 }
 .header{
-    max-width: 1440px;
+    width: 80%;
     position: relative;
     height: 60px;
     margin-top: 0px;
@@ -533,7 +704,7 @@ daohang a:hover .caidan{
     height: 280px;
     overflow: scroll;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 14px;
     display: inline-block;
     text-align: center;
 }
@@ -541,8 +712,11 @@ daohang a:hover .caidan{
     list-style-type: none;
 }
 .cf li {
-    font:18px/1.5 Helvetica, Verdana, sans-serif;
+    font:16px/1.5 Helvetica, Verdana, sans-serif;
     border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 
 .cf li:last-child {
@@ -560,7 +734,7 @@ daohang a:hover .caidan{
 }
 .cf li:hover {
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
     background: #3c7df1;
 }
 
