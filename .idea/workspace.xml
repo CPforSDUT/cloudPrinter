@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/getOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/getOrderInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/orderSort.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/orderSort.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/control/setOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/setOrderInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createNewOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/createNewOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.php" beforeDir="false" afterPath="$PROJECT_DIR$/install.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/newOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/super-admin/control/getOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/super-admin/control/getOrderInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/super-admin/control/setOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/super-admin/control/setOrderInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/delFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/delFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/judge.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/judge.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.sql" beforeDir="false" afterPath="$PROJECT_DIR$/user.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/registered.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/registered.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -113,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="install.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="install.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/install.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="20" column="2" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+            <state relative-caret-position="478">
+              <caret line="25" column="53" lean-forward="true" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -131,11 +117,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/newOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="348" column="45" selection-start-line="348" selection-start-column="45" selection-end-line="348" selection-end-column="45" />
+            <state relative-caret-position="132">
+              <caret line="347" column="45" lean-forward="true" selection-start-line="347" selection-start-column="45" selection-end-line="347" selection-end-column="45" />
+              <folding>
+                <element signature="e#21369#21390#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,7 +132,7 @@
       <file leaf-file-name="createNewOrder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/createNewOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1077">
+            <state relative-caret-position="227">
               <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
             </state>
           </provider>
@@ -288,11 +277,11 @@
         <option value="$PROJECT_DIR$/admin/control/setOrderInfo.php" />
         <option value="$PROJECT_DIR$/user-admin/control/judge.php" />
         <option value="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" />
-        <option value="$PROJECT_DIR$/newOrder.php" />
         <option value="$PROJECT_DIR$/createNewOrder.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
         <option value="$PROJECT_DIR$/admin/control/sortInit.php" />
         <option value="$PROJECT_DIR$/install.php" />
+        <option value="$PROJECT_DIR$/newOrder.php" />
       </list>
     </option>
   </component>
@@ -481,7 +470,7 @@
       <workItem from="1537060619502" duration="47154000" />
       <workItem from="1538118981115" duration="16273000" />
       <workItem from="1538185425194" duration="30071000" />
-      <workItem from="1538387437330" duration="12837000" />
+      <workItem from="1538387437330" duration="13768000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -494,10 +483,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="559044000" />
+    <option name="totallyTimeSpent" value="559975000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.0" />
@@ -838,20 +827,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="348" column="45" selection-start-line="348" selection-start-column="45" selection-end-line="348" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createNewOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1077">
-          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/control/getOrderInfo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -885,8 +860,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="20" column="2" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+        <state relative-caret-position="478">
+          <caret line="25" column="53" lean-forward="true" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createNewOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="347" column="45" lean-forward="true" selection-start-line="347" selection-start-column="45" selection-end-line="347" selection-end-column="45" />
+          <folding>
+            <element signature="e#21369#21390#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

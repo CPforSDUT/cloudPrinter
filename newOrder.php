@@ -345,8 +345,8 @@ mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\"
                 document.getElementById("waiting").style.display='block';
                 createOrder.open("POST","/createNewOrder.php",true);
                 createOrder.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-                createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business);
                 createOrder.timeout = 600000;
+                createOrder.send("orderId="+orderId+"&consumer="+username+"&deadline="+deadline+"&business="+business);
                 createOrder.onreadystatechange = function () {
                     if (createOrder.readyState == 4 && createOrder.status == 200) {
                         document.getElementById("waiting").style.display='none';
@@ -356,7 +356,7 @@ mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\"
                             document.getElementById("ok").style.visibility = "visible";
                             document.getElementById("ok").style.display = "block";
                         }
-                        if(exCode == 'timeout')
+                        else if(exCode == 'timeout')
                         {
                             document.getElementById("nok").style.visibility = "visible";
                             document.getElementById("nok").style.display = "block";
