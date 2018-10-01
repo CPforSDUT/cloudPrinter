@@ -57,7 +57,7 @@
 	#sbt{margin-top: 10px;}
 	 .fa-bars{
             position: absolute;
-            top: 2%;
+            top: 25%;
             left:4%;
             color:white;
             font-size: 30px;
@@ -76,7 +76,7 @@
 }
 
 @media screen and (min-width: 700px) {
-	.fa-bars{display:none;}
+	.fa-bars{display:none !important;}
 	.navbar-list{display:block;}
 	
 }

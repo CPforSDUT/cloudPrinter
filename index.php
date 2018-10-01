@@ -277,7 +277,8 @@ if (isset($_SESSION['user'])) {
             </div>
             <div class="main">
                 <div class="mt">
-                <nav>准备开始您的云打印之旅</nav>
+                <nav> </nav>
+
                 </div>
                 <div class="m1">
                     <div class="m2">

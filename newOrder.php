@@ -1,5 +1,5 @@
-<?php ob_start();
-
+<?php 
+ob_start();
 session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] == '2'){
     header("location:/index.php");
@@ -523,7 +523,8 @@ mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\"
         </div>
         <div class="main">
         <div class="mt">
-                    <nav>请填写您的订单</nav>
+                    <nav> </nav>
+
                 </div>
             <div class="m1">
                 <div class="m2">

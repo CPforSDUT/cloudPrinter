@@ -154,6 +154,13 @@
 
 
 @media screen and (max-width: 600px) {
+	.mapform table{
+    text-align: center;
+    position: relative;
+    margin-left:auto !important;
+	margin-right:auto !important;
+	left:1px !important;
+}
 	.finish{
     position: fixed;
     margin:auto;
@@ -282,18 +289,18 @@
 	.cf{
 		width:80px !important;
 		height:200px !important;
-		margin-top:200px !important;
+		margin-top:50px !important;
 		font-size:8px !important;
 		margin-left:5px !important;
 	}
 	#data_left{
-		width:300px !important;
+		width:330px !important;
 		font-size:18px !important;
-		margin-top:200px !important;
+		margin-top:50px !important;
 	}
 	#data_right{
 		margin-left:300px !important;
-		margin-top:200px !important;
+		margin-top:50px !important;
 		font-size:18px !important;
 		
 	}

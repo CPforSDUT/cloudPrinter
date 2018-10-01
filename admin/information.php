@@ -284,6 +284,7 @@ $colorBuff = $row['colorBuff'];
                 <li>
                     <a href="#"><i class="icon-font">&#xe018;</i>商家信息设置</a>
                     <ul class="sub-menu">
+					<li><a href="pay.php"><i class="icon-font">&#xe022;</i>支付设置</a></li>
                         <li><a href="#state"><i class="icon-font">&#xe000;</i>营业状态</a></li>
                         <li><a href="#print_info"><i class="icon-font">&#xe018;</i>打印参数</a></li>
                         <li><a href="#location"><i class="icon-font">&#xe021;</i>地理位置</a></li>
