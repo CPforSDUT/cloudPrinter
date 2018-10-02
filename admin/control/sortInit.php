@@ -91,13 +91,14 @@ function latestFTime(&$sorted,$Now)
 {
     $earTime = array();
     $timePoint = $Now;
-
     for($i = 0 ; $i < count($sorted) ; $i ++)
     {
         $timePoint += $sorted[$i]['needTime'];
         array_push($earTime,$timePoint);
     }
+
     for ($i = 0 ; $i < count($sorted) ; $i ++) {
+
         $shortDis = $sorted[$i]['deadTime'] - $earTime[$i];
         for($j = $i + 1 ; $j < count($sorted) ; $j ++)
         {
@@ -110,6 +111,7 @@ function latestFTime(&$sorted,$Now)
 }
 function sortBySort($sort,$allOrder,$dTimes,$nTimes,$username,$speed,$Now)
 {
+
     $sorted = array();
     $fist = firstOrder($username,$speed);
     if($fist[0] == 'null'){
@@ -117,6 +119,7 @@ function sortBySort($sort,$allOrder,$dTimes,$nTimes,$username,$speed,$Now)
     }
     array_push($sorted,$fist);
     if(count($sort) == 1 && $sort[0] == ""){
+        latestFTime($sorted,$Now);
         return $sorted;
     }
     for($i = 0 ; $i < count($sort) ; $i ++)
