@@ -116,6 +116,9 @@ function sortBySort($sort,$allOrder,$dTimes,$nTimes,$username,$speed,$Now)
         return $sorted;
     }
     array_push($sorted,$fist);
+    if(count($sort) == 1 && $sort[0] == ""){
+        return $sorted;
+    }
     for($i = 0 ; $i < count($sort) ; $i ++)
     {
         $tSort = $sort[$i];
