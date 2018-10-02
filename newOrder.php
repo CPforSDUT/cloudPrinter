@@ -276,7 +276,7 @@ mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\"
                 distance = map.getDistance(point,info['pt']);
                 document.getElementById("distance").innerHTML = (distance/1000).toFixed(2)+"km";
                 document.getElementById("cost").innerHTML = info['cost'];
-                document.getElementById("score").innerHTML = info['score'];
+                document.getElementById("score").innerHTML = info['score'].toFixed(1);
                 cCost = info['cost'];
                 cDis = distance;
                 cScore = info['score'];
@@ -296,7 +296,7 @@ mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\"
                     distance = map.getDistance(point,where[each]['pt']);
                     document.getElementById("distance").innerHTML = (distance/1000).toFixed(2)+"km";
                     document.getElementById("cost").innerHTML = where[each]['cost'];
-                    document.getElementById("score").innerHTML = where[each]['score'];
+                    document.getElementById("score").innerHTML = where[each]['score'].toFixed(1);
                     cCost = where[each]['cost'];
                     cDis = distance;
                     cScore = where[each]['score'];
