@@ -106,17 +106,18 @@
 	left:75px !important;
 }
 .mapform td{
-    min-width: 50px !important;
-    max-width: 120px;
+    min-width: 60px !important;
+    max-width: 150px !important;
     height: 36px;
     border-color: #ffffff;
     border: #ffffff solid 1px;
     border-radius: 6px;
+    padding: 2px !important;
     font-weight: bold;
 }
 .mapform thead{
     background-color: #b9c9fe;
-    min-width: 40px !important;
+    min-width: 60px !important;
     height: 30px;
     padding: 4px;
     color: #003399;
@@ -124,15 +125,15 @@
 }
 .mapform tbody{
     background-color: #e8edff;
-    min-width: 40px !important;
+    min-width: 60px !important;
     height: 36px;
     color: #7884aa;
-    padding: 2px;
+    padding: 2px !important;
     font-size: 12px;
 
 }
 #gettime{
-    min-width: 150px !important;
+    min-width: 120px !important;
 }
 #gettime1{
     min-width: 150px !important;
@@ -589,7 +590,7 @@ daohang a:hover .caidan{
     margin: auto;
 }
 .mapform td{
-    min-width: 70px;
+    min-width: 60px;
     max-width: 120px;
     height: 36px;
     border-color: #ffffff;
@@ -630,7 +631,7 @@ daohang a:hover .caidan{
 } */
 #datepicker{
     background-color: #e8edff;
-    max-width: 178px;
+    width: 150px;
     padding: 0;
     margin: 0;
     font-size: 10px;
