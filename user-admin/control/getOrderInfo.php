@@ -41,17 +41,36 @@ if($info == false){
 }
 else {
     do{
+        if($info['orderState'] == '9'){
+            continue;
+        }
         $time = toPureTime($info['deadline']);
-        $state = $info['orderState'] == '1' ? "未打印":($info['orderState'] == '2' ? "打印完成" :"已评价");
-        $state = $info['deleted'] == 'bn' ? "被商家删除" : $state;
+        switch ($info['orderState'])
+        {
+            case '0':
+                $orderState =  '未支付';
+                break;
+            case '1':
+                $orderState =  '未打印';
+                break;
+            case '2':
+                $orderState = '打印完成';
+                break;
+            case '3':
+                $orderState = '已评价';
+                break;
+
+        }
+        $orderState = $info['deleted'] == 'bn' ? "被商家删除" : $orderState;
         $orderId = $info['orderId'];
         $business = $info['business'];
         echo "<tr id='$orderId'>";
         echo "<td>$business</td>";
         echo "<td>$time</td>";
-        echo "<td>$state</td><td id='bt$orderId'>";
+        echo "<td>$orderState</td><td id='bt$orderId'>";
         echo "<a class=\"button button-pill button-tiny\" href='user-document.php?orderId=$orderId'>查看</a><a href='#' style='color=red;' class=\"button button-pill button-tiny\" onclick=\"delOrder('$orderId')\">删除</a>";
-        if($info['orderState'] == '2')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #9E9E9E;' hreaf='#' onclick=\"finish('$orderId')\">★</a>";
+        if($info['orderState'] == '0')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #00bcd4;' href='/alipay/pcPay.php?orderId=$orderId'>$</a>";
+        if($info['orderState'] == '2')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #9E9E9E;' href='#' onclick=\"finish('$orderId')\">★</a>";
         echo "</td>";
         echo "<tr>";
 

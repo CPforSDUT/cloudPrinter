@@ -80,15 +80,33 @@ $result = mysql_query("select * from orderinfo ".$visit." and deleted != 'bn' an
 
 for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
 {
+    if($row['orderState'] == '9'){
+        continue;
+    }
     echo "<tr>";
-    $orderState = $row['orderState'] == '1' ? '未打印' : ($row['orderState'] == '2' ?'打印完成' : "已评价");
+    switch ($row['orderState'])
+    {
+        case '0':
+            $orderState =  '未支付';
+            break;
+        case '1':
+            $orderState =  '未打印';
+            break;
+        case '2':
+            $orderState = '打印完成';
+            break;
+        case '3':
+            $orderState = '已评价';
+            break;
+
+    }
     $orderState = $row['deleted'] == 'cn' ? "被买家删除":$orderState;
     $consumer = $row['consumer'];
     $phoneGeter = mysql_query("select * from user where username = '$consumer'");
     $phoneGeter = mysql_fetch_array($phoneGeter);
     $exCode = $row['exCode'];
 	$time = toPureTime($row['deadline']);
-	
+
     $orderId = $row['orderId'];
      echo "<td class=\"tc\"><input onclick=\"checkbox('$orderId',$i)\" id='check$i' type=\"checkbox\"></td>\n";
      echo "<td id='$orderId'>$orderState</td>\n";

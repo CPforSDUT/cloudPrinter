@@ -18,51 +18,15 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
     header("location:/index.php");
     exit();
 }
-if(isset($_GET['set']))
+if(isset($_GET['appId']) && $_GET['appId'] != '')
 {
-    $state = $_GET['state'];
-    $paperType = $_GET['paperType'];
-    $color = $_GET['color'];
-    $province = $_GET['province'];
-    $city = $_GET['city'];
-    $area = $_GET['area'];
-    $other = $_GET['other'];
-    $lo = $_GET['lo'];
-    $la = $_GET['la'];
-	$A0=$_GET['costA0'];$A1=$_GET['costA1'];$A2=$_GET['costA2'];$A3=$_GET['costA3'];$A4=$_GET['costA4'];$A5=$_GET['costA5'];
-	$A6=$_GET['costA6'];$A7=$_GET['costA7'];$A8=$_GET['costA8'];$A9=$_GET['costA9'];$A10=$_GET['costA10'];
-
-	$B0=$_GET['costB0'];$B1=$_GET['costB1'];$B2=$_GET['costB2'];$B3=$_GET['costB3'];$B4=$_GET['costB4'];$B5=$_GET['costB5'];
-	$B6=$_GET['costB6'];$B7=$_GET['costB7'];$B8=$_GET['costB8'];$B9=$_GET['costB9'];$B10=$_GET['costB10'];
-    $caiyin = $_GET['caiyin'];
-	
-    //echo "UPDATE user SET state='$state',province='$province',city='$city',area='$area',other='$other',lo='$lo',la='$la' WHERE username='$username'";
-    //echo "UPDATE printerinfo SET color='$color',paperType='$paperType' WHERE username='$username'";
-    mysql_query("UPDATE user SET state='$state',province='$province',city='$city',area='$area',other='$other',lo='$lo',la='$la' WHERE username='$username'");
-    mysql_query("UPDATE printerinfo SET color='$color',paperType='$paperType',A0='$A0',A1='$A1',A2='$A2',A3='$A3',A4='$A4',A5='$A5',A6='$A6',A7='$A7',A8='$A8',A9='$A9',A10='$A10',B0='$B0',B1='$B1',B2='$B2',B3='$B3',B4='$B4',B5='$B5',B6='$B6',B7='$B7',B8='$B8',B9='$B9',B10='$B10',colorBuff='$caiyin' WHERE username='$username'");
-
+    $pubKey = $_GET['pubKey'];
+    $priKey = $_GET['priKey'];
+    $appId = $_GET['appId'];
+    mysql_query("update pay set pubKey='$pubKey',priKey='$priKey',appId='$appId' where username='$username'");
 }
-$result = mysql_query("select * from user where username='$username'");
-$row = mysql_fetch_array($result);
-$province = $row['province'];
-$city = $row['city'];
-$area = $row['area'];
-$other = $row['other'];
-$state = $row['state'];
-$lo = $row['lo'];
-$la = $row['la'];
-
-$result = mysql_query("select * from printerinfo where username='$username'");
-$row = mysql_fetch_array($result);
-if($row == false)
-{
-    mysql_query("INSERT INTO printerinfo (username)VALUES (\"$username\")");
-}
-$result = mysql_query("select * from printerinfo where username='$username'");
-$row = mysql_fetch_array($result);
-$paperType = $row['paperType'];
-$color = $row['color'];
-$colorBuff = $row['colorBuff'];
+$pay = mysql_query("select * from pay where username='$username'");
+$pay = mysql_fetch_array($pay);
 ?>
 <html>
 <head>
@@ -98,150 +62,17 @@ $colorBuff = $row['colorBuff'];
 		}
 	</script>
     <script type="text/javascript">
-        var paperType = Array();
-        var paperSizes2 = Array(1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576,2097152);
-        function paperTypeToNum() {
-            var res = 0;
-            for(var i = 1 ; i <= 22 ; i ++){
-                if(paperType[i] == true){
-                    res |= paperSizes2[i-1];
-                }
-            }
-            return res;
+        function init() {
+            document.getElementById("pub_key").value = "<?php echo $pay['pubKey']?>";
+            document.getElementById("pri_key").value = "<?php echo $pay['priKey']?>";
+            document.getElementById("app_id").value = "<?php echo $pay['appId']?>";
         }
         function submitInfo() {
-			
-            var state,color,province,city,area,other,paperNum,lo,la,caiyin;
-			var send;
-			var types = ["costA0","costA1","costA2","costA3","costA4","costA5","costA6","costA7","costA8","costA9","costA10","costB0","costB1","costB2","costB3","costB4","costB5","costB6","costB7","costB8","costB9","costB10"];
-            province = escape(document.getElementById("province").value);
-            city = escape(document.getElementById("city").value);
-            area = escape(document.getElementById("area").value);
-            other = escape(document.getElementById("other").value);
-            lo = document.getElementById("lo").value;
-            la = document.getElementById("la").value;
-            var caiyin = document.getElementById("caiyin").value;
-            paperNum =  paperTypeToNum();
-            if(document.getElementById("state").options[0].selected == true){
-                state = '1';
-            }
-            else {
-                state = '2';
-            }
-            if(document.getElementById("color").options[0].selected == true){
-                color = '1';
-            }
-            else {
-                color = '2';
-            }
-			send = 'information.php?'+'set=1&state='+state+'&color='+color+'&province='+province+'&city='+city+'&area='+area+'&other='+other+'&paperType='+paperNum+"&lo="+lo+"&la="+la;
-			
-			for(var i = 0,costs ; i < 22 ; i ++){
-				costs = document.getElementById(types[i]).value;
-				send = send + "&" + types[i] + "=" + costs;
-			}
-			send = send + "&caiyin="+caiyin;
-			 window.location.href=send;
-        }
 
-        function paperTypeToArray(num) {
-            for (var i = 1;num > 0 ; num = parseInt(num/2),i ++){
-                if(num%2 == 1) {
-                    paperType[i] = true;
-                }
-                else {
-                    paperType[i] = false;
-                }
-            }
-        }
-        function paperTypeToCheckbox() {
-            var each;
-            for (each in paperType){
-                if(paperType[each] == true){
-                    document.getElementById("printType"+each).checked = true;
-                }
-            }
-        }
-        function paperTypeClick(num) {
-
-            if(document.getElementById("printType"+num).checked == true) {
-                paperType[num] = true;
-            }
-            else {
-                paperType[num] = false;
-            }
-        }
-        function init() {
-
-                <?php
-
-            echo "var state='$state',paperType='$paperType',color='$color',province='$province',city='$city',area='$area',other='$other',lo='$lo',la='$la';";
-                ?>
-
-                document.getElementById("province").value = unescape(province);
-                document.getElementById("city").value = unescape(city);
-                document.getElementById("area").value = unescape(area);
-                document.getElementById("other").value = unescape(other);
-                document.getElementById("lo").value = lo;
-                document.getElementById("la").value = la;
-                paperTypeToArray(paperType);
-                paperTypeToCheckbox();
-                if(state == '1'){
-                    document.getElementById("state").options[0].selected = true;
-                }
-                else {
-                    document.getElementById("state").options[1].selected = true;
-                }
-                if(color == '1'){
-                    document.getElementById("color").options[0].selected = true;
-                }
-                else {
-                    document.getElementById("color").options[1].selected = true;
-                }
-
-        }
-
-        function check_pwd(){
-            console.log(2);
-            var code2 =document.getElementById("pass1").value;
-            var reg2 = /^\w{6,16}$/;
-            if(reg2.test(code2)) {
-                return true;
-            } else {
-                alert("密码错误,必须为6-16位字母或数字或下划线");
-                return false;
-            }
-
-        }
-        function check() {
-
-
-            var pass1,pass1c;
-            pass1 =document.getElementById("pass1").value;
-            pass1c = document.getElementById("pass1c").value;
-            if(pass1!=pass1c){
-                alert("请重新确认密码！");
-                return false;
-            }
-            return check_pwd();
-        }
-        function submit() {
-            if(check() != false){
-                var pass1 =document.getElementById("pass1").value;
-                var passo = document.getElementById("passo").value;
-                var submit = new XMLHttpRequest();
-                submit.open("post","control/changePwd.php",false);
-                submit.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-                submit.send("password="+pass1+"&oPassword="+passo);
-                if(submit.responseText == 'ok'){
-                    alert("修改成功");
-                    window.location.href="/user/logout.php";
-                }
-                else {
-                    alert("出现错误，请确认旧密码正确。");
-                }
-            }
-
+            var pubKey = document.getElementById("pub_key").value;
+            var priKey = document.getElementById("pri_key").value;
+            var appId = document.getElementById("app_id").value;
+            window.location.href="pay.php?pubKey="+pubKey+"&priKey="+priKey+"&appId="+appId;
         }
     </script>
 </head>
@@ -322,20 +153,20 @@ $colorBuff = $row['colorBuff'];
 							  <tr>
 								 <th width="120">APPID*：</th>
 								  <td>
-                                       <input class="form-control" name="" data-rule-required='true' value="" /> 
+                                       <input id="app_id" class="form-control" name="" data-rule-required='true' placeholder="不使用在线支付请留空" value="" />
                                   </td>
 							  </tr>
 							  <tr>
 								 <th width="120">支付宝公钥*：</th>
 								  <td>
-                                      <textarea name="" rows="4" data-rule-required='true' class="form-control"></textarea>
+                                      <textarea id="pub_key" name="" rows="4" data-rule-required='true' class="form-control"></textarea>
 
                                   </td>
 							  </tr>
 							  <tr>
 								 <th width="120">应用私钥*：</th>
 								  <td>
-                                     <textarea name="" style="" data-rule-required='true' rows="4" class="form-control"></textarea>
+                                     <textarea id="pri_key" name="" style="" data-rule-required='true' rows="4" class="form-control"></textarea>
                                   </td>
 							  </tr>
 							 

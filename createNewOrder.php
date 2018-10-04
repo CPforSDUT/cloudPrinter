@@ -68,7 +68,14 @@ mysql_query("update aisort set hock='y' where username='$business'");
 if (true == mysql_query("INSERT INTO orderinfo (orderId, consumer,business,deadline,exCode,orderState)VALUES (\"$orderId\", \"$consumer\",\"$business\",\"$deadline\",\"$exCode\",\"9\")"))
 {
     if(getSort($business) == 'ok'){
-        mysql_query("update orderinfo set orderState='1' where orderId='$orderId'");
+        $pay = mysql_query("select * from pay where username='$business'");
+        $pay = mysql_fetch_array($pay);
+        if($pay['appId'] != ''){
+            mysql_query("update orderinfo set orderState='0' where orderId='$orderId'");
+        }
+        else {
+            mysql_query("update orderinfo set orderState='1' where orderId='$orderId'");
+        }
         echo "exCode = $exCode;";
         mysql_query("delete from delfiles where orderId='$orderId'");
     }

@@ -62,6 +62,7 @@ if(isset($_POST["username"])) {
         else {
             mysql_query("insert into printerinfo (username) values('$user')");
             mysql_query("insert into aisort (username) values('$user')");
+            mysql_query("insert into pay (username) values('$user')");
         }
         mysql_close($con);
         header("location:/index.php?login=");
