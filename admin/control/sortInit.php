@@ -19,7 +19,7 @@ function getOrderInfo($username,$Now){
     $ex = mysql_query("select * from aisort where username='$username'");
     $ex = mysql_fetch_array($ex);
     $ex = $ex['doOrder'];
-    $sql = mysql_query("select * from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and orderId!='$ex'  and (orderState='1' or orderState='9') order by orderId");
+    $sql = mysql_query("select * from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and orderId!='$ex'  and (orderState='1' or orderState='9' or orderState='0') order by orderId");
     $arr = array();
     while($each = mysql_fetch_array($sql)) {
         array_push($arr,$each);

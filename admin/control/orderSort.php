@@ -26,10 +26,10 @@ function getOrderInfo($username,$Now){
     $ex = mysql_fetch_array($ex);
     $ex = $ex['doOrder'];
     if($ex == 'null') {
-        $sql = mysql_query("select * from orderinfo where business='$username' and deleted='nn' and deadline>'$Now'  and (orderState='1' or orderState='9') order by orderId");
+        $sql = mysql_query("select * from orderinfo where business='$username' and deleted='nn' and deadline>'$Now'  and (orderState='1' or orderState='9' or orderState='0') order by orderId");
     }
     else {
-        $sql = mysql_query("select * from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and orderId!='$ex'  and (orderState='1' or orderState='9') order by orderId");
+        $sql = mysql_query("select * from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and orderId!='$ex'  and (orderState='1' or orderState='9' or orderState='0') order by orderId");
     }
     $arr = array();
     while($each = mysql_fetch_array($sql)) {
@@ -43,10 +43,10 @@ function getOrderNum($username,$Now)
     $ex = mysql_fetch_array($ex);
     $ex = $ex['doOrder'];
     if($ex == 'null') {
-        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and (orderState='1' or orderState='9') order by orderId");
+        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and (orderState='1' or orderState='9' or orderState='0') order by orderId");
     }
     else {
-        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and orderId!='$ex'  and (orderState='1' or orderState='9') order by orderId");
+        $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and orderId!='$ex'  and (orderState='1' or orderState='9' or orderState='0') order by orderId");
     }
     $count = mysql_fetch_array($count);
     return $count = $count['count(*)'];
