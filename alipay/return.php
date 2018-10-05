@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 header('Content-type:text/html; Charset=utf-8');
 //支付宝公钥，账户中心->密钥管理->开放平台密钥，找到添加了支付功能的应用，根据你的加密类型，查看支付宝公钥
@@ -21,7 +21,8 @@ $aliPay = new AlipayService($alipayPublicKey);
 $result = $aliPay->rsaCheck($_GET,$_GET['sign_type']);
 if($result===true){
     //同步回调一般不处理业务逻辑，显示一个付款成功的页面，或者跳转到用户的财务记录页面即可。
-    echo "<script type='text/javascript'>javascript:window.close();</script>";
+    echo "<html><head></head><body><script type='text/javascript'>window.close();</script></body></html>";
+    exit();
 }
 echo '不合法的请求';exit();
 class AlipayService

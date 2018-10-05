@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 
 function getCost($username,$orderId)
@@ -59,7 +59,7 @@ $notifyUrl = 'http://dayin.sdut1.com/alipay/notify.php';     //付款成功后�
 $outTradeNo = $orderId;     //你自己的商品订单号，不能重复
 $payAmount = $cost;           //付款金额，单位:元
 $orderName = '校园云打印';    //订单标题
-$signType = 'RSA';			//签名算法类型，支持RSA2和RSA，推荐使用RSA2
+$signType = 'RSA2';			//签名算法类型，支持RSA2和RSA，推荐使用RSA2
 $rsaPrivateKey= $priKey;
 
 /*** 配置结束 ***/
