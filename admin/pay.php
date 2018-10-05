@@ -63,9 +63,9 @@ $pay = mysql_fetch_array($pay);
 	</script>
     <script type="text/javascript">
         function init() {
-            document.getElementById("pub_key").value = "<?php echo $pay['pubKey']?>";
-            document.getElementById("pri_key").value = "<?php echo $pay['priKey']?>";
-            document.getElementById("app_id").value = "<?php echo $pay['appId']?>";
+            document.getElementById("pub_key").value = unescape("<?php echo $pay['pubKey']?>");
+            document.getElementById("pri_key").value = unescape("<?php echo $pay['priKey']?>");
+            document.getElementById("app_id").value = unescape("<?php echo $pay['appId']?>");
         }
         function submitInfo() {
 
