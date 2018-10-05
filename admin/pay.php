@@ -41,9 +41,9 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
 }
 if(isset($_GET['appId']) && $_GET['appId'] != '')
 {
-    $pubKey = $_GET['pubKey'];
-    $priKey = $_GET['priKey'];
-    $appId = $_GET['appId'];
+    $pubKey = mysql_escape_string($_GET['pubKey']);
+    $priKey = mysql_escape_string($_GET['priKey']);
+    $appId = mysql_escape_string($_GET['appId']);
     mysql_query("update pay set pubKey='$pubKey',priKey='$priKey',appId='$appId' where username='$username'");
 }
 $pay = mysql_query("select * from pay where username='$username'");
@@ -84,15 +84,15 @@ $pay = mysql_fetch_array($pay);
 	</script>
     <script type="text/javascript">
         function init() {
-            document.getElementById("pub_key").value = "<?php echo unescape($pay['pubKey']);?>";
-            document.getElementById("pri_key").value = "<?php echo unescape($pay['priKey']);?>";
-            document.getElementById("app_id").value = "<?php echo unescape($pay['appId']);?>";
+            document.getElementById("pub_key").value = "<?php echo $pay['pubKey'];?>";
+            document.getElementById("pri_key").value = "<?php echo $pay['priKey'];?>";
+            document.getElementById("app_id").value = "<?php echo $pay['appId'];?>";
         }
         function submitInfo() {
 
-            var pubKey = escape(document.getElementById("pub_key").value);
-            var priKey = escape(document.getElementById("pri_key").value);
-            var appId = escape(document.getElementById("app_id").value);
+            var pubKey = encodeURIComponent(document.getElementById("pub_key").value);
+            var priKey = encodeURIComponent(document.getElementById("pri_key").value);
+            var appId = encodeURIComponent(document.getElementById("app_id").value);
             window.location.href="pay.php?pubKey="+pubKey+"&priKey="+priKey+"&appId="+appId;
         }
     </script>
