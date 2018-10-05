@@ -1,6 +1,25 @@
 <?php
-
-function finishOrder()
+function unescape($str) {
+    $ret = '';
+    $len = strlen ( $str );
+    for($i = 0; $i < $len; $i ++) {
+        if ($str [$i] == '%' && $str [$i + 1] == 'u') {
+            $val = hexdec ( substr ( $str, $i + 2, 4 ) );
+            if ($val < 0x7f)
+                $ret .= chr ( $val );
+            else if ($val < 0x800)
+                $ret .= chr ( 0xc0 | ($val >> 6) ) . chr ( 0x80 | ($val & 0x3f) );
+            else
+                $ret .= chr ( 0xe0 | ($val >> 12) ) . chr ( 0x80 | (($val >> 6) & 0x3f) ) . chr ( 0x80 | ($val & 0x3f) );
+            $i += 5;
+        } else if ($str [$i] == '%') {
+            $ret .= urldecode ( substr ( $str, $i, 3 ) );
+            $i += 2;
+        } else
+            $ret .= $str [$i];
+    }
+    return $ret;
+}
 header('Content-type:text/html; Charset=utf-8');
 $con = mysql_connect("localhost","root","wslzd9877");
 if (!$con)
@@ -16,7 +35,7 @@ $payInfo = mysql_query("select * from pay where username='$business'");
 $payInfo = mysql_fetch_array($payInfo);
 
 //支付宝公钥，账户中心->密钥管理->开放平台密钥，找到添加了支付功能的应用，根据你的加密类型，查看支付宝公钥
-$alipayPublicKey=$payInfo['pubKey'];
+$alipayPublicKey=unescape($payInfo['pubKey']);
 $aliPay = new AlipayService($alipayPublicKey);
 //验证签名
 $result = $aliPay->rsaCheck($_POST,$_POST['sign_type']);

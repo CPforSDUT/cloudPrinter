@@ -69,9 +69,9 @@ $pay = mysql_fetch_array($pay);
         }
         function submitInfo() {
 
-            var pubKey = document.getElementById("pub_key").value;
-            var priKey = document.getElementById("pri_key").value;
-            var appId = document.getElementById("app_id").value;
+            var pubKey = escape(document.getElementById("pub_key").value);
+            var priKey = escape(document.getElementById("pri_key").value);
+            var appId = escape(document.getElementById("app_id").value);
             window.location.href="pay.php?pubKey="+pubKey+"&priKey="+priKey+"&appId="+appId;
         }
     </script>
