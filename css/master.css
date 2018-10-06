@@ -308,7 +308,12 @@
 	textarea{
 		width:60px !important	;
 		height:40px !important;
-	}
+    }
+    .maintable{
+        margin: 0;
+        max-width: 100%;
+        z-index: 1;
+    }
 }
 
 
@@ -365,7 +370,7 @@ select{
     z-index: 100;
 }
 .header{
-    width: 80%;
+    width: 78%;
     position: relative;
     height: 60px;
     margin-top: 0px;
@@ -464,6 +469,11 @@ daohang a:hover .caidan{
     margin-right: auto;
     position: relative;
     background: linear-gradient(to top right, #3c7df1, #62c1fb);
+}
+.maintable{
+    margin: 0;
+    max-width: 78%;
+    z-index: 1;
 }
 .mt{
     position: relative;

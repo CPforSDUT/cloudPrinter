@@ -185,8 +185,8 @@ for($i = 0 ; $i < count($sorted); $i ++)
     }
     echo "<td>".toPureTime($tOrder['deadline'])."</td>";
     echo "<td><a class=\"link-download\" href=\"document.php?orderId=$tOrderId\" >下载</a> \n";
-    if($tOrderState == '1')echo "<a class=\"link-update\" onclick=\"okOrder('$tOrderId')\">打印完成</a>\n";
-    echo "<a class=\"link-del\" onclick=\"delOrder('$tOrderId')\">删除</a></td>";
+    if($tOrderState == '1')echo "<a class=\"link-update\" href=\"#\" onclick=\"okOrder('$tOrderId')\">打印完成</a>\n";
+    echo "<a class=\"link-del\" href=\"#\" onclick=\"delOrder('$tOrderId')\">删除</a></td>";
     echo "</tr>";
 }
 
