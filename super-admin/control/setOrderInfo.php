@@ -86,10 +86,10 @@ if($row != false)
     switch ($method)
     {
         case 'delete':
+            sortDelete($row['business'],$orderId);
             mysql_query("delete from orderinfo where orderId='$orderId'");
             $tIme =  time();
             mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\")");
-            sortDelete($row['business'],$orderId);
             break;
     }
 

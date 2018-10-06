@@ -63,7 +63,6 @@ function sortDelete($username,$orderId)
         }
     }
 }
-}
 if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
     header("location:/index.php");
 }
@@ -87,10 +86,12 @@ if(strnatcasecmp($username,$row['business']) == 0){
     switch ($method)
     {
         case 'okOrder':
-            if($row['orderState'] == '1') mysql_query("UPDATE orderinfo SET orderState='2' WHERE orderId='$orderId'");
             sortDelete($username,$orderId);
+            if($row['orderState'] == '1') mysql_query("UPDATE orderinfo SET orderState='2' WHERE orderId='$orderId'");
+
             break;
         case 'delete':
+            sortDelete($username,$orderId);
             if($row['deleted'] == 'cn'){
                 mysql_query("delete from orderinfo where orderId='$orderId'");
                 $tIme =  time();
@@ -99,6 +100,5 @@ if(strnatcasecmp($username,$row['business']) == 0){
             else {
                 mysql_query("UPDATE orderinfo SET deleted='bn' WHERE orderId='$orderId'");
             }
-            sortDelete($username,$orderId);
     }
 }

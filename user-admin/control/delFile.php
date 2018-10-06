@@ -82,6 +82,7 @@ $result = mysql_query("select * from orderinfo where orderId = '$orderId'");
 $row = mysql_fetch_array($result);
 if(strnatcasecmp($username,$row['consumer']) == 0){
 
+    sortDelete($row['business'],$orderId);
     if($row['deleted'] == 'bn'){
         mysql_query("delete from orderinfo where orderId='$orderId'");
         $tIme =  time();
@@ -90,7 +91,7 @@ if(strnatcasecmp($username,$row['consumer']) == 0){
     else {
         mysql_query("UPDATE orderinfo SET deleted='cn' WHERE orderId='$orderId'");
     }
-    sortDelete($row['business'],$orderId);
+
 }
 
 
