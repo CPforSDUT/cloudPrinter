@@ -365,7 +365,7 @@ select{
     z-index: 100;
 }
 .header{
-    width: 80%;
+    width: 78%;
     position: relative;
     height: 60px;
     margin-top: 0px;
@@ -464,6 +464,10 @@ daohang a:hover .caidan{
     margin-right: auto;
     position: relative;
     background: linear-gradient(to top right, #3c7df1, #62c1fb);
+}
+.maintable{
+    margin: 0;
+    max-width: 78%;
 }
 .mt{
     position: relative;
