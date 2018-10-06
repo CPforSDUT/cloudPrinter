@@ -86,8 +86,8 @@
       <file leaf-file-name="setOrderInfo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/control/setOrderInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="62" column="1" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
+            <state relative-caret-position="176">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -95,8 +95,8 @@
       <file leaf-file-name="delFile.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/user-admin/control/delFile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1364">
-              <caret line="62" column="1" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
+            <state relative-caret-position="242">
+              <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -104,8 +104,8 @@
       <file leaf-file-name="setOrderInfo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/super-admin/control/setOrderInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-154">
-              <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+            <state relative-caret-position="176">
+              <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -269,8 +269,8 @@
         <option value="$PROJECT_DIR$/user/registered.php" />
         <option value="$PROJECT_DIR$/install.php" />
         <option value="$PROJECT_DIR$/admin/control/orderSort.php" />
-        <option value="$PROJECT_DIR$/super-admin/control/setOrderInfo.php" />
         <option value="$PROJECT_DIR$/admin/control/setOrderInfo.php" />
+        <option value="$PROJECT_DIR$/super-admin/control/setOrderInfo.php" />
         <option value="$PROJECT_DIR$/user-admin/control/delFile.php" />
       </list>
     </option>
@@ -455,7 +455,7 @@
       <workItem from="1538387437330" duration="13768000" />
       <workItem from="1538454989305" duration="15108000" />
       <workItem from="1538654045708" duration="5789000" />
-      <workItem from="1538829139932" duration="2663000" />
+      <workItem from="1538829139932" duration="2991000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -468,7 +468,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="583882000" />
+    <option name="totallyTimeSpent" value="584210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -822,24 +822,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/super-admin/control/setOrderInfo.php">
+    <entry file="file://$PROJECT_DIR$/admin/control/setOrderInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-154">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        <state relative-caret-position="176">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/control/setOrderInfo.php">
+    <entry file="file://$PROJECT_DIR$/super-admin/control/setOrderInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="62" column="1" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
+        <state relative-caret-position="176">
+          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/user-admin/control/delFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1364">
-          <caret line="62" column="1" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
+        <state relative-caret-position="242">
+          <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
         </state>
       </provider>
     </entry>

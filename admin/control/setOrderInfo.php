@@ -30,7 +30,7 @@ function sortDelete($username,$orderId)
     if($orderId == $ex)
     {
 
-        if($sort == ''){
+        if(count($sort) <= 0){
             $sql = "update aisort set sort='',doOrder='null' where username='$username'";
         }
         else {
