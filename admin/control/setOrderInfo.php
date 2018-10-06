@@ -50,7 +50,7 @@ function sortDelete($username,$orderId)
         for($i = 0 ; $i < count($allOrder) && $allOrder[$i]['orderId']!=$orderId ; $i ++);
         if($i < count($allOrder))
         {
-            $dSort = $sort[$i];
+            $dSort = $i;
             $newSort = array_slice($sort,0,$i) + array_slice($sort,$i + 1);
             for($j = 0 ; $j < count($newSort) ; $j ++){
                 if($newSort[$j] > $dSort){
@@ -62,6 +62,7 @@ function sortDelete($username,$orderId)
             mysql_query($sql);
         }
     }
+}
 }
 if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
     header("location:/index.php");
