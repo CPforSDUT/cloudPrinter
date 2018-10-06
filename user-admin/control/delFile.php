@@ -29,31 +29,37 @@ function sortDelete($username,$orderId)
     $allOrder = getOrderInfo($username,$Now);
     if($orderId == $ex)
     {
-        $newDoOrder = $allOrder[$sort[0]]['orderId'];
-        $sort = array_slice($sort,1);
-        $sort = implode("|",$sort);
+
         if($sort == ''){
-            $sql = sprintf("update aisort set sort='%s',doOrder='null' where username='$username'",$sort);
+            $sql = "update aisort set sort='',doOrder='null' where username='$username'";
         }
         else {
+            $newDoOrder = $allOrder[$sort[0]]['orderId'];
+            $sort = array_slice($sort,1);
+            for ($i = 0 ; $i < count($sort) ; $i ++){
+                $sort[$i] -= 1;
+            }
+            $sort = implode("|",$sort);
             $sql = sprintf("update aisort set sort='%s',doOrder='$newDoOrder' where username='$username'",$sort,$newDoOrder);
         }
         mysql_query($sql);
     }
     else {
         for($i = 0 ; $i < count($allOrder) && $allOrder[$i]['orderId']!=$orderId ; $i ++);
-        $dSort = $sort[$i];
-        $newSort = array_slice($sort,0,$i) + array_slice($sort,$i + 1);
-        for($j = 0 ; $j < count($newSort) ; $j ++){
-            if($newSort[$j] > $dSort){
-                $newSort[$j] -= 1;
+        if($i < count($allOrder))
+        {
+            $dSort = $sort[$i];
+            $newSort = array_slice($sort,0,$i) + array_slice($sort,$i + 1);
+            for($j = 0 ; $j < count($newSort) ; $j ++){
+                if($newSort[$j] > $dSort){
+                    $newSort[$j] -= 1;
+                }
             }
+            $newSort = implode("|",$newSort);
+            $sql = sprintf("update aisort set sort='%s' where username='$username'",$newSort);
+            mysql_query($sql);
         }
-        $newSort = implode("|",$newSort);
-        $sql = sprintf("update aisort set sort='%s' where username='$username'",$newSort);
-        mysql_query($sql);
     }
-
 }
 if(isset($_SESSION['user']) == false || $_SESSION['type'] != '1'){
     header("location:/index.php");
