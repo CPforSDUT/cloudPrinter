@@ -16,6 +16,9 @@ function getOrderSort($username)
     $sort = mysql_query("select * from aisort where username='$username'");
     $sort = mysql_fetch_array($sort);
     $sort = $sort['sort'];
+    if($sort == ''){
+        return array();
+    }
     $sort = explode("|",$sort);
     return $sort;
 }
@@ -29,7 +32,6 @@ function sortDelete($username,$orderId)
     $allOrder = getOrderInfo($username,$Now);
     if($orderId == $ex)
     {
-
         if(count($sort) <= 0){
             $sql = "update aisort set sort='',doOrder='null' where username='$username'";
         }
