@@ -151,7 +151,7 @@ class AlipayService
      * @return 提交表单HTML文本
      */
     protected function buildRequestForm($para_temp) {
-        $sHtml = "正在跳转至支付页面...<form id='alipaysubmit' name='alipaysubmit' action='https://openapi.alipay.com/gateway.do?charset=".$this->charset."' method='POST'>";
+        $sHtml = "正在跳转至支付页面...<form id='alipaysubmit' name='alipaysubmit' action='https://openapi.alipaydev.com/gateway.do?charset=".$this->charset."' method='POST'>";
         while (list ($key, $val) = each ($para_temp)) {
             if (false === $this->checkEmpty($val)) {
                 $val = str_replace("'","&apos;",$val);
