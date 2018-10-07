@@ -310,7 +310,7 @@
 		height:40px !important;
     }
     .maintable{
-        margin: 0;
+        margin: 0 auto;
         max-width: 100%;
         z-index: 1;
     }
@@ -471,7 +471,7 @@ daohang a:hover .caidan{
     background: linear-gradient(to top right, #3c7df1, #62c1fb);
 }
 .maintable{
-    margin: 0;
+    margin: 0 auto;
     max-width: 78%;
     z-index: 1;
 }
