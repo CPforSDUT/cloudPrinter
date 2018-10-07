@@ -314,6 +314,9 @@
         max-width: 100%;
         z-index: 1;
     }
+    #user_order{
+        margin: 0 auto;
+    }
 }
 
 
@@ -474,6 +477,9 @@ daohang a:hover .caidan{
     margin: 0 auto;
     max-width: 78%;
     z-index: 1;
+}
+#user_order{
+    margin: 0 auto;
 }
 .mt{
     position: relative;
