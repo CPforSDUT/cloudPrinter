@@ -33,32 +33,37 @@ function sortDelete($username,$orderId)
     if($orderId == $ex)
     {
         if(count($sort) <= 0){
-            $sql = "update aisort set sort='',doOrder='null' where username='$username'";
+            $sql = "update aisort set sort='',doOrder='null',time='null' where username='$username'";
         }
         else {
             $newDoOrder = $allOrder[$sort[0]]['orderId'];
+            $sort0 = $sort[0];
             $sort = array_slice($sort,1);
             for ($i = 0 ; $i < count($sort) ; $i ++){
-                $sort[$i] -= 1;
+                if($sort[$i] > $sort0){
+                    $sort[$i] -= 1;
+                }
             }
             $sort = implode("|",$sort);
-            $sql = sprintf("update aisort set sort='%s',doOrder='$newDoOrder' where username='$username'",$sort,$newDoOrder);
+            $sql = "update aisort set sort='$sort',doOrder='$newDoOrder' where username='$username'";
         }
         mysql_query($sql);
     }
     else {
         for($i = 0 ; $i < count($allOrder) && $allOrder[$i]['orderId']!=$orderId ; $i ++);
-        if($i < count($allOrder))
+        $dSort = $i;
+        if($dSort < count($allOrder))
         {
-            $dSort = $i;
+            for($i = 0 ; $i < count($sort) && $dSort != $sort[$i] ; $i ++);
             $newSort = array_slice($sort,0,$i) + array_slice($sort,$i + 1);
+
             for($j = 0 ; $j < count($newSort) ; $j ++){
                 if($newSort[$j] > $dSort){
                     $newSort[$j] -= 1;
                 }
             }
             $newSort = implode("|",$newSort);
-            $sql = sprintf("update aisort set sort='%s' where username='$username'",$newSort);
+            $sql = "update aisort set sort='$newSort' where username='$username'";
             mysql_query($sql);
         }
     }
