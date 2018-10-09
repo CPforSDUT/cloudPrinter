@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/newOrder.php" line="801" />
+    <bookmark url="file://$PROJECT_DIR$/newOrder.php" line="833" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/master.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/newOrder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,11 +88,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="master.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="master.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/master.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="227">
               <caret line="477" column="17" selection-start-line="477" selection-start-column="17" selection-end-line="477" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/newOrder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-176">
+              <caret line="453" column="52" selection-start-line="453" selection-start-column="52" selection-end-line="453" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -134,18 +142,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getOrderInfo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/super-admin/control/getOrderInfo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1804">
-              <caret line="95" column="18" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -157,7 +153,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>exp</find>
       <find>time()</find>
       <find>latestFTime</find>
       <find>sortBySort</find>
@@ -186,6 +181,7 @@
       <find>form</find>
       <find>getTag</find>
       <find>maintable</find>
+      <find>icon</find>
       <find>mainta</find>
     </findStrings>
     <replaceStrings>
@@ -278,9 +274,9 @@
         <option value="$PROJECT_DIR$/admin/control/setOrderInfo.php" />
         <option value="$PROJECT_DIR$/super-admin/control/setOrderInfo.php" />
         <option value="$PROJECT_DIR$/user-admin/control/delFile.php" />
-        <option value="$PROJECT_DIR$/newOrder.php" />
         <option value="$PROJECT_DIR$/user-admin/control/getOrderInfo.php" />
         <option value="$PROJECT_DIR$/css/master.css" />
+        <option value="$PROJECT_DIR$/newOrder.php" />
       </list>
     </option>
   </component>
@@ -295,7 +291,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="18" />
     <option name="y" value="-8" />
     <option name="width" value="1380" />
@@ -471,7 +467,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="590364000" />
+    <option name="totallyTimeSpent" value="593112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
@@ -726,16 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="396" column="24" selection-start-line="396" selection-start-column="24" selection-end-line="396" selection-end-column="24" />
-          <folding>
-            <element signature="e#31648#31693#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/getMapInfo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -868,6 +854,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
           <caret line="477" column="17" selection-start-line="477" selection-start-column="17" selection-end-line="477" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="453" column="52" selection-start-line="453" selection-start-column="52" selection-end-line="453" selection-end-column="52" />
         </state>
       </provider>
     </entry>

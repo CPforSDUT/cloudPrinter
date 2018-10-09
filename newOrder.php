@@ -413,6 +413,7 @@ mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\"
                                 mark = new BMap.Marker(pt, {icon: myIcon});
                                 mark.setAnimation(BMAP_ANIMATION_BOUNCE);
                                 where[each]['pt'] = pt;
+                                where[each]['mark'] = mark;
                                 map.addOverlay(mark);
                                 createTag(mark, where[each]);
                             }
@@ -427,12 +428,15 @@ mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\"
         }
 
         function doAlloc(mark) {
-            var maxWeightPoint = -1;
-            var maxWeight;
+            var maxWeightPoint = -1,sMaxWP = -1,tMaxWP = -1,maxWP = -1;
+            var maxWeight = -1,sMaxW = -1,tMaxW = -1;
             var each;
 
             var bestShop;
             var pt = new BMap.Point(myLo,myLa);
+            var Icon1 = new BMap.Icon('image/cap1.png',new BMap.Size(32,32));
+            var Icon2 = new BMap.Icon('image/cap2.png',new BMap.Size(32,32));
+            var Icon3 = new BMap.Icon('image/cap3.png',new BMap.Size(32,32));
             if(where[0] == undefined){
                 clearShopInfo();
                 return ;
@@ -446,15 +450,40 @@ mysql_query("INSERT INTO delfiles (orderId, time)VALUES (\"$orderId\", \"$tIme\"
                 var thisWeight = costWeight*(-thisCost) + distanceWeight*(-thisDis/1000) + (thisScore-2)*scoreWeight;
                 if(maxWeightPoint == -1 || thisWeight > maxWeight)
                 {
+                    tMaxWP = sMaxWP;sMaxWP = maxWP;
+                    tMaxW = sMaxW;sMaxW = maxWeight;
                     maxWeight = thisWeight;
                     maxWeightPoint = where[each]['pt'];
+                    maxWP = where[each]['mark'];
                     cDis = maxDis = thisDis;
                     cCost = maxCost = thisCost;
                     cScore = maxScore = thisScore;
                     bestShop = where[each];
+
+                }
+                else if(sMaxWP == -1 || thisWeight > sMaxW )
+                {
+                    tMaxWP = sMaxWP;
+                    tMaxW = sMaxW;
+                    sMaxW = thisWeight;
+                    sMaxWP = where[each]['mark'];
+                }
+                else if(tMaxWP == -1 || thisWeight > tMaxW)
+                {
+                    tMaxW = thisWeight;
+                    tMaxWP = where[each]['mark'];
                 }
             }
             walk.clearResults();
+            if(maxWP != -1){
+                maxWP.setIcon(Icon1);
+            }
+            if(sMaxWP != -1){
+                sMaxWP.setIcon(Icon2);
+            }
+            if(tMaxWP != -1){
+                tMaxWP.setIcon(Icon3);
+            }
             walk.search( pt,maxWeightPoint);
             map.addOverlay(mark);
 
