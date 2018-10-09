@@ -148,7 +148,7 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
     <!--/main-->
 </div>
         <script>
-            init();
+            setInterval("init()",5000);
         </script>
 </body>
 </html>

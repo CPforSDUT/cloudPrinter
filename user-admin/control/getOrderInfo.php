@@ -34,7 +34,7 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
     header("location:/index.php");
     exit();
 }
-$infos = mysql_query("select * from orderinfo where consumer='$username' and deleted!='cn' and orderState!='9' ");
+$infos = mysql_query("select * from orderinfo where consumer='$username' and deleted!='cn' and orderState!='9' order by deadline");
 $info = mysql_fetch_array($infos);
 if($info == false){
     echo "<div  style=\"text-align: center;position: absolute;width: 100%;\"><img style=\"max-width: 383px;min-width: 383px; overflow: hidden;margin: 0 auto;\" src='/image/no_file.png'/></div>";

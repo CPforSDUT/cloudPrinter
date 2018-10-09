@@ -385,7 +385,7 @@ $orderNum = $row['count(*)'];
           {
               document.getElementById("search").value = search;
           }
-          setInterval("update()",10000);
+          setInterval("update()",5000);
       </script>
 </div>
 </body>
