@@ -17,12 +17,13 @@ function getCost($username,$orderId)
         $colorBuff = $filecost['color'] == '2' ? $cost['colorBuff'] : 0;
         $type = $filecost['paperType'];
         $paperNum = $filecost['paperNum'];
+        $num = $filecost['num'];
         for($i = 0 ; $typebs[$i] != $type;$i ++);
         $type = $types[$i];
         if($paperNum < 0){
             continue;
         }
-        $allCost += ($cost[$type] + $colorBuff)*$paperNum;
+        $allCost += ($cost[$type] + $colorBuff)*$paperNum*$num;
     }
     return $allCost;
 }
