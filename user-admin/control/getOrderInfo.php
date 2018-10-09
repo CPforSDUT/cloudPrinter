@@ -69,7 +69,7 @@ else {
         echo "<td>$time</td>";
         echo "<td>$orderState</td><td id='bt$orderId'>";
         echo "<a class=\"button button-pill button-tiny\" href='user-document.php?orderId=$orderId'>查看</a><a href='#' style='color=red;' class=\"button button-pill button-tiny\" onclick=\"delOrder('$orderId')\">删除</a>";
-        if($info['orderState'] == '0')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #00bcd4;' href='/alipay/pcPay.php?orderId=$orderId'>$</a>";
+        if($info['orderState'] == '0')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #2196f3;' href='/alipay/pcPay.php?orderId=$orderId'>$</a>";
         if($info['orderState'] == '2')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #9E9E9E;' href='#' onclick=\"finish('$orderId')\">★</a>";
         echo "</td>";
         echo "<tr>";

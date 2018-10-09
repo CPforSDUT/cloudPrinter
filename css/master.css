@@ -475,9 +475,9 @@ daohang a:hover .caidan{
 }
 .maintable{
     margin: 0 auto;
-    max-width: 82%;
+    max-width: 88%;
     z-index: 1;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.8) inset,0px 0px 5px rgba(43, 255, 184, 0.5);
+    box-shadow: 0px 0px 10px rgba(159,159,159,0.45) inset,0px 0px 5px rgba(159, 159, 159, 0.45);
 }
 #user_order{
     margin: 0 auto;
@@ -514,7 +514,6 @@ daohang a:hover .caidan{
     margin-top: 50px;
     margin-bottom: 50px;
     font-size: 18px;
-    
     text-align: left;
     display: block;
 }
