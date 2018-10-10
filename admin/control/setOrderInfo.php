@@ -54,9 +54,9 @@ function sortDelete($username,$orderId)
         $dSort = $i;
         if($dSort < count($allOrder))
         {
+			echo count($sort)." ";
             for($i = 0 ; $i < count($sort) && $dSort != $sort[$i] ; $i ++);
-            $newSort = array_slice($sort,0,$i) + array_slice($sort,$i + 1);
-
+            $newSort = array_merge(array_slice($sort,0,$i) , array_slice($sort,$i + 1));
             for($j = 0 ; $j < count($newSort) ; $j ++){
                 if($newSort[$j] > $dSort){
                     $newSort[$j] -= 1;
