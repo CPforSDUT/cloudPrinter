@@ -49,7 +49,7 @@ function getOrderNum($username,$Now)
         $count = mysql_query("select count(*) from orderinfo where business='$username' and deleted='nn' and deadline>'$Now' and orderId!='$ex'  and (orderState='1' or orderState='9' or orderState='0') order by orderId");
     }
     $count = mysql_fetch_array($count);
-    return $count = $count['count(*)'];
+    return $count['count(*)'];
 }
 function getOrderDTime($data)
 {
@@ -90,14 +90,30 @@ function getOrderNTime($speed,$allOrder)
 
 function otherJudge($lifes,$dTimes,$timeS)
 {
-    return 0;
+    $score = 0;
+    for($i = 1 ; $i < count($lifes) ; $i ++)
+    {
+        if($dTimes[$lifes[$i]] >= $dTimes[$lifes[$i - 1]]){
+            $score += 1;
+        }
+        else {
+            $score -= 1;
+        }
+    }
+    if($score > 0){
+        return $score;
+    }
+    else {
+        return 0;
+    }
 }
-function judge($lifes,$username,$data,$Now)
+function judge($lifes,$username,$data,$fakeNow)
 {
     $Now = time();
     $dTimes = getOrderDTime($data);
     $speed = getSpeed($username);
     $nTimes = getOrderNTime($speed,$data);
+    $timeS = array();
     for($i = 0 ; $i < count($lifes);$i ++)
     {
         $start = $Now;
@@ -112,7 +128,11 @@ function judge($lifes,$username,$data,$Now)
             $score += 1;
         }
     }
-    return $score + otherJudge($lifes,$dTimes,$timeS);
+    if(count($lifes) == $score) {
+        return $score + otherJudge($lifes,$dTimes,$timeS);
+    }else {
+        return $score;
+    }
 }
 
 function randLifes($username,$Now)
@@ -191,7 +211,7 @@ function hybrids(&$dnas,$varpos)
         $new = array_merge(array_slice($dnas[$i],$point) , array_slice($dnas[$i],0,$point));
         if($varpos*1000 > rand(0,1000)){
             $new = vari($new);
-        };
+        }
         $dnas[$i] = $new;
     }
     return ;
@@ -239,6 +259,7 @@ $dnas = array();
 for($i = 0 ; $i < 50 ; $i ++) {
     array_push($dnas,randLifes($username,$Now));
 }
+
 do{
     $dnas = natSelect($username,$dnas,$allOrder,$Now);
     hybrids($dnas,0.1);
@@ -251,7 +272,7 @@ do{
         }
     }
     $time += 1;
-}while($best == 0 && $time < 100);
+}while(($time < 50 || $best == 0) && $time<100);
 if($best != 0)
 {
 
@@ -268,7 +289,7 @@ if($best != 0)
     }
     else {
         $sort = implode("|",$bestLife);
-        $arr = sprintf("update aisort set sort='%s',time='$Now' where username='$username'",$sort);
+        $arr = "update aisort set sort='$sort',time='$Now' where username='$username'";
     }
     mysql_query($arr);
     echo 'ok';
