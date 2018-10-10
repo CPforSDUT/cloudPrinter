@@ -175,27 +175,21 @@ function natSelect($username,$dnas,$data,$Now)
             array_push($field,$i);
         }
     }
-    if(count($field) < 10000){
-        $need = 10000 - count($field);
-        $need /= count($zeroZone);
-        foreach($zeroZone as $each)
-        {
-            for($i = 0 ; $i < $need ; $i ++){
-                array_push($field,$each);
-            }
+    if(count($zeroZone) > 0){
+        while(count($field) < 10000) {
+            array_push($field,$zeroZone[rand(0,count($zeroZone) - 1)]);
         }
     }
     $newLifes = array();
     for($i = 0 ; $i < count($dnas) ; $i ++)
     {
-        $which = rand(0,10000);
+        $which = rand(0,count($field) - 1);
         array_push($newLifes,$dnas[$field[$which]]);
     }
     return $newLifes;
 }
 function vari($dna)
 {
-
     $p1 = rand(0,count($dna) - 1);
     $p2 = rand(0,count($dna) - 1);
     $temp = $dna[$p1];
