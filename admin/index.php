@@ -46,7 +46,6 @@ if(isset($_SESSION['user']) == false || $_SESSION['type'] != '2'){
             setOrderInfo.open("POST","control/setOrderInfo.php",false);
             setOrderInfo.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             setOrderInfo.send("orderId="+orderId + "&method=delete");
-			alert(setOrderInfo.responseText);
             init();
         }
 	</script>
