@@ -181,7 +181,7 @@ for($i = 0 ; $i < count($sorted); $i ++)
     echo "<td>".$tOrder['exCode']."</td>";
     echo "<td>".$tOrder['needTime']."秒</td>";
     if(time() > strtotime($tOrder['latestF'])){
-        echo "<td>".$tOrder['latestF']."已延误</td>";
+        echo "<td>".$tOrder['latestF']." 已延误</td>";
     }
     else{
         echo "<td>".$tOrder['latestF']."</td>";
