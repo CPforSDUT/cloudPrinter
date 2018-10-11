@@ -161,7 +161,7 @@ else {
                     echo "<td>$deadline</td>";
                     echo "<td>$orderState</td>";
                     echo "<td>$otherInfo</td>";
-                    echo "<td><a href='document.php?orderId=$orderId'>查看文件</a>";
+                    echo "<td><a href='document.php?orderId=$orderId'>查看文件</a> ";
                     echo "<a href='/alipay/pcPay.php?orderId=$orderId'>支付</a></td>";
                     echo "</tr>";
                 }
