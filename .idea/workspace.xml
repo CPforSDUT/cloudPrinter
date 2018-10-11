@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab12226-e758-4977-8fc9-d112216bdba4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/admin/sore.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/sore.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/control/orderSort.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/control/orderSort.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="orderSort.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="orderSort.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/control/orderSort.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="185" column="41" selection-start-line="185" selection-start-column="41" selection-end-line="185" selection-end-column="41" />
+            <state relative-caret-position="260">
+              <caret line="102" column="9" lean-forward="true" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -72,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sore.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sore.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/sore.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="168" column="14" lean-forward="true" selection-start-line="168" selection-start-column="14" selection-end-line="168" selection-end-column="14" />
+            <state relative-caret-position="418">
+              <caret line="163" column="79" selection-start-line="163" selection-start-column="79" selection-end-line="163" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -84,7 +84,7 @@
       <file leaf-file-name="newOrder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12654">
+            <state relative-caret-position="19">
               <caret line="666" column="79" selection-start-line="666" selection-start-column="79" selection-end-line="666" selection-end-column="79" />
             </state>
           </provider>
@@ -120,7 +120,7 @@
       <file leaf-file-name="pcPay.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/alipay/pcPay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="95">
               <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
@@ -271,8 +271,8 @@
         <option value="$PROJECT_DIR$/user-admin/control/delFile.php" />
         <option value="$PROJECT_DIR$/super-admin/control/setOrderInfo.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
-        <option value="$PROJECT_DIR$/admin/control/orderSort.php" />
         <option value="$PROJECT_DIR$/admin/sore.php" />
+        <option value="$PROJECT_DIR$/admin/control/orderSort.php" />
       </list>
     </option>
   </component>
@@ -467,7 +467,7 @@
       <workItem from="1538454989305" duration="15108000" />
       <workItem from="1538654045708" duration="5789000" />
       <workItem from="1538829139932" duration="4866000" />
-      <workItem from="1539224810920" duration="329000" />
+      <workItem from="1539224810920" duration="1310000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1532469522830</created>
@@ -480,10 +480,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="609030000" />
+    <option name="totallyTimeSpent" value="610011000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21303074" />
@@ -799,13 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12654">
-          <caret line="666" column="79" selection-start-line="666" selection-start-column="79" selection-end-line="666" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="893">
@@ -827,13 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/control/orderSort.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="185" column="41" selection-start-line="185" selection-start-column="41" selection-end-line="185" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/information.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -843,7 +829,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/alipay/pcPay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="95">
           <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           <folding>
             <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
@@ -853,8 +839,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/sore.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="168" column="14" lean-forward="true" selection-start-line="168" selection-start-column="14" selection-end-line="168" selection-end-column="14" />
+        <state relative-caret-position="418">
+          <caret line="163" column="79" selection-start-line="163" selection-start-column="79" selection-end-line="163" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="666" column="79" selection-start-line="666" selection-start-column="79" selection-end-line="666" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/control/orderSort.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="102" column="9" lean-forward="true" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
         </state>
       </provider>
     </entry>

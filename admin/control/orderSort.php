@@ -90,6 +90,7 @@ function getOrderNTime($speed,$allOrder)
 
 function otherJudge($lifes,$dTimes,$timeS)
 {
+    $maxScore = 0;
     $score = 0;
     for($i = 1 ; $i < count($lifes) ; $i ++)
     {
@@ -97,15 +98,11 @@ function otherJudge($lifes,$dTimes,$timeS)
             $score += 1;
         }
         else {
-            $score -= 1;
+            $maxScore = $maxScore < $score ?  $score : $maxScore;
+            $score = 0;
         }
     }
-    if($score > 0){
-        return $score;
-    }
-    else {
-        return 0;
-    }
+    return $maxScore;
 }
 function judge($lifes,$username,$data,$fakeNow)
 {
