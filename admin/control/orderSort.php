@@ -94,10 +94,10 @@ function otherJudge($lifes,$dTimes,$timeS)
     for($i = 1 ; $i < count($lifes) ; $i ++)
     {
         if($dTimes[$lifes[$i]] >= $dTimes[$lifes[$i - 1]]){
-            $score += 50;
+            $score += 4;
         }
         else {
-			$score -= 50;
+			$score -= 4;
         }
     }
 	if($score < 0){
