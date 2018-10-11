@@ -37,7 +37,7 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
 $infos = mysql_query("select * from orderinfo where consumer='$username' and deleted!='cn' and orderState!='9' order by deadline");
 $info = mysql_fetch_array($infos);
 if($info == false){
-    echo "<div  style=\"text-align: center;position: absolute;width: 100%;\"><img style=\"max-width: 383px;min-width: 383px; overflow: hidden;margin: 0 auto;\" src='/image/no_file.png'/></div>";
+    echo "<div style='position: absolute;width: 100%;'><br><img style='max-width: 88%;min-width: 88%;overflow: hidden;margin: 0 auto;box-shadow: gba(159,159,159,0.45) inset, rgba(159, 159, 159, 0.45);box-shadow: 0px 0px 70px rgba(159,159,159,0.45) inset, 0px 0px 29px rgba(159, 159, 159, 0.45);border-radius: 11px;' src='/image/null.jpg'/></div>";
 }
 else {
     do{
