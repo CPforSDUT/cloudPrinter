@@ -102,6 +102,9 @@ function latestFTime(&$sorted,$Now)
         $shortDis = $sorted[$i]['deadTime'] - $earTime[$i];
         for($j = $i + 1 ; $j < count($sorted) ; $j ++)
         {
+			if($sorted[$j]['deadTime'] < time()){
+				continue;
+			}
             if($sorted[$j]['deadTime'] - $earTime[$j] < $shortDis){
                 $shortDis = $sorted[$j]['deadTime'] - $earTime[$j];
             }
@@ -178,7 +181,7 @@ for($i = 0 ; $i < count($sorted); $i ++)
     echo "<td>".$tOrder['exCode']."</td>";
     echo "<td>".$tOrder['needTime']."秒</td>";
     if(time() > strtotime($tOrder['latestF'])){
-        echo "<td>已延误</td>";
+        echo "<td>".$tOrder['latestF']."已延误</td>";
     }
     else{
         echo "<td>".$tOrder['latestF']."</td>";
