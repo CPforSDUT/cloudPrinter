@@ -102,6 +102,9 @@ function otherJudge($lifes,$dTimes,$timeS)
             $score = 0;
         }
     }
+	if($maxScore == 0){
+		$maxScore = $score;
+	}
     return $maxScore;
 }
 function judge($lifes,$username,$data,$fakeNow)
