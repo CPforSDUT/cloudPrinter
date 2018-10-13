@@ -88,7 +88,7 @@ function getOrderNTime($speed,$allOrder)
     return $aTimes;
 }
 
-function otherJudge($lifes,$dTimes,$timeS)
+/*function otherJudge($lifes,$dTimes,$timeS)
 {
     $score = 0;
     for($i = 1 ; $i < count($lifes) ; $i ++)
@@ -106,7 +106,7 @@ function otherJudge($lifes,$dTimes,$timeS)
 	else {
 		return $score;
 	}
-}
+}*/
 function judge($lifes,$username,$data,$fakeNow)
 {
     $Now = time();
@@ -128,11 +128,11 @@ function judge($lifes,$username,$data,$fakeNow)
             $score += 1;
         }
     }
-    if(count($lifes) == $score) {
+    /*if(count($lifes) == $score) {
         return $score + otherJudge($lifes,$dTimes,$timeS);
-    }else {
+    }else {*/
         return $score;
-    }
+    /*}*/
 }
 
 function randLifes($username,$Now)
