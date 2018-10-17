@@ -70,25 +70,43 @@ if(isset($_POST['search']))
     $visit = $visit."and consumer='$search'";
 }
 
-$eNum = "select count(*) from orderinfo " .$visit." and deleted != 'bn'";
+$eNum = "select count(*) from orderinfo " .$visit." and deleted != 'bn' and orderState!='9'";
 $eNum = mysql_query($eNum);
 $eNum = mysql_fetch_array($eNum);
 $eNum = $eNum['count(*)'];
 echo "<p style='display: none' id='eNum'>$eNum</p>";
 $pageNum *= 7;
-$result = mysql_query("select * from orderinfo ".$visit." and deleted != 'bn' limit $pageNum,7");
+$result = mysql_query("select * from orderinfo ".$visit." and deleted != 'bn' and orderState!='9' limit $pageNum,7");
 
 for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
 {
+    if($row['orderState'] == '9'){
+        continue;
+    }
     echo "<tr>";
-    $orderState = $row['orderState'] == '1' ? '未打印' : '打印完成';
+    switch ($row['orderState'])
+    {
+        case '0':
+            $orderState =  '未支付';
+            break;
+        case '1':
+            $orderState =  '未打印';
+            break;
+        case '2':
+            $orderState = '打印完成';
+            break;
+        case '3':
+            $orderState = '已评价';
+            break;
+
+    }
     $orderState = $row['deleted'] == 'cn' ? "被买家删除":$orderState;
     $consumer = $row['consumer'];
     $phoneGeter = mysql_query("select * from user where username = '$consumer'");
     $phoneGeter = mysql_fetch_array($phoneGeter);
     $exCode = $row['exCode'];
 	$time = toPureTime($row['deadline']);
-	
+
     $orderId = $row['orderId'];
      echo "<td class=\"tc\"><input onclick=\"checkbox('$orderId',$i)\" id='check$i' type=\"checkbox\"></td>\n";
      echo "<td id='$orderId'>$orderState</td>\n";
@@ -97,7 +115,7 @@ for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
      echo "<td>$time</td>\n";
      echo "<td>\n";
      echo "<a class=\"link-download\" href=\"document.php?orderId=$orderId\" >下载</a> \n";
-     echo "<a class=\"link-update\" onclick=\"okOrder('$orderId',$i)\">打印完成</a>\n";
+     if($row['orderState'] == '1')echo "<a class=\"link-update\" onclick=\"okOrder('$orderId',$i)\">打印完成</a>\n";
      echo "<a class=\"link-del\" onclick=\"delOrder('$orderId',$i)\" id='del$i'>删除</a>\n";
      echo "</td>\n";
     echo "</tr>\n";

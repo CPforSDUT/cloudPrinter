@@ -34,23 +34,45 @@ if(mysql_fetch_array(mysql_query("select * from user where username='$username' 
     header("location:/index.php");
     exit();
 }
-$infos = mysql_query("select * from orderinfo where consumer='$username' and deleted!='cn'");
+$infos = mysql_query("select * from orderinfo where consumer='$username' and deleted!='cn' and orderState!='9' order by deadline");
 $info = mysql_fetch_array($infos);
 if($info == false){
-    echo "<div  style=\"text-align: center;position: absolute;width: 100%;\"><img style=\"max-width: 383px;min-width: 383px; overflow: hidden;margin: 0 auto;\" src='/image/no_file.png'/></div>";
+    echo "<div style='position: absolute;width: 100%;'><br><img style='max-width: 88%;min-width: 88%;overflow: hidden;margin: 0 auto;box-shadow: gba(159,159,159,0.45) inset, rgba(159, 159, 159, 0.45);box-shadow: 0px 0px 70px rgba(159,159,159,0.45) inset, 0px 0px 29px rgba(159, 159, 159, 0.45);border-radius: 11px;' src='/image/null.jpg'/></div>";
 }
 else {
     do{
+        if($info['orderState'] == '9'){
+            continue;
+        }
         $time = toPureTime($info['deadline']);
-        $state = $info['orderState'] == '1' ? "未打印":"打印完成";
-        $state = $info['deleted'] == 'bn' ? "被商家删除" : $state;
+        switch ($info['orderState'])
+        {
+            case '0':
+                $orderState =  '未支付';
+                break;
+            case '1':
+                $orderState =  '未打印';
+                break;
+            case '2':
+                $orderState = '打印完成';
+                break;
+            case '3':
+                $orderState = '已评价';
+                break;
+
+        }
+        $orderState = $info['deleted'] == 'bn' ? "被商家删除" : $orderState;
         $orderId = $info['orderId'];
         $business = $info['business'];
-        echo "<tr>";
+        echo "<tr id='$orderId'>";
         echo "<td>$business</td>";
         echo "<td>$time</td>";
-        echo "<td>$state</td>";
-        echo "<td><a href='#' onclick=\"delOrder('$orderId')\"=>删除</a>||<a href='user-document.php?orderId=$orderId'>查看</a></td>";
+        echo "<td>$orderState</td><td id='bt$orderId'>";
+        echo "<a class=\"button button-pill button-tiny\" href='user-document.php?orderId=$orderId'>查看</a><a href='#' style='color=red;' class=\"button button-pill button-tiny\" onclick=\"delOrder('$orderId')\">删除</a>";
+        if($info['orderState'] == '0' && $info['deleted'] == 'nn')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #2196f3;' href='/alipay/pcPay.php?orderId=$orderId'>$</a>";
+        if($info['orderState'] == '2')echo "<a class=\"button button-circle button-tiny\" style='color: white;background-color: #9E9E9E;' href='#' onclick=\"finish('$orderId')\">★</a>";
+        echo "</td>";
         echo "<tr>";
+
     }while($info = mysql_fetch_array($infos));
 }

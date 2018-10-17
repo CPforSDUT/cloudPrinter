@@ -1,5 +1,15 @@
 <?php
+function getSort($business)
+{
 
+    $my_curl = curl_init();    //初始化一个curl对象
+    curl_setopt($my_curl, CURLOPT_URL, "http://127.0.0.1/admin/control/orderSort.php?business=$business");    //设置你需要抓取的URL
+    curl_setopt($my_curl,CURLOPT_RETURNTRANSFER,1);    //设置是将结果保存到字符串中还是输出到屏幕上，1表示将结果保存到字符串
+    curl_setopt($my_curl, CURLOPT_TIMEOUT, 600);
+    $str = curl_exec($my_curl);    //执行请求
+    curl_close($my_curl);    //关闭url请求
+    return $str;    //输出抓取的结果
+}
 session_start();
 if(isset($_SESSION['user']) == false || $_SESSION['type'] != '1'){
 
@@ -24,6 +34,10 @@ $orderId =  mysql_escape_string($_POST["orderId"]);
 $consumer = mysql_escape_string($_POST["consumer"]);
 $deadline = mysql_escape_string($_POST["deadline"]);
 $business = mysql_escape_string($_POST["business"]);
+if($deadline < date("YmdHi",time()+600)){
+    echo "exCode = 'failure';";
+    exit();
+}
 if(mysql_fetch_array(mysql_query("select * from orderinfo where orderId='$orderId'"))!=false
     || mysql_fetch_array(mysql_query("select * from orderids where orderId='$orderId'"))==false
         || mysql_fetch_array(mysql_query("select * from user where username='$consumer' and type='1'"))==false
@@ -35,11 +49,42 @@ do{
     $check = mysql_query("select * from orderinfo where business='$business' and exCode='$exCode'");
     $check = mysql_fetch_array($check);
 }while($check != false);
-
-if (true == mysql_query("INSERT INTO orderinfo (orderId, consumer,business,deadline,exCode)VALUES (\"$orderId\", \"$consumer\",\"$business\",\"$deadline\",\"$exCode\")"))
+$hock = mysql_query("select * from aisort where username='$business'");
+$hock = mysql_fetch_array($hock);
+$hock = $hock['hock'];
+$timeout = 0;
+while($hock == 'y'){
+    $timeout += 1;
+    sleep(2);
+    $hock = mysql_query("select * from aisort where username='$business'");
+    $hock = mysql_fetch_array($hock);
+    $hock = $hock['hock'];
+    if($timeout >= 3){
+        echo "exCode = 'timeout';";
+        exit();
+    }
+}
+mysql_query("update aisort set hock='y' where username='$business'");
+if (true == mysql_query("INSERT INTO orderinfo (orderId, consumer,business,deadline,exCode,orderState)VALUES (\"$orderId\", \"$consumer\",\"$business\",\"$deadline\",\"$exCode\",\"9\")"))
 {
-    echo "exCode = $exCode;";
-    mysql_query("delete from delfiles where orderId = '$orderId'");
+    if(getSort($business) == 'ok'){
+        $pay = mysql_query("select * from pay where username='$business'");
+        $pay = mysql_fetch_array($pay);
+        if($pay['appId'] != ''){
+            mysql_query("update orderinfo set orderState='0' where orderId='$orderId'");
+        }
+        else {
+            mysql_query("update orderinfo set orderState='1' where orderId='$orderId'");
+        }
+        echo "exCode = $exCode;";
+        mysql_query("delete from delfiles where orderId='$orderId'");
+    }
+    else {
+        mysql_query("delete from orderinfo where orderId='$orderId'");
+        echo "exCode = 'failure';";
+    }
+    mysql_query("update aisort set hock='n' where username='$business'");
+
 }
 else {
     echo "exCode = 'failure';";

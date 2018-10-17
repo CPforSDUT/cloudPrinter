@@ -97,6 +97,13 @@
 *
 * The default values for the .button class
 */
+@media screen and (max-width: 600px) {
+	.button-tiny{
+		font-size:10px !important;
+		padding:0 8px !important;
+	}
+}
+
 .button {
   color: #666;
   background-color: #EEE;

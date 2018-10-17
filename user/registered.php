@@ -55,8 +55,15 @@ if(isset($_POST["username"])) {
 
     if($row == null)
     {
-
         mysql_query("INSERT INTO user (username, password,type,la,lo,province,city,area,other,state,phone) VALUES (\"$user\", \"$pass\",\"$type\",\"$la\",\"$lo\",\"$province\",\"$city\",\"$area\",\"$other\",\"1\",\"$phone\")");
+        if($type == '1'){
+            mysql_query("insert into alloc (username) values('$user')");
+        }
+        else {
+            mysql_query("insert into printerinfo (username) values('$user')");
+            mysql_query("insert into aisort (username) values('$user')");
+            mysql_query("insert into pay (username) values('$user')");
+        }
         mysql_close($con);
         header("location:/index.php?login=");
     }

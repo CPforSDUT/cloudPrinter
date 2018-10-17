@@ -53,7 +53,7 @@ if(isset($_POST['search']))
 }
 
 
-$visit = "where 1=1 ";
+$visit = "where 1=1 and orderState!='9' ";
 if(isset($_POST['sorted']))
 {
     switch ($_POST['sorted'])
@@ -79,8 +79,26 @@ $result = mysql_query("select * from orderinfo $visit limit $pageNum,7");
 
 for ($i = 0 ;$i < 7 && $row = mysql_fetch_array($result)  ; )
 {
+    if($row['orderState'] == '9'){
+        continue;
+    }
     echo "<tr>";
-    $orderState = $row['orderState'] == '1' ? '未打印' : '打印完成';
+    switch ($row['orderState'])
+    {
+        case '0':
+            $orderState =  '未支付';
+            break;
+        case '1':
+            $orderState =  '未打印';
+            break;
+        case '2':
+            $orderState = '打印完成';
+            break;
+        case '3':
+            $orderState = '已评价';
+            break;
+
+    }
     $orderState = $row['deleted'] == 'cn' ? "被买家删除": ($row['deleted'] == 'bn' ? "被商家删除":$orderState);
     $consumer = $row['consumer'];
     $business = $row['business'];

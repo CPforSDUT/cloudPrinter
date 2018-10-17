@@ -108,7 +108,11 @@ $orderNum = $row['count(*)'];
                 if(lPENum == 0){
                     lPENum = 7;
                 }
-
+                if(thisPageNum > allPageNum){
+                    thisPageNum = allPageNum;
+                    if (thisPageNum <= 0)thisPageNum = 1;
+                    getOrderInfo(thisPageNum);
+                }
                 document.getElementById("page_num_index").innerText = "第" + thisPageNum + "/" + allPageNum + "页";
             }
             for(each in trueCheckboxs)
@@ -290,6 +294,7 @@ $orderNum = $row['count(*)'];
                   <li>
                       <a href="#"><i class="icon-font">&#xe003;</i>订单管理</a>
                       <ul class="sub-menu">
+                      <li><a href="index.php"><i class="icon-font">&#xe017;</i>系统推荐订单</a></li>
                         <li><a href="order.php"><i class="icon-font">&#xe005;</i>所有订单</a></li>
                         <li><a href="sore.php"><i class="icon-font">&#xe004;</i>输入提取码</a></li>
                         <li><a href="people.php"><i class="icon-font">&#xe001;</i>用户管理</a></li>
@@ -298,6 +303,7 @@ $orderNum = $row['count(*)'];
                   <li>
                       <a href="#"><i class="icon-font">&#xe018;</i>商家信息设置</a>
                       <ul class="sub-menu">
+					  <li><a href="pay.php"><i class="icon-font">&#xe022;</i>支付设置</a></li>
                         <li><a href="information.php"><i class="icon-font">&#xe000;</i>营业状态</a></li>
                         <li><a href="information.php"><i class="icon-font">&#xe018;</i>打印参数</a></li>
                         <li><a href="information.php"><i class="icon-font">&#xe021;</i>地理位置</a></li>
@@ -379,7 +385,7 @@ $orderNum = $row['count(*)'];
           {
               document.getElementById("search").value = search;
           }
-          setInterval("update()",10000);
+          setInterval("update()",5000);
       </script>
 </div>
 </body>

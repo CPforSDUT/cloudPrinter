@@ -133,10 +133,10 @@ if (isset($_SESSION['user'])) {
     <form class="login_box" id="login_box" action="/user/login.php" method="post" onsubmit="return check()">
             <a id="closebox"><i onclick="closelogin()" class="layui-icon layui-icon-close" style="font-size: 30px; color: #x1006;"></i></a>
 
-            <nav id="title">登录</nav>
+            <nav id="login_title">登录</nav>
             <input type="text" name="username" class="button button-rounded button-tiny" id="username" style="text-align:left;"placeholder="请输入账号" value="wlwwlw" />
             <input type="password" name="password"  class="button button-rounded button-tiny" id="password" style="text-align:left;" placeholder="请输入密码" value="621129a" />
-        <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登陆</button>
+        <button id="dl" type="submit" class="button button-3d button-primary button-rounded">立即登录</button>
             <nav id="login_info">没有账号？<a href="/user/registeredView.php" id="zc">马上注册</a></nav>
             <br>
             <span class="login_tips"><a href="#" onclick="zduser()">用户账号:wlwwlw密码:621129a<br></a><a href="#" onclick="zdshang()">商家账号:yanshi12密码：621129aa<br></a><a href="#" onclick="zdadmin()">管理员账号：admini密码:admini<br></a></span>
@@ -203,12 +203,14 @@ if (isset($_SESSION['user'])) {
                 </div>
             </div>
 		<div class="set-white">
-			<div class="title">支持多种设备传输打印</div>
+			<div class="title">
+                <nav>支持多种设备传输打印</nav>
+                </div>
 				<div class="animation"><img src="image/animation.gif" id="ani"></div>
 				<div class="bk-down">
 					<div class="left">
 						<div class="up">通过浏览器打印</div>
-						<div class="down">兼容手机端/pc端多种浏览器,只需安装浏览器即可选择文件上传打印</div>
+						<div class="down">兼容手机端/PC端多种浏览器,只需安装浏览器即可选择文件上传打印</div>
 					</div>
 					<div class="right1" >
 						<center>
@@ -230,12 +232,14 @@ if (isset($_SESSION['user'])) {
                     </div>
                 </div>
             </div>
-			
-			<div class="title">为何要使用云打印功能？</div>
+			<div class="set-white">
+			<div class="title">
+                <nav>为何要使用云打印功能？</nav>
+                </div>
 			  <div class="bk">
 				  <div class="up">
 					  <div class="left">
-						  <div class="bt"><img src="image/safe.png" style="margin:4px;"/>&nbsp;&nbsp;安全可靠</div>
+						  <div class="bt"><img src="image/safe.png" style="margin:1px;"/>&nbsp;&nbsp;安全可靠</div>
 						  <div class="nr">一旦打印完成，用户可以随时选择删除在服务器的相应文档。</div>
 					  </div>
 					  <div class="right">
@@ -254,7 +258,8 @@ if (isset($_SESSION['user'])) {
 						  <div class="nr">多家打印店提供服务，用户可以自由选择打印店。</div>
 					  </div>
 				  </div>
-			  </div>
+              </div>
+              </div>
 		
   	</div>
 	
@@ -272,7 +277,8 @@ if (isset($_SESSION['user'])) {
             </div>
             <div class="main">
                 <div class="mt">
-                    <span>开始云打印</span>
+                <nav> </nav>
+
                 </div>
                 <div class="m1">
                     <div class="m2">

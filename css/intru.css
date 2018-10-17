@@ -5,7 +5,35 @@
     margin:0;
     padding:0;
 } */	
+
+@media screen and (max-width: 1500px) {
+.bk-down{
+	display:none !important;
+}
+}
+
+
 @media screen and (min-width:300px) and (max-width: 600px) {
+
+   .bk-down{
+	   display:flex !important;
+   }
+    .m1{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        overflow: hidden;
+        height: 250px;
+        width:400px;
+        background-image:url(../image/paper.png);
+        background-position-x: center;
+        background-position-y: bottom;
+        background-repeat: no-repeat;
+    }
+
+    
   .animation{
 
       max-width:600px !important;
@@ -20,11 +48,7 @@
       margin-top:0px !important;
 	  flex-direction:column !important;
   }
-  /*
-    #bgvideo{
-      display: none;
-    }
-  */
+
     .bk-down .left{
         width:100px !important;
         height:50px !important;
@@ -45,16 +69,28 @@
 	width:60% !important; 
 	height:60% !important;
 	display:block !important;
-	margin-top:120px !important;
+	margin-top:60px !important;
 	}
-	.nr{display:none;}
+    .nr{display:none;}
+    .title nav{
+        text-align:center;
+        font-size:30px !important;
+        color:#888b8d;
+    }
+    .set-white{
+        position: relative;
+        padding-top: 60px;
+        margin: auto;
+        background-color:#fff;
+        height:100%;
+    }
 }
-}
+
 
 /*自适应end*/
 
 #bgvideo{
-	backgroun-image:url(https://sdut1.oss-cn-beijing.aliyuncs.com/sdutcpbg.png);
+	background-image:url(https://sdut1.oss-cn-beijing.aliyuncs.com/sdutcpbg.png);
 }
 	.left img{
     width:32px;
@@ -71,40 +107,28 @@
    
 }
 
-
 .bt{
     color:#757575;
     font-size:20px;
-    margin-top:10px;
+    margin-top:30px;
     height:50px;
     display:flex;
     align-items:center;
     justify-content:center;
+    font-weight: bold;
 }
 .nr{
-    font-size:18px;
+    font-size:16px;
     color:#757575;
-    margin-top:30px;
+    margin-top:6px;
 }
-
-	.title{
-    text-align:center;
-    font-size:30px !important;
-    color:#888b8d;
-    padding-top:60px;
-
-}
-
-
-
 
 .title{
     text-align:center;
-    font-size:60px;
+    font-size:60px !important;
     color:#888b8d;
-    padding-top:60px;
-
 }
+
 .animation{
     max-width:1440px;
     height:400px;
@@ -117,7 +141,7 @@
     max-width:1440px;
     height:240px;
     margin:0 auto;
-    margin-top:60px;
+    margin-top:20px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -132,10 +156,9 @@
     color:#888b8d;
 }
 .bk-down .left .down{
-    margin-top:40px;
+    margin-top:20px;
     font-size:16px;
     color:#888b8d;
-    line-height:28px;
 }
 .bk-down .right{
     height:240px;
@@ -147,9 +170,12 @@
 }
 
 .set-white{
-	background-color:#fff;
+    position: relative;
+    padding-top: 120px;
+    margin: auto;
+    background-color:#fff;
 	height:100%;
-}
+  }
 .set-blue{
 	background-color:#33abfe;
 }
@@ -164,13 +190,4 @@
     width:32px;
     height:32px;
    
-}
-.bt{
-    color:#757575;
-    font-size:20px;
-    margin-top:10px;
-    height:50px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
 }
