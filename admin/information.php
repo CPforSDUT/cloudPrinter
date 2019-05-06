@@ -275,7 +275,7 @@ $colorBuff = $row['colorBuff'];
                 <li>
                     <a href="#"><i class="icon-font">&#xe003;</i>订单管理</a>
                     <ul class="sub-menu">
-                    <li><a href="index.php"><i class="icon-font">&#xe017;</i>系统推荐订单</a></li>
+                    <li><a href="index.php"><i class="icon-font">&#xe017;</i>打印订单</a></li>
                         <li><a href="order.php"><i class="icon-font">&#xe005;</i>所有订单</a></li>
                         <li><a href="sore.php"><i class="icon-font">&#xe004;</i>输入提取码</a></li>
                         <li><a href="people.php"><i class="icon-font">&#xe001;</i>用户管理</a></li>
@@ -419,7 +419,7 @@ $colorBuff = $row['colorBuff'];
                                       <input id="area" type="text" readonly>
                                       <input id="lo" type="text" readonly>
                                       <input id="la" type="text" readonly>
-                                      <input id="other" type="text">
+                                      <p>详细地址 ：<input id="other" type="text"></p>
                                       <script type="text/javascript">
                                           var map = new BMap.Map("map");
                                           var point = new BMap.Point(116.404, 39.915);

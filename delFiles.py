@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 import MySQLdb
-import Queue
+import queue
 import time
 import  os
 class cloudPrintDB:
@@ -8,7 +8,7 @@ class cloudPrintDB:
         self.db = MySQLdb.connect("127.0.0.1", "root", "wslzd9877", "user", charset='utf8')
         self.mysql = self.db.cursor()
     def getDelOrders(self):
-        deleted =  Queue.Queue()
+        deleted =  queue.Queue()
         len = self.mysql.execute("select * from delfiles")
         for i in range(len):
             one = self.mysql.fetchone()

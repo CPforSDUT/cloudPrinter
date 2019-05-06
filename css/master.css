@@ -471,7 +471,10 @@ daohang a:hover .caidan{
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    background: linear-gradient(to top right, #3c7df1, #62c1fb);
+    background: #00B4DB;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .maintable{
     margin: 0 auto;
@@ -876,7 +879,7 @@ daohang a:hover .caidan{
 }
 
 .dropzone {
-    border: 2px dashed #0087F7;
+    border: 4px dashed #0087F7;
     border-radius: 5px;
     background: white;
 }

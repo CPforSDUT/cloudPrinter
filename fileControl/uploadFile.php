@@ -161,12 +161,13 @@ if(isset($_FILES['file'])){
         if (mysql_num_rows(mysql_query("SELECT * FROM fileinfo where orderId = '$orderId' and filename = '$fileNmae'")) == 0 ) {
             mysql_query("INSERT INTO fileinfo (orderId, filePath,filename)VALUES (\"$orderId\", \"$hashPath\",\"$fileNmae\")");
         }
+        
         $canTypes = array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx');
         $converter = new PDFConverter();
         if(
                 strcasecmp($fileType,"bmp") == 0  || strcasecmp($fileType,"jpg") == 0  ||
                 strcasecmp($fileType,"jpeg") == 0 || strcasecmp($fileType,"gif") == 0  ||
-                strcasecmp($fileType,"tiff") == 0 || strcasecmp($fileType,"png") == 0
+                strcasecmp($fileType,"tiff") == 0 || strcasecmp($fileType,"png") == 0 
         )
         {
             $paperNum = 1;

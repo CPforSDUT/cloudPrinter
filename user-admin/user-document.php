@@ -75,7 +75,7 @@ $username = mysql_escape_string($_SESSION['user']);
 
 
         </div>
-        <div class="main" style="background: #f9f9f9">
+        <div class="maintable" style="background: #f9f9f9">
             <table class="layui-table">
                 <colgroup>
                     <col width="150">
